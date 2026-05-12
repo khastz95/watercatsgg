@@ -32,8 +32,11 @@
   var path = seg.length ? seg[seg.length - 1] : "index.html";
   if (!path || !/\.html?$/.test(path)) path = "index.html";
   document.querySelectorAll(".site-nav a, .footer__navlist a[href$='.html']").forEach(function (a) {
-    var href = a.getAttribute("href");
-    if (href === path) a.classList.add("is-active");
+    var href = a.getAttribute("href") || "";
+    var hrefFile = href.split("/").filter(function (s) {
+      return s.length > 0;
+    }).pop();
+    if (hrefFile === path) a.classList.add("is-active");
   });
 
   var observer = new IntersectionObserver(

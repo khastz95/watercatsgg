@@ -1295,6 +1295,13 @@ p {
   gap: 1.25rem;
 }
 
+.connect-grid--two {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 1400px) {
   .connect-grid {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1700,6 +1707,87 @@ p {
   border-color: var(--cyan);
   color: var(--cyan);
   animation: map-pill-glow 3.5s ease-in-out infinite;
+}
+
+/* Hub Eternal Pratas — mix, diversão 100% online */
+body.hub-site .hero__subtitle {
+  color: var(--cyan);
+}
+
+body.hub-site .section__head .section__label {
+  color: var(--cyan);
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.18);
+}
+
+.hub-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.stat-fun {
+  text-align: center;
+}
+
+.stat-fun h3 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin-bottom: 0.35rem;
+}
+
+.stat-fun p {
+  font-size: 0.95rem;
+}
+
+.stat-fun-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* Botão flutuante — Discord */
+.discord-fab {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.625rem;
+  height: 3.625rem;
+  border-radius: 50%;
+  background: #5865f2;
+  color: #fff;
+  text-decoration: none;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  transition:
+    transform 0.2s var(--ease-spring),
+    box-shadow 0.25s ease,
+    background 0.2s ease;
+}
+
+.discord-fab:hover {
+  background: #4752c4;
+  transform: scale(1.06);
+  box-shadow:
+    0 8px 28px rgba(88, 101, 242, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+
+.discord-fab:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.discord-fab svg {
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 /* Jogadores — layout mais dinâmico */

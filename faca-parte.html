@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Faça parte do Eternal Pratas — tryouts CS2 online, horários BRT e requisitos."
+      content="Faça parte do Eternal Pratas — mix CS2 online, requisitos e comunidade no Discord."
     />
-    <title>Faça Parte | Eternal Pratas</title>
+    <title>Entrar no rolê | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
-  <body>
+  <body class="hub-site">
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/index.html">
@@ -34,7 +34,7 @@
           <ul>
             <li><a href="/index.html">Início</a></li>
             <li><a href="/jogadores.html">Jogadores</a></li>
-            <li><a href="/jogos.html">Jogos</a></li>
+            <li><a href="/jogos.html">Mix</a></li>
             <li><a href="/estatisticas.html">Estatísticas</a></li>
             <li><a href="/conexoes.html">Conexões</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
@@ -46,73 +46,39 @@
 
     <main class="container section section--tight">
       <header class="page-hero reveal">
-        <p class="section__label">Recrutamento</p>
+        <p class="section__label">Comunidade &amp; mix</p>
         <h1>Faça parte</h1>
         <p>
-          Quer jogar, criar conteúdo ou apoiar staff? Preencha o formulário. Os critérios abaixo refletem o que o grupo
-          busca hoje: <strong style="color: var(--text)">jogo sério online</strong>, comunicação clara e disponibilidade
-          nas janelas combinadas.
+          Quer slot na fila, criar conteúdo ou ajudar no staff? Chama no <strong style="color: var(--text)">Discord</strong>.
+          A gente prioriza quem curte <strong style="color: var(--text)">CS2 online</strong>, fala na call e respeita o
+          clima do grupo — competitivo, mas sem drama de org gigante.
         </p>
       </header>
 
       <div class="grid-2">
         <article class="card reveal">
-          <h3>Requisitos</h3>
+          <h3>Requisitos (jogador)</h3>
           <ul style="margin: 0; padding-left: 1.2rem; color: var(--text-muted)">
-            <li>16+ e janela fixa de treino em <strong style="color: var(--text)">BRT</strong> (~19h–00h), 4–5 noites/semana</li>
+            <li>16+ e noites em <strong style="color: var(--text)">BRT</strong> alinhadas ao mix (~19h–00h), 3–5 noites quando der</li>
             <li>
-              Faceit <strong style="color: var(--text)">8+</strong> (ou histórico open/qualifier equivalente), alinhado ao
-              nível médio do time
+              Faceit <strong style="color: var(--text)">8+</strong> (ou histórico ranqueado equivalente) — pra partida não ficar desbalanceada
             </li>
-            <li>Microfone, callouts em português e envio de demos (.dem) ou GOTV sob 48h</li>
-            <li>Disponibilidade para MD3 online (veto ao vivo) e scrims em servidor dedicado, sem deslocamento presencial</li>
+            <li>Microfone, callouts em português e boa vontade pra mandar demo ou GOTV se pedirem</li>
+            <li>Veto e partida online (MD3 ou scrim) sem precisar ir presencial em LAN</li>
             <li>Respeito ao código de conduta e à marca Eternal Pratas</li>
           </ul>
         </article>
         <article class="card reveal">
           <h3>Outras áreas</h3>
           <p>
-            Motion, redes sociais, desenvolvimento web, observers — deixe no campo de mensagem qual função te interessa.
-            Na semana de jogos ou anúncios oficiais, priorizamos respostas no
-            Discord.
+            Motion, redes, site, observer — apresenta isso na call ou num canal do Discord quando abrirem vaga. Em semana
+            de mix lotado, priorizamos quem já tá no servidor.
           </p>
           <p>
-            <a href="https://discord.gg/eternalpratas" target="_blank" rel="noopener noreferrer">Abrir Discord</a>
+            <a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Abrir Discord</a>
           </p>
         </article>
       </div>
-
-      <section class="section" style="padding-bottom: 0">
-        <h2 class="reveal">Formulário</h2>
-        <p id="form-msg" class="form-msg form-msg--ok" role="status"></p>
-        <form id="join-form" class="form-grid reveal" novalidate>
-          <div class="field">
-            <label for="nick">Nickname / Steam</label>
-            <input id="nick" name="nick" type="text" autocomplete="username" required placeholder="Ex.: eternalplayer" />
-          </div>
-          <div class="field">
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
-          </div>
-          <div class="field">
-            <label for="role">Função de interesse</label>
-            <select id="role" name="role" required>
-              <option value="">Selecione</option>
-              <option value="rifler">Rifler</option>
-              <option value="awp">AWPer</option>
-              <option value="igl">IGL</option>
-              <option value="support">Support</option>
-              <option value="content">Conteúdo / mídia</option>
-              <option value="staff">Staff técnico</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="msg">Mensagem</label>
-            <textarea id="msg" name="msg" required placeholder="Links de demo, horários, experiência..."></textarea>
-          </div>
-          <button class="btn btn--primary" type="submit">Enviar candidatura</button>
-        </form>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -130,7 +96,7 @@
               </span>
             </a>
             <p class="footer__desc">
-              CS2 · 100% online. Elenco, jogos, stats e comunidade — Eternal Pratas.
+              Mix e CS2 online · diversão com a galera — Eternal Pratas · Retired &amp; Dangers.
             </p>
           </div>
           <nav class="footer__col" aria-labelledby="footer-heading-nav">
@@ -138,7 +104,7 @@
             <ul class="footer__navlist">
               <li><a href="/index.html">Início</a></li>
               <li><a href="/jogadores.html">Jogadores</a></li>
-              <li><a href="/jogos.html">Jogos</a></li>
+              <li><a href="/jogos.html">Mix</a></li>
               <li><a href="/estatisticas.html">Estatísticas</a></li>
               <li><a href="/conexoes.html">Conexões</a></li>
               <li><a href="/sobre.html">Sobre</a></li>
@@ -148,19 +114,24 @@
           <div class="footer__col" aria-labelledby="footer-heading-connect">
             <p id="footer-heading-connect" class="footer__col-title">Conexões</p>
             <ul class="footer__navlist">
-              <li><a href="https://discord.gg/eternalpratas" target="_blank" rel="noopener noreferrer">Discord</a></li>
-              <li><a href="https://www.twitch.tv/EternalPratasTV" target="_blank" rel="noopener noreferrer">Twitch</a></li>
-              <li><a href="https://www.youtube.com/@EternalPratasCS" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-              <li><a href="https://x.com/EternalPratasBR" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
-              <li><a href="https://www.instagram.com/eternalpratas" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Steam</a></li>
+              <li><a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a></li>
+              <li>
+                <a href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer"
+                  >Grupo Steam</a
+                >
+              </li>
             </ul>
-            <a href="/conexoes.html" class="footer__more">Ver todas as conexões e imprensa →</a>
           </div>
           <div class="footer__col footer__col--cta">
-            <p class="footer__col-title">Recrutamento</p>
-            <p class="footer__cta-lead">Tryouts, conteúdo e staff — envie seu perfil.</p>
-            <a class="btn btn--primary btn--compact" href="/faca-parte.html">Candidatar-se</a>
+            <p class="footer__col-title">Entrar no mix</p>
+            <p class="footer__cta-lead">Quer entrar no mix e na comunidade? Chama no Discord.</p>
+            <a
+              class="btn btn--primary btn--compact"
+              href="https://discord.gg/et6N2Y3pJj"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Entrar no Discord</a
+            >
           </div>
         </div>
         <div class="footer__bar">

@@ -1702,6 +1702,96 @@ p {
   animation: map-pill-glow 3.5s ease-in-out infinite;
 }
 
+/* Jogadores — layout mais dinâmico */
+@keyframes roster-avatar-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 22px 2px rgba(92, 77, 255, 0.22);
+  }
+}
+
+body.page-jogadores .roster-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  align-items: center;
+}
+
+body.page-jogadores .grid-roster .player-card__avatar {
+  animation: roster-avatar-pulse 3.2s ease-in-out infinite;
+}
+
+body.page-jogadores .grid-roster .player-card:nth-child(1) .player-card__avatar {
+  animation-delay: 0s;
+}
+body.page-jogadores .grid-roster .player-card:nth-child(2) .player-card__avatar {
+  animation-delay: 0.25s;
+}
+body.page-jogadores .grid-roster .player-card:nth-child(3) .player-card__avatar {
+  animation-delay: 0.5s;
+}
+body.page-jogadores .grid-roster .player-card:nth-child(4) .player-card__avatar {
+  animation-delay: 0.75s;
+}
+body.page-jogadores .grid-roster .player-card:nth-child(5) .player-card__avatar {
+  animation-delay: 1s;
+}
+body.page-jogadores .grid-roster .player-card:nth-child(6) .player-card__avatar {
+  animation-delay: 1.25s;
+}
+
+body.page-jogadores .grid-roster .player-card {
+  transition:
+    transform 0.45s var(--ease-out-expo),
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
+}
+
+body.page-jogadores .grid-roster .player-card:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+}
+
+.player-card__tagline {
+  font-size: 0.82rem;
+  color: var(--purple);
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.35rem;
+}
+
+/* Jogos — bloco mix */
+.mix-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.mix-steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.15rem;
+  background: rgba(0, 229, 255, 0.04);
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  border-radius: var(--radius-md);
+}
+
+.mix-steps strong {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--cyan);
+  white-space: nowrap;
+}
+
 /* Reveal animation */
 .reveal {
   opacity: 0;
@@ -1826,6 +1916,10 @@ p {
   }
 
   .page-hero::after {
+    animation: none !important;
+  }
+
+  body.page-jogadores .grid-roster .player-card__avatar {
     animation: none !important;
   }
 

@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Elenco Eternal Pratas — jogadores, funções e perfis Counter-Strike." />
+    <meta
+      name="description"
+      content="Eternal Pratas — quem joga, mix online e vagas por função. CS2 entre amigos."
+    />
     <title>Jogadores | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,7 +17,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
-  <body>
+  <body class="page-jogadores">
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/index.html">
@@ -43,23 +46,34 @@
 
     <main class="container section section--tight">
       <header class="page-hero reveal">
-        <p class="section__label">Elenco</p>
+        <p class="section__label">Quem entra no servidor</p>
         <h1>Jogadores</h1>
         <p>
-          Esta página é reservada ao <strong style="color: var(--text)">anúncio oficial do elenco</strong>. Até lá,
-          listamos apenas as funções planejadas; nicknames e redes sociais serão publicados quando o time for apresentado.
+          Aqui é <strong style="color: var(--text)">dinâmico</strong>: no mix, quem tá na call pode entrar na fila. As
+          funções abaixo são <strong style="color: var(--text)">guia</strong> — no dia a dia o time monta na hora, com
+          sorteio ou fila conforme combinado no <a href="/conexoes.html">Discord</a>. Nick, bio e links oficiais entram
+          quando alguém fixar o lugar ou rolar anúncio.
         </p>
       </header>
 
-      <div class="grid-2 grid-roster">
+      <p class="roster-strip reveal" aria-label="Modos de jogo">
+        <span class="map-pill map-pill--strong">Mix da noite</span>
+        <span class="map-pill">Sorteio de lado</span>
+        <span class="map-pill">Fila aberta</span>
+        <span class="map-pill">Scrim interno</span>
+        <span class="map-pill map-pill--strong">100% online</span>
+      </p>
+
+      <div class="grid-2 grid-roster" id="roster-grid">
         <article class="card player-card reveal">
           <div class="player-card__avatar" aria-hidden="true">IGL</div>
           <div>
             <span class="player-card__role">In-game leader</span>
-            <h3 class="mt-0">A divulgar</h3>
-            <p class="player-card__meta">Nick, bio e redes serão publicados quando o jogador for confirmado.</p>
+            <p class="player-card__tagline">Na vez de alguém — assume o boné</p>
+            <h3 class="mt-0">Quem puxar hoje</h3>
+            <p class="player-card__meta">Call principal e leitura de round; muda de sessão em sessão no mix.</p>
             <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Links em breve</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem">Discord na hora do jogo</span>
             </div>
           </div>
         </article>
@@ -68,10 +82,11 @@
           <div class="player-card__avatar" aria-hidden="true">AW</div>
           <div>
             <span class="player-card__role">AWPer</span>
-            <h3 class="mt-0">A divulgar</h3>
-            <p class="player-card__meta">Nick, bio e redes serão publicados quando o jogador for confirmado.</p>
+            <p class="player-card__tagline">Pick ou sorteio — quem tiver confiança</p>
+            <h3 class="mt-0">Vaga na fila</h3>
+            <p class="player-card__meta">Scope na mão de quem pegar; pode rotacionar entre partidas.</p>
             <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Links em breve</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem">Links quando fixar</span>
             </div>
           </div>
         </article>
@@ -80,10 +95,11 @@
           <div class="player-card__avatar" aria-hidden="true">ENT</div>
           <div>
             <span class="player-card__role">Entry</span>
-            <h3 class="mt-0">A divulgar</h3>
-            <p class="player-card__meta">Nick, bio e redes serão publicados quando o jogador for confirmado.</p>
+            <p class="player-card__tagline">Primeiro contato — ritmo alto</p>
+            <h3 class="mt-0">Próximo da fila</h3>
+            <p class="player-card__meta">Abre bombsite ou troca com quem quiser brigar na frente.</p>
             <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Links em breve</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem">Entra no mix e chama</span>
             </div>
           </div>
         </article>
@@ -92,10 +108,11 @@
           <div class="player-card__avatar" aria-hidden="true">SUP</div>
           <div>
             <span class="player-card__role">Support</span>
-            <h3 class="mt-0">A divulgar</h3>
-            <p class="player-card__meta">Nick, bio e redes serão publicados quando o jogador for confirmado.</p>
+            <p class="player-card__tagline">Flash, smoke, clutch calmo</p>
+            <h3 class="mt-0">Completa o time</h3>
+            <p class="player-card__meta">Quem fecha o puzzle quando o sorteio deixa um slot “suporte”.</p>
             <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Links em breve</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem">Combo com IGL/entry</span>
             </div>
           </div>
         </article>
@@ -104,10 +121,11 @@
           <div class="player-card__avatar" aria-hidden="true">LUR</div>
           <div>
             <span class="player-card__role">Lurker</span>
-            <h3 class="mt-0">A divulgar</h3>
-            <p class="player-card__meta">Nick, bio e redes serão publicados quando o jogador for confirmado.</p>
+            <p class="player-card__tagline">Timing e mapa invertido</p>
+            <h3 class="mt-0">Último pick ou surpresa</h3>
+            <p class="player-card__meta">Ótimo pra fechar o draft aleatório quando sobra o canto quieto do mapa.</p>
             <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Links em breve</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem">Roda no fim da fila</span>
             </div>
           </div>
         </article>
@@ -116,15 +134,33 @@
           <div class="player-card__avatar" aria-hidden="true">COACH</div>
           <div>
             <span class="player-card__role">Coach</span>
-            <h3 class="mt-0">A divulgar</h3>
-            <p class="player-card__meta">Staff técnico — anúncio junto ao roster. Dúvidas: <a href="/conexoes.html">conexões</a>.</p>
+            <p class="player-card__tagline">Review pós-partida</p>
+            <h3 class="mt-0">Voz na retrospectiva</h3>
+            <p class="player-card__meta">Fora do mix ao vivo — ajuda a ler demo e ajustar pra próxima rodada. Dúvidas: <a href="/conexoes.html">conexões</a>.</p>
             <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Links em breve</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem">Chama no Discord</span>
             </div>
           </div>
         </article>
       </div>
     </main>
+
+    <script>
+      (function () {
+        var grid = document.getElementById("roster-grid");
+        if (!grid) return;
+        var cards = Array.prototype.slice.call(grid.querySelectorAll(".player-card"));
+        for (var i = cards.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = cards[i];
+          cards[i] = cards[j];
+          cards[j] = t;
+        }
+        cards.forEach(function (c) {
+          grid.appendChild(c);
+        });
+      })();
+    </script>
 
     <footer class="site-footer">
       <div class="footer__glow" aria-hidden="true"></div>

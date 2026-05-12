@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jogos Eternal Pratas — calendário e resultados em breve." />
+    <meta
+      name="description"
+      content="Eternal Pratas — mix CS2 online: times na hora, sorteio e fila. Sem calendário fixo de liga."
+    />
     <title>Jogos | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,19 +46,61 @@
 
     <main class="container section section--tight">
       <header class="page-hero reveal">
-        <p class="section__label">Competição</p>
-        <h1>Jogos &amp; calendário</h1>
+        <p class="section__label">Como rola</p>
+        <h1>Mix &amp; fila</h1>
         <p>
-          Esta seção está em preparação. Em breve você encontrará aqui resultados, agenda de partidas e informações de
-          transmissão.
+          Nada de tabela de liga fixa: o foco é <strong style="color: var(--text)">mix CS2 online</strong>. Os times
+          são <strong style="color: var(--text)">montados na hora</strong> — por <strong style="color: var(--text)">escolha aleatória</strong> (sorteio, random no Discord ou bot), por <strong style="color: var(--text)">ordem de fila</strong> ou combinando na call. Cada noite pode ser um time diferente; o importante é completar 10 e jogar.
         </p>
       </header>
 
-      <article class="card reveal" style="max-width: 42rem">
-        <h3>Em breve</h3>
+      <div class="grid-2 mb-2">
+        <article class="card reveal">
+          <h3>Formato típico</h3>
+          <ol class="mix-steps">
+            <li>
+              <strong>01</strong>
+              <span>Galera entra na call / canal de mix no <a href="/conexoes.html">Discord</a>.</span>
+            </li>
+            <li>
+              <strong>02</strong>
+              <span>Define mapa (veto rápido ou sorteio) e se os lados saem aleatório ou escolhidos.</span>
+            </li>
+            <li>
+              <strong>03</strong>
+              <span><strong style="color: var(--text)">Balanceamento</strong>: sorteio de times, shuffle de nomes ou capitanes escolhendo um a um até fechar CT e TR.</span>
+            </li>
+            <li>
+              <strong>04</strong>
+              <span>Partida no servidor privado ou lobby Faceit — depois, quem quiser rematch ou troca de lado.</span>
+            </li>
+          </ol>
+        </article>
+        <article class="card reveal">
+          <h3>O que não é</h3>
+          <p class="mt-0">
+            Não prometemos calendário de campeonato nem histórico oficial de resultados aqui — é
+            <strong style="color: var(--text)">fila viva</strong>. Quando rolar algo mais estruturado, avisamos nas
+            conexões.
+          </p>
+          <p>
+            Quer entrar no balde? Chama no Discord, vê quem tá online e entra no próximo sorteio. Página de
+            <a href="/jogadores.html">jogadores</a> explica como as funções entram nesse esquema dinâmico.
+          </p>
+        </article>
+      </div>
+
+      <article class="card reveal" style="max-width: 48rem">
+        <h3>Mapas &amp; variedade</h3>
         <p class="mt-0">
-          Calendário, placares e detalhes dos jogos serão publicados quando houver comunicado oficial. Enquanto isso,
-          acompanhe avisos nas <a href="/conexoes.html">conexões</a> ou volte ao <a href="/index.html">início</a>.
+          O pool muda conforme o humor do grupo: um dia é Mirage, outro é Inferno ou mapa que caiu no random. A ideia é
+          <strong style="color: var(--text)">não travar em um modo só</strong> — mix, retake, deathmatch entre uma partida e outra, tudo vale pra aquecer.
+        </p>
+        <p class="map-pool" style="margin-top: 1rem">
+          <span class="map-pill map-pill--strong">Sorteio de mapa</span>
+          <span class="map-pill">Veto express</span>
+          <span class="map-pill">Rematch</span>
+          <span class="map-pill">Troca de lado manual</span>
         </p>
       </article>
     </main>

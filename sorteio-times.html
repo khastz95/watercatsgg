@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sobre o Eternal Pratas — hub CS2 online, mix, Retired & Dangers e valores do grupo." />
-    <title>Sobre | Eternal Pratas</title>
+    <meta
+      name="description"
+      content="Sorteio de times Eternal Pratas — 10 nomes, 5 vs 5, Time 1 e Time 2 para mix CS2 online."
+    />
+    <title>Sorteio de times | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -44,40 +47,47 @@
 
     <main class="container section section--tight">
       <header class="page-hero reveal">
-        <p class="section__label">Quem somos</p>
-        <h1>Sobre o hub</h1>
+        <p class="section__label">Ferramenta do mix</p>
+        <h1>Sorteio de times</h1>
         <p>
-          Eternal Pratas é um <strong style="color: var(--text)">grupo de CS2 100% online</strong>: mix, fila, call no
-          Discord e noite boa de servidor privado ou Faceit. <strong style="color: var(--text)">Retired &amp; Dangers</strong>
-          é o lema — experiência com humor, rush com consciência (às vezes).
+          Cole ou digite <strong style="color: var(--text)">10 nomes</strong>, um por linha. O site embaralha e divide em
+          <strong style="color: var(--text)">Time 1</strong> (5) e <strong style="color: var(--text)">Time 2</strong> (5)
+          — total 10 no servidor.
         </p>
       </header>
 
-      <div class="grid-2 mb-2">
-        <article class="card reveal">
-          <h3>Missão</h3>
-          <p class="mt-0">
-            Juntar gente que curte competir sem burocracia de liga fixa: entrar na fila, sortear time, jogar, rir do eco
-            round e voltar na semana seguinte.
-          </p>
+      <article class="card reveal sorteio-panel">
+        <div class="field">
+          <label for="sorteio-nomes">Nomes (10 linhas)</label>
+          <textarea
+            id="sorteio-nomes"
+            rows="12"
+            spellcheck="false"
+            autocomplete="off"
+            placeholder="Fulano&#10;Beltrano&#10;...&#10;(10 nomes no total)"
+          ></textarea>
+        </div>
+        <button class="btn btn--primary" type="button" id="sorteio-btn">Sortear times</button>
+        <p id="sorteio-feedback" class="sorteio-feedback" role="status" aria-live="polite"></p>
+      </article>
+
+      <div id="sorteio-resultados" class="grid-2 sorteio-resultados" hidden>
+        <article class="card sorteio-team sorteio-team--1">
+          <h2 class="sorteio-team__title">Time 1</h2>
+          <p class="sorteio-team__meta">5 jogadores</p>
+          <ol id="sorteio-time1" class="sorteio-team__list"></ol>
         </article>
-        <article class="card reveal">
-          <h3>Valores</h3>
-          <p class="mt-0">
-            Comunicação clara na call, respeito com random e com amigo, e transparência — quando não tiver campeonato
-            oficial, a gente fala que não tem, em vez de inventar agenda.
-          </p>
+        <article class="card sorteio-team sorteio-team--2">
+          <h2 class="sorteio-team__title">Time 2</h2>
+          <p class="sorteio-team__meta">5 jogadores</p>
+          <ol id="sorteio-time2" class="sorteio-team__list"></ol>
         </article>
       </div>
 
-      <article class="card reveal" style="max-width: 42rem">
-        <h3>História longa</h3>
-        <p class="mt-0">
-          Linha do tempo detalhada, marcos e kit de marca vão aparecer quando fizer sentido narrar bonito. Por ora, o
-          recado é: cola no <a href="/jogos.html">mix</a>, segue as <a href="/conexoes.html">conexões</a> e volta ao
-          <a href="/index.html">início</a> quando quiser.
-        </p>
-      </article>
+      <p class="reveal sorteio-footnote">
+        Sorteio local no seu navegador — nada é enviado pra servidor. Quer outro resultado, clica de novo em
+        <strong style="color: var(--text)">Sortear times</strong>.
+      </p>
     </main>
 
     <footer class="site-footer">
@@ -141,5 +151,6 @@
       </div>
     </footer>
     <script src="/js/main.js" defer></script>
+    <script src="/js/sorteio-times.js" defer></script>
   </body>
 </html>

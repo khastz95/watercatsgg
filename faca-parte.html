@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Faça parte do Eternal Pratas — tryouts na Open Circuit, horários BRT e requisitos."
+    />
+    <title>Faça Parte | Eternal Pratas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img class="brand__logo" src="assets/logo.png" alt="Logo Eternal Pratas" width="48" height="48" />
+          <span class="brand__text">
+            <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
+            <span class="brand__tag">Retired &amp; Dangers</span>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="main-nav" aria-label="Principal">
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="jogadores.html">Jogadores</a></li>
+            <li><a href="jogos.html">Jogos</a></li>
+            <li><a href="estatisticas.html">Estatísticas</a></li>
+            <li><a href="conexoes.html">Conexões</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="faca-parte.html">Faça Parte</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container section section--tight">
+      <header class="page-hero reveal">
+        <p class="section__label">Recrutamento</p>
+        <h1>Faça parte</h1>
+        <p>
+          Quer jogar, criar conteúdo ou apoiar staff? Preencha o formulário. Os critérios abaixo refletem o nível da
+          <strong style="color: var(--text)">Open Circuit — Divisão A</strong>.
+        </p>
+      </header>
+
+      <div class="grid-2">
+        <article class="card reveal">
+          <h3>Requisitos</h3>
+          <ul style="margin: 0; padding-left: 1.2rem; color: var(--text-muted)">
+            <li>16+ e janela fixa de treino em <strong style="color: var(--text)">BRT</strong> (~19h–00h), 4–5 noites/semana</li>
+            <li>
+              Faceit <strong style="color: var(--text)">8+</strong> (ou histórico open/qualifier equivalente), alinhado ao
+              nível da Divisão A
+            </li>
+            <li>Microfone, callouts em português e envio de demos (.dem) ou GOTV sob 48h</li>
+            <li>Disponibilidade para campanhas MD3 (veto ao vivo) e viagens curtas em SP quando houver etapa presencial</li>
+            <li>Respeito ao código de conduta e à marca Eternal Pratas</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <h3>Outras áreas</h3>
+          <p>
+            Motion, redes sociais, desenvolvimento web, observers — deixe no campo de mensagem qual função te interessa.
+            Na semana de jogos ou anúncios oficiais, priorizamos respostas no
+            Discord.
+          </p>
+          <p>
+            <a href="https://discord.gg/eternalpratas" target="_blank" rel="noopener noreferrer">Abrir Discord</a>
+          </p>
+        </article>
+      </div>
+
+      <section class="section" style="padding-bottom: 0">
+        <h2 class="reveal">Formulário</h2>
+        <p id="form-msg" class="form-msg form-msg--ok" role="status"></p>
+        <form id="join-form" class="form-grid reveal" novalidate>
+          <div class="field">
+            <label for="nick">Nickname / Steam</label>
+            <input id="nick" name="nick" type="text" autocomplete="username" required placeholder="Ex.: eternalplayer" />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+          </div>
+          <div class="field">
+            <label for="role">Função de interesse</label>
+            <select id="role" name="role" required>
+              <option value="">Selecione</option>
+              <option value="rifler">Rifler</option>
+              <option value="awp">AWPer</option>
+              <option value="igl">IGL</option>
+              <option value="support">Support</option>
+              <option value="content">Conteúdo / mídia</option>
+              <option value="staff">Staff técnico</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="msg">Mensagem</label>
+            <textarea id="msg" name="msg" required placeholder="Links de demo, horários, experiência..."></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Enviar candidatura</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="footer__main">
+          <div class="footer__col footer__col--brand">
+            <a href="index.html" class="footer__brandmark">
+              <img src="assets/logo.png" alt="Logo Eternal Pratas" width="56" height="56" decoding="async" class="footer__logo" />
+              <span class="footer__brandtext">
+                <span class="footer__brandname"
+                  ><span class="footer__brand-light">ETERNAL</span><span class="footer__brand-dark">PRATAS</span></span
+                >
+                <span class="footer__brandsub">Retired &amp; Dangers</span>
+              </span>
+            </a>
+            <p class="footer__desc">
+              CS2 · São Paulo, Brasil · Open Circuit. Elenco, jogos, stats e comunidade — marca Eternal Pratas.
+            </p>
+          </div>
+          <nav class="footer__col" aria-labelledby="footer-heading-nav">
+            <p id="footer-heading-nav" class="footer__col-title">Navegação</p>
+            <ul class="footer__navlist">
+              <li><a href="index.html">Início</a></li>
+              <li><a href="jogadores.html">Jogadores</a></li>
+              <li><a href="jogos.html">Jogos</a></li>
+              <li><a href="estatisticas.html">Estatísticas</a></li>
+              <li><a href="conexoes.html">Conexões</a></li>
+              <li><a href="sobre.html">Sobre</a></li>
+              <li><a href="faca-parte.html">Faça parte</a></li>
+            </ul>
+          </nav>
+          <div class="footer__col" aria-labelledby="footer-heading-connect">
+            <p id="footer-heading-connect" class="footer__col-title">Conexões</p>
+            <ul class="footer__navlist">
+              <li><a href="https://discord.gg/eternalpratas" target="_blank" rel="noopener noreferrer">Discord</a></li>
+              <li><a href="https://www.twitch.tv/EternalPratasTV" target="_blank" rel="noopener noreferrer">Twitch</a></li>
+              <li><a href="https://www.youtube.com/@EternalPratasCS" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+              <li><a href="https://x.com/EternalPratasBR" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+              <li><a href="https://www.instagram.com/eternalpratas" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Steam</a></li>
+            </ul>
+            <a href="conexoes.html" class="footer__more">Ver todas as conexões e imprensa →</a>
+          </div>
+          <div class="footer__col footer__col--cta">
+            <p class="footer__col-title">Recrutamento</p>
+            <p class="footer__cta-lead">Tryouts, conteúdo e staff — envie seu perfil.</p>
+            <a class="btn btn--primary btn--compact" href="faca-parte.html">Candidatar-se</a>
+          </div>
+        </div>
+        <div class="footer__bar">
+          <p class="footer__copy">© <span id="year"></span> Eternal Pratas · Counter-Strike</p>
+          <p class="footer__legal">Não afiliado à Valve Corporation. Counter-Strike é marca comercial da Valve.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

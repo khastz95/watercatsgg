@@ -57,7 +57,7 @@
     setFeedback("", "");
 
     if (names.length !== 10) {
-      setFeedback("Coloque exatamente 10 nomes (um por linha). Agora há " + names.length + ".", "erro");
+      setFeedback("Precisa de 10 nomes, um por linha. Contei " + names.length + ".", "erro");
       wrap.hidden = true;
       return;
     }
@@ -70,7 +70,7 @@
       seen[k] = true;
     });
     if (dup) {
-      setFeedback("Tem nome repetido. Ajusta a lista pra cada um aparecer só uma vez.", "erro");
+      setFeedback("Tem nome repetido na lista.", "erro");
       wrap.hidden = true;
       return;
     }
@@ -79,7 +79,7 @@
     renderList(list1, shuffled.slice(0, 5));
     renderList(list2, shuffled.slice(5, 10));
     wrap.hidden = false;
-    setFeedback("Pronto — Time 1 e Time 2 com 5 jogadores cada.", "ok");
+    setFeedback("Feito. Time 1 e Time 2 aí embaixo.", "ok");
     wrap.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 

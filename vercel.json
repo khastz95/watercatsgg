@@ -1,3 +1,8 @@
 {
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/conexoes.html", "destination": "/sobre.html", "permanent": true },
+    { "source": "/estatisticas.html", "destination": "/", "permanent": true },
+    { "source": "/faca-parte.html", "destination": "/sobre.html", "permanent": true }
+  ]
 }

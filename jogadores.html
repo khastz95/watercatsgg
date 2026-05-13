@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Eternal Pratas — quem joga, mix online e vagas por função. CS2 entre amigos."
+      content="Quem joga no Eternal Pratas — funções, mix e CS2 online."
     />
     <title>Jogadores | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
@@ -21,7 +21,7 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/index.html">
-          <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="48" height="48" />
+          <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="56" height="56" />
           <span class="brand__text">
             <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
             <span class="brand__tag">Retired &amp; Dangers</span>
@@ -35,10 +35,7 @@
             <li><a href="/index.html">Início</a></li>
             <li><a href="/jogadores.html">Jogadores</a></li>
             <li><a href="/jogos.html">Mix</a></li>
-            <li><a href="/estatisticas.html">Estatísticas</a></li>
-            <li><a href="/conexoes.html">Conexões</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
-            <li><a href="/faca-parte.html">Faça Parte</a></li>
             <li><a href="/sorteio-times.html">Sorteio</a></li>
           </ul>
         </nav>
@@ -47,23 +44,121 @@
 
     <main class="container section section--tight">
       <header class="page-hero reveal">
-        <p class="section__label">Elenco &amp; fila</p>
+        <p class="section__label">Elenco</p>
         <h1>Jogadores</h1>
         <p>
-          Aqui é <strong style="color: var(--text)">dinâmico</strong>: no mix, quem tá na call pode entrar na fila. As
-          funções abaixo são <strong style="color: var(--text)">guia</strong> — no dia a dia o time monta na hora, com
-          sorteio ou fila conforme combinado no <a href="/conexoes.html">Discord</a>. Nick, bio e links oficiais entram
-          quando alguém fixar o lugar ou rolar anúncio.
+          No mix quem tá na call entra na fila. Os cards embaixo são <strong style="color: var(--text)">função</strong>, não
+          contrato — o time fecha na hora, do jeito que o grupo combinar. Nick e link quando alguém quiser fixar isso.
         </p>
       </header>
 
-      <p class="roster-strip reveal" aria-label="Modos de jogo">
-        <span class="map-pill map-pill--strong">Mix da noite</span>
-        <span class="map-pill">Sorteio de lado</span>
-        <span class="map-pill">Fila aberta</span>
-        <span class="map-pill">Scrim interno</span>
-        <span class="map-pill map-pill--strong">100% online</span>
+      <p class="roster-strip reveal" aria-label="Resumo">
+        <span class="map-pill map-pill--strong">Mix</span>
+        <span class="map-pill">Fila</span>
+        <span class="map-pill map-pill--strong">Online</span>
       </p>
+
+      <section class="active-members" aria-labelledby="active-members-heading">
+        <div class="section__head active-members__head reveal">
+          <div>
+            <p class="section__label">Presença</p>
+            <h2 id="active-members-heading">Membros ativos no dia a dia</h2>
+          </div>
+        </div>
+        <p class="active-members__intro reveal">
+          Quem costuma aparecer na call e no Steam; estados no estilo do perfil (disponível, off-line, em jogo).
+        </p>
+        <div class="active-members__grid">
+          <article class="card active-member-card active-member-card--available reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">khastz95</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__status">Disponível</p>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card active-member-card--offline reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">⚡ msk</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__status">Off-line</p>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">BILZERA</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">furyziKNTC</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card active-member-card--ingame reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">asmodeus</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__status">Em jogo</p>
+            <p class="active-member-card__game">MIR4</p>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">Dice</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">♿︎ Nox1</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">k0N1G.exe</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">Lu1zFR</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">Khorpin Shado</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+          <article class="card active-member-card reveal">
+            <div class="active-member-card__top">
+              <h3 class="active-member-card__name">s4mz</h3>
+              <span class="active-member-card__pill">Diário</span>
+            </div>
+            <p class="active-member-card__friend">Este membro é um amigo</p>
+          </article>
+        </div>
+      </section>
+
+      <div class="section__head reveal" style="margin-bottom: 1.25rem">
+        <div>
+          <p class="section__label">Funções</p>
+          <h2>Vagas no mix</h2>
+        </div>
+      </div>
 
       <div class="grid-2 grid-roster" id="roster-grid">
         <article class="card player-card reveal">
@@ -137,7 +232,7 @@
             <span class="player-card__role">Coach</span>
             <p class="player-card__tagline">Review pós-partida</p>
             <h3 class="mt-0">Voz na retrospectiva</h3>
-            <p class="player-card__meta">Fora do mix ao vivo — ajuda a ler demo e ajustar pra próxima rodada. Dúvidas: <a href="/conexoes.html">conexões</a>.</p>
+            <p class="player-card__meta">Pós-jogo: demo, papo, ajuste. Dúvida, manda no Discord.</p>
             <div class="player-card__links">
               <span style="color: var(--text-muted); font-size: 0.85rem">Chama no Discord</span>
             </div>
@@ -177,9 +272,7 @@
                 <span class="footer__brandsub">Retired &amp; Dangers</span>
               </span>
             </a>
-            <p class="footer__desc">
-              Mix e CS2 online · diversão com a galera — Eternal Pratas · Retired &amp; Dangers.
-            </p>
+            <p class="footer__desc">CS2 online, mix com a turma — Eternal Pratas.</p>
           </div>
           <nav class="footer__col" aria-labelledby="footer-heading-nav">
             <p id="footer-heading-nav" class="footer__col-title">Navegação</p>
@@ -187,15 +280,12 @@
               <li><a href="/index.html">Início</a></li>
               <li><a href="/jogadores.html">Jogadores</a></li>
               <li><a href="/jogos.html">Mix</a></li>
-              <li><a href="/estatisticas.html">Estatísticas</a></li>
-              <li><a href="/conexoes.html">Conexões</a></li>
               <li><a href="/sobre.html">Sobre</a></li>
-              <li><a href="/faca-parte.html">Faça parte</a></li>
               <li><a href="/sorteio-times.html">Sorteio</a></li>
             </ul>
           </nav>
           <div class="footer__col" aria-labelledby="footer-heading-connect">
-            <p id="footer-heading-connect" class="footer__col-title">Conexões</p>
+            <p id="footer-heading-connect" class="footer__col-title">Links</p>
             <ul class="footer__navlist">
               <li><a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a></li>
               <li>
@@ -207,7 +297,6 @@
           </div>
           <div class="footer__col footer__col--cta">
             <p class="footer__col-title">Entrar no mix</p>
-            <p class="footer__cta-lead">Quer entrar no mix e na comunidade? Chama no Discord.</p>
             <a
               class="btn btn--primary btn--compact"
               href="https://discord.gg/et6N2Y3pJj"

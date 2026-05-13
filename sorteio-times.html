@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Sorteio de times Eternal Pratas — 10 nomes, 5 vs 5, Time 1 e Time 2 para mix CS2 online."
+      content="Sorteio 5x5 no Eternal Pratas — dez nomes, dois times."
     />
     <title>Sorteio de times | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
@@ -21,7 +21,7 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/index.html">
-          <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="48" height="48" />
+          <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="56" height="56" />
           <span class="brand__text">
             <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
             <span class="brand__tag">Retired &amp; Dangers</span>
@@ -35,10 +35,7 @@
             <li><a href="/index.html">Início</a></li>
             <li><a href="/jogadores.html">Jogadores</a></li>
             <li><a href="/jogos.html">Mix</a></li>
-            <li><a href="/estatisticas.html">Estatísticas</a></li>
-            <li><a href="/conexoes.html">Conexões</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
-            <li><a href="/faca-parte.html">Faça Parte</a></li>
             <li><a href="/sorteio-times.html">Sorteio</a></li>
           </ul>
         </nav>
@@ -47,18 +44,14 @@
 
     <main class="container section section--tight">
       <header class="page-hero reveal">
-        <p class="section__label">Ferramenta do mix</p>
-        <h1>Sorteio de times</h1>
-        <p>
-          Cole ou digite <strong style="color: var(--text)">10 nomes</strong>, um por linha. O site embaralha e divide em
-          <strong style="color: var(--text)">Time 1</strong> (5) e <strong style="color: var(--text)">Time 2</strong> (5)
-          — total 10 no servidor.
-        </p>
+        <p class="section__label">Sorteio</p>
+        <h1>Dez nomes, dois times</h1>
+        <p>Um nome por linha. Clica, embaralha, pronto: cinco de um lado, cinco do outro.</p>
       </header>
 
       <article class="card reveal sorteio-panel">
         <div class="field">
-          <label for="sorteio-nomes">Nomes (10 linhas)</label>
+          <label for="sorteio-nomes">Lista (10 linhas)</label>
           <textarea
             id="sorteio-nomes"
             rows="12"
@@ -74,20 +67,15 @@
       <div id="sorteio-resultados" class="grid-2 sorteio-resultados" hidden>
         <article class="card sorteio-team sorteio-team--1">
           <h2 class="sorteio-team__title">Time 1</h2>
-          <p class="sorteio-team__meta">5 jogadores</p>
           <ol id="sorteio-time1" class="sorteio-team__list"></ol>
         </article>
         <article class="card sorteio-team sorteio-team--2">
           <h2 class="sorteio-team__title">Time 2</h2>
-          <p class="sorteio-team__meta">5 jogadores</p>
           <ol id="sorteio-time2" class="sorteio-team__list"></ol>
         </article>
       </div>
 
-      <p class="reveal sorteio-footnote">
-        Sorteio local no seu navegador — nada é enviado pra servidor. Quer outro resultado, clica de novo em
-        <strong style="color: var(--text)">Sortear times</strong>.
-      </p>
+      <p class="reveal sorteio-footnote">Isso roda no seu PC; a lista não vai pra lugar nenhum. Não curtiu? Clica de novo.</p>
     </main>
 
     <footer class="site-footer">
@@ -104,9 +92,7 @@
                 <span class="footer__brandsub">Retired &amp; Dangers</span>
               </span>
             </a>
-            <p class="footer__desc">
-              Mix e CS2 online · diversão com a galera — Eternal Pratas · Retired &amp; Dangers.
-            </p>
+            <p class="footer__desc">CS2 online, mix com a turma — Eternal Pratas.</p>
           </div>
           <nav class="footer__col" aria-labelledby="footer-heading-nav">
             <p id="footer-heading-nav" class="footer__col-title">Navegação</p>
@@ -114,15 +100,12 @@
               <li><a href="/index.html">Início</a></li>
               <li><a href="/jogadores.html">Jogadores</a></li>
               <li><a href="/jogos.html">Mix</a></li>
-              <li><a href="/estatisticas.html">Estatísticas</a></li>
-              <li><a href="/conexoes.html">Conexões</a></li>
               <li><a href="/sobre.html">Sobre</a></li>
-              <li><a href="/faca-parte.html">Faça parte</a></li>
               <li><a href="/sorteio-times.html">Sorteio</a></li>
             </ul>
           </nav>
           <div class="footer__col" aria-labelledby="footer-heading-connect">
-            <p id="footer-heading-connect" class="footer__col-title">Conexões</p>
+            <p id="footer-heading-connect" class="footer__col-title">Links</p>
             <ul class="footer__navlist">
               <li><a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a></li>
               <li>
@@ -134,7 +117,6 @@
           </div>
           <div class="footer__col footer__col--cta">
             <p class="footer__col-title">Entrar no mix</p>
-            <p class="footer__cta-lead">Quer entrar no mix e na comunidade? Chama no Discord.</p>
             <a
               class="btn btn--primary btn--compact"
               href="https://discord.gg/et6N2Y3pJj"

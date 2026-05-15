@@ -1,8 +1,8 @@
 (function () {
   "use strict";
 
+  var HR = window.HubRating;
   var MIN_PLAYERS = 2;
-  var MAX_LEVEL = 30000;
   var DRAW_MS = 2600;
   var BALANCE_ATTEMPTS = 400;
 
@@ -62,29 +62,15 @@
   }
 
   function clampLevel(n) {
-    var v = Math.round(Number(n));
-    if (Number.isNaN(v) || v < 0) return 0;
-    if (v > MAX_LEVEL) return MAX_LEVEL;
-    return v;
+    return HR ? HR.clampLevel(n) : Math.max(0, Math.round(Number(n)) || 0);
   }
 
   function formatLevel(n) {
-    return clampLevel(n).toLocaleString("pt-BR");
-  }
-
-  function getRatingTier(level) {
-    var l = clampLevel(level);
-    if (l >= 30000) return "gold";
-    if (l >= 25000) return "red";
-    if (l >= 20000) return "pink";
-    if (l >= 15000) return "purple";
-    if (l >= 10000) return "blue";
-    if (l >= 5000) return "lightblue";
-    return "gray";
+    return HR ? HR.formatLevel(n) : clampLevel(n).toLocaleString("pt-BR");
   }
 
   function ratingClass(level) {
-    return "sorteio-rating sorteio-rating--" + getRatingTier(level);
+    return HR ? HR.ratingClass(level) : "sorteio-rating";
   }
 
   function avgLevel(players) {

@@ -427,3 +427,246 @@ body.page-admin-stats .card::before {
   background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.1), transparent 70%);
   pointer-events: none;
 }
+
+/* —— Fase 2/3: polish global —— */
+html {
+  color-scheme: dark;
+}
+
+@media (max-width: 900px) {
+  body.hub-site::before {
+    background-attachment: scroll;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-home .home-ticker__track {
+    animation: none !important;
+  }
+  body.hub-site .btn--primary:not(:disabled)::before {
+    animation: none !important;
+  }
+}
+
+body.hub-site .site-header.is-scrolled {
+  border-color: rgba(0, 229, 255, 0.14);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(0, 212, 255, 0.06),
+    0 1px 0 rgba(0, 229, 255, 0.1) inset;
+}
+
+body.hub-site .site-nav a.is-active,
+body.hub-site .site-nav a[aria-current="page"] {
+  color: var(--cyan);
+  text-shadow: 0 0 18px rgba(0, 229, 255, 0.4);
+  border-bottom-color: var(--cyan);
+  background: rgba(0, 229, 255, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.page-hero--compact {
+  padding: 1.75rem 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-hero--compact h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+body.page-home .hero__visual {
+  position: relative;
+}
+
+body.page-home .hero__visual::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.2), rgba(168, 85, 247, 0.12) 45%, transparent 70%);
+  filter: blur(28px);
+  animation: hub-hero-glow 5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.page-home .hero__logo {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes hub-hero-glow {
+  from {
+    opacity: 0.65;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+body.page-home .home-step.card--glow {
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s var(--ease-out-expo);
+}
+
+body.page-home .home-step.card--glow:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-card-hover);
+}
+
+body.page-home .home-clip-card {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    radial-gradient(ellipse 100% 50% at 50% 0%, rgba(0, 212, 255, 0.08), transparent 55%),
+    linear-gradient(165deg, var(--bg-card), var(--bg-elevated));
+}
+
+body.page-home .home-activity .lf-card,
+body.page-home .home-spotlight .card {
+  overflow: hidden;
+}
+
+/* Faixas Premier CS (global) */
+.hub-rating,
+.sorteio-rating {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.55rem 0.22rem 0.7rem;
+  font-family: var(--font-display, "Orbitron", sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  border-radius: 4px;
+  border: 1px solid var(--rating-border, var(--border));
+  color: var(--rating-text, var(--text-muted));
+  background: var(--rating-bg, rgba(0, 0, 0, 0.3));
+  box-shadow: 0 0 12px var(--rating-glow, transparent);
+  overflow: hidden;
+}
+
+.hub-rating::before,
+.sorteio-rating::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  bottom: -2px;
+  width: 5px;
+  background: var(--rating-accent, currentColor);
+  box-shadow: 6px 0 0 -2px var(--rating-accent, currentColor);
+  transform: skewX(-14deg);
+  transform-origin: left center;
+  opacity: 0.95;
+}
+
+.hub-rating--gray,
+.sorteio-rating--gray {
+  --rating-text: #c8ccd4;
+  --rating-accent: #a8adb8;
+  --rating-border: rgba(168, 173, 184, 0.35);
+  --rating-bg: linear-gradient(135deg, #2e3139 0%, #1a1c22 55%, #14161a 100%);
+  --rating-glow: rgba(168, 173, 184, 0.12);
+}
+
+.hub-rating--lightblue,
+.sorteio-rating--lightblue {
+  --rating-text: #8ed4fc;
+  --rating-accent: #5eb8f0;
+  --rating-border: rgba(94, 184, 240, 0.4);
+  --rating-bg: linear-gradient(135deg, #1a3550 0%, #122438 55%, #0e1a28 100%);
+  --rating-glow: rgba(94, 184, 240, 0.18);
+}
+
+.hub-rating--blue,
+.sorteio-rating--blue {
+  --rating-text: #5eb0ff;
+  --rating-accent: #2d8cff;
+  --rating-border: rgba(45, 140, 255, 0.45);
+  --rating-bg: linear-gradient(135deg, #123068 0%, #0c2048 55%, #081830 100%);
+  --rating-glow: rgba(45, 140, 255, 0.22);
+}
+
+.hub-rating--purple,
+.sorteio-rating--purple {
+  --rating-text: #c77dff;
+  --rating-accent: #a855f7;
+  --rating-border: rgba(168, 85, 247, 0.45);
+  --rating-bg: linear-gradient(135deg, #3a1860 0%, #281045 55%, #1a0a30 100%);
+  --rating-glow: rgba(168, 85, 247, 0.22);
+}
+
+.hub-rating--pink,
+.sorteio-rating--pink {
+  --rating-text: #ff6eb4;
+  --rating-accent: #ec4899;
+  --rating-border: rgba(236, 72, 153, 0.45);
+  --rating-bg: linear-gradient(135deg, #4a1438 0%, #320c28 55%, #220818 100%);
+  --rating-glow: rgba(236, 72, 153, 0.2);
+}
+
+.hub-rating--red,
+.sorteio-rating--red {
+  --rating-text: #ff5c5c;
+  --rating-accent: #ef4444;
+  --rating-border: rgba(239, 68, 68, 0.45);
+  --rating-bg: linear-gradient(135deg, #4a1018 0%, #320810 55%, #220508 100%);
+  --rating-glow: rgba(239, 68, 68, 0.22);
+}
+
+.hub-rating--gold,
+.sorteio-rating--gold {
+  --rating-text: #ffd54a;
+  --rating-accent: #f5c518;
+  --rating-border: rgba(245, 197, 24, 0.5);
+  --rating-bg: linear-gradient(135deg, #4a3a08 0%, #322808 55%, #221c04 100%);
+  --rating-glow: rgba(245, 197, 24, 0.25);
+}
+
+/* Jogadores — hero + dashboard */
+body.page-jogadores .lf-page-hero {
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+body.page-jogadores .lf-dashboard__bar {
+  padding: 0.65rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.25rem;
+}
+
+body.page-jogadores .lf-dashboard__season {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+body.page-jogadores .lf-sidebar__item.is-active {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.12), var(--lf-card));
+  box-shadow:
+    inset 3px 0 0 var(--cyan),
+    0 0 20px rgba(0, 212, 255, 0.08);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+body.page-jogadores .lf-premier-list__rating.hub-rating {
+  grid-column: 2;
+  justify-self: end;
+  font-size: 0.62rem;
+  padding: 0.15rem 0.4rem 0.15rem 0.5rem;
+}
+
+body.page-jogadores .lf-ranks-panel {
+  background-image:
+    radial-gradient(ellipse 100% 40% at 50% 0%, rgba(168, 85, 247, 0.06), transparent 60%),
+    linear-gradient(165deg, var(--lf-card), var(--bg-elevated));
+}

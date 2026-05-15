@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#12141a" />
+    <meta name="color-scheme" content="dark" />
     <meta
       name="description"
       content="Perfis e estatísticas dos jogadores — Eternal Pratas."
@@ -45,6 +47,17 @@
     </header>
 
     <main class="lf-dashboard" data-jogadores-page>
+      <header class="page-hero page-hero--spotlight page-hero--compact lf-page-hero container reveal">
+        <p class="section__label">Turma</p>
+        <h1>Jogadores</h1>
+        <p class="page-hero__lead">Perfis com stats, ranks Premier coloridos e clipes em destaque.</p>
+        <ul class="hub-pills">
+          <li>Dashboard</li>
+          <li>Premier CS2</li>
+          <li>Clipes</li>
+        </ul>
+      </header>
+
       <div class="lf-dashboard__bar container">
         <p id="jogadores-meta" class="lf-dashboard__season">…</p>
       </div>
@@ -119,6 +132,7 @@
     </footer>
     <script src="/js/stats-data.js" defer></script>
     <script src="/js/stats-schema.js" defer></script>
+    <script src="/js/hub-rating.js" defer></script>
     <script src="/js/main.js" defer></script>
     <script src="/js/estatisticas.js" defer></script>
   </body>

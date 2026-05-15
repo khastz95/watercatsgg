@@ -178,11 +178,18 @@
     if (ranks.premier && ranks.premier.length) {
       html += '<section class="lf-ranks-block"><h3>Premier</h3><ul class="lf-premier-list">';
       ranks.premier.forEach(function (s) {
+        var ratingVal = s.rating != null ? Number(s.rating) : null;
+        var ratingCls =
+          ratingVal != null && window.HubRating
+            ? HubRating.ratingClass(ratingVal)
+            : "lf-premier-list__rating";
         html +=
           "<li><span class=\"lf-premier-list__season\">" +
           escapeHtml(s.season || s.label) +
-          "</span><span class=\"lf-premier-list__rating\">" +
-          escapeHtml(s.rating != null ? Number(s.rating).toLocaleString("pt-BR") : "—") +
+          '</span><span class="' +
+          ratingCls +
+          '">' +
+          escapeHtml(ratingVal != null ? ratingVal.toLocaleString("pt-BR") : "—") +
           "</span>";
         if (s.best != null) {
           html +=

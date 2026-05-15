@@ -186,7 +186,7 @@
     if (!el) return;
     if (!highlights.length) {
       el.innerHTML =
-        '<div class="home-clips__empty card reveal">' +
+        '<div class="home-clips__empty card card--glow reveal">' +
         "<p>Os melhores momentos da call aparecem aqui quando alguém subir um clipe.</p>" +
         '<a class="btn btn--ghost btn--compact" href="/jogadores.html">Ver jogadores</a></div>';
       return;

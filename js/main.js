@@ -9,6 +9,15 @@
     yearEl.textContent = new Date().getFullYear();
   }
 
+  var header = document.querySelector(".site-header");
+  if (header) {
+    function onScroll() {
+      header.classList.toggle("is-scrolled", window.scrollY > 16);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   var discordInvite = "https://discord.gg/et6N2Y3pJj";
   if (!document.querySelector("a.discord-fab")) {
     var fab = document.createElement("a");

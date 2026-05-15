@@ -1,0 +1,139 @@
+{
+  "updated": "2026-05-15",
+  "season": "Mix 2026",
+  "summary": {
+    "matches": 8,
+    "wins": 5,
+    "losses": 3,
+    "roundsPlayed": 142,
+    "avgRating": 1.04
+  },
+  "matches": [
+    {
+      "date": "2026-05-14",
+      "map": "Mirage",
+      "teamA": "Time A",
+      "teamB": "Time B",
+      "scoreA": 13,
+      "scoreB": 9,
+      "result": "win"
+    },
+    {
+      "date": "2026-05-12",
+      "map": "Inferno",
+      "teamA": "Pratas",
+      "teamB": "Visitantes",
+      "scoreA": 11,
+      "scoreB": 13,
+      "result": "loss"
+    },
+    {
+      "date": "2026-05-10",
+      "map": "Ancient",
+      "teamA": "Time A",
+      "teamB": "Time B",
+      "scoreA": 13,
+      "scoreB": 7,
+      "result": "win"
+    },
+    {
+      "date": "2026-05-08",
+      "map": "Nuke",
+      "teamA": "Pratas",
+      "teamB": "Visitantes",
+      "scoreA": 13,
+      "scoreB": 11,
+      "result": "win"
+    },
+    {
+      "date": "2026-05-05",
+      "map": "Anubis",
+      "teamA": "Time A",
+      "teamB": "Time B",
+      "scoreA": 8,
+      "scoreB": 13,
+      "result": "loss"
+    }
+  ],
+  "players": [
+    {
+      "nick": "khastz95",
+      "role": "Entry",
+      "matches": 6,
+      "kills": 98,
+      "deaths": 72,
+      "assists": 24,
+      "adr": 82.4,
+      "rating": 1.12,
+      "hsPercent": 48,
+      "highlights": [
+        {
+          "title": "ACE no B",
+          "map": "Mirage",
+          "date": "2026-05-14",
+          "url": "https://media2.allstar.gg/6453aa5732f3c32064f400f3/clips/69feb5f23dd5784c59ae79ea.mp4"
+        }
+      ]
+    },
+    {
+      "nick": "BILZERA",
+      "role": "AWPer",
+      "matches": 5,
+      "kills": 76,
+      "deaths": 68,
+      "assists": 19,
+      "adr": 74.1,
+      "rating": 1.02,
+      "hsPercent": 41,
+      "highlights": []
+    },
+    {
+      "nick": "furyziKNTC",
+      "role": "Rifler",
+      "matches": 5,
+      "kills": 71,
+      "deaths": 70,
+      "assists": 22,
+      "adr": 71.8,
+      "rating": 0.98,
+      "hsPercent": 39,
+      "highlights": []
+    },
+    {
+      "nick": "k0N1G.exe",
+      "role": "Support",
+      "matches": 4,
+      "kills": 62,
+      "deaths": 55,
+      "assists": 28,
+      "adr": 68.2,
+      "rating": 1.05,
+      "hsPercent": 35,
+      "highlights": []
+    },
+    {
+      "nick": "Lu1zFR",
+      "role": "IGL",
+      "matches": 4,
+      "kills": 58,
+      "deaths": 61,
+      "assists": 15,
+      "adr": 65.9,
+      "rating": 0.94,
+      "hsPercent": 44,
+      "highlights": []
+    },
+    {
+      "nick": "s4mz",
+      "role": "Lurker",
+      "matches": 3,
+      "kills": 41,
+      "deaths": 38,
+      "assists": 11,
+      "adr": 63.5,
+      "rating": 1.01,
+      "hsPercent": 37,
+      "highlights": []
+    }
+  ]
+}

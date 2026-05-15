@@ -3,22 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Estatísticas e mood do Eternal Pratas — hub CS2 online, mix e piadas honestas." />
+    <meta
+      name="description"
+      content="Estatísticas e highlights por jogador — Eternal Pratas."
+    />
     <title>Estatísticas | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
-  <body class="hub-site">
+  <body class="hub-site page-estatisticas">
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/index.html">
-          <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="48" height="48" />
+          <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="56" height="56" />
           <span class="brand__text">
             <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
             <span class="brand__tag">Retired &amp; Dangers</span>
@@ -32,52 +35,136 @@
             <li><a href="/index.html">Início</a></li>
             <li><a href="/jogadores.html">Jogadores</a></li>
             <li><a href="/jogos.html">Mix</a></li>
-            <li><a href="/estatisticas.html">Estatísticas</a></li>
-            <li><a href="/conexoes.html">Conexões</a></li>
+            <li><a href="/estatisticas.html">Stats</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
-            <li><a href="/faca-parte.html">Faça Parte</a></li>
             <li><a href="/sorteio-times.html">Sorteio</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main class="container section section--tight">
-      <header class="page-hero reveal">
-        <p class="section__label">Sem HUD oficial</p>
-        <h1>Estatísticas</h1>
-        <p>
-          Painel competitivo sério ainda não mora aqui — o hub é mix e diversão online. Enquanto isso, uns indicadores
-          “científicos” pra você saber o clima do servidor.
+    <main class="container section section--tight stats-page" data-stats-page>
+      <header class="stats-page__hero page-hero reveal">
+        <p class="section__label">Resultados</p>
+        <h1>Estatísticas &amp; highlights</h1>
+        <p class="stats-page__lead">
+          Números do mix, histórico de partidas e perfis com vídeos do Allstar. Escolha uma seção abaixo.
         </p>
       </header>
 
-      <div class="grid-3 mb-2">
-        <article class="card stat-fun reveal">
-          <h3>1,00</h3>
-          <p>Probabilidade de alguém pedir <strong style="color: var(--text)">“só mais um”</strong> depois de perder 16–14.</p>
-        </article>
-        <article class="card stat-fun reveal">
-          <h3>10/10</h3>
-          <p>Jogadores ideais na fila — quando o Discord não tá em silêncio assustador.</p>
-        </article>
-        <article class="card stat-fun reveal">
-          <h3>∞%</h3>
-          <p>Vontade de <strong style="color: var(--text)">completar o mix</strong> vs. vontade de dormir cedo.</p>
-        </article>
-      </div>
+      <div class="stats-hub reveal">
+        <nav class="stats-hub__nav" role="tablist" aria-label="Seções de estatísticas">
+          <button
+            type="button"
+            class="stats-tab is-active"
+            role="tab"
+            id="tab-resumo"
+            aria-selected="true"
+            aria-controls="panel-resumo"
+            data-tab="resumo"
+          >
+            <span class="stats-tab__label">Resumo</span>
+            <span class="stats-tab__hint">Temporada</span>
+          </button>
+          <button
+            type="button"
+            class="stats-tab"
+            role="tab"
+            id="tab-partidas"
+            aria-selected="false"
+            aria-controls="panel-partidas"
+            data-tab="partidas"
+          >
+            <span class="stats-tab__label">Partidas</span>
+            <span class="stats-tab__hint">Histórico</span>
+          </button>
+          <button
+            type="button"
+            class="stats-tab"
+            role="tab"
+            id="tab-jogadores"
+            aria-selected="false"
+            aria-controls="panel-jogadores"
+            data-tab="jogadores"
+          >
+            <span class="stats-tab__label">Jogadores</span>
+            <span class="stats-tab__hint">Stats &amp; clips</span>
+          </button>
+        </nav>
 
-      <article class="card reveal" style="max-width: 42rem">
-        <h3>Em breve (de verdade)</h3>
-        <p class="mt-0">
-          Quando rolar integração com partidas ou planilha pública, gráficos e tabelas entram aqui. Até lá, manda ver no
-          <a href="/jogos.html">mix</a>, no <a href="/jogadores.html">elenco</a> e nas <a href="/conexoes.html">conexões</a>.
-        </p>
-        <p class="stat-fun-note">
-          Nada nesta página substitui log oficial de campeonato — é hub comunitário, não HLTV.
-        </p>
-      </article>
+        <div class="stats-hub__content">
+          <section
+            id="panel-resumo"
+            class="stats-panel is-active"
+            role="tabpanel"
+            aria-labelledby="tab-resumo"
+            data-panel="resumo"
+          >
+            <header class="stats-panel__head">
+              <div>
+                <p class="section__label">Visão geral</p>
+                <h2 class="stats-panel__title">Resumo da temporada</h2>
+              </div>
+            </header>
+            <div id="stats-summary" class="stats-panel__body"></div>
+          </section>
+
+          <section
+            id="panel-partidas"
+            class="stats-panel"
+            role="tabpanel"
+            aria-labelledby="tab-partidas"
+            data-panel="partidas"
+            hidden
+          >
+            <header class="stats-panel__head">
+              <div>
+                <p class="section__label">Histórico</p>
+                <h2 class="stats-panel__title">Partidas do mix</h2>
+              </div>
+            </header>
+            <div id="stats-matches" class="stats-panel__body"></div>
+          </section>
+
+          <section
+            id="panel-jogadores"
+            class="stats-panel"
+            role="tabpanel"
+            aria-labelledby="tab-jogadores"
+            data-panel="jogadores"
+            hidden
+          >
+            <header class="stats-panel__head stats-panel__head--split">
+              <div>
+                <p class="section__label">Elenco</p>
+                <h2 class="stats-panel__title">Jogadores</h2>
+                <p class="stats-hint stats-hint--inline">
+                  Clique no card para ver estatísticas completas e highlights em vídeo.
+                </p>
+              </div>
+              <a class="btn btn--ghost btn--compact" href="/admin-estatisticas.html">Gerenciar dados</a>
+            </header>
+            <div id="stats-player-panel" class="player-panel stats-panel__body" role="list"></div>
+          </section>
+        </div>
+      </div>
     </main>
+
+    <div id="player-modal" class="player-modal" hidden aria-hidden="true">
+      <div class="player-modal__backdrop" data-modal-close tabindex="-1" aria-hidden="true"></div>
+      <div
+        class="player-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="player-modal-title"
+        tabindex="-1"
+      >
+        <button type="button" class="player-modal__close" data-modal-close aria-label="Fechar perfil">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div id="player-modal-content"></div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="footer__glow" aria-hidden="true"></div>
@@ -93,9 +180,7 @@
                 <span class="footer__brandsub">Retired &amp; Dangers</span>
               </span>
             </a>
-            <p class="footer__desc">
-              Mix e CS2 online · diversão com a galera — Eternal Pratas · Retired &amp; Dangers.
-            </p>
+            <p class="footer__desc">Counter-Strike 2 online, mix com a turma — Eternal Pratas.</p>
           </div>
           <nav class="footer__col" aria-labelledby="footer-heading-nav">
             <p id="footer-heading-nav" class="footer__col-title">Navegação</p>
@@ -103,15 +188,13 @@
               <li><a href="/index.html">Início</a></li>
               <li><a href="/jogadores.html">Jogadores</a></li>
               <li><a href="/jogos.html">Mix</a></li>
-              <li><a href="/estatisticas.html">Estatísticas</a></li>
-              <li><a href="/conexoes.html">Conexões</a></li>
+              <li><a href="/estatisticas.html">Stats</a></li>
               <li><a href="/sobre.html">Sobre</a></li>
-              <li><a href="/faca-parte.html">Faça parte</a></li>
               <li><a href="/sorteio-times.html">Sorteio</a></li>
             </ul>
           </nav>
           <div class="footer__col" aria-labelledby="footer-heading-connect">
-            <p id="footer-heading-connect" class="footer__col-title">Conexões</p>
+            <p id="footer-heading-connect" class="footer__col-title">Links</p>
             <ul class="footer__navlist">
               <li><a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a></li>
               <li>
@@ -123,7 +206,6 @@
           </div>
           <div class="footer__col footer__col--cta">
             <p class="footer__col-title">Entrar no mix</p>
-            <p class="footer__cta-lead">Quer entrar no mix e na comunidade? Chama no Discord.</p>
             <a
               class="btn btn--primary btn--compact"
               href="https://discord.gg/et6N2Y3pJj"
@@ -139,6 +221,8 @@
         </div>
       </div>
     </footer>
+    <script src="/js/stats-data.js" defer></script>
     <script src="/js/main.js" defer></script>
+    <script src="/js/estatisticas.js" defer></script>
   </body>
 </html>

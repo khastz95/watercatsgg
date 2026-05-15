@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Quem joga no Eternal Pratas — funções, mix e CS2 online."
+      content="Comunidade Eternal Pratas — quem joga CS2 online com a turma."
     />
     <title>Jogadores | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,6 +35,7 @@
             <li><a href="/index.html">Início</a></li>
             <li><a href="/jogadores.html">Jogadores</a></li>
             <li><a href="/jogos.html">Mix</a></li>
+            <li><a href="/estatisticas.html">Stats</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
             <li><a href="/sorteio-times.html">Sorteio</a></li>
           </ul>
@@ -42,221 +43,41 @@
       </div>
     </header>
 
-    <main class="container section section--tight">
+    <main class="container section section--tight players-page">
       <header class="page-hero reveal">
-        <p class="section__label">Elenco</p>
+        <p class="section__label">Comunidade</p>
         <h1>Jogadores</h1>
-        <p>
-          No mix quem tá na call entra na fila. Os cards embaixo são <strong style="color: var(--text)">função</strong>, não
-          contrato — o time fecha na hora, do jeito que o grupo combinar. Nick e link quando alguém quiser fixar isso.
+        <p class="players-page__lead">
+          A turma que aparece na call, no Discord e no Steam — sem hierarquia de time, só gente que joga junto. Cada card
+          tem espaço pra foto; por enquanto usamos a logo do grupo. Avatares individuais em
+          <code>data/jogadores.json</code>.
         </p>
       </header>
 
       <p class="roster-strip reveal" aria-label="Resumo">
-        <span class="map-pill map-pill--strong">Mix</span>
-        <span class="map-pill">Fila</span>
+        <span class="map-pill map-pill--strong">Comunidade</span>
+        <span class="map-pill">CS2</span>
         <span class="map-pill map-pill--strong">Online</span>
       </p>
 
-      <section class="active-members" aria-labelledby="active-members-heading">
-        <div class="section__head active-members__head reveal">
+      <section class="roster-section" aria-labelledby="roster-heading">
+        <div class="roster-section__head reveal">
           <div>
-            <p class="section__label">Presença</p>
-            <h2 id="active-members-heading">Membros ativos no dia a dia</h2>
+            <p class="section__label">Quem joga</p>
+            <h2 id="roster-heading">Membros da comunidade</h2>
+            <p class="roster-section__intro">
+              Nicks de quem costuma estar por aqui. Status opcional (disponível, off-line, em jogo) — só referência
+              visual, não sincroniza com o Steam.
+            </p>
+          </div>
+          <div class="roster-section__tools">
+            <p id="roster-count" class="roster-section__count" aria-live="polite">…</p>
+            <a class="btn btn--ghost btn--compact" href="/estatisticas.html">Ver stats</a>
           </div>
         </div>
-        <p class="active-members__intro reveal">
-          Quem costuma aparecer na call e no Steam; estados no estilo do perfil (disponível, off-line, em jogo).
-        </p>
-        <div class="active-members__grid">
-          <article class="card active-member-card active-member-card--available reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">khastz95</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__status">Disponível</p>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card active-member-card--offline reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">⚡ msk</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__status">Off-line</p>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">BILZERA</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">furyziKNTC</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card active-member-card--ingame reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">asmodeus</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__status">Em jogo</p>
-            <p class="active-member-card__game">MIR4</p>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">Dice</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">♿︎ Nox1</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">k0N1G.exe</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">Lu1zFR</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">Khorpin Shado</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-          <article class="card active-member-card reveal">
-            <div class="active-member-card__top">
-              <h3 class="active-member-card__name">s4mz</h3>
-              <span class="active-member-card__pill">Diário</span>
-            </div>
-            <p class="active-member-card__friend">Este membro é um amigo</p>
-          </article>
-        </div>
+        <div id="roster-members" class="roster-grid" role="list" aria-busy="true"></div>
       </section>
-
-      <div class="section__head reveal" style="margin-bottom: 1.25rem">
-        <div>
-          <p class="section__label">Funções</p>
-          <h2>Vagas no mix</h2>
-        </div>
-      </div>
-
-      <div class="grid-2 grid-roster" id="roster-grid">
-        <article class="card player-card reveal">
-          <div class="player-card__avatar" aria-hidden="true">IGL</div>
-          <div>
-            <span class="player-card__role">In-game leader</span>
-            <p class="player-card__tagline">Na vez de alguém — assume o boné</p>
-            <h3 class="mt-0">Quem puxar hoje</h3>
-            <p class="player-card__meta">Call principal e leitura de round; muda de sessão em sessão no mix.</p>
-            <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Discord na hora do jogo</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card player-card reveal">
-          <div class="player-card__avatar" aria-hidden="true">AW</div>
-          <div>
-            <span class="player-card__role">AWPer</span>
-            <p class="player-card__tagline">Pick ou sorteio — quem tiver confiança</p>
-            <h3 class="mt-0">Vaga na fila</h3>
-            <p class="player-card__meta">Scope na mão de quem pegar; pode rotacionar entre partidas.</p>
-            <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Links quando fixar</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card player-card reveal">
-          <div class="player-card__avatar" aria-hidden="true">ENT</div>
-          <div>
-            <span class="player-card__role">Entry</span>
-            <p class="player-card__tagline">Primeiro contato — ritmo alto</p>
-            <h3 class="mt-0">Próximo da fila</h3>
-            <p class="player-card__meta">Abre bombsite ou troca com quem quiser brigar na frente.</p>
-            <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Entra no mix e chama</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card player-card reveal">
-          <div class="player-card__avatar" aria-hidden="true">SUP</div>
-          <div>
-            <span class="player-card__role">Support</span>
-            <p class="player-card__tagline">Flash, smoke, clutch calmo</p>
-            <h3 class="mt-0">Completa o time</h3>
-            <p class="player-card__meta">Quem fecha o puzzle quando o sorteio deixa um slot “suporte”.</p>
-            <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Combo com IGL/entry</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card player-card reveal">
-          <div class="player-card__avatar" aria-hidden="true">LUR</div>
-          <div>
-            <span class="player-card__role">Lurker</span>
-            <p class="player-card__tagline">Timing e mapa invertido</p>
-            <h3 class="mt-0">Último pick ou surpresa</h3>
-            <p class="player-card__meta">Ótimo pra fechar o draft aleatório quando sobra o canto quieto do mapa.</p>
-            <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Roda no fim da fila</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card player-card reveal">
-          <div class="player-card__avatar" aria-hidden="true">COA</div>
-          <div>
-            <span class="player-card__role">Coach</span>
-            <p class="player-card__tagline">Review pós-partida</p>
-            <h3 class="mt-0">Voz na retrospectiva</h3>
-            <p class="player-card__meta">Pós-jogo: demo, papo, ajuste. Dúvida, manda no Discord.</p>
-            <div class="player-card__links">
-              <span style="color: var(--text-muted); font-size: 0.85rem">Chama no Discord</span>
-            </div>
-          </div>
-        </article>
-      </div>
     </main>
-
-    <script>
-      (function () {
-        var grid = document.getElementById("roster-grid");
-        if (!grid) return;
-        var cards = Array.prototype.slice.call(grid.querySelectorAll(".player-card"));
-        for (var i = cards.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var t = cards[i];
-          cards[i] = cards[j];
-          cards[j] = t;
-        }
-        cards.forEach(function (c) {
-          grid.appendChild(c);
-        });
-      })();
-    </script>
 
     <footer class="site-footer">
       <div class="footer__glow" aria-hidden="true"></div>
@@ -280,6 +101,7 @@
               <li><a href="/index.html">Início</a></li>
               <li><a href="/jogadores.html">Jogadores</a></li>
               <li><a href="/jogos.html">Mix</a></li>
+              <li><a href="/estatisticas.html">Stats</a></li>
               <li><a href="/sobre.html">Sobre</a></li>
               <li><a href="/sorteio-times.html">Sorteio</a></li>
             </ul>
@@ -313,5 +135,6 @@
       </div>
     </footer>
     <script src="/js/main.js" defer></script>
+    <script src="/js/jogadores.js" defer></script>
   </body>
 </html>

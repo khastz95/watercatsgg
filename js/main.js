@@ -52,7 +52,7 @@
     if (hrefFile === path) a.classList.add("is-active");
   });
 
-  var observer = new IntersectionObserver(
+  var revealObserver = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
@@ -63,9 +63,15 @@
     { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
   );
 
-  document.querySelectorAll(".reveal").forEach(function (el) {
-    observer.observe(el);
-  });
+  function refreshReveals(root) {
+    var scope = root && root.querySelectorAll ? root : document;
+    scope.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  window.refreshReveals = refreshReveals;
+  refreshReveals(document);
 
   var statBars = document.querySelectorAll(".stat-bar__fill[data-width]");
   function animateBars() {

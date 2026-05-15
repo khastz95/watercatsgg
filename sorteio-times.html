@@ -49,13 +49,13 @@
         <p class="section__label">Sorteio</p>
         <h1>Dois times na hora</h1>
         <p class="page-hero__lead">
-          Cola os nicks, sorteia com um clique. Funciona com <strong>2 jogadores ou mais</strong> — os times ficam o mais
-          equilibrados possível (se for ímpar, um lado leva um a mais).
+          Cola os nicks com o <strong>rating Premier de cada um</strong> (até 30.000 no CS) e sorteia times equilibrados em
+          pontos e quantidade de jogadores.
         </p>
         <ul class="hub-pills">
-          <li>Mínimo 2 nomes</li>
-          <li>100% no navegador</li>
-          <li>Re-sortear quando quiser</li>
+          <li>Até 30.000 por jogador</li>
+          <li>Balanceamento automático</li>
+          <li>Mínimo 2 jogadores</li>
         </ul>
       </header>
 
@@ -63,22 +63,40 @@
         <section class="sorteio-setup card card--glow reveal" aria-labelledby="sorteio-setup-title">
           <div class="sorteio-setup__head">
             <h2 id="sorteio-setup-title" class="sorteio-setup__title">Lista de jogadores</h2>
-            <p class="sorteio-setup__hint">Um nick por linha. Duplicados não entram.</p>
+            <p class="sorteio-setup__hint">
+              Um jogador por linha: <strong>nick;rating</strong> (ex.: <code>nick;27280</code>). O rating é só desse
+              jogador (máx. 30.000 no CS). Sem número = 0.
+            </p>
           </div>
+
+          <label class="sorteio-balance-toggle">
+            <input type="checkbox" id="sorteio-balance" checked />
+            <span>Balancear times pelo rating Premier de cada jogador</span>
+          </label>
+
+          <ul class="sorteio-tier-legend" aria-label="Cores por faixa de rating Premier">
+            <li><span class="sorteio-rating sorteio-rating--gray">0 – 4.999</span></li>
+            <li><span class="sorteio-rating sorteio-rating--lightblue">5.000 – 9.999</span></li>
+            <li><span class="sorteio-rating sorteio-rating--blue">10.000 – 14.999</span></li>
+            <li><span class="sorteio-rating sorteio-rating--purple">15.000 – 19.999</span></li>
+            <li><span class="sorteio-rating sorteio-rating--pink">20.000 – 24.999</span></li>
+            <li><span class="sorteio-rating sorteio-rating--red">25.000 – 29.999</span></li>
+            <li><span class="sorteio-rating sorteio-rating--gold">30.000+</span></li>
+          </ul>
 
           <div class="sorteio-counter hub-stat" id="sorteio-counter" aria-live="polite">
             <span class="sorteio-counter__value hub-stat__value" id="sorteio-count-num">0</span>
-            <span class="sorteio-counter__label hub-stat__label">na fila</span>
+            <span class="sorteio-counter__label hub-stat__label">jogadores</span>
           </div>
 
           <div class="field sorteio-field">
-            <label for="sorteio-nomes">Nicks</label>
+            <label for="sorteio-nomes">Jogadores (nick e level)</label>
             <textarea
               id="sorteio-nomes"
               rows="10"
               spellcheck="false"
               autocomplete="off"
-              placeholder="Jogador 1&#10;Jogador 2&#10;Jogador 3&#10;…"
+              placeholder="nick1;27280&#10;nick2;22503&#10;nick3;17146&#10;…"
             ></textarea>
           </div>
 
@@ -119,13 +137,17 @@
 
           <div class="sorteio-arena__result" id="sorteio-resultados" hidden>
             <div class="sorteio-score" id="sorteio-score" aria-label="Placar de jogadores por time"></div>
+            <p class="sorteio-score__levels" id="sorteio-score-levels" hidden></p>
 
             <div class="sorteio-vs-wrap">
               <article class="sorteio-team sorteio-team--a">
                 <header class="sorteio-team__head">
                   <span class="sorteio-team__badge">A</span>
                   <h2 class="sorteio-team__title">Time A</h2>
-                  <span class="sorteio-team__count" id="sorteio-count-a">0</span>
+                  <div class="sorteio-team__meta">
+                    <span class="sorteio-team__count" id="sorteio-count-a">0</span>
+                    <span class="sorteio-team__avg" id="sorteio-avg-a" hidden></span>
+                  </div>
                 </header>
                 <ol id="sorteio-time1" class="sorteio-team__list"></ol>
               </article>
@@ -139,7 +161,10 @@
                 <header class="sorteio-team__head">
                   <span class="sorteio-team__badge">B</span>
                   <h2 class="sorteio-team__title">Time B</h2>
-                  <span class="sorteio-team__count" id="sorteio-count-b">0</span>
+                  <div class="sorteio-team__meta">
+                    <span class="sorteio-team__count" id="sorteio-count-b">0</span>
+                    <span class="sorteio-team__avg" id="sorteio-avg-b" hidden></span>
+                  </div>
                 </header>
                 <ol id="sorteio-time2" class="sorteio-team__list"></ol>
               </article>

@@ -60,8 +60,8 @@
     root.innerHTML =
       '<section class="card admin-card">' +
       "<h2 class=\"mt-0\">Entrar</h2>" +
-      "<p class=\"admin-intro\">Use a mesma senha definida em <code>ADMIN_PASSWORD</code> na Vercel.</p>" +
-      field("Senha de admin", "admin-password", app.password, "password", 'autocomplete="current-password"') +
+      '<p class="admin-intro">Digite a senha de edição para continuar.</p>' +
+      field("Senha", "admin-password", app.password, "password", 'autocomplete="current-password"') +
       '<div class="admin-actions">' +
       '<button type="button" class="btn btn--primary" id="btn-login">Continuar</button>' +
       "</div>" +
@@ -79,7 +79,7 @@
     var msg = document.getElementById("admin-msg");
     app.password = pwd;
     StatsData.setStoredPassword(pwd);
-    msg.innerHTML = '<p class="form-msg is-visible">Carregandoâ€¦</p>';
+    msg.innerHTML = '<p class="form-msg is-visible">Carregando…</p>';
 
     StatsData.load()
       .then(function (data) {
@@ -91,7 +91,7 @@
       })
       .catch(function () {
         app.data = StatsData.defaultData();
-        showMsg(msg, "NÃ£o foi possÃ­vel carregar dados. Editor vazio criado.", "error");
+        showMsg(msg, "Não foi possível carregar os dados. Um rascunho vazio foi criado.", "error");
         setTimeout(renderEditor, 800);
       });
   }
@@ -104,9 +104,9 @@
 
     root.innerHTML =
       '<div class="admin-toolbar">' +
-      '<button type="button" class="btn btn--primary" id="btn-save">Salvar na Vercel</button>' +
-      '<button type="button" class="btn btn--ghost" id="btn-export">Exportar JSON</button>' +
-      '<label class="btn btn--ghost admin-file-btn">Importar JSON<input type="file" id="import-file" accept="application/json,.json" hidden /></label>' +
+      '<button type="button" class="btn btn--primary" id="btn-save">Salvar alterações</button>' +
+      '<button type="button" class="btn btn--ghost" id="btn-export">Exportar backup</button>' +
+      '<label class="btn btn--ghost admin-file-btn">Importar backup<input type="file" id="import-file" accept="application/json,.json" hidden /></label>' +
       '<a class="btn btn--ghost" href="/jogadores.html">Ver página pública</a>' +
       "</div>" +
       '<div id="admin-msg"></div>' +
@@ -114,7 +114,7 @@
       "<h2 class=\"mt-0\">Temporada</h2>" +
       '<div class="admin-grid-2">' +
       field("Nome da temporada", "meta-season", d.season) +
-      field("Ãšltima atualizaÃ§Ã£o", "meta-updated", d.updated, "date") +
+      field("Última atualização", "meta-updated", d.updated, "date") +
       "</div></section>" +
       '<section class="card admin-card">' +
       "<h2 class=\"mt-0\">Resumo geral</h2>" +
@@ -412,28 +412,40 @@
     });
   }
 
+  function friendlySaveError(result) {
+    var body = (result && result.body) || {};
+    var code = body.error;
+    if (code === "blob_not_configured") {
+      return "Não foi possível salvar online. Exporte um backup e envie ao responsável do site.";
+    }
+    if (code === "admin_not_configured") {
+      return "Área de edição ainda não está configurada.";
+    }
+    if (result.status === 401 || code === "Senha incorreta.") {
+      return "Senha incorreta.";
+    }
+    if (body.message && !/json|vercel|blob|commit|reposit/i.test(body.message)) {
+      return body.message;
+    }
+    return "Não foi possível salvar. Tente novamente ou exporte um backup.";
+  }
+
   function saveToVercel() {
     var msg = document.getElementById("admin-msg");
     var data = collectData();
     app.data = data;
-    msg.innerHTML = '<p class="form-msg is-visible">Salvandoâ€¦</p>';
+    msg.innerHTML = '<p class="form-msg is-visible">Salvando…</p>';
 
     StatsData.save(data, app.password).then(function (result) {
       if (result.ok) {
-        showMsg(msg, "Salvo na Vercel. A pÃ¡gina pÃºblica jÃ¡ pode ler os novos dados.", "ok");
+        showMsg(msg, "Alterações salvas. A página de Jogadores já está atualizada.", "ok");
         if (result.body && result.body.updated) {
           var el = document.getElementById("meta-updated");
           if (el) el.value = result.body.updated;
         }
         return;
       }
-      var text =
-        (result.body && result.body.message) ||
-        (result.body && result.body.error) ||
-        "Erro ao salvar (HTTP " + result.status + ").";
-      if (result.body && result.body.error === "blob_not_configured") {
-        text += " Use Exportar JSON e faça commit em data/estatisticas.json como alternativa.";
-      }
+      var text = friendlySaveError(result);
       showMsg(msg, text, "error");
     });
   }
@@ -443,10 +455,10 @@
     var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "estatisticas.json";
+    a.download = "jogadores-backup.json";
     a.click();
     URL.revokeObjectURL(a.href);
-    showMsg(document.getElementById("admin-msg"), "Arquivo baixado. Coloque em data/estatisticas.json no repositório.", "ok");
+    showMsg(document.getElementById("admin-msg"), "Backup exportado com sucesso.", "ok");
   }
 
   function importJson(e) {
@@ -460,9 +472,9 @@
           app.data = StatsSchema.normalizeStatsData(app.data);
         }
         renderEditor();
-        showMsg(document.getElementById("admin-msg"), "JSON importado no editor.", "ok");
+        showMsg(document.getElementById("admin-msg"), "Dados importados com sucesso.", "ok");
       } catch (err) {
-        showMsg(document.getElementById("admin-msg"), "Arquivo JSON invÃ¡lido.", "error");
+        showMsg(document.getElementById("admin-msg"), "O arquivo selecionado não é válido.", "error");
       }
       e.target.value = "";
     };

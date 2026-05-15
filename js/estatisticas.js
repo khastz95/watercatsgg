@@ -172,7 +172,7 @@
 
   function renderRanksPanel(ranks) {
     if (!ranks) return "";
-    var html = '<aside class="lf-ranks-panel" aria-label="Ranks CS2">';
+    var html = '<aside class="lf-ranks-panel" aria-label="Rankings">';
     html += '<h2 class="lf-ranks-panel__title">Rankings</h2>';
 
     if (ranks.premier && ranks.premier.length) {
@@ -265,11 +265,11 @@
       ringDual(kdFill, kd) +
       "</article>";
     html +=
-      '<article class="lf-card lf-card--ring"><h2>HLTV RATING</h2>' +
+      '<article class="lf-card lf-card--ring"><h2>HLTV Rating</h2>' +
       ringDual(hltvFill, hltv) +
       "</article>";
 
-    html += '<article class="lf-card lf-card--clutch"><h2>CLUTCH SUCCESS</h2>';
+    html += '<article class="lf-card lf-card--clutch"><h2>Clutch</h2>';
     html +=
       '<p class="lf-clutch__overall"><span>1vX</span> <strong>' +
       escapeHtml(d.clutch.overall) +
@@ -292,10 +292,10 @@
     });
     html += "</div></article>";
 
-    html += '<article class="lf-card lf-card--matches"><h2>MATCHES</h2><div class="lf-matches-scroll"><div class="lf-matches-strip">';
+    html += '<article class="lf-card lf-card--matches"><h2>Partidas</h2><div class="lf-matches-scroll"><div class="lf-matches-strip">';
     var recent = d.recentMatches || [];
     if (!recent.length) {
-      html += '<p class="lf-empty">Sem partidas. Edite no admin.</p>';
+      html += '<p class="lf-empty">Sem partidas recentes.</p>';
     } else {
       recent.forEach(function (m) {
         var res = m.result === "win" ? "win" : m.result === "loss" ? "loss" : "tie";
@@ -329,20 +329,20 @@
 
     html +=
       '<article class="lf-card lf-card--stat">' +
-      "<h2>WIN RATE</h2>" +
+      "<h2>Taxa de vitória</h2>" +
       '<p class="lf-stat-big">' +
       escapeHtml(wr.percent) +
       '%</p><ul class="lf-stat-list">' +
-      "<li><span>Played</span><strong>" +
+      "<li><span>Jogadas</span><strong>" +
       escapeHtml(wr.played) +
       "</strong></li>" +
-      "<li><span>Won</span><strong>" +
+      "<li><span>Vitórias</span><strong>" +
       escapeHtml(wr.won) +
       "</strong></li>" +
-      "<li><span>Lost</span><strong>" +
+      "<li><span>Derrotas</span><strong>" +
       escapeHtml(wr.lost) +
       "</strong></li>" +
-      "<li><span>Tied</span><strong>" +
+      "<li><span>Empates</span><strong>" +
       escapeHtml(wr.tied) +
       "</strong></li></ul></article>";
 
@@ -352,13 +352,13 @@
       '<p class="lf-stat-big">' +
       escapeHtml(cb.hsPercent) +
       '%</p><ul class="lf-stat-list">' +
-      "<li><span>Kills</span><strong>" +
+      "<li><span>Eliminações</span><strong>" +
       escapeHtml(cb.kills) +
       "</strong></li>" +
-      "<li><span>Deaths</span><strong>" +
+      "<li><span>Mortes</span><strong>" +
       escapeHtml(cb.deaths) +
       "</strong></li>" +
-      "<li><span>Assists</span><strong>" +
+      "<li><span>Assistências</span><strong>" +
       escapeHtml(cb.assists) +
       "</strong></li>" +
       "<li><span>Headshots</span><strong>" +
@@ -371,7 +371,7 @@
       '<p class="lf-stat-big">' +
       escapeHtml(cb.adr) +
       '</p><ul class="lf-stat-list">' +
-      "<li><span>Damage</span><strong>" +
+      "<li><span>Dano</span><strong>" +
       escapeHtml(cb.damage) +
       "</strong></li>" +
       "<li><span>Rounds</span><strong>" +
@@ -380,14 +380,14 @@
 
     html += "</div>";
 
-    html += '<article class="lf-card lf-card--entry"><h2>ENTRY SUCCESS</h2>';
+    html += '<article class="lf-card lf-card--entry"><h2>Entry</h2>';
     html +=
-      '<p class="lf-entry__top">per Round <strong>' +
+      '<p class="lf-entry__top">Por round <strong>' +
       escapeHtml(en.perRound) +
       '%</strong></p>';
-    html += '<div class="lf-entry-scroll"><table class="lf-entry-table"><thead><tr><th></th><th>Combined</th><th>T</th><th>CT</th></tr></thead><tbody>';
+    html += '<div class="lf-entry-scroll"><table class="lf-entry-table"><thead><tr><th></th><th>Geral</th><th>T</th><th>CT</th></tr></thead><tbody>';
     html +=
-      "<tr><td>Entry Success</td>" +
+      "<tr><td>Taxa de entry</td>" +
       "<td>" +
       miniPie(en.combined.success, "entry") +
       " " +
@@ -404,7 +404,7 @@
       escapeHtml(en.ct.success) +
       "%</td></tr>";
     html +=
-      "<tr><td>Entry Attempts</td>" +
+      "<tr><td>Tentativas de entry</td>" +
       "<td>" +
       miniPie(en.combined.attempts, "attempt") +
       " " +
@@ -423,7 +423,7 @@
     html += "</tbody></table></div></article>";
 
     html += '<article class="lf-card lf-card--side"><div class="lf-side-grid">';
-    html += '<section class="lf-side-block"><h3>Most Played</h3><ul class="lf-map-list">';
+    html += '<section class="lf-side-block"><h3>Mais jogados</h3><ul class="lf-map-list">';
     (d.maps.mostPlayed || []).forEach(function (m) {
       html +=
         "<li><span class=\"lf-map-list__icon\" style=\"background:" +
@@ -437,7 +437,7 @@
     if (!(d.maps.mostPlayed || []).length) html += '<li class="lf-empty">—</li>';
     html += "</ul></section>";
 
-    html += '<section class="lf-side-block"><h3>Most Success</h3><ul class="lf-map-list lf-map-list--bars">';
+    html += '<section class="lf-side-block"><h3>Mais vitórias</h3><ul class="lf-map-list lf-map-list--bars">';
     (d.maps.mostSuccess || []).forEach(function (m) {
       html +=
         "<li><span class=\"lf-map-list__icon\" style=\"background:" +
@@ -453,7 +453,7 @@
     if (!(d.maps.mostSuccess || []).length) html += '<li class="lf-empty">—</li>';
     html += "</ul></section>";
 
-    html += '<section class="lf-side-block"><h3>Most Kills</h3><ul class="lf-weapon-list">';
+    html += '<section class="lf-side-block"><h3>Mais eliminações</h3><ul class="lf-weapon-list">';
     (d.weapons.mostKills || []).forEach(function (w) {
       html +=
         "<li><span>" +
@@ -485,7 +485,7 @@
 
     var highlights = p.highlights || [];
     if (highlights.length) {
-      html += '<section class="lf-panel lf-panel--clips"><h2>Highlights (Allstar)</h2><div class="lf-clips">';
+      html += '<section class="lf-panel lf-panel--clips"><h2>Clipes</h2><div class="lf-clips">';
       highlights.forEach(function (h, i) {
         var src = resolveVideoUrl(h.url);
         if (!src) return;
@@ -535,7 +535,7 @@
     if (state.players.length) selectPlayer(0);
     else {
       var el = document.getElementById("jogadores-profile");
-      if (el) el.innerHTML = '<p class="lf-empty">Nenhum jogador. Use o admin para adicionar.</p>';
+      if (el) el.innerHTML = '<p class="lf-empty">Nenhum jogador cadastrado.</p>';
     }
   }
 

@@ -63,7 +63,7 @@ export default async function handler(req, res) {
     if (!adminPassword) {
       return res.status(503).json({
         error: "admin_not_configured",
-        message: "Defina ADMIN_PASSWORD nas variáveis de ambiente da Vercel.",
+        message: "Área de edição não configurada.",
       });
     }
 
@@ -75,7 +75,7 @@ export default async function handler(req, res) {
       return res.status(503).json({
         error: "blob_not_configured",
         message:
-          "Crie um Blob Store na Vercel e adicione BLOB_READ_WRITE_TOKEN. Até lá, use Exportar JSON e faça commit do arquivo data/estatisticas.json.",
+          "Armazenamento online indisponível. Use Exportar backup na área de edição.",
       });
     }
 
@@ -84,12 +84,12 @@ export default async function handler(req, res) {
       try {
         body = JSON.parse(body);
       } catch {
-        return res.status(400).json({ error: "JSON inválido." });
+        return res.status(400).json({ error: "invalid_payload", message: "Dados inválidos." });
       }
     }
 
     if (!body || typeof body !== "object" || !Array.isArray(body.players)) {
-      return res.status(400).json({ error: "Formato inválido: é necessário o array players." });
+      return res.status(400).json({ error: "invalid_format", message: "Dados incompletos." });
     }
 
     body.updated = new Date().toISOString().slice(0, 10);

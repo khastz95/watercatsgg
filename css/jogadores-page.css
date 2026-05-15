@@ -1,19 +1,18 @@
-/* Jogadores — dashboard editável */
+/* Jogadores — dashboard (tokens alinhados ao tema global) */
 body.page-jogadores {
-  --lf-bg: #12141a;
-  --lf-card: #1a1d26;
-  --lf-card-hover: #1e222c;
-  --lf-border: rgba(255, 255, 255, 0.07);
-  --lf-text: #e8eaef;
-  --lf-muted: #8b92a5;
+  --lf-bg: var(--bg);
+  --lf-card: var(--bg-card);
+  --lf-card-hover: var(--bg-card-hover);
+  --lf-border: var(--border);
+  --lf-text: var(--text);
+  --lf-muted: var(--text-muted);
   --lf-win: #3dd68c;
   --lf-loss: #f07178;
   --lf-tie: #5b8def;
   --lf-accent: #f84982;
-  --lf-cyan: #00e5ff;
+  --lf-cyan: var(--cyan);
   --lf-gap: 0.75rem;
-  --lf-radius: 12px;
-  background: var(--lf-bg);
+  --lf-radius: var(--radius-sm);
 }
 
 /* —— Layout principal —— */
@@ -819,7 +818,7 @@ body.page-jogadores .lf-clip video {
   width: 100%;
   max-height: 320px;
   border-radius: 8px;
-  background: #000;
+  background: var(--bg-elevated);
   display: block;
 }
 

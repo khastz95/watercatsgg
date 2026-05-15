@@ -1,16 +1,18 @@
 ﻿/* Eternal Pratas â€” tema competitivo CS */
 :root {
-  --bg: #000000;
-  --bg-elevated: #0a0a0f;
-  --bg-card: #0d0d14;
+  --bg: #12141a;
+  --bg-elevated: #161922;
+  --bg-card: #1a1d26;
+  --bg-card-hover: #1e222c;
   --cyan: #00e5ff;
-  --cyan-dim: rgba(0, 229, 255, 0.15);
+  --cyan-dim: rgba(0, 229, 255, 0.12);
   --purple: #5c4dff;
   --purple-deep: #2d1b69;
   --indigo: #414bb2;
-  --text: #e8f4ff;
-  --text-muted: #8a9bb8;
-  --border: rgba(0, 229, 255, 0.25);
+  --text: #e8eaef;
+  --text-muted: #8b92a5;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(0, 229, 255, 0.18);
   --gradient: linear-gradient(135deg, var(--cyan) 0%, var(--indigo) 55%, var(--purple) 100%);
   --gradient-soft: linear-gradient(90deg, rgba(0, 229, 255, 0.12), rgba(92, 77, 255, 0.12));
   --font-display: "Orbitron", system-ui, sans-serif;
@@ -22,7 +24,7 @@
   --radius-pill: 9999px;
   --radius-sharp: var(--radius-sm);
   --shadow-glow: 0 0 24px rgba(0, 229, 255, 0.25), 0 0 48px rgba(92, 77, 255, 0.12);
-  --shadow-card-hover: 0 20px 56px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 229, 255, 0.12);
+  --shadow-card-hover: 0 20px 56px rgba(0, 0, 0, 0.35), 0 0 40px rgba(0, 229, 255, 0.1);
   --header-h: 84px;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -215,11 +217,11 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(0, 229, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(92, 77, 255, 0.045) 1px, transparent 1px),
-    radial-gradient(ellipse 130% 90% at 50% -25%, rgba(0, 229, 255, 0.1), transparent 55%),
-    radial-gradient(ellipse 70% 55% at 100% 40%, rgba(92, 77, 255, 0.08), transparent),
-    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(65, 75, 178, 0.07), transparent);
+    linear-gradient(to right, rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(92, 77, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(ellipse 130% 90% at 50% -25%, rgba(0, 229, 255, 0.07), transparent 55%),
+    radial-gradient(ellipse 70% 55% at 100% 40%, rgba(92, 77, 255, 0.05), transparent),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(65, 75, 178, 0.05), transparent);
   background-size:
     56px 56px,
     56px 56px,
@@ -338,9 +340,9 @@ p {
   z-index: 1000;
   height: var(--header-h);
   width: auto;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.94) 0%, rgba(4, 6, 14, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(18, 20, 26, 0.97) 0%, rgba(22, 25, 34, 0.93) 100%);
   backdrop-filter: blur(20px) saturate(1.35);
-  border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+  border-bottom: 1px solid var(--border);
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   box-shadow:
     0 8px 40px rgba(0, 0, 0, 0.55),
@@ -542,7 +544,7 @@ p {
     top: var(--header-h);
     left: 0;
     right: 0;
-    background: rgba(5, 5, 12, 0.97);
+    background: rgba(18, 20, 26, 0.98);
     border-bottom: 1px solid var(--border);
     max-height: 0;
     overflow: hidden;
@@ -963,8 +965,8 @@ p {
 }
 
 .card {
-  background: linear-gradient(165deg, rgba(18, 22, 36, 0.95) 0%, var(--bg-card) 45%, #080810 100%);
-  border: 1px solid rgba(0, 229, 255, 0.12);
+  background: linear-gradient(165deg, rgba(26, 29, 38, 0.98) 0%, var(--bg-card) 50%, var(--bg-elevated) 100%);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   position: relative;
@@ -1005,7 +1007,7 @@ p {
 }
 
 .card:hover {
-  border-color: rgba(0, 229, 255, 0.55);
+  border-color: var(--border-accent);
   box-shadow: var(--shadow-card-hover), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transform: translateY(-8px) rotate(0.25deg);
 }
@@ -1439,7 +1441,7 @@ p {
   margin-top: clamp(3rem, 6vw, 5rem);
   padding: 0;
   border-top: 1px solid var(--border);
-  background: linear-gradient(180deg, #050508 0%, var(--bg-elevated) 40%, #06060c 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 45%, #141821 100%);
   overflow: hidden;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   box-shadow: 0 -24px 48px rgba(0, 0, 0, 0.35);
@@ -1803,16 +1805,10 @@ body.page-home .hero__grid {
 }
 
 .home-quicklinks {
-  margin-top: -0.75rem;
+  margin-top: 0;
   margin-bottom: 2.5rem;
   position: relative;
   z-index: 1;
-}
-
-@media (min-width: 821px) {
-  body.page-home .home-quicklinks {
-    margin-top: -1.5rem;
-  }
 }
 
 .home-quicklinks .hub-band {
@@ -1821,8 +1817,8 @@ body.page-home .hero__grid {
   gap: 0.65rem 1.1rem;
   padding: 1rem 1.25rem;
   border-radius: var(--radius-lg);
-  background: linear-gradient(165deg, rgba(14, 18, 32, 0.78), rgba(8, 10, 20, 0.52));
-  border: 1px solid rgba(0, 229, 255, 0.12);
+  background: linear-gradient(165deg, rgba(26, 29, 38, 0.85), rgba(18, 20, 26, 0.65));
+  border: 1px solid var(--border);
   box-shadow:
     0 18px 50px rgba(0, 0, 0, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);

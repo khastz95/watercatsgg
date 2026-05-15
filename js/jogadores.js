@@ -107,7 +107,7 @@
         var el = document.getElementById("roster-members");
         if (el) {
           el.innerHTML =
-            '<p class="stats-empty reveal">Não foi possível carregar a lista. Confira <code>data/jogadores.json</code>.</p>';
+            '<p class="stats-empty reveal">Não foi possível carregar a lista de jogadores.</p>';
           el.setAttribute("aria-busy", "false");
         }
       });

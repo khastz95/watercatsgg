@@ -201,7 +201,7 @@
           field("Título", "hl-title-" + pi + "-" + hi, h.title) +
           field("Mapa", "hl-map-" + pi + "-" + hi, h.map) +
           field("Data", "hl-date-" + pi + "-" + hi, h.date, "date") +
-          field("URL Allstar (MP4)", "hl-url-" + pi + "-" + hi, h.url, "url", 'placeholder="https://media2.allstar.gg/..."') +
+          field("Link do vídeo", "hl-url-" + pi + "-" + hi, h.url, "url", 'placeholder="https://…"') +
           "</div>"
         );
       })
@@ -248,7 +248,7 @@
         ph = ph.replace(/<\/?motion[^>]*>/g, "");
         return ph;
       })() +
-      '<p class="admin-intro">Competitive por mapa: use a secção Mapas ou importe JSON.</p></details>' +
+      '<p class="admin-intro">Competitive por mapa: preencha na secção Mapas.</p></details>' +
       '<details class="admin-details" open><summary>Anéis (K/D e HLTV)</summary>' +
       '<div class="admin-grid-2">' +
       field("K/D", "pl-kd-" + pi, d.kd, "number", 'min="0" step="0.01"') +
@@ -258,7 +258,7 @@
       field("1vX geral %", "pl-cl-overall-" + pi, d.clutch.overall, "number", 'min="0" max="100"') +
       clutchHtml +
       "</details>" +
-      '<details class="admin-details"><summary>Partidas recentes (faixa MATCHES)</summary>' +
+      '<details class="admin-details"><summary>Partidas recentes</summary>' +
       '<div id="rm-list-' +
       pi +
       '">' +
@@ -328,7 +328,7 @@
       '</div><button type="button" class="btn btn--ghost btn--compact" data-wh-add="' +
       pi +
       '">+ Arma</button></details>' +
-      '<details class="admin-details" open><summary>Vídeos Allstar</summary>' +
+      '<details class="admin-details" open><summary>Clipes em vídeo</summary>' +
       '<div class="admin-highlights">' +
       (hlHtml || '<p class="stats-empty">Sem vídeos.</p>') +
       '</div><button type="button" class="btn btn--ghost btn--compact" data-add-highlight="' +

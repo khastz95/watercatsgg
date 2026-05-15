@@ -1,4 +1,4 @@
-﻿/* Eternal Pratas â€” tema competitivo CS */
+/* Eternal Pratas — tema competitivo CS */
 :root {
   --bg: #12141a;
   --bg-elevated: #161922;
@@ -121,7 +121,7 @@
   }
 }
 
-/* Halo minimalista atrÃ¡s do logo no hero */
+/* Halo minimalista atrás do logo no hero */
 @keyframes logo-aura-soft {
   0%,
   100% {
@@ -1290,58 +1290,6 @@ p {
   color: #7fffd4;
 }
 
-/* Sorteio de times (10 jogadores â†’ 5 vs 5) */
-.sorteio-panel .btn {
-  margin-top: 0.5rem;
-}
-
-.sorteio-feedback {
-  margin: 0.85rem 0 0;
-  min-height: 1.35em;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
-.sorteio-feedback--erro {
-  color: #ff9a9a;
-}
-
-.sorteio-feedback--ok {
-  color: #7fffd4;
-}
-
-.sorteio-resultados {
-  margin-top: 1.75rem;
-  align-items: stretch;
-}
-
-.sorteio-team__title {
-  margin: 0 0 0.85rem;
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-}
-
-.sorteio-team--1 .sorteio-team__title {
-  color: var(--cyan);
-}
-
-.sorteio-team--2 .sorteio-team__title {
-  color: var(--purple);
-}
-
-.sorteio-team__list {
-  margin: 0;
-  padding-left: 1.35rem;
-  color: var(--text);
-  line-height: 1.65;
-}
-
-.sorteio-footnote {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  max-width: 42rem;
-}
-
 /* Connect tiles */
 .connect-grid {
   display: grid;
@@ -1770,7 +1718,7 @@ a.map-pill.map-pill--strong {
   scroll-margin-top: 6.5rem;
 }
 
-/* Hub Eternal Pratas â€” mix, diversÃ£o 100% online */
+/* Hub Eternal Pratas — mix, diversão 100% online */
 body.hub-site .hero__subtitle {
   color: var(--cyan);
 }
@@ -1859,7 +1807,7 @@ body.page-home .hero__grid {
   font-style: italic;
 }
 
-/* BotÃ£o flutuante â€” Discord */
+/* Botão flutuante — Discord */
 .discord-fab {
   position: fixed;
   right: max(1rem, env(safe-area-inset-right, 0px));
@@ -1902,7 +1850,7 @@ body.page-home .hero__grid {
   height: 1.75rem;
 }
 
-/* Jogadores â€” layout mais dinÃ¢mico */
+/* Jogadores — layout mais dinâmico */
 @keyframes roster-avatar-pulse {
   0%,
   100% {
@@ -1929,7 +1877,7 @@ body.page-jogadores .role-card:nth-child(odd) .role-card__photo-wrap {
   animation-delay: 0.15s;
 }
 
-/* Jogadores â€” elenco com foto */
+/* Jogadores — elenco com foto */
 body.page-jogadores .players-page__lead {
   max-width: 62ch;
   color: var(--text-muted);
@@ -2255,7 +2203,7 @@ body.page-jogadores .players-page__lead code {
   margin: 0 0 0.35rem;
 }
 
-/* Jogos â€” bloco mix */
+/* Jogos — bloco mix */
 .mix-steps {
   list-style: none;
   margin: 0;
@@ -2483,7 +2431,7 @@ body.page-jogadores .players-page__lead code {
   margin-bottom: 1.5rem;
 }
 
-/* Admin â€” estatÃ­sticas */
+/* Admin — estatísticas */
 body.page-admin-stats .admin-intro {
   max-width: 62ch;
   color: var(--text-muted);

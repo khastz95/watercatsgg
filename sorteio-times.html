@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Sorteio 5x5 no Eternal Pratas — dez nomes, dois times."
+      content="Sorteio de times Eternal Pratas — a partir de 2 jogadores, divide em dois lados equilibrados."
     />
     <title>Sorteio de times | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,9 +15,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/sorteio-page.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
-  <body class="hub-site">
+  <body class="hub-site page-sorteio">
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/index.html">
@@ -36,46 +37,125 @@
             <li><a href="/jogadores.html">Jogadores</a></li>
             <li><a href="/jogos.html">Mix</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
-            <li><a href="/sorteio-times.html">Sorteio</a></li>
+            <li><a href="/sorteio-times.html" aria-current="page">Sorteio</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main class="container section section--tight">
-      <header class="page-hero reveal">
+    <main class="sorteio-page" data-sorteio-page>
+      <header class="sorteio-hero container reveal">
         <p class="section__label">Sorteio</p>
-        <h1>Dez nomes, dois times</h1>
-        <p>Um nome por linha. Clica, embaralha, pronto: cinco de um lado, cinco do outro.</p>
+        <h1>Dois times na hora</h1>
+        <p class="sorteio-hero__lead">
+          Cola os nicks, sorteia com um clique. Funciona com <strong>2 jogadores ou mais</strong> — os times ficam o mais
+          equilibrados possível (se for ímpar, um lado leva um a mais).
+        </p>
+        <ul class="sorteio-hero__pills">
+          <li>Mínimo 2 nomes</li>
+          <li>100% no navegador</li>
+          <li>Re-sortear quando quiser</li>
+        </ul>
       </header>
 
-      <article class="card reveal sorteio-panel">
-        <div class="field">
-          <label for="sorteio-nomes">Lista (10 linhas)</label>
-          <textarea
-            id="sorteio-nomes"
-            rows="12"
-            spellcheck="false"
-            autocomplete="off"
-            placeholder="Fulano&#10;Beltrano&#10;...&#10;(10 nomes no total)"
-          ></textarea>
-        </div>
-        <button class="btn btn--primary" type="button" id="sorteio-btn">Sortear times</button>
-        <p id="sorteio-feedback" class="sorteio-feedback" role="status" aria-live="polite"></p>
-      </article>
+      <div class="container sorteio-layout">
+        <section class="sorteio-setup card reveal" aria-labelledby="sorteio-setup-title">
+          <div class="sorteio-setup__head">
+            <h2 id="sorteio-setup-title" class="sorteio-setup__title">Lista de jogadores</h2>
+            <p class="sorteio-setup__hint">Um nick por linha. Duplicados não entram.</p>
+          </div>
 
-      <div id="sorteio-resultados" class="grid-2 sorteio-resultados" hidden>
-        <article class="card sorteio-team sorteio-team--1">
-          <h2 class="sorteio-team__title">Time 1</h2>
-          <ol id="sorteio-time1" class="sorteio-team__list"></ol>
-        </article>
-        <article class="card sorteio-team sorteio-team--2">
-          <h2 class="sorteio-team__title">Time 2</h2>
-          <ol id="sorteio-time2" class="sorteio-team__list"></ol>
-        </article>
+          <div class="sorteio-counter" id="sorteio-counter" aria-live="polite">
+            <span class="sorteio-counter__value" id="sorteio-count-num">0</span>
+            <span class="sorteio-counter__label">na fila</span>
+          </div>
+
+          <div class="field sorteio-field">
+            <label for="sorteio-nomes">Nicks</label>
+            <textarea
+              id="sorteio-nomes"
+              rows="10"
+              spellcheck="false"
+              autocomplete="off"
+              placeholder="Jogador 1&#10;Jogador 2&#10;Jogador 3&#10;…"
+            ></textarea>
+          </div>
+
+          <div id="sorteio-chips" class="sorteio-chips" hidden aria-label="Pré-visualização da lista"></div>
+
+          <div class="sorteio-setup__toolbar">
+            <button type="button" class="btn btn--ghost btn--compact" id="sorteio-load-turma">Carregar turma</button>
+            <button type="button" class="btn btn--ghost btn--compact" id="sorteio-clear">Limpar</button>
+          </div>
+
+          <button type="button" class="btn btn--primary sorteio-btn-draw" id="sorteio-btn" disabled>
+            <span class="sorteio-btn-draw__text">Sortear times</span>
+          </button>
+
+          <p id="sorteio-feedback" class="sorteio-feedback" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="sorteio-arena reveal" id="sorteio-arena" aria-live="polite">
+          <div class="sorteio-arena__empty" id="sorteio-empty">
+            <div class="sorteio-arena__icon" aria-hidden="true">⚔</div>
+            <p>Os times aparecem aqui depois do sorteio.</p>
+            <p class="sorteio-arena__empty-sub">Adiciona pelo menos 2 nomes e clica em <strong>Sortear times</strong>.</p>
+          </div>
+
+          <div class="sorteio-arena__drawing" id="sorteio-drawing" hidden>
+            <div class="sorteio-arena__glow" aria-hidden="true"></div>
+            <div class="sorteio-spinner" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="sorteio-drawing__label" id="sorteio-drawing-label">Misturando nicks…</p>
+            <div class="sorteio-slot" aria-hidden="true">
+              <p class="sorteio-drawing__name" id="sorteio-drawing-name"></p>
+            </div>
+            <div class="sorteio-drawing__progress" id="sorteio-drawing-progress" aria-hidden="true">
+              <span class="sorteio-drawing__bar" id="sorteio-drawing-bar"></span>
+            </div>
+          </div>
+
+          <div class="sorteio-arena__result" id="sorteio-resultados" hidden>
+            <div class="sorteio-score" id="sorteio-score" aria-label="Placar de jogadores por time"></div>
+
+            <div class="sorteio-vs-wrap">
+              <article class="sorteio-team sorteio-team--a">
+                <header class="sorteio-team__head">
+                  <span class="sorteio-team__badge">A</span>
+                  <h2 class="sorteio-team__title">Time A</h2>
+                  <span class="sorteio-team__count" id="sorteio-count-a">0</span>
+                </header>
+                <ol id="sorteio-time1" class="sorteio-team__list"></ol>
+              </article>
+
+              <div class="sorteio-vs" aria-hidden="true">
+                <span class="sorteio-vs__ring"></span>
+                <span class="sorteio-vs__text">VS</span>
+              </div>
+
+              <article class="sorteio-team sorteio-team--b">
+                <header class="sorteio-team__head">
+                  <span class="sorteio-team__badge">B</span>
+                  <h2 class="sorteio-team__title">Time B</h2>
+                  <span class="sorteio-team__count" id="sorteio-count-b">0</span>
+                </header>
+                <ol id="sorteio-time2" class="sorteio-team__list"></ol>
+              </article>
+            </div>
+
+            <div class="sorteio-result-actions">
+              <button type="button" class="btn btn--primary btn--compact" id="sorteio-again">Sortear de novo</button>
+              <button type="button" class="btn btn--ghost btn--compact" id="sorteio-copy">Copiar times</button>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <p class="reveal sorteio-footnote">Isso roda no seu PC; a lista não vai pra lugar nenhum. Não curtiu? Clica de novo.</p>
+      <p class="container reveal sorteio-footnote">
+        Tudo roda no seu navegador — a lista não é enviada a nenhum servidor. Para o mix completo, vê também a
+        <a href="/jogos.html">página do mix</a>.
+      </p>
     </main>
 
     <footer class="site-footer">

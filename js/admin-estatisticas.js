@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   "use strict";
 
   var root = document.getElementById("admin-root");
@@ -79,16 +79,19 @@
     var msg = document.getElementById("admin-msg");
     app.password = pwd;
     StatsData.setStoredPassword(pwd);
-    msg.innerHTML = '<p class="form-msg is-visible">Carregando…</p>';
+    msg.innerHTML = '<p class="form-msg is-visible">Carregandoâ€¦</p>';
 
     StatsData.load()
       .then(function (data) {
+        if (typeof StatsSchema !== "undefined") {
+          data = StatsSchema.normalizeStatsData(data);
+        }
         app.data = data;
         renderEditor();
       })
       .catch(function () {
         app.data = StatsData.defaultData();
-        showMsg(msg, "Não foi possível carregar dados. Editor vazio criado.", "error");
+        showMsg(msg, "NÃ£o foi possÃ­vel carregar dados. Editor vazio criado.", "error");
         setTimeout(renderEditor, 800);
       });
   }
@@ -104,23 +107,23 @@
       '<button type="button" class="btn btn--primary" id="btn-save">Salvar na Vercel</button>' +
       '<button type="button" class="btn btn--ghost" id="btn-export">Exportar JSON</button>' +
       '<label class="btn btn--ghost admin-file-btn">Importar JSON<input type="file" id="import-file" accept="application/json,.json" hidden /></label>' +
-      '<a class="btn btn--ghost" href="/estatisticas.html">Ver página pública</a>' +
+      '<a class="btn btn--ghost" href="/jogadores.html">Ver página pública</a>' +
       "</div>" +
       '<div id="admin-msg"></div>' +
       '<section class="card admin-card">' +
       "<h2 class=\"mt-0\">Temporada</h2>" +
       '<div class="admin-grid-2">' +
       field("Nome da temporada", "meta-season", d.season) +
-      field("Última atualização", "meta-updated", d.updated, "date") +
+      field("Ãšltima atualizaÃ§Ã£o", "meta-updated", d.updated, "date") +
       "</div></section>" +
       '<section class="card admin-card">' +
       "<h2 class=\"mt-0\">Resumo geral</h2>" +
       '<div class="admin-grid-3">' +
       field("Partidas", "sum-matches", d.summary.matches, "number", 'min="0" step="1"') +
-      field("Vitórias", "sum-wins", d.summary.wins, "number", 'min="0" step="1"') +
+      field("VitÃ³rias", "sum-wins", d.summary.wins, "number", 'min="0" step="1"') +
       field("Derrotas", "sum-losses", d.summary.losses, "number", 'min="0" step="1"') +
       field("Rounds jogados", "sum-rounds", d.summary.roundsPlayed, "number", 'min="0" step="1"') +
-      field("Rating médio (auto ao salvar)", "sum-avg", d.summary.avgRating, "number", 'min="0" step="0.01" readonly') +
+      field("Rating mÃ©dio (auto ao salvar)", "sum-avg", d.summary.avgRating, "number", 'min="0" step="0.01" readonly') +
       "</div></section>" +
       '<section class="card admin-card">' +
       '<div class="admin-section-head"><h2 class="mt-0">Partidas</h2>' +
@@ -166,7 +169,7 @@
           i +
           '"><option value="win"' +
           (m.result === "win" ? " selected" : "") +
-          '>Vitória</option><option value="loss"' +
+          '>VitÃ³ria</option><option value="loss"' +
           (m.result === "loss" ? " selected" : "") +
           '>Derrota</option></select></div>' +
           field("Time A", "match-a-" + i, m.teamA) +
@@ -190,62 +193,7 @@
     }
     wrap.innerHTML = players
       .map(function (p, pi) {
-        var highlights = p.highlights || [];
-        var hlHtml = highlights
-          .map(function (h, hi) {
-            return (
-              '<div class="admin-highlight" data-player="' +
-              pi +
-              '" data-highlight="' +
-              hi +
-              '">' +
-              '<div class="admin-block__head"><span>Clip ' +
-              (hi + 1) +
-              '</span><button type="button" class="admin-remove" data-remove-highlight="' +
-              pi +
-              "-" +
-              hi +
-              '">Remover</button></div>' +
-              field("Título", "hl-title-" + pi + "-" + hi, h.title) +
-              field("Mapa", "hl-map-" + pi + "-" + hi, h.map) +
-              field("Data", "hl-date-" + pi + "-" + hi, h.date, "date") +
-              field("URL do vídeo (MP4)", "hl-url-" + pi + "-" + hi, h.url, "url", 'placeholder="https://media2.allstar.gg/..."') +
-              "</div>"
-            );
-          })
-          .join("");
-
-        hlHtml = hlHtml.replace(/<\/?motion[^>]*>/g, "");
-
-        return (
-          '<article class="admin-player" data-player-index="' +
-          pi +
-          '">' +
-          '<div class="admin-block__head"><h3 class="mt-0">' +
-          esc(p.nick || "Jogador " + (pi + 1)) +
-          '</h3><button type="button" class="admin-remove" data-remove-player="' +
-          pi +
-          '">Remover jogador</button></div>' +
-          '<div class="admin-grid-2">' +
-          field("Nick", "pl-nick-" + pi, p.nick) +
-          field("Função", "pl-role-" + pi, p.role) +
-          field("Partidas (J)", "pl-matches-" + pi, p.matches, "number", 'min="0"') +
-          field("Kills", "pl-kills-" + pi, p.kills, "number", 'min="0"') +
-          field("Deaths", "pl-deaths-" + pi, p.deaths, "number", 'min="0"') +
-          field("Assists", "pl-assists-" + pi, p.assists, "number", 'min="0"') +
-          field("ADR", "pl-adr-" + pi, p.adr, "number", 'min="0" step="0.1"') +
-          field("HS %", "pl-hs-" + pi, p.hsPercent, "number", 'min="0" max="100"') +
-          field("Rating", "pl-rating-" + pi, p.rating, "number", 'min="0" step="0.01"') +
-          "</div>" +
-          '<div class="admin-section-head admin-section-head--tight">' +
-          "<h4>Highlights</h4>" +
-          '<button type="button" class="btn btn--ghost btn--compact" data-add-highlight="' +
-          pi +
-          '">+ Vídeo</button></div>' +
-          '<div class="admin-highlights">' +
-          (hlHtml || '<p class="stats-empty">Sem vídeos.</p>') +
-          "</div></article>"
-        );
+        return AdminPlayerFields.render(pi, p);
       })
       .join("");
   }
@@ -279,32 +227,8 @@
 
     d.players = [];
     (app.data.players || []).forEach(function (p, pi) {
-      var nickEl = document.getElementById("pl-nick-" + pi);
-      if (!nickEl) return;
-      var player = {
-        nick: nickEl.value.trim(),
-        role: document.getElementById("pl-role-" + pi).value.trim(),
-        matches: int(document.getElementById("pl-matches-" + pi).value, 0),
-        kills: int(document.getElementById("pl-kills-" + pi).value, 0),
-        deaths: int(document.getElementById("pl-deaths-" + pi).value, 0),
-        assists: int(document.getElementById("pl-assists-" + pi).value, 0),
-        adr: num(document.getElementById("pl-adr-" + pi).value, 0),
-        hsPercent: num(document.getElementById("pl-hs-" + pi).value, 0),
-        rating: num(document.getElementById("pl-rating-" + pi).value, 0),
-        highlights: [],
-      };
-      (p.highlights || []).forEach(function (_, hi) {
-        var urlEl = document.getElementById("hl-url-" + pi + "-" + hi);
-        if (!urlEl) return;
-        var url = urlEl.value.trim();
-        if (!url) return;
-        player.highlights.push({
-          title: document.getElementById("hl-title-" + pi + "-" + hi).value.trim(),
-          map: document.getElementById("hl-map-" + pi + "-" + hi).value.trim(),
-          date: document.getElementById("hl-date-" + pi + "-" + hi).value,
-          url: url,
-        });
-      });
+      if (!document.getElementById("pl-nick-" + pi)) return;
+      var player = AdminPlayerFields.collect(pi, p);
       if (player.nick) d.players.push(player);
     });
 
@@ -334,13 +258,7 @@
       app.data.players.push({
         nick: "NovoJogador",
         role: "",
-        matches: 0,
-        kills: 0,
-        deaths: 0,
-        assists: 0,
-        adr: 0,
-        hsPercent: 0,
-        rating: 1,
+        dashboard: StatsSchema.defaultDashboard(),
         highlights: [],
       });
       renderPlayersList();
@@ -395,17 +313,114 @@
         bindMatchPlayerRemove();
       };
     });
+
+    bindPlayerListAdds();
+  }
+
+  function bindPlayerListAdds() {
+    root.querySelectorAll("[data-rm-add]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var pi = parseInt(btn.getAttribute("data-rm-add"), 10);
+        var p = app.data.players[pi];
+        if (!p.dashboard.recentMatches) p.dashboard.recentMatches = [];
+        p.dashboard.recentMatches.push({ map: "de_mirage", scoreA: 13, scoreB: 10, result: "win" });
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-rm-remove]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var parts = btn.getAttribute("data-rm-remove").split("-");
+        app.data.players[parseInt(parts[0], 10)].dashboard.recentMatches.splice(parseInt(parts[1], 10), 1);
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-mp-add]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var pi = parseInt(btn.getAttribute("data-mp-add"), 10);
+        app.data.players[pi].dashboard.maps.mostPlayed.push({ name: "de_mirage", count: 0 });
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-mp-remove]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var parts = btn.getAttribute("data-mp-remove").split("-");
+        app.data.players[parseInt(parts[0], 10)].dashboard.maps.mostPlayed.splice(parseInt(parts[1], 10), 1);
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-ms-add]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var pi = parseInt(btn.getAttribute("data-ms-add"), 10);
+        app.data.players[pi].dashboard.maps.mostSuccess.push({ name: "de_mirage", winPercent: 50 });
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-ms-remove]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var parts = btn.getAttribute("data-ms-remove").split("-");
+        app.data.players[parseInt(parts[0], 10)].dashboard.maps.mostSuccess.splice(parseInt(parts[1], 10), 1);
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-wk-add]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var pi = parseInt(btn.getAttribute("data-wk-add"), 10);
+        app.data.players[pi].dashboard.weapons.mostKills.push({ name: "AK-47", value: 0, bar: 100 });
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-wk-remove]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var parts = btn.getAttribute("data-wk-remove").split("-");
+        app.data.players[parseInt(parts[0], 10)].dashboard.weapons.mostKills.splice(parseInt(parts[1], 10), 1);
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-wh-add]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var pi = parseInt(btn.getAttribute("data-wh-add"), 10);
+        app.data.players[pi].dashboard.weapons.headshotRate.push({ name: "AK-47", value: 0, bar: 100 });
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
+    root.querySelectorAll("[data-wh-remove]").forEach(function (btn) {
+      btn.onclick = function () {
+        collectData();
+        var parts = btn.getAttribute("data-wh-remove").split("-");
+        app.data.players[parseInt(parts[0], 10)].dashboard.weapons.headshotRate.splice(parseInt(parts[1], 10), 1);
+        renderPlayersList();
+        bindMatchPlayerRemove();
+      };
+    });
   }
 
   function saveToVercel() {
     var msg = document.getElementById("admin-msg");
     var data = collectData();
     app.data = data;
-    msg.innerHTML = '<p class="form-msg is-visible">Salvando…</p>';
+    msg.innerHTML = '<p class="form-msg is-visible">Salvandoâ€¦</p>';
 
     StatsData.save(data, app.password).then(function (result) {
       if (result.ok) {
-        showMsg(msg, "Salvo na Vercel. A página pública já pode ler os novos dados.", "ok");
+        showMsg(msg, "Salvo na Vercel. A pÃ¡gina pÃºblica jÃ¡ pode ler os novos dados.", "ok");
         if (result.body && result.body.updated) {
           var el = document.getElementById("meta-updated");
           if (el) el.value = result.body.updated;
@@ -441,10 +456,13 @@
     reader.onload = function () {
       try {
         app.data = JSON.parse(reader.result);
+        if (typeof StatsSchema !== "undefined") {
+          app.data = StatsSchema.normalizeStatsData(app.data);
+        }
         renderEditor();
         showMsg(document.getElementById("admin-msg"), "JSON importado no editor.", "ok");
       } catch (err) {
-        showMsg(document.getElementById("admin-msg"), "Arquivo JSON inválido.", "error");
+        showMsg(document.getElementById("admin-msg"), "Arquivo JSON invÃ¡lido.", "error");
       }
       e.target.value = "";
     };

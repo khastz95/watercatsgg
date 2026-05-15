@@ -1,71 +1,104 @@
 {
-  "updated": "2026-05-15",
+  "updated": "2026-05-16",
   "season": "Mix 2026",
   "summary": {
-    "matches": 8,
-    "wins": 5,
-    "losses": 3,
-    "roundsPlayed": 142,
-    "avgRating": 1.04
+    "matches": 0,
+    "wins": 0,
+    "losses": 0,
+    "roundsPlayed": 0,
+    "avgRating": 1.08
   },
-  "matches": [
-    {
-      "date": "2026-05-14",
-      "map": "Mirage",
-      "teamA": "Time A",
-      "teamB": "Time B",
-      "scoreA": 13,
-      "scoreB": 9,
-      "result": "win"
-    },
-    {
-      "date": "2026-05-12",
-      "map": "Inferno",
-      "teamA": "Pratas",
-      "teamB": "Visitantes",
-      "scoreA": 11,
-      "scoreB": 13,
-      "result": "loss"
-    },
-    {
-      "date": "2026-05-10",
-      "map": "Ancient",
-      "teamA": "Time A",
-      "teamB": "Time B",
-      "scoreA": 13,
-      "scoreB": 7,
-      "result": "win"
-    },
-    {
-      "date": "2026-05-08",
-      "map": "Nuke",
-      "teamA": "Pratas",
-      "teamB": "Visitantes",
-      "scoreA": 13,
-      "scoreB": 11,
-      "result": "win"
-    },
-    {
-      "date": "2026-05-05",
-      "map": "Anubis",
-      "teamA": "Time A",
-      "teamB": "Time B",
-      "scoreA": 8,
-      "scoreB": 13,
-      "result": "loss"
-    }
-  ],
+  "matches": [],
   "players": [
     {
       "nick": "khastz95",
       "role": "Entry",
-      "matches": 6,
-      "kills": 98,
-      "deaths": 72,
-      "assists": 24,
-      "adr": 82.4,
-      "rating": 1.12,
-      "hsPercent": 48,
+      "dashboard": {
+        "kd": 1.11,
+        "hltvRating": 1.22,
+        "clutch": {
+          "overall": 16,
+          "situations": [
+            { "id": "1v1", "success": 14, "wins": 18, "losses": 25 },
+            { "id": "1v2", "success": 38, "wins": 12, "losses": 50 },
+            { "id": "1v3", "success": 28, "wins": 4, "losses": 36 },
+            { "id": "1v4", "success": 12, "wins": 1, "losses": 45 },
+            { "id": "1v5", "success": 5, "wins": 0, "losses": 23 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_inferno", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_nuke", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_anubis", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_overpass", "scoreA": 12, "scoreB": 12, "result": "tie" },
+          { "map": "de_vertigo", "scoreA": 13, "scoreB": 6, "result": "win" },
+          { "map": "de_mirage", "scoreA": 8, "scoreB": 13, "result": "loss" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 10, "result": "win" }
+        ],
+        "winRate": { "percent": 55, "played": 596, "won": 325, "lost": 251, "tied": 20 },
+        "combat": {
+          "hsPercent": 45,
+          "kills": 9793,
+          "deaths": 8819,
+          "assists": 3024,
+          "headshots": 4369,
+          "adr": 87,
+          "damage": 1069375,
+          "rounds": 12314
+        },
+        "entry": {
+          "perRound": 13,
+          "combined": { "success": 55, "attempts": 23 },
+          "t": { "success": 52, "attempts": 23 },
+          "ct": { "success": 58, "attempts": 22 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 174 },
+            { "name": "de_dust2", "count": 150 },
+            { "name": "de_inferno", "count": 107 },
+            { "name": "de_overpass", "count": 52 }
+          ],
+          "mostSuccess": [
+            { "name": "de_dust2", "winPercent": 63 },
+            { "name": "de_ancient", "winPercent": 58 },
+            { "name": "de_anubis", "winPercent": 58 },
+            { "name": "de_mirage", "winPercent": 56 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 4243, "bar": 100 },
+            { "name": "M4A1-S", "value": 2270, "bar": 53 },
+            { "name": "AWP", "value": 623, "bar": 15 },
+            { "name": "USP-S", "value": 526, "bar": 12 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 49, "bar": 98 },
+            { "name": "M4A1-S", "value": 44, "bar": 88 },
+            { "name": "AWP", "value": 31, "bar": 62 },
+            { "name": "USP-S", "value": 38, "bar": 76 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "date": "Nov 2025", "rating": 27280, "best": 28420, "wins": 38 },
+            { "season": "S3", "date": "Aug 2025", "rating": 24100, "best": 25800, "wins": 52 },
+            { "season": "S2", "date": "May 2025", "rating": 19800, "best": 21200, "wins": 44 },
+            { "season": "S1", "date": "Feb 2025", "rating": 16500, "best": 17900, "wins": 36 }
+          ],
+          "wingman": { "rankLabel": "DMG", "wins": 24 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG I", "wins": 88 },
+            { "map": "de_dust2", "rankLabel": "MG II", "wins": 72 },
+            { "map": "de_inferno", "rankLabel": "GNM", "wins": 54 },
+            { "map": "de_ancient", "rankLabel": "MG I", "wins": 41 }
+          ]
+        }
+      },
       "highlights": [
         {
           "title": "ACE no B",
@@ -76,63 +109,956 @@
       ]
     },
     {
+      "nick": "asmodeus",
+      "role": "",
+      "dashboard": {
+        "kd": 1.11,
+        "hltvRating": 1.22,
+        "clutch": {
+          "overall": 15,
+          "situations": [
+            { "id": "1v1", "success": 66, "wins": 23, "losses": 12 },
+            { "id": "1v2", "success": 35, "wins": 7, "losses": 13 },
+            { "id": "1v3", "success": 20, "wins": 2, "losses": 8 },
+            { "id": "1v4", "success": 10, "wins": 1, "losses": 9 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 4 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_inferno", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_overpass", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_nuke", "scoreA": 9, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_dust2", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_anubis", "scoreA": 13, "scoreB": 6, "result": "win" },
+          { "map": "de_vertigo", "scoreA": 12, "scoreB": 12, "result": "tie" }
+        ],
+        "winRate": { "percent": 61, "played": 152, "won": 92, "lost": 57, "tied": 3 },
+        "combat": {
+          "hsPercent": 39,
+          "kills": 2495,
+          "deaths": 2244,
+          "assists": 787,
+          "headshots": 983,
+          "adr": 86,
+          "damage": 273732,
+          "rounds": 3168
+        },
+        "entry": {
+          "perRound": 13,
+          "combined": { "success": 55, "attempts": 23 },
+          "t": { "success": 52, "attempts": 23 },
+          "ct": { "success": 58, "attempts": 22 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 48 },
+            { "name": "de_dust2", "count": 38 },
+            { "name": "de_inferno", "count": 28 },
+            { "name": "de_overpass", "count": 22 }
+          ],
+          "mostSuccess": [
+            { "name": "de_overpass", "winPercent": 86 },
+            { "name": "de_ancient", "winPercent": 65 },
+            { "name": "de_mirage", "winPercent": 58 },
+            { "name": "de_dust2", "winPercent": 55 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 892, "bar": 100 },
+            { "name": "M4A1-S", "value": 512, "bar": 57 },
+            { "name": "AWP", "value": 198, "bar": 22 },
+            { "name": "Desert Eagle", "value": 124, "bar": 14 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 42, "bar": 84 },
+            { "name": "M4A1-S", "value": 38, "bar": 76 },
+            { "name": "Desert Eagle", "value": 58, "bar": 100 },
+            { "name": "AWP", "value": 24, "bar": 48 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 22503, "best": 24000, "wins": 28 },
+            { "season": "S3", "rating": 19800, "best": 21000, "wins": 22 },
+            { "season": "S2", "rating": 17200, "best": 18500, "wins": 18 },
+            { "season": "S1", "rating": 15000, "best": 16200, "wins": 14 }
+          ],
+          "wingman": { "rankLabel": "LEM", "wins": 12 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG II", "wins": 32 },
+            { "map": "de_dust2", "rankLabel": "MG I", "wins": 28 },
+            { "map": "de_inferno", "rankLabel": "GNM", "wins": 18 }
+          ]
+        }
+      },
+      "highlights": []
+    },
+    {
       "nick": "BILZERA",
       "role": "AWPer",
-      "matches": 5,
-      "kills": 76,
-      "deaths": 68,
-      "assists": 19,
-      "adr": 74.1,
-      "rating": 1.02,
-      "hsPercent": 41,
+      "dashboard": {
+        "kd": 1.1,
+        "hltvRating": 1.17,
+        "clutch": {
+          "overall": 20,
+          "situations": [
+            { "id": "1v1", "success": 73, "wins": 84, "losses": 31 },
+            { "id": "1v2", "success": 23, "wins": 18, "losses": 60 },
+            { "id": "1v3", "success": 5, "wins": 3, "losses": 57 },
+            { "id": "1v4", "success": 1, "wins": 1, "losses": 99 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 12 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_inferno", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_overpass", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_nuke", "scoreA": 9, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 12, "result": "win" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 5, "result": "win" }
+        ],
+        "winRate": { "percent": 51, "played": 322, "won": 165, "lost": 148, "tied": 9 },
+        "combat": {
+          "hsPercent": 43,
+          "kills": 5236,
+          "deaths": 4774,
+          "assists": 1521,
+          "headshots": 2261,
+          "adr": 83,
+          "damage": 561821,
+          "rounds": 6753
+        },
+        "entry": {
+          "perRound": 12,
+          "combined": { "success": 54, "attempts": 22 },
+          "t": { "success": 52, "attempts": 22 },
+          "ct": { "success": 56, "attempts": 21 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 98 },
+            { "name": "de_dust2", "count": 86 },
+            { "name": "de_inferno", "count": 72 },
+            { "name": "de_overpass", "count": 45 }
+          ],
+          "mostSuccess": [
+            { "name": "de_dust2", "winPercent": 61 },
+            { "name": "de_overpass", "winPercent": 60 },
+            { "name": "de_mirage", "winPercent": 54 },
+            { "name": "de_inferno", "winPercent": 49 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 1820, "bar": 100 },
+            { "name": "M4A1-S", "value": 1240, "bar": 68 },
+            { "name": "AWP", "value": 1180, "bar": 65 },
+            { "name": "USP-S", "value": 320, "bar": 18 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 45, "bar": 90 },
+            { "name": "M4A1-S", "value": 41, "bar": 82 },
+            { "name": "AWP", "value": 22, "bar": 44 },
+            { "name": "Desert Eagle", "value": 55, "bar": 100 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 18691, "best": 21027, "wins": 122 },
+            { "season": "S3", "rating": 10005, "best": 10107, "wins": 55 }
+          ],
+          "wingman": { "rankLabel": "FACEIT Lv.5", "wins": 18 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG II", "wins": 64 },
+            { "map": "de_dust2", "rankLabel": "MG I", "wins": 58 },
+            { "map": "de_inferno", "rankLabel": "GNM", "wins": 42 },
+            { "map": "de_overpass", "rankLabel": "MG I", "wins": 38 }
+          ]
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "Dice",
+      "role": "",
+      "dashboard": {
+        "kd": 0.92,
+        "hltvRating": 1.04,
+        "clutch": {
+          "overall": 17,
+          "situations": [
+            { "id": "1v1", "success": 58, "wins": 44, "losses": 32 },
+            { "id": "1v2", "success": 28, "wins": 12, "losses": 31 },
+            { "id": "1v3", "success": 15, "wins": 4, "losses": 22 },
+            { "id": "1v4", "success": 8, "wins": 1, "losses": 11 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 5 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_mirage", "scoreA": 8, "scoreB": 13, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_inferno", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_nuke", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_overpass", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_mirage", "scoreA": 12, "scoreB": 12, "result": "tie" }
+        ],
+        "winRate": { "percent": 44, "played": 155, "won": 68, "lost": 77, "tied": 10 },
+        "combat": {
+          "hsPercent": 40,
+          "kills": 2028,
+          "deaths": 2203,
+          "assists": 844,
+          "headshots": 813,
+          "adr": 76,
+          "damage": 235436,
+          "rounds": 3095
+        },
+        "entry": {
+          "perRound": 8,
+          "combined": { "success": 48, "attempts": 16 },
+          "t": { "success": 45, "attempts": 17 },
+          "ct": { "success": 51, "attempts": 15 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_dust2", "count": 52 },
+            { "name": "de_ancient", "count": 38 },
+            { "name": "de_mirage", "count": 32 },
+            { "name": "de_inferno", "count": 24 }
+          ],
+          "mostSuccess": [
+            { "name": "de_ancient", "winPercent": 69 },
+            { "name": "de_dust2", "winPercent": 52 },
+            { "name": "de_mirage", "winPercent": 44 },
+            { "name": "de_inferno", "winPercent": 42 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 720, "bar": 100 },
+            { "name": "M4A1-S", "value": 480, "bar": 67 },
+            { "name": "AWP", "value": 210, "bar": 29 },
+            { "name": "Galil AR", "value": 180, "bar": 25 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 44, "bar": 88 },
+            { "name": "M4A1-S", "value": 40, "bar": 80 },
+            { "name": "Galil AR", "value": 36, "bar": 72 },
+            { "name": "AWP", "value": 20, "bar": 40 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 15389, "best": 17200, "wins": 24 },
+            { "season": "S3", "rating": 12800, "best": 14000, "wins": 18 }
+          ],
+          "wingman": { "rankLabel": "DMG", "wins": 8 },
+          "competitive": [
+            { "map": "de_dust2", "rankLabel": "GNM", "wins": 28 },
+            { "map": "de_ancient", "rankLabel": "MG I", "wins": 22 }
+          ]
+        }
+      },
       "highlights": []
     },
     {
       "nick": "furyziKNTC",
       "role": "Rifler",
-      "matches": 5,
-      "kills": 71,
-      "deaths": 70,
-      "assists": 22,
-      "adr": 71.8,
-      "rating": 0.98,
-      "hsPercent": 39,
+      "dashboard": {
+        "kd": 1,
+        "hltvRating": 1.09,
+        "clutch": {
+          "overall": 17,
+          "situations": [
+            { "id": "1v1", "success": 63, "wins": 134, "losses": 78 },
+            { "id": "1v2", "success": 25, "wins": 28, "losses": 84 },
+            { "id": "1v3", "success": 12, "wins": 8, "losses": 58 },
+            { "id": "1v4", "success": 5, "wins": 2, "losses": 38 },
+            { "id": "1v5", "success": 2, "wins": 1, "losses": 49 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_overpass", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_ancient", "scoreA": 9, "scoreB": 13, "result": "loss" },
+          { "map": "de_anubis", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_mirage", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 12, "result": "win" },
+          { "map": "de_inferno", "scoreA": 10, "scoreB": 13, "result": "loss" }
+        ],
+        "winRate": { "percent": 51, "played": 538, "won": 276, "lost": 246, "tied": 16 },
+        "combat": {
+          "hsPercent": 47,
+          "kills": 7944,
+          "deaths": 7942,
+          "assists": 2495,
+          "headshots": 3762,
+          "adr": 75,
+          "damage": 859676,
+          "rounds": 11388
+        },
+        "entry": {
+          "perRound": 8,
+          "combined": { "success": 50, "attempts": 16 },
+          "t": { "success": 43, "attempts": 15 },
+          "ct": { "success": 56, "attempts": 17 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 181 },
+            { "name": "de_dust2", "count": 115 },
+            { "name": "de_inferno", "count": 78 },
+            { "name": "de_ancient", "count": 62 }
+          ],
+          "mostSuccess": [
+            { "name": "de_overpass", "winPercent": 66 },
+            { "name": "de_anubis", "winPercent": 56 },
+            { "name": "de_mirage", "winPercent": 53 },
+            { "name": "de_dust2", "winPercent": 51 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 2848, "bar": 100 },
+            { "name": "M4A1-S", "value": 1466, "bar": 51 },
+            { "name": "AWP", "value": 420, "bar": 15 },
+            { "name": "Glock-18", "value": 310, "bar": 11 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 55, "bar": 100 },
+            { "name": "M4A1-S", "value": 75, "bar": 86 },
+            { "name": "AWP", "value": 28, "bar": 51 },
+            { "name": "Galil AR", "value": 48, "bar": 87 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 13814, "best": 17799, "wins": 48 },
+            { "season": "S3", "rating": 11200, "best": 13500, "wins": 36 }
+          ],
+          "wingman": { "rankLabel": "LEM", "wins": 14 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG II", "wins": 72 },
+            { "map": "de_dust2", "rankLabel": "MG I", "wins": 55 }
+          ]
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "Ghost",
+      "role": "",
+      "dashboard": {
+        "kd": 1.07,
+        "hltvRating": 1.17,
+        "clutch": {
+          "overall": 17,
+          "situations": [
+            { "id": "1v1", "success": 57, "wins": 75, "losses": 56 },
+            { "id": "1v2", "success": 25, "wins": 22, "losses": 66 },
+            { "id": "1v3", "success": 7, "wins": 5, "losses": 66 },
+            { "id": "1v4", "success": 2, "wins": 1, "losses": 49 },
+            { "id": "1v5", "success": 1, "wins": 1, "losses": 99 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_dust2", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_cache", "scoreA": 13, "scoreB": 5, "result": "win" },
+          { "map": "de_ancient", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_nuke", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2", "scoreA": 8, "scoreB": 13, "result": "loss" }
+        ],
+        "winRate": { "percent": 47, "played": 435, "won": 205, "lost": 214, "tied": 16 },
+        "combat": {
+          "hsPercent": 37,
+          "kills": 7049,
+          "deaths": 6600,
+          "assists": 2116,
+          "headshots": 2626,
+          "adr": 85,
+          "damage": 766368,
+          "rounds": 9017
+        },
+        "entry": {
+          "perRound": 11,
+          "combined": { "success": 52, "attempts": 21 },
+          "t": { "success": 46, "attempts": 19 },
+          "ct": { "success": 56, "attempts": 23 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 142 },
+            { "name": "de_dust2", "count": 118 },
+            { "name": "de_inferno", "count": 88 },
+            { "name": "de_cache", "count": 24 }
+          ],
+          "mostSuccess": [
+            { "name": "de_cache", "winPercent": 100 },
+            { "name": "de_inferno", "winPercent": 54 },
+            { "name": "de_mirage", "winPercent": 49 },
+            { "name": "de_dust2", "winPercent": 46 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 2450, "bar": 100 },
+            { "name": "M4A1-S", "value": 1680, "bar": 68 },
+            { "name": "AWP", "value": 890, "bar": 36 },
+            { "name": "M4A4", "value": 620, "bar": 25 }
+          ],
+          "headshotRate": [
+            { "name": "Pistol", "value": 62, "bar": 100 },
+            { "name": "AK-47", "value": 38, "bar": 61 },
+            { "name": "M4A1-S", "value": 35, "bar": 56 },
+            { "name": "AWP", "value": 18, "bar": 29 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 10936, "best": 17437, "wins": 42 },
+            { "season": "S3", "rating": 9800, "best": 12000, "wins": 28 }
+          ],
+          "wingman": { "rankLabel": "MG II", "wins": 16 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG I", "wins": 58 },
+            { "map": "de_inferno", "rankLabel": "GNM", "wins": 44 }
+          ]
+        }
+      },
       "highlights": []
     },
     {
       "nick": "k0N1G.exe",
       "role": "Support",
-      "matches": 4,
-      "kills": 62,
-      "deaths": 55,
-      "assists": 28,
-      "adr": 68.2,
-      "rating": 1.05,
-      "hsPercent": 35,
+      "dashboard": {
+        "kd": 1.1,
+        "hltvRating": 1.15,
+        "clutch": {
+          "overall": 14,
+          "situations": [
+            { "id": "1v1", "success": 62, "wins": 146, "losses": 90 },
+            { "id": "1v2", "success": 22, "wins": 24, "losses": 85 },
+            { "id": "1v3", "success": 10, "wins": 8, "losses": 72 },
+            { "id": "1v4", "success": 4, "wins": 2, "losses": 48 },
+            { "id": "1v5", "success": 1, "wins": 0, "losses": 20 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_mirage", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_vertigo", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_inferno", "scoreA": 12, "scoreB": 12, "result": "tie" }
+        ],
+        "winRate": { "percent": 50, "played": 482, "won": 242, "lost": 223, "tied": 17 },
+        "combat": {
+          "hsPercent": 50,
+          "kills": 7625,
+          "deaths": 6932,
+          "assists": 1976,
+          "headshots": 3807,
+          "adr": 79,
+          "damage": 803598,
+          "rounds": 10200
+        },
+        "entry": {
+          "perRound": 7,
+          "combined": { "success": 50, "attempts": 14 },
+          "t": { "success": 48, "attempts": 14 },
+          "ct": { "success": 52, "attempts": 14 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_dust2", "count": 153 },
+            { "name": "de_inferno", "count": 80 },
+            { "name": "de_mirage", "count": 62 },
+            { "name": "de_ancient", "count": 57 }
+          ],
+          "mostSuccess": [
+            { "name": "de_dust2", "winPercent": 56 },
+            { "name": "de_vertigo", "winPercent": 53 },
+            { "name": "de_mirage", "winPercent": 53 },
+            { "name": "de_ancient", "winPercent": 53 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 2263, "bar": 100 },
+            { "name": "M4A4", "value": 1073, "bar": 47 },
+            { "name": "AWP", "value": 631, "bar": 28 },
+            { "name": "Galil AR", "value": 455, "bar": 20 }
+          ],
+          "headshotRate": [
+            { "name": "MP9", "value": 72, "bar": 100 },
+            { "name": "AK-47", "value": 80, "bar": 89 },
+            { "name": "Desert Eagle", "value": 78, "bar": 87 },
+            { "name": "Glock-18", "value": 65, "bar": 72 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 13548, "best": 14675, "wins": 52 },
+            { "season": "S3", "rating": 11800, "best": 13200, "wins": 38 }
+          ],
+          "wingman": { "rankLabel": "DMG", "wins": 10 },
+          "competitive": [
+            { "map": "de_dust2", "rankLabel": "MG II", "wins": 68 },
+            { "map": "de_inferno", "rankLabel": "MG I", "wins": 42 }
+          ]
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "Khorpin Shado",
+      "role": "",
+      "dashboard": {
+        "kd": 1.12,
+        "hltvRating": 1.19,
+        "clutch": {
+          "overall": 13,
+          "situations": [
+            { "id": "1v1", "success": 58, "wins": 32, "losses": 23 },
+            { "id": "1v2", "success": 18, "wins": 6, "losses": 27 },
+            { "id": "1v3", "success": 5, "wins": 2, "losses": 38 },
+            { "id": "1v4", "success": 3, "wins": 1, "losses": 32 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 8 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_nuke", "scoreA": 13, "scoreB": 6, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_ancient", "scoreA": 9, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 8, "result": "win" }
+        ],
+        "winRate": { "percent": 50, "played": 162, "won": 81, "lost": 76, "tied": 5 },
+        "combat": {
+          "hsPercent": 53,
+          "kills": 2731,
+          "deaths": 2430,
+          "assists": 679,
+          "headshots": 1448,
+          "adr": 84,
+          "damage": 282621,
+          "rounds": 3379
+        },
+        "entry": {
+          "perRound": 12,
+          "combined": { "success": 58, "attempts": 21 },
+          "t": { "success": 55, "attempts": 22 },
+          "ct": { "success": 61, "attempts": 21 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 69 },
+            { "name": "de_dust2", "count": 37 },
+            { "name": "de_nuke", "count": 28 },
+            { "name": "de_ancient", "count": 18 }
+          ],
+          "mostSuccess": [
+            { "name": "de_nuke", "winPercent": 100 },
+            { "name": "de_dust2", "winPercent": 70 },
+            { "name": "de_mirage", "winPercent": 52 },
+            { "name": "de_inferno", "winPercent": 48 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 887, "bar": 100 },
+            { "name": "M4A1-S", "value": 451, "bar": 51 },
+            { "name": "AWP", "value": 412, "bar": 46 },
+            { "name": "Pistol", "value": 214, "bar": 24 }
+          ],
+          "headshotRate": [
+            { "name": "Pistol", "value": 68, "bar": 100 },
+            { "name": "Rifle", "value": 58, "bar": 85 },
+            { "name": "AK-47", "value": 55, "bar": 81 },
+            { "name": "AWP", "value": 22, "bar": 32 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 17146, "best": 21994, "wins": 34 },
+            { "season": "S3", "rating": 14500, "best": 16800, "wins": 22 }
+          ],
+          "wingman": { "rankLabel": "GNM", "wins": 18 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG II", "wins": 38 },
+            { "map": "de_dust2", "rankLabel": "MG I", "wins": 24 }
+          ]
+        }
+      },
       "highlights": []
     },
     {
       "nick": "Lu1zFR",
       "role": "IGL",
-      "matches": 4,
-      "kills": 58,
-      "deaths": 61,
-      "assists": 15,
-      "adr": 65.9,
-      "rating": 0.94,
-      "hsPercent": 44,
+      "dashboard": {
+        "kd": 1.07,
+        "hltvRating": 1.14,
+        "clutch": {
+          "overall": 16,
+          "situations": [
+            { "id": "1v1", "success": 59, "wins": 266, "losses": 184 },
+            { "id": "1v2", "success": 24, "wins": 48, "losses": 152 },
+            { "id": "1v3", "success": 11, "wins": 12, "losses": 97 },
+            { "id": "1v4", "success": 5, "wins": 4, "losses": 76 },
+            { "id": "1v5", "success": 2, "wins": 1, "losses": 49 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_inferno", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_dust2", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_overpass", "scoreA": 13, "scoreB": 12, "result": "win" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" }
+        ],
+        "winRate": { "percent": 50, "played": 942, "won": 471, "lost": 415, "tied": 56 },
+        "combat": {
+          "hsPercent": 44,
+          "kills": 14152,
+          "deaths": 13204,
+          "assists": 4185,
+          "headshots": 6229,
+          "adr": 79,
+          "damage": 1532032,
+          "rounds": 19405
+        },
+        "entry": {
+          "perRound": 9,
+          "combined": { "success": 51, "attempts": 18 },
+          "t": { "success": 48, "attempts": 18 },
+          "ct": { "success": 54, "attempts": 17 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_dust2", "count": 285 },
+            { "name": "de_mirage", "count": 248 },
+            { "name": "de_inferno", "count": 198 },
+            { "name": "de_ancient", "count": 112 }
+          ],
+          "mostSuccess": [
+            { "name": "de_inferno", "winPercent": 58 },
+            { "name": "de_dust2", "winPercent": 52 },
+            { "name": "de_mirage", "winPercent": 49 },
+            { "name": "de_ancient", "winPercent": 47 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 4200, "bar": 100 },
+            { "name": "M4A1-S", "value": 3100, "bar": 74 },
+            { "name": "AWP", "value": 890, "bar": 21 },
+            { "name": "USP-S", "value": 720, "bar": 17 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 46, "bar": 92 },
+            { "name": "M4A1-S", "value": 42, "bar": 84 },
+            { "name": "Desert Eagle", "value": 55, "bar": 100 },
+            { "name": "AWP", "value": 24, "bar": 48 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 10374, "best": 15190, "wins": 88 },
+            { "season": "S3", "rating": 9200, "best": 12000, "wins": 62 },
+            { "season": "S2", "rating": 8100, "best": 9800, "wins": 48 },
+            { "season": "S1", "rating": 7200, "best": 8500, "wins": 36 }
+          ],
+          "wingman": { "rankLabel": "DMG", "wins": 22 },
+          "competitive": [
+            { "map": "de_dust2", "rankLabel": "MG II", "wins": 124 },
+            { "map": "de_mirage", "rankLabel": "MG I", "wins": 98 }
+          ]
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "Maverick™",
+      "role": "",
+      "dashboard": {
+        "kd": 1.07,
+        "hltvRating": 1.13,
+        "clutch": {
+          "overall": 14,
+          "situations": [
+            { "id": "1v1", "success": 58, "wins": 132, "losses": 95 },
+            { "id": "1v2", "success": 18, "wins": 22, "losses": 100 },
+            { "id": "1v3", "success": 5, "wins": 4, "losses": 76 },
+            { "id": "1v4", "success": 1, "wins": 1, "losses": 99 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 15 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_vertigo", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_ancient", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_nuke", "scoreA": 13, "scoreB": 12, "result": "win" },
+          { "map": "de_inferno", "scoreA": 9, "scoreB": 13, "result": "loss" }
+        ],
+        "winRate": { "percent": 52, "played": 625, "won": 326, "lost": 282, "tied": 17 },
+        "combat": {
+          "hsPercent": 45,
+          "kills": 10043,
+          "deaths": 9405,
+          "assists": 2294,
+          "headshots": 4501,
+          "adr": 79,
+          "damage": 1043212,
+          "rounds": 13180
+        },
+        "entry": {
+          "perRound": 12,
+          "combined": { "success": 55, "attempts": 21 },
+          "t": { "success": 52, "attempts": 20 },
+          "ct": { "success": 58, "attempts": 23 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 165 },
+            { "name": "de_dust2", "count": 128 },
+            { "name": "de_inferno", "count": 95 },
+            { "name": "de_vertigo", "count": 72 }
+          ],
+          "mostSuccess": [
+            { "name": "de_vertigo", "winPercent": 59 },
+            { "name": "de_mirage", "winPercent": 54 },
+            { "name": "de_dust2", "winPercent": 51 },
+            { "name": "de_inferno", "winPercent": 49 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 3279, "bar": 100 },
+            { "name": "M4A1-S", "value": 1980, "bar": 60 },
+            { "name": "AWP", "value": 1120, "bar": 34 },
+            { "name": "Desert Eagle", "value": 420, "bar": 13 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 48, "bar": 96 },
+            { "name": "M4A1-S", "value": 44, "bar": 88 },
+            { "name": "Desert Eagle", "value": 62, "bar": 100 },
+            { "name": "AWP", "value": 26, "bar": 52 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 19894, "best": 22930, "wins": 69 },
+            { "season": "S3", "rating": 16200, "best": 18500, "wins": 48 }
+          ],
+          "wingman": { "rankLabel": "FACEIT Lv.7", "wins": 15 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG II", "wins": 82 },
+            { "map": "de_vertigo", "rankLabel": "MG I", "wins": 44 }
+          ]
+        }
+      },
       "highlights": []
     },
     {
       "nick": "s4mz",
       "role": "Lurker",
-      "matches": 3,
-      "kills": 41,
-      "deaths": 38,
-      "assists": 11,
-      "adr": 63.5,
-      "rating": 1.01,
-      "hsPercent": 37,
+      "dashboard": {
+        "kd": 1.08,
+        "hltvRating": 1.15,
+        "clutch": {
+          "overall": 16,
+          "situations": [
+            { "id": "1v1", "success": 63, "wins": 244, "losses": 142 },
+            { "id": "1v2", "success": 19, "wins": 38, "losses": 162 },
+            { "id": "1v3", "success": 4, "wins": 8, "losses": 192 },
+            { "id": "1v4", "success": 1, "wins": 2, "losses": 198 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 25 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_nuke", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_anubis", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_mirage", "scoreA": 8, "scoreB": 13, "result": "loss" },
+          { "map": "de_dust2", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 12, "result": "win" }
+        ],
+        "winRate": { "percent": 50, "played": 791, "won": 396, "lost": 368, "tied": 27 },
+        "combat": {
+          "hsPercent": 39,
+          "kills": 11961,
+          "deaths": 11035,
+          "assists": 3596,
+          "headshots": 4693,
+          "adr": 79,
+          "damage": 1287588,
+          "rounds": 16349
+        },
+        "entry": {
+          "perRound": 10,
+          "combined": { "success": 54, "attempts": 18 },
+          "t": { "success": 50, "attempts": 17 },
+          "ct": { "success": 58, "attempts": 19 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 272 },
+            { "name": "de_dust2", "count": 237 },
+            { "name": "de_inferno", "count": 156 },
+            { "name": "de_nuke", "count": 98 }
+          ],
+          "mostSuccess": [
+            { "name": "de_nuke", "winPercent": 56 },
+            { "name": "de_anubis", "winPercent": 57 },
+            { "name": "de_mirage", "winPercent": 51 },
+            { "name": "de_dust2", "winPercent": 49 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 3850, "bar": 100 },
+            { "name": "M4A1-S", "value": 2420, "bar": 63 },
+            { "name": "AWP", "value": 980, "bar": 25 },
+            { "name": "Glock-18", "value": 620, "bar": 16 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 52, "bar": 100 },
+            { "name": "M4A1-S", "value": 48, "bar": 92 },
+            { "name": "AWP", "value": 22, "bar": 42 },
+            { "name": "Glock-18", "value": 35, "bar": 67 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 20000, "best": 23833, "wins": 72 },
+            { "season": "S3", "rating": 17500, "best": 19500, "wins": 58 },
+            { "season": "S2", "rating": 14200, "best": 16800, "wins": 44 }
+          ],
+          "wingman": { "rankLabel": "LEM", "wins": 20 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG Elite", "wins": 112 },
+            { "map": "de_dust2", "rankLabel": "MG II", "wins": 88 }
+          ]
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "⚡ msk",
+      "role": "",
+      "dashboard": {
+        "kd": 1.03,
+        "hltvRating": 1.12,
+        "clutch": {
+          "overall": 15,
+          "situations": [
+            { "id": "1v1", "success": 63, "wins": 197, "losses": 117 },
+            { "id": "1v2", "success": 18, "wins": 32, "losses": 146 },
+            { "id": "1v3", "success": 3, "wins": 4, "losses": 129 },
+            { "id": "1v4", "success": 1, "wins": 2, "losses": 198 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 15 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_dust2", "scoreA": 10, "scoreB": 13, "result": "loss" },
+          { "map": "de_vertigo", "scoreA": 13, "scoreB": 8, "result": "win" },
+          { "map": "de_train", "scoreA": 13, "scoreB": 9, "result": "win" },
+          { "map": "de_mirage", "scoreA": 11, "scoreB": 13, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_overpass", "scoreA": 13, "scoreB": 12, "result": "win" },
+          { "map": "de_inferno", "scoreA": 8, "scoreB": 13, "result": "loss" },
+          { "map": "de_nuke", "scoreA": 13, "scoreB": 6, "result": "win" },
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_mirage", "scoreA": 12, "scoreB": 12, "result": "tie" }
+        ],
+        "winRate": { "percent": 50, "played": 778, "won": 390, "lost": 378, "tied": 10 },
+        "combat": {
+          "hsPercent": 53,
+          "kills": 12220,
+          "deaths": 11910,
+          "assists": 3722,
+          "headshots": 6432,
+          "adr": 80,
+          "damage": 1347898,
+          "rounds": 16752
+        },
+        "entry": {
+          "perRound": 10,
+          "combined": { "success": 51, "attempts": 21 },
+          "t": { "success": 49, "attempts": 22 },
+          "ct": { "success": 53, "attempts": 20 }
+        },
+        "maps": {
+          "mostPlayed": [
+            { "name": "de_mirage", "count": 190 },
+            { "name": "de_inferno", "count": 165 },
+            { "name": "de_dust2", "count": 128 },
+            { "name": "de_overpass", "count": 72 }
+          ],
+          "mostSuccess": [
+            { "name": "de_train", "winPercent": 60 },
+            { "name": "de_vertigo", "winPercent": 54 },
+            { "name": "de_mirage", "winPercent": 51 },
+            { "name": "de_inferno", "winPercent": 49 }
+          ]
+        },
+        "weapons": {
+          "mostKills": [
+            { "name": "AK-47", "value": 4974, "bar": 100 },
+            { "name": "M4A1-S", "value": 2066, "bar": 42 },
+            { "name": "AWP", "value": 1023, "bar": 21 },
+            { "name": "Pistol", "value": 637, "bar": 13 }
+          ],
+          "headshotRate": [
+            { "name": "AK-47", "value": 58, "bar": 100 },
+            { "name": "M4A1-S", "value": 55, "bar": 95 },
+            { "name": "AWP", "value": 81, "bar": 81 },
+            { "name": "Pistol", "value": 76, "bar": 76 }
+          ]
+        },
+        "ranks": {
+          "premier": [
+            { "season": "S4", "rating": 19432, "best": 21326, "wins": 105 },
+            { "season": "S3", "rating": 16800, "best": 19200, "wins": 78 },
+            { "season": "S2", "rating": 14200, "best": 16500, "wins": 62 },
+            { "season": "S1", "rating": 11800, "best": 13800, "wins": 48 }
+          ],
+          "wingman": { "rankLabel": "LEM", "wins": 28 },
+          "competitive": [
+            { "map": "de_mirage", "rankLabel": "MG II", "wins": 95 },
+            { "map": "de_inferno", "rankLabel": "MG I", "wins": 82 },
+            { "map": "de_dust2", "rankLabel": "MG I", "wins": 68 },
+            { "map": "de_overpass", "rankLabel": "GNM", "wins": 44 }
+          ]
+        }
+      },
       "highlights": []
     }
   ]

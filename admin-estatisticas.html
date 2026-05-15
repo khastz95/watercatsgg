@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Admin — Estatísticas | Eternal Pratas</title>
+    <title>Admin — Jogadores | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,7 +26,7 @@
         </a>
         <nav class="site-nav" aria-label="Atalhos">
           <ul>
-            <li><a href="/estatisticas.html">Ver stats</a></li>
+            <li><a href="/jogadores.html">Ver jogadores</a></li>
             <li><a href="/index.html">Início</a></li>
           </ul>
         </nav>
@@ -36,10 +36,11 @@
     <main class="container section section--tight">
       <header class="page-hero">
         <p class="section__label">Administração</p>
-        <h1>Gerenciar estatísticas</h1>
+        <h1>Gerenciar jogadores</h1>
         <p class="admin-intro">
-          Edite partidas, números dos jogadores e links de vídeo (MP4 do Allstar). Ao salvar na Vercel, os dados ficam no
-          Blob e a página pública lê via <code>/api/stats</code>.
+          Edite o dashboard completo de cada jogador (K/D, HLTV, clutch, partidas, win rate, mapas, armas) e links de
+          vídeo Allstar (MP4). Ao salvar na Vercel, os dados ficam no Blob e a página pública lê via
+          <code>/api/stats</code> (dados em <code>data/estatisticas.json</code>).
         </p>
       </header>
 
@@ -56,6 +57,8 @@
     </footer>
 
     <script src="/js/stats-data.js" defer></script>
+    <script src="/js/stats-schema.js" defer></script>
+    <script src="/js/admin-player-fields.js" defer></script>
     <script src="/js/admin-estatisticas.js" defer></script>
   </body>
 </html>

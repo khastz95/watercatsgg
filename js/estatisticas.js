@@ -1,7 +1,25 @@
 (function () {
   "use strict";
 
-  var state = { players: [], lastFocus: null };
+  var state = {
+    players: [],
+    season: "",
+    updated: "",
+    activeIndex: 0,
+  };
+
+  var MAP_COLORS = {
+    mirage: "#4a9eff",
+    inferno: "#e85d04",
+    ancient: "#2dd4bf",
+    nuke: "#fbbf24",
+    anubis: "#a78bfa",
+    dust2: "#d4a574",
+    overpass: "#6ee7b7",
+    vertigo: "#94a3b8",
+    cache: "#64748b",
+    train: "#c4a574",
+  };
 
   function escapeHtml(str) {
     if (str == null) return "";
@@ -12,16 +30,22 @@
       .replace(/"/g, "&quot;");
   }
 
-  function formatDate(iso) {
-    if (!iso) return "";
-    var parts = iso.split("-");
-    if (parts.length !== 3) return iso;
-    return parts[2] + "/" + parts[1] + "/" + parts[0];
+  function mapKey(name) {
+    if (!name) return "";
+    return String(name)
+      .replace(/^de_/i, "")
+      .toLowerCase()
+      .trim();
   }
 
-  function playerId(p, index) {
-    if (p.id) return String(p.id);
-    return "p-" + index;
+  function mapColor(name) {
+    return MAP_COLORS[mapKey(name)] || "#5b8def";
+  }
+
+  function mapLabel(name) {
+    var k = mapKey(name);
+    if (!k) return "—";
+    return k.charAt(0).toUpperCase() + k.slice(1);
   }
 
   function initials(nick) {
@@ -34,471 +58,510 @@
     if (!input) return null;
     var raw = String(input).trim();
     if (!raw) return null;
-
-    if (/\.mp4(\?|$)/i.test(raw) || raw.indexOf("media2.allstar.gg") !== -1) {
-      return raw;
-    }
-
-    if (/^https?:\/\//i.test(raw) && /\.(webm|mov)(\?|$)/i.test(raw)) {
-      return raw;
-    }
-
+    if (/\.mp4(\?|$)/i.test(raw) || raw.indexOf("media2.allstar.gg") !== -1) return raw;
+    if (/^https?:\/\//i.test(raw) && /\.(webm|mov)(\?|$)/i.test(raw)) return raw;
     return null;
   }
 
   function normalizeData(data) {
-    var players = (data.players || []).map(function (p) {
-      var copy = Object.assign({}, p);
-      copy.highlights = (copy.highlights || []).slice();
-      return copy;
-    });
-
-    if (data.highlights && data.highlights.length) {
-      data.highlights.forEach(function (h) {
-        var nick = h.player;
-        var target = players.find(function (p) {
-          return p.nick === nick;
-        });
-        if (target) {
-          target.highlights.push({
-            title: h.title,
-            map: h.map,
-            date: h.date,
-            url: h.url,
-          });
-        }
-      });
+    if (typeof StatsSchema !== "undefined") {
+      data = StatsSchema.normalizeStatsData(data);
     }
-
-    players.forEach(function (p, i) {
-      if (!p.id) p.id = playerId(p, i);
+    (data.players || []).forEach(function (p, i) {
+      if (!p.id) p.id = "p-" + i;
       p.highlights = (p.highlights || []).filter(function (h) {
         return resolveVideoUrl(h.url);
       });
     });
-
     return data;
   }
 
-  function kdRatio(p) {
-    if (!p.deaths) return p.kills != null ? String(p.kills) : "—";
-    return (p.kills / p.deaths).toFixed(2);
-  }
-
-  function winRate(summary) {
-    var total = (summary.wins || 0) + (summary.losses || 0);
-    if (!total) return "—";
-    return Math.round((summary.wins / total) * 100) + "%";
-  }
-
-  function renderSummary(summary, meta) {
-    var el = document.getElementById("stats-summary");
-    if (!el || !summary) return;
-
-    var season = meta && meta.season ? meta.season : "";
-    var updated = meta && meta.updated ? formatDate(meta.updated) : "";
-
-    var html =
-      '<div class="stat-kpi-grid">' +
-      '<article class="stat-kpi card reveal"><span class="stat-kpi__value">' +
-      escapeHtml(summary.matches) +
-      '</span><span class="stat-kpi__label">Partidas</span></article>' +
-      '<article class="stat-kpi card reveal stat-kpi--win"><span class="stat-kpi__value">' +
-      escapeHtml(summary.wins) +
-      '</span><span class="stat-kpi__label">Vitórias</span></article>' +
-      '<article class="stat-kpi card reveal stat-kpi--loss"><span class="stat-kpi__value">' +
-      escapeHtml(summary.losses) +
-      '</span><span class="stat-kpi__label">Derrotas</span></article>' +
-      '<article class="stat-kpi card reveal"><span class="stat-kpi__value">' +
-      escapeHtml(winRate(summary)) +
-      '</span><span class="stat-kpi__label">Win rate</span></article>' +
-      '<article class="stat-kpi card reveal stat-kpi--accent"><span class="stat-kpi__value">' +
-      (summary.avgRating != null ? escapeHtml(Number(summary.avgRating).toFixed(2)) : "—") +
-      '</span><span class="stat-kpi__label">Rating médio</span></article>' +
-      '<article class="stat-kpi card reveal"><span class="stat-kpi__value">' +
-      escapeHtml(summary.roundsPlayed != null ? summary.roundsPlayed : "—") +
-      '</span><span class="stat-kpi__label">Rounds</span></article>' +
-      "</div>";
-
-    if (season || updated) {
-      html +=
-        '<p class="stats-meta-bar reveal">' +
-        (season ? '<span class="map-pill map-pill--strong">' + escapeHtml(season) + "</span>" : "") +
-        (updated ? '<span class="stats-meta-bar__date">Atualizado em ' + escapeHtml(updated) + "</span>" : "") +
-        "</p>";
-    }
-
-    el.innerHTML = html;
-  }
-
-  function renderMatches(matches) {
-    var el = document.getElementById("stats-matches");
-    if (!el) return;
-
-    if (!matches || !matches.length) {
-      el.innerHTML = '<p class="stats-empty reveal">Ainda não há partidas registradas.</p>';
-      return;
-    }
-
-    var html = '<div class="match-grid">';
-    matches.forEach(function (m) {
-      var result = m.result === "win" ? "win" : m.result === "loss" ? "loss" : "";
-      var cardClass = "match-card card reveal" + (result ? " match-card--" + result : "");
-      var resultLabel = result === "win" ? "Vitória" : result === "loss" ? "Derrota" : "Mix";
-      html +=
-        '<article class="' +
-        cardClass +
-        '">' +
-        '<div class="match-card__head">' +
-        "<time datetime=\"" +
-        escapeHtml(m.date) +
-        '">' +
-        escapeHtml(formatDate(m.date)) +
-        "</time>" +
-        '<span class="map-pill">' +
-        escapeHtml(m.map) +
-        "</span>" +
-        '<span class="match-card__result">' +
-        escapeHtml(resultLabel) +
-        "</span></div>" +
-        '<div class="match-card__body">' +
-        '<div class="match-card__team"><span class="match-card__team-name">' +
-        escapeHtml(m.teamA) +
-        '</span><span class="match-card__score-num">' +
-        escapeHtml(m.scoreA) +
-        "</span></div>" +
-        '<span class="match-card__vs" aria-hidden="true">vs</span>' +
-        '<div class="match-card__team match-card__team--right"><span class="match-card__team-name">' +
-        escapeHtml(m.teamB) +
-        '</span><span class="match-card__score-num">' +
-        escapeHtml(m.scoreB) +
-        "</span></div></div></article>";
-    });
-    html += "</div>";
-    el.innerHTML = html;
-  }
-
-  function renderPlayerPanel(players) {
-    var el = document.getElementById("stats-player-panel");
-    if (!el) return;
-
-    state.players = players;
-
-    if (!players.length) {
-      el.innerHTML = '<p class="stats-empty reveal">Nenhum jogador no JSON.</p>';
-      return;
-    }
-
-    var ranked = players
-      .map(function (p, index) {
-        return { player: p, index: index };
-      })
-      .sort(function (a, b) {
-        return (b.player.rating || 0) - (a.player.rating || 0);
-      });
-
-    var html = "";
-    ranked.forEach(function (item, rank) {
-      var p = item.player;
-      var idx = item.index;
-      var clipCount = (p.highlights || []).length;
-      var clipLabel = clipCount === 1 ? "1 clip" : clipCount + " clips";
-
-      html +=
-        '<article class="card player-panel-card reveal" role="listitem" tabindex="0" data-player-index="' +
-        idx +
-        '">' +
-        '<span class="player-panel-card__rank" aria-hidden="true">#' +
-        (rank + 1) +
-        "</span>" +
-        '<div class="player-panel-card__avatar" aria-hidden="true">' +
-        escapeHtml(initials(p.nick)) +
-        "</div>" +
-        '<div class="player-panel-card__body">' +
-        '<div class="player-panel-card__top">' +
-        "<h3 class=\"mt-0\">" +
-        escapeHtml(p.nick) +
-        "</h3>" +
-        (p.role ? '<span class="player-panel-card__role">' + escapeHtml(p.role) + "</span>" : "") +
-        "</div>" +
-        '<dl class="player-panel-card__stats">' +
-        "<div><dt>Rating</dt><dd>" +
-        (p.rating != null ? escapeHtml(Number(p.rating).toFixed(2)) : "—") +
-        "</dd></div>" +
-        "<div><dt>K/D</dt><dd>" +
-        escapeHtml(kdRatio(p)) +
-        "</dd></div>" +
-        "<div><dt>Partidas</dt><dd>" +
-        escapeHtml(p.matches != null ? p.matches : "—") +
-        "</dd></div>" +
-        "<div><dt>ADR</dt><dd>" +
-        (p.adr != null ? escapeHtml(Number(p.adr).toFixed(1)) : "—") +
-        "</dd></div>" +
-        "</dl>" +
-        '<div class="player-panel-card__footer">' +
-        (clipCount
-          ? '<span class="map-pill map-pill--strong">' + escapeHtml(clipLabel) + "</span>"
-          : '<span class="map-pill">Sem vídeos</span>') +
-        '<span class="player-panel-card__cta">Ver perfil →</span>' +
-        "</div></div></article>";
-    });
-
-    el.innerHTML = html;
-
-    el.querySelectorAll(".player-panel-card[data-player-index]").forEach(function (card) {
-      function open() {
-        openModal(parseInt(card.getAttribute("data-player-index"), 10));
-      }
-      card.addEventListener("click", open);
-      card.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          open();
-        }
-      });
-    });
-  }
-
-  function statCell(label, value) {
+  function ringDual(greenPct, valueText) {
+    var r = 38;
+    var c = 2 * Math.PI * r;
+    var g = Math.min(1, Math.max(0, greenPct)) * c;
+    var gap = c - g;
     return (
-      '<div class="player-modal__stat">' +
-      "<span class=\"player-modal__stat-label\">" +
-      escapeHtml(label) +
-      "</span>" +
-      '<span class="player-modal__stat-value">' +
-      escapeHtml(value) +
+      '<div class="lf-big-ring">' +
+      '<svg viewBox="0 0 100 100" aria-hidden="true">' +
+      '<circle class="lf-big-ring__track" cx="50" cy="50" r="' +
+      r +
+      '" />' +
+      '<circle class="lf-big-ring__loss" cx="50" cy="50" r="' +
+      r +
+      '" stroke-dasharray="' +
+      gap +
+      " " +
+      g +
+      '" transform="rotate(-90 50 50)" />' +
+      '<circle class="lf-big-ring__win" cx="50" cy="50" r="' +
+      r +
+      '" stroke-dasharray="' +
+      g +
+      " " +
+      gap +
+      '" transform="rotate(-90 50 50)" />' +
+      "</svg>" +
+      '<span class="lf-big-ring__val">' +
+      escapeHtml(valueText) +
       "</span></div>"
     );
   }
 
-  function buildModalContent(p) {
-    var highlights = p.highlights || [];
-    var html =
-      '<header class="player-modal__header">' +
-      '<div class="player-modal__avatar" aria-hidden="true">' +
-      escapeHtml(initials(p.nick)) +
-      "</div>" +
-      "<div>" +
-      '<h2 id="player-modal-title" class="player-modal__title">' +
-      escapeHtml(p.nick) +
-      "</h2>" +
-      (p.role ? '<p class="player-modal__role">' + escapeHtml(p.role) + "</p>" : "") +
-      "</div></header>" +
-      '<section class="player-modal__section" aria-labelledby="modal-stats-heading">' +
-      '<h3 id="modal-stats-heading" class="player-modal__section-title">Estatísticas</h3>' +
-      '<div class="player-modal__stat-grid">' +
-      statCell("Partidas", p.matches != null ? p.matches : "—") +
-      statCell("Kills", p.kills != null ? p.kills : "—") +
-      statCell("Deaths", p.deaths != null ? p.deaths : "—") +
-      statCell("Assists", p.assists != null ? p.assists : "—") +
-      statCell("K/D", kdRatio(p)) +
-      statCell("ADR", p.adr != null ? Number(p.adr).toFixed(1) : "—") +
-      statCell("HS%", p.hsPercent != null ? p.hsPercent + "%" : "—") +
-      statCell("Rating", p.rating != null ? Number(p.rating).toFixed(2) : "—") +
-      "</div></section>" +
-      '<section class="player-modal__section" aria-labelledby="modal-videos-heading">' +
-      '<h3 id="modal-videos-heading" class="player-modal__section-title">Highlights (' +
-      highlights.length +
-      ")</h3>";
+  function miniPie(pct, variant) {
+    var p = Math.min(100, Math.max(0, Number(pct) || 0));
+    var r = 14;
+    var c = 2 * Math.PI * r;
+    var dash = (p / 100) * c;
+    return (
+      '<svg class="lf-mini-pie' +
+      (variant ? " lf-mini-pie--" + variant : "") +
+      '" viewBox="0 0 36 36" aria-hidden="true">' +
+      '<circle class="lf-mini-pie__track" cx="18" cy="18" r="' +
+      r +
+      '" />' +
+      '<circle class="lf-mini-pie__fill" cx="18" cy="18" r="' +
+      r +
+      '" stroke-dasharray="' +
+      dash +
+      " " +
+      (c - dash) +
+      '" transform="rotate(-90 18 18)" />' +
+      "</svg>"
+    );
+  }
 
-    if (!highlights.length) {
-      html +=
-        '<p class="stats-empty">Nenhum vídeo para este jogador. Adicione um objeto em <code>highlights</code> com <code>url</code> do MP4 (media2.allstar.gg).</p>';
-    } else {
-      html += '<div class="player-modal__videos">';
-      highlights.forEach(function (h, i) {
-        var src = resolveVideoUrl(h.url);
-        if (!src) return;
-        var title = h.title || "Highlight " + (i + 1);
-        var meta = [];
-        if (h.map) meta.push(escapeHtml(h.map));
-        if (h.date) meta.push(escapeHtml(formatDate(h.date)));
+  function progressBar(pct) {
+    var p = Math.min(100, Math.max(0, Number(pct) || 0));
+    return (
+      '<span class="lf-bar"><span class="lf-bar__fill" style="width:' + p + '%"></span></span>'
+    );
+  }
 
-        html +=
-          '<article class="player-modal__video-card">' +
-          "<h4 class=\"player-modal__video-title\">" +
-          escapeHtml(title) +
-          "</h4>" +
-          (meta.length ? '<p class="player-modal__video-meta">' + meta.join(" · ") + "</p>" : "") +
-          '<div class="player-modal__video-wrap">' +
-          '<video controls playsinline preload="metadata" src="' +
-          escapeHtml(src) +
-          '" title="' +
-          escapeHtml(title) +
-          '">Seu navegador não suporta vídeo.</video>' +
-          "</div></article>";
+  function renderPlayerList() {
+    var el = document.getElementById("jogadores-player-list");
+    if (!el) return;
+
+    el.innerHTML = state.players
+      .map(function (p, i) {
+        var active = i === state.activeIndex ? " is-active" : "";
+        return (
+          '<button type="button" class="lf-sidebar__item' +
+          active +
+          '" role="tab" aria-selected="' +
+          (i === state.activeIndex ? "true" : "false") +
+          '" data-index="' +
+          i +
+          '">' +
+          '<span class="lf-sidebar__avatar" aria-hidden="true">' +
+          escapeHtml(initials(p.nick)) +
+          "</span>" +
+          '<span class="lf-sidebar__name">' +
+          escapeHtml(p.nick) +
+          "</span></button>"
+        );
+      })
+      .join("");
+
+    el.querySelectorAll(".lf-sidebar__item").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        selectPlayer(parseInt(btn.getAttribute("data-index"), 10));
       });
-      html += "</div>";
+    });
+  }
+
+  function renderRanksPanel(ranks) {
+    if (!ranks) return "";
+    var html = '<aside class="lf-ranks-panel" aria-label="Ranks CS2">';
+    html += '<h2 class="lf-ranks-panel__title">Rankings</h2>';
+
+    if (ranks.premier && ranks.premier.length) {
+      html += '<section class="lf-ranks-block"><h3>Premier</h3><ul class="lf-premier-list">';
+      ranks.premier.forEach(function (s) {
+        html +=
+          "<li><span class=\"lf-premier-list__season\">" +
+          escapeHtml(s.season || s.label) +
+          "</span><span class=\"lf-premier-list__rating\">" +
+          escapeHtml(s.rating != null ? Number(s.rating).toLocaleString("pt-BR") : "—") +
+          "</span>";
+        if (s.best != null) {
+          html +=
+            '<span class="lf-premier-list__meta">Best ' +
+            escapeHtml(Number(s.best).toLocaleString("pt-BR")) +
+            "</span>";
+        }
+        if (s.wins != null) {
+          html += '<span class="lf-premier-list__meta">' + escapeHtml(s.wins) + " wins</span>";
+        }
+        if (s.date) {
+          html += '<span class="lf-premier-list__date">' + escapeHtml(s.date) + "</span>";
+        }
+        html += "</li>";
+      });
+      html += "</ul></section>";
     }
 
-    html += "</section>";
+    if (ranks.wingman && (ranks.wingman.rankLabel || ranks.wingman.wins)) {
+      html +=
+        '<section class="lf-ranks-block"><h3>Wingman</h3><p class="lf-rank-line">' +
+        escapeHtml(ranks.wingman.rankLabel || "—") +
+        (ranks.wingman.wins != null ? " · " + escapeHtml(ranks.wingman.wins) + " wins" : "") +
+        "</p></section>";
+    }
+
+    if (ranks.competitive && ranks.competitive.length) {
+      html += '<section class="lf-ranks-block"><h3>Competitive</h3><ul class="lf-comp-list">';
+      ranks.competitive.forEach(function (c) {
+        html +=
+          "<li><span class=\"lf-comp-list__map\" style=\"background:" +
+          escapeHtml(mapColor(c.map)) +
+          '"></span><span>' +
+          escapeHtml(mapLabel(c.map)) +
+          "</span><strong>" +
+          escapeHtml(c.rankLabel || "—") +
+          "</strong><span>" +
+          escapeHtml(c.wins != null ? c.wins + " W" : "") +
+          "</span></li>";
+      });
+      html += "</ul></section>";
+    }
+
+    html += "</aside>";
     return html;
   }
 
-  function pauseModalVideos() {
-    var modal = document.getElementById("player-modal");
-    if (!modal) return;
-    modal.querySelectorAll("video").forEach(function (v) {
-      v.pause();
+  function renderDashboard(p) {
+    var d = p.dashboard;
+    var hasRanks =
+      d.ranks &&
+      ((d.ranks.premier && d.ranks.premier.length) ||
+        (d.ranks.competitive && d.ranks.competitive.length) ||
+        (d.ranks.wingman && (d.ranks.wingman.rankLabel || d.ranks.wingman.wins)));
+
+    var html =
+      '<div class="lf-dash-wrap' + (hasRanks ? " lf-dash-wrap--with-ranks" : "") + '">';
+    if (hasRanks) html += renderRanksPanel(d.ranks);
+    html += '<div class="lf-dash">';
+
+    html +=
+      '<header class="lf-dash__head">' +
+      '<span class="lf-dash__avatar">' +
+      escapeHtml(initials(p.nick)) +
+      "</span>" +
+      "<div><h1>" +
+      escapeHtml(p.nick) +
+      "</h1>" +
+      (p.role ? "<p>" + escapeHtml(p.role) + "</p>" : "") +
+      "</div></header>";
+
+    var kd = d.kd != null ? Number(d.kd).toFixed(2) : "—";
+    var kdFill = d.combat.kills + d.combat.deaths ? d.combat.kills / (d.combat.kills + d.combat.deaths) : 0.5;
+    var hltv = d.hltvRating != null ? Number(d.hltvRating).toFixed(2) : "—";
+    var hltvFill = Math.min(1, Math.max(0, Number(d.hltvRating) / 2));
+
+    html += '<div class="lf-dash__row lf-dash__row--top">';
+    html +=
+      '<article class="lf-card lf-card--ring"><h2>K/D</h2>' +
+      ringDual(kdFill, kd) +
+      "</article>";
+    html +=
+      '<article class="lf-card lf-card--ring"><h2>HLTV RATING</h2>' +
+      ringDual(hltvFill, hltv) +
+      "</article>";
+
+    html += '<article class="lf-card lf-card--clutch"><h2>CLUTCH SUCCESS</h2>';
+    html +=
+      '<p class="lf-clutch__overall"><span>1vX</span> <strong>' +
+      escapeHtml(d.clutch.overall) +
+      '%</strong></p>';
+    html += '<div class="lf-clutch__grid">';
+    (d.clutch.situations || []).forEach(function (s) {
+      html +=
+        '<div class="lf-clutch__cell">' +
+        "<span>" +
+        escapeHtml(s.id) +
+        "</span>" +
+        miniPie(s.success) +
+        "<strong>" +
+        escapeHtml(s.success) +
+        '%</strong><span class="lf-clutch__wl">W:' +
+        escapeHtml(s.wins) +
+        " / L:" +
+        escapeHtml(s.losses) +
+        "</span></div>";
     });
-  }
+    html += "</div></article>";
 
-  function openModal(index) {
-    var p = state.players[index];
-    if (!p) return;
-
-    var modal = document.getElementById("player-modal");
-    var content = document.getElementById("player-modal-content");
-    var dialog = modal && modal.querySelector(".player-modal__dialog");
-    if (!modal || !content || !dialog) return;
-
-    state.lastFocus = document.activeElement;
-    content.innerHTML = buildModalContent(p);
-    modal.hidden = false;
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
-    dialog.focus();
-  }
-
-  function closeModal() {
-    var modal = document.getElementById("player-modal");
-    if (!modal || modal.hidden) return;
-
-    pauseModalVideos();
-    modal.hidden = true;
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
-    document.getElementById("player-modal-content").innerHTML = "";
-
-    if (state.lastFocus && typeof state.lastFocus.focus === "function") {
-      state.lastFocus.focus();
-    }
-  }
-
-  var TAB_IDS = { resumo: "resumo", partidas: "partidas", jogadores: "jogadores" };
-
-  function activateTab(tabId, pushHash) {
-    var id = TAB_IDS[tabId] || "resumo";
-    var tabs = document.querySelectorAll(".stats-tab");
-    var panels = document.querySelectorAll(".stats-panel");
-
-    tabs.forEach(function (tab) {
-      var on = tab.getAttribute("data-tab") === id;
-      tab.classList.toggle("is-active", on);
-      tab.setAttribute("aria-selected", on ? "true" : "false");
-    });
-
-    panels.forEach(function (panel) {
-      var on = panel.getAttribute("data-panel") === id;
-      panel.classList.toggle("is-active", on);
-      panel.hidden = !on;
-    });
-
-    if (pushHash !== false) {
-      var hash = id === "resumo" ? "" : id;
-      if (window.location.hash.replace("#", "") !== hash) {
-        history.replaceState(null, "", hash ? "#" + hash : window.location.pathname + window.location.search);
-      }
-    }
-
-    var active = document.querySelector('.stats-panel[data-panel="' + id + '"]');
-    if (active) {
-      active.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
-        el.classList.add("is-visible");
+    html += '<article class="lf-card lf-card--matches"><h2>MATCHES</h2><div class="lf-matches-scroll"><div class="lf-matches-strip">';
+    var recent = d.recentMatches || [];
+    if (!recent.length) {
+      html += '<p class="lf-empty">Sem partidas. Edite no admin.</p>';
+    } else {
+      recent.forEach(function (m) {
+        var res = m.result === "win" ? "win" : m.result === "loss" ? "loss" : "tie";
+        var score =
+          m.scoreA != null && m.scoreB != null ? m.scoreA + ":" + m.scoreB : "—";
+        html +=
+          '<div class="lf-match-chip lf-match-chip--' +
+          res +
+          '">' +
+          '<span class="lf-match-chip__dot" aria-hidden="true"></span>' +
+          '<span class="lf-match-chip__map" style="background:' +
+          escapeHtml(mapColor(m.map)) +
+          '"></span>' +
+          "<span>" +
+          escapeHtml(mapLabel(m.map)) +
+          "</span>" +
+          '<span class="lf-match-chip__score">' +
+          escapeHtml(score) +
+          "</span></div>";
       });
     }
-  }
+    html += "</div></div></article></div>";
 
-  function setupTabs() {
-    var nav = document.querySelector(".stats-hub__nav");
-    if (!nav) return;
+    var wr = d.winRate;
+    var cb = d.combat;
+    var en = d.entry;
 
-    nav.querySelectorAll(".stats-tab").forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        activateTab(tab.getAttribute("data-tab"), true);
+    html += '<div class="lf-dash__row lf-dash__row--bottom">';
+
+    html += '<div class="lf-dash__metrics">';
+
+    html +=
+      '<article class="lf-card lf-card--stat">' +
+      "<h2>WIN RATE</h2>" +
+      '<p class="lf-stat-big">' +
+      escapeHtml(wr.percent) +
+      '%</p><ul class="lf-stat-list">' +
+      "<li><span>Played</span><strong>" +
+      escapeHtml(wr.played) +
+      "</strong></li>" +
+      "<li><span>Won</span><strong>" +
+      escapeHtml(wr.won) +
+      "</strong></li>" +
+      "<li><span>Lost</span><strong>" +
+      escapeHtml(wr.lost) +
+      "</strong></li>" +
+      "<li><span>Tied</span><strong>" +
+      escapeHtml(wr.tied) +
+      "</strong></li></ul></article>";
+
+    html +=
+      '<article class="lf-card lf-card--stat">' +
+      "<h2>HS%</h2>" +
+      '<p class="lf-stat-big">' +
+      escapeHtml(cb.hsPercent) +
+      '%</p><ul class="lf-stat-list">' +
+      "<li><span>Kills</span><strong>" +
+      escapeHtml(cb.kills) +
+      "</strong></li>" +
+      "<li><span>Deaths</span><strong>" +
+      escapeHtml(cb.deaths) +
+      "</strong></li>" +
+      "<li><span>Assists</span><strong>" +
+      escapeHtml(cb.assists) +
+      "</strong></li>" +
+      "<li><span>Headshots</span><strong>" +
+      escapeHtml(cb.headshots) +
+      "</strong></li></ul></article>";
+
+    html +=
+      '<article class="lf-card lf-card--stat">' +
+      "<h2>ADR</h2>" +
+      '<p class="lf-stat-big">' +
+      escapeHtml(cb.adr) +
+      '</p><ul class="lf-stat-list">' +
+      "<li><span>Damage</span><strong>" +
+      escapeHtml(cb.damage) +
+      "</strong></li>" +
+      "<li><span>Rounds</span><strong>" +
+      escapeHtml(cb.rounds) +
+      "</strong></li></ul></article>";
+
+    html += "</div>";
+
+    html += '<article class="lf-card lf-card--entry"><h2>ENTRY SUCCESS</h2>';
+    html +=
+      '<p class="lf-entry__top">per Round <strong>' +
+      escapeHtml(en.perRound) +
+      '%</strong></p>';
+    html += '<div class="lf-entry-scroll"><table class="lf-entry-table"><thead><tr><th></th><th>Combined</th><th>T</th><th>CT</th></tr></thead><tbody>';
+    html +=
+      "<tr><td>Entry Success</td>" +
+      "<td>" +
+      miniPie(en.combined.success, "entry") +
+      " " +
+      escapeHtml(en.combined.success) +
+      "%</td>" +
+      "<td>" +
+      miniPie(en.t.success, "entry") +
+      " " +
+      escapeHtml(en.t.success) +
+      "%</td>" +
+      "<td>" +
+      miniPie(en.ct.success, "entry") +
+      " " +
+      escapeHtml(en.ct.success) +
+      "%</td></tr>";
+    html +=
+      "<tr><td>Entry Attempts</td>" +
+      "<td>" +
+      miniPie(en.combined.attempts, "attempt") +
+      " " +
+      escapeHtml(en.combined.attempts) +
+      "%</td>" +
+      "<td>" +
+      miniPie(en.t.attempts, "attempt") +
+      " " +
+      escapeHtml(en.t.attempts) +
+      "%</td>" +
+      "<td>" +
+      miniPie(en.ct.attempts, "attempt") +
+      " " +
+      escapeHtml(en.ct.attempts) +
+      "%</td></tr>";
+    html += "</tbody></table></div></article>";
+
+    html += '<article class="lf-card lf-card--side"><div class="lf-side-grid">';
+    html += '<section class="lf-side-block"><h3>Most Played</h3><ul class="lf-map-list">';
+    (d.maps.mostPlayed || []).forEach(function (m) {
+      html +=
+        "<li><span class=\"lf-map-list__icon\" style=\"background:" +
+        escapeHtml(mapColor(m.name)) +
+        '"></span><span>' +
+        escapeHtml(mapLabel(m.name)) +
+        '</span><strong>' +
+        escapeHtml(m.count) +
+        "</strong></li>";
+    });
+    if (!(d.maps.mostPlayed || []).length) html += '<li class="lf-empty">—</li>';
+    html += "</ul></section>";
+
+    html += '<section class="lf-side-block"><h3>Most Success</h3><ul class="lf-map-list lf-map-list--bars">';
+    (d.maps.mostSuccess || []).forEach(function (m) {
+      html +=
+        "<li><span class=\"lf-map-list__icon\" style=\"background:" +
+        escapeHtml(mapColor(m.name)) +
+        '"></span><span>' +
+        escapeHtml(mapLabel(m.name)) +
+        "</span>" +
+        progressBar(m.winPercent) +
+        "<strong>" +
+        escapeHtml(m.winPercent) +
+        "%</strong></li>";
+    });
+    if (!(d.maps.mostSuccess || []).length) html += '<li class="lf-empty">—</li>';
+    html += "</ul></section>";
+
+    html += '<section class="lf-side-block"><h3>Most Kills</h3><ul class="lf-weapon-list">';
+    (d.weapons.mostKills || []).forEach(function (w) {
+      html +=
+        "<li><span>" +
+        escapeHtml(w.name) +
+        "</span>" +
+        progressBar(w.bar != null ? w.bar : 100) +
+        "<strong>" +
+        escapeHtml(w.value) +
+        "</strong></li>";
+    });
+    if (!(d.weapons.mostKills || []).length) html += '<li class="lf-empty">—</li>';
+    html += "</ul></section>";
+
+    html += '<section class="lf-side-block"><h3>HS%</h3><ul class="lf-weapon-list">';
+    (d.weapons.headshotRate || []).forEach(function (w) {
+      html +=
+        "<li><span>" +
+        escapeHtml(w.name) +
+        "</span>" +
+        progressBar(w.bar != null ? w.bar : w.value) +
+        "<strong>" +
+        escapeHtml(w.value) +
+        "%</strong></li>";
+    });
+    if (!(d.weapons.headshotRate || []).length) html += '<li class="lf-empty">—</li>';
+    html += "</ul></section></div></article>";
+
+    html += "</div>";
+
+    var highlights = p.highlights || [];
+    if (highlights.length) {
+      html += '<section class="lf-panel lf-panel--clips"><h2>Highlights (Allstar)</h2><div class="lf-clips">';
+      highlights.forEach(function (h, i) {
+        var src = resolveVideoUrl(h.url);
+        if (!src) return;
+        html +=
+          '<figure class="lf-clip"><figcaption>' +
+          escapeHtml(h.title || "Clip " + (i + 1)) +
+          (h.map ? " · " + escapeHtml(h.map) : "") +
+          "</figcaption>" +
+          '<video controls playsinline preload="metadata" src="' +
+          escapeHtml(src) +
+          '"></video></figure>';
       });
-    });
-
-    var hash = (window.location.hash || "").replace("#", "");
-    if (hash && TAB_IDS[hash]) activateTab(hash, false);
-    else activateTab("resumo", false);
-
-    window.addEventListener("hashchange", function () {
-      var h = (window.location.hash || "").replace("#", "");
-      if (h && TAB_IDS[h]) activateTab(h, false);
-    });
-  }
-
-  function setupModal() {
-    var modal = document.getElementById("player-modal");
-    if (!modal) return;
-
-    modal.querySelectorAll("[data-modal-close]").forEach(function (el) {
-      el.addEventListener("click", closeModal);
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !modal.hidden) closeModal();
-    });
-  }
-
-  function observeReveals() {
-    if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll(".reveal").forEach(function (el) {
-        el.classList.add("is-visible");
-      });
-      return;
+      html += "</div></section>";
     }
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) e.target.classList.add("is-visible");
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
-    );
-    document.querySelectorAll(".reveal").forEach(function (el) {
-      observer.observe(el);
-    });
+
+    html += "</div></div>";
+
+    return html;
   }
 
-  function showError(message) {
-    var main = document.querySelector("[data-stats-page]");
-    if (!main) return;
-    main.insertAdjacentHTML(
-      "afterbegin",
-      '<p class="form-msg form-msg--error is-visible reveal" role="alert">' + escapeHtml(message) + "</p>"
-    );
+  function selectPlayer(index) {
+    if (index < 0 || index >= state.players.length) return;
+    state.activeIndex = index;
+    renderPlayerList();
+    var el = document.getElementById("jogadores-profile");
+    if (!el) return;
+    el.innerHTML = renderDashboard(state.players[index]);
+  }
+
+  function renderMeta() {
+    var el = document.getElementById("jogadores-meta");
+    if (!el) return;
+    var parts = [];
+    if (state.season) parts.push(state.season);
+    if (state.updated) parts.push("atualizado " + state.updated);
+    el.textContent = parts.join(" · ") || "Eternal Pratas";
   }
 
   function init(raw) {
     var data = normalizeData(raw);
-    renderSummary(data.summary, { season: data.season, updated: data.updated });
-    renderMatches(data.matches);
-    renderPlayerPanel(data.players);
-    setupTabs();
-    observeReveals();
+    state.players = data.players || [];
+    state.season = data.season || "";
+    state.updated = data.updated || "";
+    state.activeIndex = 0;
+    renderMeta();
+    renderPlayerList();
+    if (state.players.length) selectPlayer(0);
+    else {
+      var el = document.getElementById("jogadores-profile");
+      if (el) el.innerHTML = '<p class="lf-empty">Nenhum jogador. Use o admin para adicionar.</p>';
+    }
   }
 
   function load() {
+    if (!document.querySelector("[data-jogadores-page]")) return;
+
     var loader =
       typeof StatsData !== "undefined"
         ? StatsData.load()
         : fetch("/data/estatisticas.json", { cache: "no-store" }).then(function (res) {
-            if (!res.ok) throw new Error("load_failed");
+            if (!res.ok) throw new Error("fail");
             return res.json();
           });
 
     loader
       .then(init)
       .catch(function () {
-        showError(
-          "Não foi possível carregar os dados. Use o site via HTTP (Vercel ou vercel dev) e confira /api/stats ou data/estatisticas.json."
-        );
+        var main = document.querySelector("[data-jogadores-page]");
+        if (main) {
+          main.insertAdjacentHTML(
+            "afterbegin",
+            '<p class="form-msg form-msg--error is-visible" role="alert">Não foi possível carregar os dados.</p>'
+          );
+        }
       });
   }
-
-  setupModal();
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", load);

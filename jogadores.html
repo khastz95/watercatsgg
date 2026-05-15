@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Comunidade Eternal Pratas — quem joga CS2 online com a turma."
+      content="Perfis e estatísticas dos jogadores — Eternal Pratas."
     />
     <title>Jogadores | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/jogadores-page.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
   <body class="hub-site page-jogadores">
@@ -33,9 +34,8 @@
         <nav class="site-nav" id="main-nav" aria-label="Principal">
           <ul>
             <li><a href="/index.html">Início</a></li>
-            <li><a href="/jogadores.html">Jogadores</a></li>
+            <li><a href="/jogadores.html" aria-current="page">Jogadores</a></li>
             <li><a href="/jogos.html">Mix</a></li>
-            <li><a href="/estatisticas.html">Stats</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
             <li><a href="/sorteio-times.html">Sorteio</a></li>
           </ul>
@@ -43,40 +43,26 @@
       </div>
     </header>
 
-    <main class="container section section--tight players-page">
-      <header class="page-hero reveal">
-        <p class="section__label">Comunidade</p>
-        <h1>Jogadores</h1>
-        <p class="players-page__lead">
-          A turma que aparece na call, no Discord e no Steam — sem hierarquia de time, só gente que joga junto. Cada card
-          tem espaço pra foto; por enquanto usamos a logo do grupo. Avatares individuais em
-          <code>data/jogadores.json</code>.
-        </p>
-      </header>
+    <main class="lf-dashboard" data-jogadores-page>
+      <div class="lf-dashboard__bar container">
+        <div class="lf-dashboard__bar-inner">
+          <p id="jogadores-meta" class="lf-dashboard__season">…</p>
+          <a class="lf-dashboard__edit" href="/admin-estatisticas.html">Editar</a>
+        </div>
+      </div>
 
-      <p class="roster-strip reveal" aria-label="Resumo">
-        <span class="map-pill map-pill--strong">Comunidade</span>
-        <span class="map-pill">CS2</span>
-        <span class="map-pill map-pill--strong">Online</span>
-      </p>
+      <div class="lf-dashboard__layout container">
+        <aside class="lf-sidebar" aria-label="Lista de jogadores">
+          <p class="lf-sidebar__label">Jogadores</p>
+          <div id="jogadores-player-list" class="lf-sidebar__list" role="tablist"></div>
+        </aside>
 
-      <section class="roster-section" aria-labelledby="roster-heading">
-        <div class="roster-section__head reveal">
-          <div>
-            <p class="section__label">Quem joga</p>
-            <h2 id="roster-heading">Membros da comunidade</h2>
-            <p class="roster-section__intro">
-              Nicks de quem costuma estar por aqui. Status opcional (disponível, off-line, em jogo) — só referência
-              visual, não sincroniza com o Steam.
-            </p>
-          </div>
-          <div class="roster-section__tools">
-            <p id="roster-count" class="roster-section__count" aria-live="polite">…</p>
-            <a class="btn btn--ghost btn--compact" href="/estatisticas.html">Ver stats</a>
+        <div class="lf-main">
+          <div id="jogadores-profile" class="lf-profile" aria-live="polite">
+            <p class="lf-profile__placeholder">A carregar perfil…</p>
           </div>
         </div>
-        <div id="roster-members" class="roster-grid" role="list" aria-busy="true"></div>
-      </section>
+      </div>
     </main>
 
     <footer class="site-footer">
@@ -101,7 +87,6 @@
               <li><a href="/index.html">Início</a></li>
               <li><a href="/jogadores.html">Jogadores</a></li>
               <li><a href="/jogos.html">Mix</a></li>
-              <li><a href="/estatisticas.html">Stats</a></li>
               <li><a href="/sobre.html">Sobre</a></li>
               <li><a href="/sorteio-times.html">Sorteio</a></li>
             </ul>
@@ -134,7 +119,9 @@
         </div>
       </div>
     </footer>
+    <script src="/js/stats-data.js" defer></script>
+    <script src="/js/stats-schema.js" defer></script>
     <script src="/js/main.js" defer></script>
-    <script src="/js/jogadores.js" defer></script>
+    <script src="/js/estatisticas.js" defer></script>
   </body>
 </html>

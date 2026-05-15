@@ -145,9 +145,12 @@
     }
 
     if (counterEl) {
-      counterEl.classList.remove("sorteio-counter--ready", "sorteio-counter--warn");
-      if (n >= MIN_PLAYERS && !dup) counterEl.classList.add("sorteio-counter--ready");
-      else if (n > 0) counterEl.classList.add("sorteio-counter--warn");
+      counterEl.classList.remove("sorteio-counter--ready", "sorteio-counter--warn", "hub-stat--ok");
+      if (n >= MIN_PLAYERS && !dup) {
+        counterEl.classList.add("sorteio-counter--ready", "hub-stat--ok");
+      } else if (n > 0) {
+        counterEl.classList.add("sorteio-counter--warn");
+      }
     }
 
     if (chipsWrap) {
@@ -160,7 +163,7 @@
           .slice(0, 24)
           .map(function (name, i) {
             return (
-              '<span class="sorteio-chip" style="animation-delay:' +
+              '<span class="sorteio-chip hub-chip" style="animation-delay:' +
               i * 0.03 +
               's">' +
               escapeHtml(name) +
@@ -170,7 +173,7 @@
           .join("");
         if (n > 24) {
           chipsWrap.innerHTML +=
-            '<span class="sorteio-chip">+' + (n - 24) + " mais</span>";
+            '<span class="sorteio-chip hub-chip">+' + (n - 24) + " mais</span>";
         }
       }
     }

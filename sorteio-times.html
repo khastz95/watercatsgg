@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/sorteio-page.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
@@ -44,14 +45,14 @@
     </header>
 
     <main class="sorteio-page" data-sorteio-page>
-      <header class="sorteio-hero container reveal">
+      <header class="page-hero page-hero--spotlight container reveal">
         <p class="section__label">Sorteio</p>
         <h1>Dois times na hora</h1>
-        <p class="sorteio-hero__lead">
+        <p class="page-hero__lead">
           Cola os nicks, sorteia com um clique. Funciona com <strong>2 jogadores ou mais</strong> — os times ficam o mais
           equilibrados possível (se for ímpar, um lado leva um a mais).
         </p>
-        <ul class="sorteio-hero__pills">
+        <ul class="hub-pills">
           <li>Mínimo 2 nomes</li>
           <li>100% no navegador</li>
           <li>Re-sortear quando quiser</li>
@@ -59,15 +60,15 @@
       </header>
 
       <div class="container sorteio-layout">
-        <section class="sorteio-setup card reveal" aria-labelledby="sorteio-setup-title">
+        <section class="sorteio-setup card card--glow reveal" aria-labelledby="sorteio-setup-title">
           <div class="sorteio-setup__head">
             <h2 id="sorteio-setup-title" class="sorteio-setup__title">Lista de jogadores</h2>
             <p class="sorteio-setup__hint">Um nick por linha. Duplicados não entram.</p>
           </div>
 
-          <div class="sorteio-counter" id="sorteio-counter" aria-live="polite">
-            <span class="sorteio-counter__value" id="sorteio-count-num">0</span>
-            <span class="sorteio-counter__label">na fila</span>
+          <div class="sorteio-counter hub-stat" id="sorteio-counter" aria-live="polite">
+            <span class="sorteio-counter__value hub-stat__value" id="sorteio-count-num">0</span>
+            <span class="sorteio-counter__label hub-stat__label">na fila</span>
           </div>
 
           <div class="field sorteio-field">
@@ -81,7 +82,7 @@
             ></textarea>
           </div>
 
-          <div id="sorteio-chips" class="sorteio-chips" hidden aria-label="Pré-visualização da lista"></div>
+          <div id="sorteio-chips" class="sorteio-chips hub-chips" hidden aria-label="Pré-visualização da lista"></div>
 
           <div class="sorteio-setup__toolbar">
             <button type="button" class="btn btn--ghost btn--compact" id="sorteio-load-turma">Carregar turma</button>
@@ -95,7 +96,7 @@
           <p id="sorteio-feedback" class="sorteio-feedback" role="status" aria-live="polite"></p>
         </section>
 
-        <section class="sorteio-arena reveal" id="sorteio-arena" aria-live="polite">
+        <section class="sorteio-arena hub-panel reveal" id="sorteio-arena" aria-live="polite">
           <div class="sorteio-arena__empty" id="sorteio-empty">
             <div class="sorteio-arena__icon" aria-hidden="true">⚔</div>
             <p>Os times aparecem aqui depois do sorteio.</p>

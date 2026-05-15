@@ -1,57 +1,14 @@
-/* Sorteio de times — página dedicada */
+/* Sorteio de times — específico (tema base em hub-theme.css) */
 
 .page-sorteio {
-  --sorteio-a: #00d4ff;
-  --sorteio-b: #a855f7;
-  --sorteio-glow-a: rgba(0, 212, 255, 0.35);
-  --sorteio-glow-b: rgba(168, 85, 247, 0.35);
+  --sorteio-a: var(--hub-a);
+  --sorteio-b: var(--hub-b);
+  --sorteio-glow-a: var(--hub-glow-a);
+  --sorteio-glow-b: var(--hub-glow-b);
 }
 
 .sorteio-page {
   padding-bottom: 3rem;
-}
-
-.sorteio-hero {
-  padding: 2.5rem 0 1.5rem;
-  text-align: center;
-}
-
-.sorteio-hero h1 {
-  margin: 0.35rem 0 0.75rem;
-  font-family: var(--font-display, "Orbitron", sans-serif);
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  letter-spacing: 0.04em;
-}
-
-.sorteio-hero__lead {
-  margin: 0 auto;
-  max-width: 36rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.sorteio-hero__lead strong {
-  color: var(--cyan);
-}
-
-.sorteio-hero__pills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sorteio-hero__pills li {
-  padding: 0.35rem 0.85rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 999px;
 }
 
 .sorteio-layout {
@@ -65,20 +22,6 @@
     grid-template-columns: minmax(280px, 380px) 1fr;
     gap: 2rem;
   }
-}
-
-.sorteio-setup {
-  position: relative;
-  overflow: hidden;
-}
-
-.sorteio-setup::before {
-  content: "";
-  position: absolute;
-  inset: -40% -20% auto;
-  height: 60%;
-  background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.12), transparent 70%);
-  pointer-events: none;
 }
 
 .sorteio-setup__head {
@@ -97,20 +40,7 @@
 }
 
 .sorteio-counter {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
   margin: 1.25rem 0 1rem;
-  padding: 0.85rem 1rem;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid var(--border);
-  border-radius: var(--radius, 12px);
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.sorteio-counter--ready {
-  border-color: rgba(0, 255, 136, 0.45);
-  box-shadow: 0 0 24px rgba(0, 255, 136, 0.08);
 }
 
 .sorteio-counter--warn {
@@ -118,11 +48,6 @@
 }
 
 .sorteio-counter__value {
-  font-family: var(--font-display, "Orbitron", sans-serif);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--cyan);
-  line-height: 1;
   transition: transform 0.2s;
 }
 
@@ -142,11 +67,6 @@
   }
 }
 
-.sorteio-counter__label {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
 .sorteio-field textarea {
   min-height: 10rem;
   font-family: ui-monospace, "Cascadia Code", monospace;
@@ -155,29 +75,9 @@
 }
 
 .sorteio-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
   margin: 0.75rem 0 0;
   max-height: 6rem;
   overflow-y: auto;
-}
-
-.sorteio-chip {
-  padding: 0.2rem 0.55rem;
-  font-size: 0.75rem;
-  color: var(--text);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  animation: sorteio-chip-in 0.25s ease backwards;
-}
-
-@keyframes sorteio-chip-in {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
 }
 
 .sorteio-setup__toolbar {
@@ -192,30 +92,6 @@
   margin-top: 0.25rem;
   position: relative;
   overflow: hidden;
-}
-
-.sorteio-btn-draw:not(:disabled)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent 60%
-  );
-  transform: translateX(-100%);
-  animation: sorteio-shine 3s ease-in-out infinite;
-}
-
-@keyframes sorteio-shine {
-  0%,
-  70% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 .sorteio-btn-draw:disabled {
@@ -244,22 +120,7 @@
 
 /* Arena */
 .sorteio-arena {
-  position: relative;
   min-height: 320px;
-  padding: 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg, 16px);
-  overflow: hidden;
-}
-
-.sorteio-arena::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.06), transparent 55%),
-    radial-gradient(ellipse at 20% 80%, rgba(0, 212, 255, 0.05), transparent 50%);
-  pointer-events: none;
 }
 
 .sorteio-arena__empty,

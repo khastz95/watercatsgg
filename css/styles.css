@@ -1,4 +1,4 @@
-/* Eternal Pratas — tema competitivo CS */
+﻿/* Eternal Pratas — tema competitivo CS */
 :root {
   --bg: #12141a;
   --bg-elevated: #161922;
@@ -210,7 +210,8 @@ body {
   isolation: isolate;
 }
 
-body::before {
+/* Fundo com grade + gradiente: páginas hub em hub-theme.css */
+body:not(.hub-site)::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -1734,19 +1735,6 @@ body.page-home .hero {
   padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
 }
 
-body.page-home .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: -0.5rem -8vw 1.5rem;
-  border-radius: var(--radius-xl);
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 58% 52% at 14% 38%, rgba(0, 229, 255, 0.09), transparent 60%),
-    radial-gradient(ellipse 50% 44% at 86% 22%, rgba(92, 77, 255, 0.1), transparent 56%);
-}
-
 body.page-home .hero__grid {
   position: relative;
   z-index: 1;
@@ -2351,7 +2339,8 @@ body.page-jogadores .players-page__lead code {
     transition-delay: 0s;
   }
 
-  body::before {
+  body::before,
+  body.hub-site::before {
     animation: none !important;
     opacity: 0.55;
   }

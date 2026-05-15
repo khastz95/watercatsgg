@@ -693,11 +693,6 @@ body.page-home .grid-3 .card:hover {
   border-color: var(--border-accent);
 }
 
-/* Override page-home hero conflicts from styles.css */
-body.page-home .hero::before {
-  margin-bottom: 2rem;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .home-ticker__track {
     animation: none;

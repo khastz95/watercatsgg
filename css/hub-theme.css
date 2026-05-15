@@ -1,0 +1,429 @@
+/* Eternal Pratas — tema unificado (arena / sorteio em todo o hub) */
+
+body.hub-site {
+  --hub-a: #00d4ff;
+  --hub-b: #a855f7;
+  --hub-glow-a: rgba(0, 212, 255, 0.35);
+  --hub-glow-b: rgba(168, 85, 247, 0.35);
+  --hub-grid-size: 48px;
+  --hub-grid-line-a: rgba(0, 212, 255, 0.07);
+  --hub-grid-line-b: rgba(168, 85, 247, 0.05);
+}
+
+/* Grade quadriculada + gradientes (padrão em todas as páginas hub) */
+body.hub-site::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, var(--hub-grid-line-a) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hub-grid-line-b) 1px, transparent 1px),
+    linear-gradient(
+      90deg,
+      rgba(0, 212, 255, 0.04) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(168, 85, 247, 0.04) 100%
+    ),
+    radial-gradient(ellipse 90% 60% at 50% -15%, rgba(0, 212, 255, 0.1), transparent 58%),
+    radial-gradient(ellipse 70% 50% at 100% 70%, rgba(168, 85, 247, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 0% 55%, rgba(0, 212, 255, 0.06), transparent 50%),
+    radial-gradient(ellipse 100% 55% at 50% 110%, rgba(92, 77, 255, 0.05), transparent 52%);
+  background-size:
+    var(--hub-grid-size) var(--hub-grid-size),
+    var(--hub-grid-size) var(--hub-grid-size),
+    100% 100%,
+    auto,
+    auto,
+    auto,
+    auto;
+  background-position:
+    0 0,
+    0 0,
+    center,
+    center top,
+    right bottom,
+    left center,
+    center bottom;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed;
+  animation: grid-breathe 24s ease-in-out infinite alternate, hub-grid-shift 96s linear infinite;
+}
+
+@keyframes hub-grid-shift {
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      center,
+      center top,
+      right bottom,
+      left center,
+      center bottom;
+  }
+  100% {
+    background-position:
+      48px 24px,
+      24px 48px,
+      center,
+      center top,
+      right bottom,
+      left center,
+      center bottom;
+  }
+}
+
+/* Vinheta suave — foco no conteúdo */
+body.hub-site::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 95% 75% at 50% 45%, transparent 35%, rgba(18, 20, 26, 0.55) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.hub-site::before {
+    animation: none;
+    opacity: 0.72;
+  }
+}
+
+/* —— Hero spotlight (estilo sorteio) —— */
+.page-hero--spotlight {
+  text-align: center;
+  padding: 2.5rem 0 1.5rem;
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+  background: transparent;
+}
+
+.page-hero--spotlight::after {
+  display: none;
+}
+
+.page-hero--spotlight h1 {
+  margin: 0.35rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  letter-spacing: 0.04em;
+}
+
+.page-hero--spotlight .page-hero__lead,
+.page-hero--spotlight > p:not(.section__label) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 36rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.page-hero--spotlight .page-hero__lead strong,
+.page-hero--spotlight > p strong {
+  color: var(--cyan);
+}
+
+/* —— Pills —— */
+.hub-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hub-pills li,
+.hub-pills > span {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+/* —— Cards com brilho superior (sem sobrescrever a barra do .card) —— */
+body.hub-site .card--glow {
+  overflow: hidden;
+  background-image:
+    radial-gradient(ellipse 120% 70% at 50% -15%, rgba(0, 212, 255, 0.12), transparent 58%),
+    linear-gradient(165deg, rgba(26, 29, 38, 0.98) 0%, var(--bg-card) 50%, var(--bg-elevated) 100%);
+}
+
+/* —— Painel arena —— */
+.hub-panel {
+  position: relative;
+  min-height: 200px;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.hub-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.06), transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(0, 212, 255, 0.05), transparent 50%);
+  pointer-events: none;
+}
+
+.hub-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* —— Stat / contador —— */
+.hub-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.hub-stat__value {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+}
+
+.hub-stat__label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.hub-stat--ok {
+  border-color: rgba(0, 255, 136, 0.45);
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.08);
+}
+
+/* —— Chips —— */
+.hub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.hub-chip {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  animation: hub-chip-in 0.25s ease backwards;
+}
+
+@keyframes hub-chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+/* —— Botão primário com brilho —— */
+body.hub-site .btn--primary:not(:disabled) {
+  position: relative;
+  overflow: hidden;
+}
+
+body.hub-site .btn--primary:not(:disabled)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  animation: hub-btn-shine 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hub-btn-shine {
+  0%,
+  70% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* —— Home: pulse + steps + CTA —— */
+body.page-home .home-pulse__card {
+  position: relative;
+  overflow: hidden;
+}
+
+body.page-home .home-pulse__card::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto;
+  height: 70%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+body.page-home .home-step {
+  position: relative;
+  overflow: hidden;
+}
+
+body.page-home .home-step::after {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+body.page-home .home-cta {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(165deg, var(--bg-card), var(--bg-elevated));
+}
+
+body.page-home .home-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(0, 212, 255, 0.1), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(168, 85, 247, 0.08), transparent 45%);
+  pointer-events: none;
+}
+
+body.page-home .home-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.page-home .hero__highlights {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  max-width: none;
+}
+
+body.page-home .hero__highlights li {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  line-height: 1.4;
+}
+
+body.page-home .hero__highlights li::before {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  body.page-home .hero__highlights {
+    justify-content: center;
+  }
+}
+
+/* —— Jogadores dashboard —— */
+body.page-jogadores .lf-sidebar {
+  position: relative;
+  overflow: hidden;
+}
+
+body.page-jogadores .lf-sidebar::before {
+  content: "";
+  position: absolute;
+  inset: -20% 0 auto;
+  height: 40%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+body.page-jogadores .lf-card {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(0, 212, 255, 0.08), transparent 55%),
+    linear-gradient(165deg, var(--lf-card), var(--bg-elevated));
+}
+
+body.page-jogadores .lf-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.page-jogadores .lf-sidebar__item.is-active {
+  box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.06);
+}
+
+body.page-jogadores .lf-dashboard__bar {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.04), transparent);
+}
+
+/* —— Mix steps numerados —— */
+body.hub-site .mix-steps li strong {
+  font-family: var(--font-display);
+  color: var(--hub-a);
+  text-shadow: 0 0 16px var(--hub-glow-a);
+}
+
+/* —— Page hero padrão: leve upgrade —— */
+body.hub-site .page-hero:not(.page-hero--spotlight) {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.04) 0%, transparent 60%);
+}
+
+body.hub-site .page-hero:not(.page-hero--spotlight) h1 {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+}
+
+/* —— Admin —— */
+body.page-admin-stats main {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+body.page-admin-stats .card,
+body.page-admin-stats .field {
+  position: relative;
+}
+
+body.page-admin-stats .card {
+  overflow: hidden;
+}
+
+body.page-admin-stats .card::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto;
+  height: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 255, 0.1), transparent 70%);
+  pointer-events: none;
+}

@@ -14,17 +14,11 @@
   --mapas-card-id: 0.62rem;
 }
 
-.mapas-page {
-  padding-bottom: 3rem;
-}
-
-.mapas-layout {
+/* main.container.mapas-layout — mesma largura que Mix/Sobre */
+main.mapas-layout {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  width: 100%;
-  max-width: 64rem;
-  margin-inline: auto;
+  gap: var(--mapas-section-gap, 1rem);
 }
 
 /* Modo */

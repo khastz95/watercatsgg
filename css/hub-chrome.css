@@ -16,26 +16,6 @@ body.hub-site .container {
   width: min(var(--layout-max), calc(100vw - var(--layout-pad) * 2));
 }
 
-body.hub-site .mapas-layout {
-  width: 100%;
-  max-width: 64rem;
-  margin-inline: auto;
-}
-
-body.hub-site .sorteio-layout {
-  width: 100%;
-  max-width: none;
-}
-
-body.hub-site .sorteio-footnote {
-  max-width: 40rem;
-  margin-inline: auto;
-}
-
-body.hub-site .page-hero--spotlight .page-hero__lead {
-  max-width: 38rem;
-}
-
 @media (min-width: 1280px) {
   body.hub-site {
     --layout-max: 1240px;
@@ -442,6 +422,7 @@ body.hub-site .page-hero--spotlight .page-hero__lead,
 body.hub-site .page-hero--spotlight > p:not(.section__label) {
   color: var(--text-muted);
   font-size: 1.02rem;
+  max-width: 42rem;
 }
 
 body.hub-site .hub-pills li,

@@ -7,20 +7,28 @@
   --sorteio-glow-b: var(--hub-glow-b);
 }
 
-.sorteio-page {
-  padding-bottom: 3rem;
-}
-
 .sorteio-layout {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-items: start;
+  width: 100%;
+}
+
+.sorteio-footnote {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.sorteio-footnote a {
+  color: var(--cyan);
 }
 
 @media (min-width: 960px) {
   .sorteio-layout {
     grid-template-columns: minmax(280px, 360px) 1fr;
-    gap: 1.75rem;
+    gap: clamp(1.25rem, 2vw, 1.75rem);
   }
 }
 
@@ -663,18 +671,6 @@
   gap: 0.5rem;
   justify-content: center;
   margin-top: 1.5rem;
-}
-
-.sorteio-footnote {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  max-width: none;
-  text-align: center;
-}
-
-.sorteio-footnote a {
-  color: var(--cyan);
 }
 
 .sorteio-arena__result {

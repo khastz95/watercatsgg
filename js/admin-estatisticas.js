@@ -138,6 +138,7 @@
       '<button type="button" class="btn btn--ghost" id="btn-export">Exportar backup</button>' +
       '<label class="btn btn--ghost" style="cursor:pointer">Importar backup<input type="file" id="import-file" accept=".json" hidden /></label>' +
       '<a class="btn btn--ghost" href="/jogadores.html" target="_blank">Ver página pública</a>' +
+      '<button type="button" class="btn btn--ghost adm-btn-logout" id="btn-logout" style="margin-left:auto">Sair ⏻</button>' +
       '</div>' +
       '<div id="admin-msg"></div>' +
       '<div class="adm-layout">' +
@@ -418,6 +419,16 @@
     document.getElementById("btn-export").addEventListener("click", exportJson);
     document.getElementById("import-file").addEventListener("change", importJson);
     document.getElementById("adm-btn-general").addEventListener("click", selectGeneral);
+    document.getElementById("btn-logout").addEventListener("click", function () {
+      StatsData.setStoredUsername("");
+      StatsData.setStoredPassword("");
+      app.data     = null;
+      app.partidas = null;
+      app.username = "";
+      app.password = "";
+      app.view     = null;
+      renderLogin();
+    });
     document.getElementById("adm-btn-partidas").addEventListener("click", function () {
       collectCurrentView();
       renderPartidas();

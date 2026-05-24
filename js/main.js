@@ -31,20 +31,31 @@
     document.body.appendChild(fab);
   }
 
+  function setNavOpen(open) {
+    if (!toggle || !nav) return;
+    toggle.setAttribute("aria-expanded", String(open));
+    nav.classList.toggle("is-open", open);
+    document.body.classList.toggle("nav-open", open);
+  }
+
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
-      var open = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!open));
-      nav.classList.toggle("is-open", !open);
+      setNavOpen(toggle.getAttribute("aria-expanded") !== "true");
     });
 
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         if (window.matchMedia("(max-width: 900px)").matches) {
-          toggle.setAttribute("aria-expanded", "false");
-          nav.classList.remove("is-open");
+          setNavOpen(false);
         }
       });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+        setNavOpen(false);
+        toggle.focus();
+      }
     });
   }
 
@@ -53,12 +64,18 @@
   });
   var path = seg.length ? seg[seg.length - 1] : "index.html";
   if (!path || !/\.html?$/.test(path)) path = "index.html";
-  document.querySelectorAll(".site-nav a, .footer__navlist a[href$='.html']").forEach(function (a) {
+  document.querySelectorAll(".site-nav a, .footer__links a[href$='.html'], .footer__navlist a[href$='.html']").forEach(function (a) {
     var href = a.getAttribute("href") || "";
     var hrefFile = href.split("/").filter(function (s) {
       return s.length > 0;
     }).pop();
-    if (hrefFile === path) a.classList.add("is-active");
+    var isCurrent = hrefFile === path;
+    a.classList.toggle("is-active", isCurrent);
+    if (isCurrent) {
+      a.setAttribute("aria-current", "page");
+    } else {
+      a.removeAttribute("aria-current");
+    }
   });
 
   var revealObserver = new IntersectionObserver(

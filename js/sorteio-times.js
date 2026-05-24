@@ -432,6 +432,9 @@
     setFeedback(msg + " Time A: " + a.length + " · Time B: " + b.length + ".", "ok");
 
     if (wrap) wrap.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    var mapActions = document.getElementById("sorteio-map-actions");
+    if (mapActions) mapActions.hidden = false;
   }
 
   function getPhase(progress) {
@@ -491,6 +494,8 @@
     if (!validatePlayers(players)) return;
 
     stopDrawingAnim();
+    var mapActionsDraw = document.getElementById("sorteio-map-actions");
+    if (mapActionsDraw) mapActionsDraw.hidden = true;
     drawing = true;
     btn.disabled = true;
     btn.classList.add("is-busy");
@@ -669,6 +674,8 @@
 
   function clearList() {
     stopDrawingAnim();
+    var mapActionsClear = document.getElementById("sorteio-map-actions");
+    if (mapActionsClear) mapActionsClear.hidden = true;
     ta.value = "";
     lastTeams = null;
     setArenaState("empty");

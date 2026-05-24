@@ -19,8 +19,8 @@
 
 @media (min-width: 960px) {
   .sorteio-layout {
-    grid-template-columns: minmax(280px, 380px) 1fr;
-    gap: 2rem;
+    grid-template-columns: minmax(280px, 360px) 1fr;
+    gap: 1.75rem;
   }
 }
 
@@ -669,7 +669,7 @@
   margin-top: 2rem;
   font-size: 0.9rem;
   color: var(--text-muted);
-  max-width: 42rem;
+  max-width: none;
   text-align: center;
 }
 
@@ -694,4 +694,28 @@
 .sorteio-arena__drawing[hidden],
 .sorteio-arena__result[hidden] {
   display: none !important;
+}
+
+/* Link para página de mapas (após sorteio de times) */
+
+.sorteio-map-actions {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.sorteio-map-actions__label {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.sorteio-map-actions__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
 }

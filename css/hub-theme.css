@@ -2,15 +2,15 @@
 
 body.hub-site {
   --hub-a: #00d4ff;
-  --hub-b: #a855f7;
-  --hub-glow-a: rgba(0, 212, 255, 0.35);
-  --hub-glow-b: rgba(168, 85, 247, 0.35);
+  --hub-b: #8b6cf8;
+  --hub-glow-a: rgba(0, 212, 255, 0.22);
+  --hub-glow-b: rgba(139, 108, 248, 0.18);
   --hub-grid-size: 48px;
-  --hub-grid-line-a: rgba(0, 212, 255, 0.07);
-  --hub-grid-line-b: rgba(168, 85, 247, 0.05);
+  --hub-grid-line-a: rgba(0, 212, 255, 0.05);
+  --hub-grid-line-b: rgba(139, 108, 248, 0.038);
 }
 
-/* Grade quadriculada + gradientes (padrão em todas as páginas hub) */
+/* Fundo — grade + luzes fixas (só a grade se move) */
 body.hub-site::before {
   content: "";
   position: fixed;
@@ -21,44 +21,35 @@ body.hub-site::before {
   background-image:
     linear-gradient(to right, var(--hub-grid-line-a) 1px, transparent 1px),
     linear-gradient(to bottom, var(--hub-grid-line-b) 1px, transparent 1px),
-    linear-gradient(
-      90deg,
-      rgba(0, 212, 255, 0.04) 0%,
-      transparent 35%,
-      transparent 65%,
-      rgba(168, 85, 247, 0.04) 100%
-    ),
-    radial-gradient(ellipse 90% 60% at 50% -15%, rgba(0, 212, 255, 0.1), transparent 58%),
-    radial-gradient(ellipse 70% 50% at 100% 70%, rgba(168, 85, 247, 0.08), transparent 55%),
-    radial-gradient(ellipse 60% 45% at 0% 55%, rgba(0, 212, 255, 0.06), transparent 50%),
-    radial-gradient(ellipse 100% 55% at 50% 110%, rgba(92, 77, 255, 0.05), transparent 52%);
+    radial-gradient(ellipse 90% 60% at 50% -15%, rgba(0, 212, 255, 0.08), transparent 58%),
+    radial-gradient(ellipse 70% 50% at 100% 75%, rgba(139, 108, 248, 0.05), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 0% 60%, rgba(0, 212, 255, 0.04), transparent 50%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(92, 77, 255, 0.04), transparent 52%);
   background-size:
     var(--hub-grid-size) var(--hub-grid-size),
     var(--hub-grid-size) var(--hub-grid-size),
     100% 100%,
-    auto,
-    auto,
-    auto,
-    auto;
+    100% 100%,
+    100% 100%,
+    100% 100%;
   background-position:
     0 0,
     0 0,
-    center,
     center top,
     right bottom,
     left center,
     center bottom;
-  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   background-attachment: fixed;
-  animation: grid-breathe 24s ease-in-out infinite alternate, hub-grid-shift 96s linear infinite;
+  animation: hub-site-grid-shift 100s linear infinite;
 }
 
-@keyframes hub-grid-shift {
+/* Apenas as duas camadas da grade se deslocam */
+@keyframes hub-site-grid-shift {
   0% {
     background-position:
       0 0,
       0 0,
-      center,
       center top,
       right bottom,
       left center,
@@ -66,9 +57,8 @@ body.hub-site::before {
   }
   100% {
     background-position:
-      48px 24px,
-      24px 48px,
-      center,
+      var(--hub-grid-size) 0,
+      0 var(--hub-grid-size),
       center top,
       right bottom,
       left center,
@@ -76,20 +66,19 @@ body.hub-site::before {
   }
 }
 
-/* Vinheta suave — foco no conteúdo */
+/* Vinheta suave nas bordas */
 body.hub-site::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(ellipse 95% 75% at 50% 45%, transparent 35%, rgba(18, 20, 26, 0.55) 100%);
+  background: radial-gradient(ellipse 95% 85% at 50% 45%, transparent 50%, rgba(8, 10, 15, 0.65) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
   body.hub-site::before {
     animation: none;
-    opacity: 0.72;
   }
 }
 
@@ -448,23 +437,6 @@ html {
   }
 }
 
-body.hub-site .site-header.is-scrolled {
-  border-color: rgba(0, 229, 255, 0.14);
-  box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.6),
-    0 0 32px rgba(0, 212, 255, 0.06),
-    0 1px 0 rgba(0, 229, 255, 0.1) inset;
-}
-
-body.hub-site .site-nav a.is-active,
-body.hub-site .site-nav a[aria-current="page"] {
-  color: var(--cyan);
-  text-shadow: 0 0 18px rgba(0, 229, 255, 0.4);
-  border-bottom-color: var(--cyan);
-  background: rgba(0, 229, 255, 0.06);
-  border-radius: var(--radius-sm);
-}
-
 .page-hero--compact {
   padding: 1.75rem 0 1rem;
   margin-bottom: 0.5rem;
@@ -669,4 +641,12 @@ body.page-jogadores .lf-ranks-panel {
   background-image:
     radial-gradient(ellipse 100% 40% at 50% 0%, rgba(168, 85, 247, 0.06), transparent 60%),
     linear-gradient(165deg, var(--lf-card), var(--bg-elevated));
+}
+
+.section__head-actions,
+.hub-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }

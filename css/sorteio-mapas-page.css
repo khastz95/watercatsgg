@@ -1,0 +1,989 @@
+/* Sorteio de mapas — página dedicada */
+
+.page-mapas {
+  --mapas-accent: var(--cyan);
+  --mapas-danger: #e85d6a;
+  --mapas-image-bg: #0a0c12;
+  --mapas-section-gap: 1rem;
+  --mapas-arena-pad: 1rem 1rem 1.15rem;
+  --mapas-grid-gap: 0.75rem;
+  --mapas-card-radius: 12px;
+  --mapas-card-visual-ratio: 16 / 10;
+  --mapas-card-body-pad: 0.5rem 0.55rem 0.55rem;
+  --mapas-card-name: 0.76rem;
+  --mapas-card-id: 0.62rem;
+}
+
+.mapas-page {
+  padding-bottom: 3rem;
+}
+
+.mapas-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+/* Modo */
+.mapas-mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  padding: 0.65rem;
+}
+
+.mapas-mode__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--text-muted);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.25s, background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+
+.mapas-mode__btn:hover {
+  border-color: rgba(0, 180, 216, 0.45);
+  color: var(--text);
+}
+
+.mapas-mode__btn.is-active {
+  border-color: var(--mapas-accent);
+  background: linear-gradient(135deg, rgba(0, 180, 216, 0.12), rgba(120, 80, 200, 0.08));
+  color: var(--text);
+  box-shadow: 0 0 24px rgba(0, 180, 216, 0.12);
+}
+
+.mapas-mode__icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+}
+
+.mapas-mode__btn.is-active .mapas-mode__icon {
+  border-color: var(--mapas-accent);
+  color: var(--mapas-accent);
+}
+
+.mapas-mode__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mapas-mode__text strong {
+  font-size: 0.95rem;
+}
+
+.mapas-mode__text small {
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+/* Stage */
+.mapas-stage {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  padding: 1.35rem 1.25rem 1.5rem;
+}
+
+.mapas-stage::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 180, 216, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.mapas-stage__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  max-width: 22rem;
+  margin: 0 auto var(--mapas-section-gap);
+  position: relative;
+  z-index: 1;
+}
+
+.mapas-stat.hub-stat {
+  justify-content: center;
+  min-width: 0;
+}
+
+.mapas-stage__status {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto var(--mapas-section-gap);
+  padding: 0 0.25rem;
+  max-width: 36rem;
+  min-height: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.mapas-stage.is-drawing .mapas-stage__status,
+.mapas-stage.is-revealing .mapas-stage__status {
+  color: var(--text);
+}
+
+.mapas-stage.is-draw-done .mapas-stage__status,
+.mapas-stage.is-revealed .mapas-stage__status {
+  color: var(--mapas-accent);
+}
+
+.mapas-flash {
+  display: none;
+}
+
+/* Barra de progresso do sorteio */
+.mapas-progress {
+  position: relative;
+  z-index: 3;
+  display: none;
+  text-align: center;
+  margin-bottom: 0;
+  padding: 0.65rem 0.75rem 0.55rem;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.mapas-progress.is-active,
+.mapas-progress.is-reveal,
+.mapas-progress.is-done {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mapas-progress__title {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  min-height: 1.35em;
+}
+
+.mapas-progress.is-reveal .mapas-progress__title {
+  font-family: var(--font-display, "Orbitron", sans-serif);
+  font-size: 1.05rem;
+  color: var(--mapas-accent);
+}
+
+.mapas-progress__detail {
+  margin: 0.45rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-height: 1.2em;
+}
+
+.mapas-progress__detail[hidden] {
+  display: none;
+}
+
+.mapas-progress__bar {
+  width: min(100%, 22rem);
+  height: 4px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.mapas-progress__fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--mapas-accent), rgba(0, 180, 216, 0.7));
+  transition: width 0.12s linear;
+}
+
+.mapas-stage.is-revealing .mapas-progress__fill {
+  transition: width 0.35s ease;
+}
+
+/* Media frame */
+.mapas-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #1a1d28 0%, #0e1016 100%);
+  isolation: isolate;
+}
+
+.mapas-media__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.35s ease, filter 0.25s ease;
+}
+
+/* Imagem completa visível (sem crop) */
+.mapas-media--contain {
+  background: var(--mapas-image-bg);
+}
+
+.mapas-media--contain .mapas-media__img {
+  object-fit: contain;
+  object-position: center center;
+}
+
+.mapas-map-card__visual .mapas-media--card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: transparent;
+}
+
+.mapas-media--hero {
+  aspect-ratio: 16 / 9;
+  max-height: none;
+}
+
+.mapas-media--hero .mapas-media__img {
+  object-fit: contain;
+  object-position: center center;
+}
+
+.mapas-media.is-placeholder .mapas-media__img {
+  opacity: 0;
+}
+
+.mapas-media.is-placeholder::after {
+  content: attr(data-map-name);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, "Orbitron", sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(135deg, rgba(0, 180, 216, 0.15), rgba(120, 80, 200, 0.2));
+}
+
+.mapas-media__shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.mapas-map-card:hover:not(:disabled):not(.is-banned):not(.is-void) .mapas-media__shine,
+.mapas-draw-card.is-champion .mapas-media__shine {
+  animation: mapas-shine 1.1s ease;
+}
+
+@keyframes mapas-shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Painel do modo (sorteio / veto) */
+.mapas-mode-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mapas-section-gap);
+  margin-bottom: 0.25rem;
+}
+
+.mapas-mode-panel[hidden] {
+  display: none !important;
+}
+
+/* Arena compartilhada */
+.mapas-arena {
+  position: relative;
+  padding: var(--mapas-arena-pad);
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.mapas-arena__fx {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(232, 93, 106, 0.06), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.mapas-stage.is-drawing .mapas-arena__fx,
+.mapas-stage.is-revealing .mapas-arena__fx {
+  opacity: 1;
+  animation: mapas-arena-pulse 2s ease-in-out infinite;
+}
+
+@keyframes mapas-arena-pulse {
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.mapas-arena__head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.mapas-arena__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.mapas-arena__count {
+  margin: 0;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.mapas-arena__count-num {
+  font-family: var(--font-display, "Orbitron", sans-serif);
+  font-weight: 700;
+  color: var(--mapas-accent);
+  font-size: 1.1rem;
+  line-height: 1;
+  min-width: 1.25ch;
+  text-align: right;
+}
+
+.mapas-arena__count-text {
+  font-size: 0.8rem;
+}
+
+.mapas-stage.is-drawing .mapas-arena__label,
+.mapas-stage.is-revealing .mapas-arena__label {
+  color: var(--mapas-accent);
+}
+
+/* Grid de cartões — sorteio e veto */
+.mapas-cards-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--mapas-grid-gap);
+  width: 100%;
+}
+
+/* Cartão base — sorteio e veto */
+.mapas-map-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--mapas-card-radius);
+  background: linear-gradient(180deg, rgba(22, 26, 36, 0.95) 0%, rgba(10, 12, 18, 0.98) 100%);
+  overflow: hidden;
+  text-align: left;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 6px 20px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 0.85, 0.25, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    opacity 0.4s ease,
+    filter 0.35s ease;
+}
+
+.mapas-map-card__visual {
+  position: relative;
+  flex: 0 0 auto;
+  aspect-ratio: var(--mapas-card-visual-ratio);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 20%, rgba(0, 180, 216, 0.07), transparent 55%),
+    var(--mapas-image-bg);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.mapas-map-card__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 28%,
+    transparent 62%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+.mapas-map-card__visual::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(0, 180, 216, 0.35), transparent);
+  opacity: 0.65;
+}
+
+.mapas-map-card__visual .mapas-media.is-placeholder::after {
+  font-size: clamp(0.62rem, 2.8vw, 0.82rem);
+  letter-spacing: 0.08em;
+  z-index: 0;
+}
+
+.mapas-map-card__body {
+  padding: var(--mapas-card-body-pad);
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  min-height: 2.55rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
+}
+
+.mapas-cards-grid .mapas-map-card:hover:not(:disabled):not(.is-banned):not(.is-void):not(.is-marked) {
+  transform: translateY(-2px);
+  border-color: rgba(0, 180, 216, 0.42);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 10px 28px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(0, 180, 216, 0.12);
+}
+
+.mapas-cards-grid .mapas-map-card:hover:not(:disabled):not(.is-banned):not(.is-void) .mapas-media__img {
+  transform: scale(1.03);
+}
+
+.mapas-map-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, "Orbitron", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mapas-map-card__overlay--danger {
+  background: linear-gradient(165deg, rgba(232, 93, 106, 0.94), rgba(100, 24, 38, 0.96));
+}
+
+.mapas-map-card__name {
+  display: block;
+  font-family: var(--font-display, "Orbitron", sans-serif);
+  font-size: var(--mapas-card-name);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mapas-map-card__id {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--mapas-card-id);
+  color: var(--text-muted);
+  font-family: ui-monospace, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Sorteio — estados do cartão */
+.mapas-draw-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mapas-draw-card.is-draw-start {
+  opacity: 0;
+  transform: scale(0.9) translateY(10px);
+}
+
+.mapas-draw-card.is-enter {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+
+.mapas-draw-grid.is-eliminating .mapas-map-card {
+  pointer-events: none;
+}
+
+.mapas-draw-grid.is-eliminating .mapas-map-card.is-live:not(.is-marked):not(.is-champion) {
+  filter: saturate(0.92) brightness(0.9);
+}
+
+.mapas-draw-card.is-marked {
+  border-color: var(--mapas-danger);
+  box-shadow: 0 0 0 2px rgba(232, 93, 106, 0.5), 0 12px 28px rgba(232, 93, 106, 0.2);
+  z-index: 5;
+  animation: mapas-mark-pulse 0.32s ease-out;
+}
+
+@keyframes mapas-mark-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04) rotate(-1deg);
+  }
+}
+
+.mapas-draw-card.is-folded {
+  display: none !important;
+}
+
+.mapas-draw-card.is-void {
+  opacity: 0;
+  transform: scale(0.65) rotate(6deg);
+  filter: grayscale(1) blur(2px);
+  pointer-events: none;
+  border-color: transparent;
+}
+
+.mapas-draw-card.is-void .mapas-map-card__overlay {
+  opacity: 1;
+  animation: mapas-void-flash 0.45s ease-out forwards;
+}
+
+@keyframes mapas-void-flash {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+.mapas-draw-grid.is-champion-mode {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-content: center;
+  min-height: 11rem;
+  gap: 0;
+}
+
+.mapas-stage.is-revealing .mapas-arena {
+  border-color: rgba(0, 180, 216, 0.35);
+  box-shadow: 0 0 32px rgba(0, 180, 216, 0.08);
+}
+
+.mapas-draw-card.is-champion .mapas-media__shine {
+  animation: mapas-shine 1s ease;
+}
+
+.mapas-draw-card.is-champion {
+  opacity: 1 !important;
+  filter: none !important;
+  border-color: var(--mapas-accent);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 0 0 3px rgba(0, 180, 216, 0.4),
+    0 20px 48px rgba(0, 180, 216, 0.18);
+  width: min(100%, 19rem);
+  max-width: 19rem;
+  z-index: 10;
+  animation: mapas-champion-rise 0.65s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+}
+
+@keyframes mapas-champion-rise {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.mapas-mode-panel.is-exiting {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.mapas-controls__primary.is-busy {
+  opacity: 0.85;
+}
+
+/* Veto — interação */
+.mapas-pool-card {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mapas-pool-card:focus-visible {
+  outline: 2px solid var(--mapas-accent);
+  outline-offset: 2px;
+}
+
+.mapas-pool-card.is-banning {
+  animation: mapas-veto-ban 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes mapas-veto-ban {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  25% {
+    transform: scale(1.04) rotate(-2deg);
+    box-shadow: 0 0 0 3px var(--mapas-danger);
+  }
+  100% {
+    transform: scale(0.88) rotate(0);
+    opacity: 0.25;
+    filter: grayscale(1);
+  }
+}
+
+.mapas-pool-card.is-banned {
+  opacity: 0.22;
+  pointer-events: none;
+  transform: scale(0.92);
+  filter: grayscale(1);
+}
+
+.mapas-pool-card.is-banned .mapas-map-card__overlay {
+  opacity: 1;
+}
+
+.mapas-pool-card.is-last {
+  border-color: var(--mapas-accent);
+  box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.3);
+  animation: mapas-veto-last 0.5s ease;
+}
+
+@keyframes mapas-veto-last {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.mapas-stage--veto-done .mapas-veto-wrap {
+  display: none !important;
+}
+
+.mapas-pool-card:disabled:not(.is-banned) {
+  cursor: wait;
+  opacity: 0.85;
+}
+
+.mapas-pool-card:disabled.is-banned {
+  cursor: default;
+}
+
+/* Resultado */
+.mapas-result {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin: 0.25rem 0 1.25rem;
+  opacity: 0;
+  transform: translateY(18px) scale(0.97);
+}
+
+.mapas-stage--sorteio-result .mapas-result {
+  margin-top: 0;
+}
+
+.mapas-result.is-unveiled {
+  animation: mapas-result-unveil 0.75s cubic-bezier(0.16, 0.9, 0.2, 1) forwards;
+}
+
+@keyframes mapas-result-unveil {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mapas-result__oracle {
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.mapas-result__rings {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width:  min(100%, 20rem);
+  height: min(100%, 20rem);
+  margin: -10rem 0 0 -10rem;
+  border: 1px solid rgba(0, 180, 216, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.mapas-result.is-unveiled .mapas-result__rings {
+  animation: mapas-rings-expand 1.4s ease-out forwards;
+}
+
+.mapas-result__rings::before,
+.mapas-result__rings::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  border: 1px dashed rgba(168, 85, 247, 0.2);
+  border-radius: 50%;
+}
+
+.mapas-result__rings::after {
+  inset: -35%;
+  animation: mapas-sigil-spin 12s linear infinite;
+}
+
+@keyframes mapas-rings-expand {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.mapas-result[hidden] {
+  display: none !important;
+}
+
+@keyframes mapas-result-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mapas-result__burst {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 320px;
+  height: 320px;
+  margin: -160px 0 0 -160px;
+  background: radial-gradient(circle, rgba(0, 180, 216, 0.25), transparent 65%);
+  animation: mapas-burst 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes mapas-burst {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  40% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+.mapas-result__kicker {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mapas-accent);
+}
+
+.mapas-result__card {
+  max-width: 28rem;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--mapas-accent);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 48px rgba(0, 180, 216, 0.15);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.mapas-result.is-unveiled .mapas-result__card {
+  animation: mapas-result-card-in 0.7s cubic-bezier(0.16, 0.9, 0.2, 1) 0.08s both;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(0, 180, 216, 0.12);
+}
+
+@keyframes mapas-result-card-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.mapas-result__body {
+  padding: 1rem 1.15rem 1.15rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.mapas-result__name {
+  margin: 0;
+  font-family: var(--font-display, "Orbitron", sans-serif);
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 800;
+}
+
+.mapas-result__id {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: ui-monospace, monospace;
+}
+
+.mapas-controls {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: var(--mapas-section-gap);
+  padding-top: 0.25rem;
+}
+
+.mapas-stage--veto .mapas-controls__sorteio,
+.mapas-stage--veto #mapas-action {
+  display: none !important;
+}
+
+.mapas-controls__primary {
+  min-width: 11rem;
+}
+
+.mapas-controls__primary.is-busy {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+@media (min-width: 520px) {
+  .page-mapas {
+    --mapas-grid-gap: 0.7rem;
+    --mapas-card-name: 0.78rem;
+  }
+
+  .mapas-cards-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+}
+
+@media (min-width: 900px) {
+  .page-mapas {
+    --mapas-grid-gap: 0.8rem;
+    --mapas-arena-pad: 1.1rem 1.15rem 1.25rem;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "updated": "2026-05-23",
+  "maps": [
+    { "id": "de_mirage", "name": "Mirage", "image": "/assets/maps/de_mirage.jpg" },
+    { "id": "de_dust2", "name": "Dust II", "image": "/assets/maps/de_dust2.jpg" },
+    { "id": "de_inferno", "name": "Inferno", "image": "/assets/maps/de_inferno.jpg" },
+    { "id": "de_nuke", "name": "Nuke", "image": "/assets/maps/de_nuke.jpg" },
+    { "id": "de_overpass", "name": "Overpass", "image": "/assets/maps/de_overpass.jpg" },
+    { "id": "de_ancient", "name": "Ancient", "image": "/assets/maps/de_ancient.jpg" },
+    { "id": "de_anubis", "name": "Anubis", "image": "/assets/maps/de_anubis.jpg" },
+    { "id": "de_vertigo", "name": "Vertigo", "image": "/assets/maps/de_vertigo.jpg" },
+    { "id": "de_train", "name": "Train", "image": "/assets/maps/de_train.jpg" },
+    { "id": "de_cache", "name": "Cache", "image": "/assets/maps/de_cache.jpg" }
+  ]
+}

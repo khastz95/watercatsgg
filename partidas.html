@@ -7,9 +7,9 @@
     <meta name="color-scheme" content="dark" />
     <meta
       name="description"
-      content="Mix CS2 online no Eternal Pratas: fila, mapa e times na hora."
+      content="Histórico de partidas e estatísticas — Eternal Pratas."
     />
-    <title>Mix | Eternal Pratas</title>
+    <title>Partidas | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,9 +19,10 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
+    <link rel="stylesheet" href="/css/partidas-page.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
-  <body class="hub-site page-mix">
+  <body class="hub-site page-partidas">
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/index.html">
@@ -38,7 +39,7 @@
           <ul>
             <li><a href="/index.html">Início</a></li>
             <li><a href="/jogadores.html">Jogadores</a></li>
-            <li><a href="/partidas.html">Partidas</a></li>
+            <li><a href="/partidas.html" aria-current="page">Partidas</a></li>
             <li><a href="/jogos.html">Mix</a></li>
             <li><a href="/sobre.html">Sobre</a></li>
             <li><a href="/sorteio-times.html">Times</a></li>
@@ -48,74 +49,24 @@
       </div>
     </header>
 
-    <main class="container section section--tight">
-      <header class="page-hero page-hero--spotlight reveal">
-        <p class="section__label">Como rola</p>
-        <h1>Mix &amp; fila</h1>
-        <p class="page-hero__lead">
-          A ideia é simples: juntar gente, sortear ou filar time e jogar. Nada de tabela de liga presa no site — cada noite
-          é o que der na call.
+    <main data-partidas-page>
+      <section class="pm-hero container">
+        <p class="section__label reveal">Histórico</p>
+        <h1 class="reveal">Partidas</h1>
+        <p class="page-hero__lead reveal">
+          Scorecards completos com K/D/A, ADR, HLTV Rating, KAST e kills por partida da turma.
         </p>
-        <ul class="hub-pills">
-          <li>Call no Discord</li>
-          <li>Mapa na hora</li>
-          <li>Times no sorteio</li>
-        </ul>
-      </header>
+        <div id="pm-summary" class="pm-summary reveal"></div>
+      </section>
 
-      <p class="reveal mb-2 hub-cta-row">
-        <a class="btn btn--ghost" href="/sorteio-times.html">Sortear times</a>
-        <a class="btn btn--ghost" href="/sorteio-mapas.html">Sortear / vetar mapas</a>
-      </p>
-
-      <div class="grid-2 mb-2">
-        <article class="card card--glow reveal">
-          <h3>Formato típico</h3>
-          <ol class="mix-steps">
-            <li>
-              <strong>01</strong>
-              <span>Entra na call de mix no <a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>.</span>
-            </li>
-            <li>
-              <strong>02</strong>
-              <span>Define mapa (veto rápido ou sorteio) e se os lados saem aleatório ou escolhidos.</span>
-            </li>
-            <li>
-              <strong>03</strong>
-              <span>Sorteio de time, shuffle de nome ou cap escolhendo até fechar os lados.</span>
-            </li>
-            <li>
-              <strong>04</strong>
-              <span>Partida no servidor privado ou lobby Faceit — depois, quem quiser rematch ou troca de lado.</span>
-            </li>
-          </ol>
-        </article>
-        <article class="card card--glow reveal">
-          <h3>O que não prometemos</h3>
-          <p class="mt-0">
-            Calendário oficial de campeonato e histórico público não ficam neste site. Aqui é fila viva: apareceu,
-            jogou.
-          </p>
-          <p>
-            Quer entrar? Discord. Quer ver como as funções entram nisso? <a href="/jogadores.html">Jogadores</a>.
-          </p>
-        </article>
-      </div>
-
-      <article class="card card--glow reveal" style="max-width: 48rem">
-        <h3>Mapas &amp; variedade</h3>
-        <p class="mt-0">
-          O mapa muda com o humor do dia. Mirage, Inferno, o que cair no random — o ponto é não ficar preso num modo
-          só.
-        </p>
-        <p class="map-pool" style="margin-top: 1rem">
-          <span class="map-pill map-pill--strong">Sorteio de mapa</span>
-          <span class="map-pill">Veto express</span>
-          <span class="map-pill">Rematch</span>
-          <span class="map-pill">Troca de lado manual</span>
-        </p>
-      </article>
+      <section class="container" style="padding-bottom: 3rem;">
+        <div class="pm-filters reveal" id="pm-filters" role="group" aria-label="Filtrar partidas"></div>
+        <div id="pm-list" class="pm-list" aria-live="polite">
+          <p style="color: var(--text-muted); padding: 2rem 0;">A carregar partidas…</p>
+        </div>
+      </section>
     </main>
+
     <footer class="site-footer">
       <div class="footer__accent" aria-hidden="true"></div>
       <div class="container footer__shell">
@@ -162,6 +113,7 @@
             <ul class="footer__links">
               <li><a href="/index.html">Início</a></li>
               <li><a href="/jogadores.html">Jogadores</a></li>
+              <li><a href="/partidas.html">Partidas</a></li>
               <li><a href="/jogos.html">Mix</a></li>
               <li><a href="/sobre.html">Sobre</a></li>
             </ul>
@@ -195,5 +147,6 @@
     </footer>
 
     <script src="/js/main.js" defer></script>
+    <script src="/js/partidas.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,77 @@
+{
+  "updated": "2026-05-23",
+  "matches": [
+    {
+      "id": "ancient-20260523",
+      "date": "2026-05-23",
+      "time": "00:18:35",
+      "map": "Ancient",
+      "mapCode": "de_ancient",
+      "internal": false,
+      "teamA": {
+        "name": "tumtum sarrur",
+        "score": 16,
+        "scoreT": 8,
+        "scoreCT": 8,
+        "result": "win",
+        "players": [
+          { "nick": "iTIN",             "playerId": "iTIN",             "kills": 11, "deaths": 6,  "assists": 0, "damage": 824,  "adr": 75, "adrDiff": 10,  "hltv": 1.35, "kast": 72, "openKills": 1, "tradeKills": 2 },
+          { "nick": "khastz95 =(^-^)=", "playerId": "khastz95",         "kills": 21, "deaths": 18, "assists": 4, "damage": 2025, "adr": 78, "adrDiff": -4,  "hltv": 1.20, "kast": 80, "openKills": 4, "tradeKills": 5 },
+          { "nick": "Clovs",            "playerId": "Clovs",            "kills": 20, "deaths": 19, "assists": 6, "damage": 2381, "adr": 92, "adrDiff": 7,   "hltv": 1.15, "kast": 76, "openKills": 3, "tradeKills": 2 },
+          { "nick": "s4mz",             "playerId": "s4mz",             "kills": 20, "deaths": 17, "assists": 7, "damage": 2220, "adr": 85, "adrDiff": 16,  "hltv": 1.14, "kast": 73, "openKills": 0, "tradeKills": 7 },
+          { "nick": "TUT4fps",          "playerId": "TUT4fps",          "kills": 19, "deaths": 20, "assists": 7, "damage": 2122, "adr": 82, "adrDiff": -5,  "hltv": 1.14, "kast": 76, "openKills": 5, "tradeKills": 6 }
+        ]
+      },
+      "teamB": {
+        "name": "Capivaras Voador",
+        "score": 10,
+        "scoreT": 7,
+        "scoreCT": 3,
+        "result": "loss",
+        "players": [
+          { "nick": "Maverick™",  "playerId": "Maverick™",  "kills": 25, "deaths": 19, "assists": 2, "damage": 2177, "adr": 84, "adrDiff": -1,  "hltv": 1.26, "kast": 76, "openKills": 4, "tradeKills": 6 },
+          { "nick": "Dice",       "playerId": "Dice",       "kills": 20, "deaths": 22, "assists": 5, "damage": 2379, "adr": 92, "adrDiff": 1,   "hltv": 1.05, "kast": 73, "openKills": 2, "tradeKills": 5 },
+          { "nick": "msk777",     "playerId": "⚡ msk",     "kills": 17, "deaths": 21, "assists": 7, "damage": 2093, "adr": 81, "adrDiff": -5,  "hltv": 0.94, "kast": 65, "openKills": 1, "tradeKills": 4 },
+          { "nick": "Lu1zFR",     "playerId": "Lu1zFR",     "kills": 13, "deaths": 20, "assists": 9, "damage": 1827, "adr": 70, "adrDiff": -8,  "hltv": 0.91, "kast": 80, "openKills": 2, "tradeKills": 2 },
+          { "nick": "furyziKNTC", "playerId": "furyziKNTC", "kills": 12, "deaths": 22, "assists": 4, "damage": 1346, "adr": 52, "adrDiff": -35, "hltv": 0.70, "kast": 65, "openKills": 2, "tradeKills": 1 }
+        ]
+      }
+    },
+    {
+      "id": "cache-20260522",
+      "date": "2026-05-22",
+      "time": "23:17:03",
+      "map": "Cache",
+      "mapCode": "de_cache",
+      "internal": true,
+      "teamA": {
+        "name": "Time 2",
+        "score": 12,
+        "scoreT": 3,
+        "scoreCT": 9,
+        "result": "loss",
+        "players": [
+          { "nick": "s4mz",    "playerId": "s4mz",    "kills": 22, "deaths": 20, "assists": 8,  "damage": 2556, "adr": 91, "adrDiff": 12,  "hltv": 1.24, "kast": 78, "openKills": 4, "tradeKills": 5 },
+          { "nick": "msk777",  "playerId": "⚡ msk",  "kills": 23, "deaths": 20, "assists": 7,  "damage": 2466, "adr": 88, "adrDiff": 13,  "hltv": 1.16, "kast": 67, "openKills": 2, "tradeKills": 3 },
+          { "nick": "TUT4fps", "playerId": "TUT4fps", "kills": 23, "deaths": 23, "assists": 4,  "damage": 2762, "adr": 99, "adrDiff": 14,  "hltv": 1.11, "kast": 67, "openKills": 1, "tradeKills": 6 },
+          { "nick": "Ghost",   "playerId": "Ghost",   "kills": 17, "deaths": 23, "assists": 4,  "damage": 2061, "adr": 74, "adrDiff": -9,  "hltv": 0.93, "kast": 67, "openKills": 4, "tradeKills": 2 },
+          { "nick": "Lu1zFR",  "playerId": "Lu1zFR",  "kills": 16, "deaths": 23, "assists": 3,  "damage": 1279, "adr": 46, "adrDiff": -40, "hltv": 0.73, "kast": 60, "openKills": 3, "tradeKills": 2 }
+        ]
+      },
+      "teamB": {
+        "name": "Time 1",
+        "score": 16,
+        "scoreT": 12,
+        "scoreCT": 4,
+        "result": "win",
+        "players": [
+          { "nick": "khastz95 =(^-^)=", "playerId": "khastz95",   "kills": 28, "deaths": 18, "assists": 3,  "damage": 2750, "adr": 98, "adrDiff": 22,  "hltv": 1.36, "kast": 64, "openKills": 2, "tradeKills": 5 },
+          { "nick": "furyziKNTC",       "playerId": "furyziKNTC", "kills": 23, "deaths": 23, "assists": 10, "damage": 2666, "adr": 95, "adrDiff": 6,   "hltv": 1.23, "kast": 78, "openKills": 4, "tradeKills": 3 },
+          { "nick": "Dice",             "playerId": "Dice",       "kills": 20, "deaths": 20, "assists": 3,  "damage": 1884, "adr": 67, "adrDiff": -8,  "hltv": 1.05, "kast": 71, "openKills": 2, "tradeKills": 4 },
+          { "nick": "Maverick™",        "playerId": "Maverick™",  "kills": 20, "deaths": 20, "assists": 3,  "damage": 2031, "adr": 73, "adrDiff": -10, "hltv": 1.01, "kast": 64, "openKills": 2, "tradeKills": 3 },
+          { "nick": "Clovs",            "playerId": "Clovs",      "kills": 15, "deaths": 22, "assists": 7,  "damage": 1733, "adr": 62, "adrDiff": -20, "hltv": 0.85, "kast": 67, "openKills": 4, "tradeKills": 1 }
+        ]
+      }
+    }
+  ]
+}

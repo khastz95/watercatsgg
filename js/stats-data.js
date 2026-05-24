@@ -3,7 +3,11 @@
 
   var API_URL = "/api/stats";
   var STATIC_URL = "/data/estatisticas.json";
+  var PARTIDAS_API_URL = "/api/partidas";
+  var PARTIDAS_STATIC_URL = "/data/partidas.json";
+  var CONFIG_URL = "/data/admin-config.json";
   var STORAGE_KEY = "ep_admin_password";
+  var STORAGE_USER = "ep_admin_user";
 
   function loadStats() {
     return fetch(API_URL, { cache: "no-store" })
@@ -48,6 +52,57 @@
     }
   }
 
+  function getStoredUsername() {
+    try {
+      return sessionStorage.getItem(STORAGE_USER) || "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function setStoredUsername(value) {
+    try {
+      if (value) sessionStorage.setItem(STORAGE_USER, value);
+      else sessionStorage.removeItem(STORAGE_USER);
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  function loadConfig() {
+    return fetch(CONFIG_URL, { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("config_not_found");
+        return res.json();
+      });
+  }
+
+  function loadPartidas() {
+    return fetch(PARTIDAS_API_URL, { cache: "no-store" })
+      .then(function (res) {
+        if (res.ok) return res.json();
+        return fetch(PARTIDAS_STATIC_URL, { cache: "no-store" }).then(function (res2) {
+          if (!res2.ok) throw new Error("load_failed");
+          return res2.json();
+        });
+      });
+  }
+
+  function savePartidas(data, password) {
+    return fetch(PARTIDAS_API_URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Admin-Password": password || "",
+      },
+      body: JSON.stringify(data),
+    }).then(function (res) {
+      return res.json().then(function (body) {
+        return { ok: res.ok, status: res.status, body: body };
+      });
+    });
+  }
+
   function defaultData() {
     return {
       updated: new Date().toISOString().slice(0, 10),
@@ -69,8 +124,13 @@
     STATIC_URL: STATIC_URL,
     load: loadStats,
     save: saveStats,
+    loadPartidas: loadPartidas,
+    savePartidas: savePartidas,
+    loadConfig: loadConfig,
     getStoredPassword: getStoredPassword,
     setStoredPassword: setStoredPassword,
+    getStoredUsername: getStoredUsername,
+    setStoredUsername: setStoredUsername,
     defaultData: defaultData,
   };
 })(typeof window !== "undefined" ? window : globalThis);

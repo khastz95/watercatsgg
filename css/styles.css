@@ -2567,3 +2567,39 @@ body.page-admin-stats .admin-block--tight {
 body.page-admin-stats .site-nav ul {
   gap: 1rem;
 }
+
+/* —— Admin: identidade do jogador (avatar preview + campos) —— */
+body.page-admin-stats .admin-grid-1 {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-top: 0.75rem;
+}
+
+body.page-admin-stats .admin-avatar-wrap {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+body.page-admin-stats .admin-avatar-wrap .admin-grid-2 {
+  flex: 1;
+  min-width: 220px;
+}
+
+body.page-admin-stats .admin-avatar-preview {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  flex-shrink: 0;
+}
+
+body.page-admin-stats .admin-hint {
+  margin: 0.3rem 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}

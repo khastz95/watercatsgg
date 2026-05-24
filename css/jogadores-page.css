@@ -129,22 +129,40 @@ body.page-jogadores .lf-sidebar__item.is-active {
 
 body.page-jogadores .lf-sidebar__avatar {
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-size: 0.6rem;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+body.page-jogadores .lf-sidebar__name-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
 }
 
 body.page-jogadores .lf-sidebar__name {
-  flex: 1;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+body.page-jogadores .lf-sidebar__subname {
+  font-size: 0.65rem;
+  color: var(--lf-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 400;
 }
 
 /* —— Dashboard wrap (ranks + conteúdo) —— */
@@ -319,15 +337,60 @@ body.page-jogadores .lf-dash__head p {
 
 body.page-jogadores .lf-dash__avatar {
   flex-shrink: 0;
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   background: linear-gradient(135deg, rgba(248, 73, 130, 0.35), rgba(91, 141, 239, 0.3));
-  border: 1px solid var(--lf-border);
+  border: 2px solid var(--lf-border);
+  overflow: hidden;
+  position: relative;
+}
+
+/* —— Avatar imagens —— */
+body.page-jogadores .lf-avatar-img {
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+body.page-jogadores .lf-avatar-img--sm {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  inset: 0;
+}
+
+body.page-jogadores .lf-avatar-img--lg {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  inset: 0;
+}
+
+body.page-jogadores .lf-avatar-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* —— Nome real formato esports —— */
+body.page-jogadores .lf-dash__realname {
+  margin: 0 0 0.1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--lf-muted);
+  letter-spacing: 0.02em;
+}
+
+body.page-jogadores .lf-dash__role {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  color: var(--lf-muted);
 }
 
 /* —— Grid 12 colunas —— */
@@ -821,6 +884,15 @@ body.page-jogadores .lf-clip video {
   border-radius: 8px;
   background: var(--bg-elevated);
   display: block;
+}
+
+body.page-jogadores .lf-clip iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+  display: block;
+  background: var(--bg-elevated);
 }
 
 body.page-jogadores .lf-profile__placeholder {

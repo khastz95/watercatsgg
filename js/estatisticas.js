@@ -55,11 +55,47 @@
   }
 
   function resolveVideoUrl(input) {
+    var embed = resolveVideoEmbed(input);
+    return embed ? embed.src : null;
+  }
+
+  function resolveVideoEmbed(input) {
     if (!input) return null;
     var raw = String(input).trim();
     if (!raw) return null;
-    if (/\.mp4(\?|$)/i.test(raw) || raw.indexOf("media2.allstar.gg") !== -1) return raw;
-    if (/^https?:\/\//i.test(raw) && /\.(webm|mov)(\?|$)/i.test(raw)) return raw;
+
+    // Vídeo direto (MP4 / WebM / MOV / allstar)
+    if (/\.mp4(\?|$)/i.test(raw) || raw.indexOf("media2.allstar.gg") !== -1) {
+      return { type: "video", src: raw };
+    }
+    if (/^https?:\/\//i.test(raw) && /\.(webm|mov)(\?|$)/i.test(raw)) {
+      return { type: "video", src: raw };
+    }
+
+    // YouTube — watch?v=ID | youtu.be/ID | /embed/ID | /shorts/ID
+    var ytMatch = raw.match(
+      /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+    );
+    if (ytMatch) {
+      return {
+        type: "youtube",
+        src: "https://www.youtube.com/embed/" + ytMatch[1] + "?rel=0&modestbranding=1",
+      };
+    }
+
+    // Twitch clip — clips.twitch.tv/SLUG
+    var twitchMatch = raw.match(/clips\.twitch\.tv\/([a-zA-Z0-9_-]+)/);
+    if (twitchMatch) {
+      return {
+        type: "twitch",
+        src:
+          "https://clips.twitch.tv/embed?clip=" +
+          twitchMatch[1] +
+          "&parent=" +
+          window.location.hostname,
+      };
+    }
+
     return null;
   }
 
@@ -138,6 +174,35 @@
     );
   }
 
+  function avatarHtml(p, size) {
+    if (p.avatar) {
+      return (
+        '<img src="' +
+        escapeHtml(p.avatar) +
+        '" alt="' +
+        escapeHtml(p.nick) +
+        '" class="lf-avatar-img lf-avatar-img--' +
+        size +
+        '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'" />' +
+        '<span class="lf-avatar-fallback" style="display:none">' +
+        escapeHtml(initials(p.nick)) +
+        "</span>"
+      );
+    }
+    return escapeHtml(initials(p.nick));
+  }
+
+  function realNameLine(p) {
+    var fn = (p.firstName || "").trim();
+    var ln = (p.lastName || "").trim();
+    if (!fn && !ln) return "";
+    var parts = [];
+    if (fn) parts.push(fn);
+    parts.push("\u2018" + p.nick + "\u2019");
+    if (ln) parts.push(ln);
+    return parts.join(" ");
+  }
+
   function renderPlayerList() {
     var el = document.getElementById("jogadores-player-list");
     if (!el) return;
@@ -145,6 +210,9 @@
     el.innerHTML = state.players
       .map(function (p, i) {
         var active = i === state.activeIndex ? " is-active" : "";
+        var fn = (p.firstName || "").trim();
+        var ln = (p.lastName || "").trim();
+        var subName = fn || ln ? (fn + (fn && ln ? " " : "") + ln).trim() : "";
         return (
           '<button type="button" class="lf-sidebar__item' +
           active +
@@ -154,10 +222,15 @@
           i +
           '">' +
           '<span class="lf-sidebar__avatar" aria-hidden="true">' +
-          escapeHtml(initials(p.nick)) +
+          avatarHtml(p, "sm") +
           "</span>" +
+          '<span class="lf-sidebar__name-wrap">' +
           '<span class="lf-sidebar__name">' +
           escapeHtml(p.nick) +
+          "</span>" +
+          (subName
+            ? '<span class="lf-sidebar__subname">' + escapeHtml(subName) + "</span>"
+            : "") +
           "</span></button>"
         );
       })
@@ -250,15 +323,18 @@
     if (hasRanks) html += renderRanksPanel(d.ranks);
     html += '<div class="lf-dash">';
 
+    var rn = realNameLine(p);
     html +=
       '<header class="lf-dash__head">' +
       '<span class="lf-dash__avatar">' +
-      escapeHtml(initials(p.nick)) +
+      avatarHtml(p, "lg") +
       "</span>" +
-      "<div><h1>" +
+      "<div>" +
+      (rn ? '<p class="lf-dash__realname">' + escapeHtml(rn) + "</p>" : "") +
+      "<h1>" +
       escapeHtml(p.nick) +
       "</h1>" +
-      (p.role ? "<p>" + escapeHtml(p.role) + "</p>" : "") +
+      (p.role ? '<p class="lf-dash__role">' + escapeHtml(p.role) + "</p>" : "") +
       "</div></header>";
 
     var kd = d.kd != null ? Number(d.kd).toFixed(2) : "—";
@@ -491,19 +567,31 @@
     html += "</div>";
 
     var highlights = p.highlights || [];
-    if (highlights.length) {
-      html += '<section class="lf-panel lf-panel--clips"><h2>Clipes</h2><div class="lf-clips">';
-      highlights.forEach(function (h, i) {
-        var src = resolveVideoUrl(h.url);
-        if (!src) return;
-        html +=
-          '<figure class="lf-clip"><figcaption>' +
+    var validClips = highlights.filter(function (h) { return resolveVideoEmbed(h.url); });
+    if (validClips.length) {
+      html += '<section class="lf-panel lf-panel--clips"><h2>Vídeos &amp; Clipes</h2><div class="lf-clips">';
+      validClips.forEach(function (h, i) {
+        var embed = resolveVideoEmbed(h.url);
+        if (!embed) return;
+        var meta =
           escapeHtml(h.title || "Clip " + (i + 1)) +
-          (h.map ? " · " + escapeHtml(h.map) : "") +
-          "</figcaption>" +
-          '<video controls playsinline preload="metadata" src="' +
-          escapeHtml(src) +
-          '"></video></figure>';
+          (h.map ? " · " + escapeHtml(mapLabel(h.map)) : "") +
+          (h.date ? " · " + escapeHtml(h.date) : "");
+        var media = "";
+        if (embed.type === "video") {
+          media =
+            '<video controls playsinline preload="metadata" src="' +
+            escapeHtml(embed.src) +
+            '"></video>';
+        } else {
+          media =
+            '<iframe src="' +
+            escapeHtml(embed.src) +
+            '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="' +
+            escapeHtml(h.title || "Clip") +
+            '"></iframe>';
+        }
+        html += '<figure class="lf-clip lf-clip--' + embed.type + '"><figcaption>' + meta + "</figcaption>" + media + "</figure>";
       });
       html += "</div></section>";
     }
@@ -531,6 +619,16 @@
     el.textContent = parts.join(" · ") || "Eternal Pratas";
   }
 
+  function findPlayerByParam(param) {
+    if (!param) return -1;
+    var decoded = decodeURIComponent(param).toLowerCase().trim();
+    var idx = -1;
+    state.players.forEach(function (p, i) {
+      if (p.nick.toLowerCase().trim() === decoded) idx = i;
+    });
+    return idx;
+  }
+
   function init(raw) {
     var data = normalizeData(raw);
     state.players = data.players || [];
@@ -539,8 +637,20 @@
     state.activeIndex = 0;
     renderMeta();
     renderPlayerList();
-    if (state.players.length) selectPlayer(0);
-    else {
+    if (state.players.length) {
+      var urlParam = new URLSearchParams(window.location.search).get("player");
+      var startIdx = findPlayerByParam(urlParam);
+      if (startIdx < 0) startIdx = 0;
+      selectPlayer(startIdx);
+      if (startIdx > 0) {
+        var profileEl = document.getElementById("jogadores-profile");
+        if (profileEl) {
+          setTimeout(function () {
+            profileEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 120);
+        }
+      }
+    } else {
       var el = document.getElementById("jogadores-profile");
       if (el) el.innerHTML = '<p class="lf-empty">Nenhum jogador cadastrado.</p>';
     }

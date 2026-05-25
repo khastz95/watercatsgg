@@ -17,7 +17,7 @@
         "players": [
           { "nick": "BILZERA",    "playerId": "BILZERA",    "kills": 36, "deaths": 17, "assists": 4, "damage": 3026, "adr": 116, "adrDiff": 42,  "hltv": 1.90, "kast": 76, "openKills": 6, "tradeKills": 6 },
           { "nick": "Ghost",      "playerId": "Ghost",      "kills": 25, "deaths": 16, "assists": 8, "damage": 3148, "adr": 121, "adrDiff": 43,  "hltv": 1.49, "kast": 76, "openKills": 3, "tradeKills": 1 },
-          { "nick": "EMBAIXADOR", "playerId": "EMBAIXADOR", "kills": 19, "deaths": 18, "assists": 6, "damage": 2265, "adr": 87,  "adrDiff": 7,   "hltv": 1.12, "kast": 73, "openKills": 2, "tradeKills": 2 },
+          { "nick": "EMBAIXADOR", "playerId": "⚡ msk",     "kills": 19, "deaths": 18, "assists": 6, "damage": 2265, "adr": 87,  "adrDiff": 7,   "hltv": 1.12, "kast": 73, "openKills": 2, "tradeKills": 2 },
           { "nick": "furyziKNTC", "playerId": "furyziKNTC", "kills": 15, "deaths": 18, "assists": 8, "damage": 1925, "adr": 74,  "adrDiff": -2,  "hltv": 1.00, "kast": 76, "openKills": 2, "tradeKills": 5 },
           { "nick": "TUT4fps",    "playerId": "TUT4fps",    "kills": 7,  "deaths": 19, "assists": 5, "damage": 769,  "adr": 30,  "adrDiff": -46, "hltv": 0.50, "kast": 61, "openKills": 1, "tradeKills": 2 }
         ]

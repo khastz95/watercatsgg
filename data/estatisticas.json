@@ -1,14 +1,22 @@
 {
-  "updated": "2026-05-23",
+  "updated": "2026-05-25",
   "season": "Mix 2026",
   "summary": {
-    "matches": 2,
+    "matches": 3,
     "wins": 1,
-    "losses": 1,
-    "roundsPlayed": 54,
+    "losses": 2,
+    "roundsPlayed": 80,
     "avgRating": 1.10
   },
   "matches": [
+    {
+      "date": "2026-05-25",
+      "map": "Ancient",
+      "teamA": "Team 2",
+      "teamB": "Team 1",
+      "scoreA": 16,
+      "scoreB": 10
+    },
     {
       "date": "2026-05-23",
       "map": "Ancient",
@@ -47,6 +55,7 @@
           ]
         },
         "recentMatches": [
+          { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" },
           { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
           { "map": "de_cache", "scoreA": 16, "scoreB": 12, "result": "win" },
           { "map": "de_mirage", "scoreA": 13, "scoreB": 9, "result": "win" },
@@ -55,10 +64,9 @@
           { "map": "de_ancient", "scoreA": 13, "scoreB": 7, "result": "win" },
           { "map": "de_nuke", "scoreA": 11, "scoreB": 13, "result": "loss" },
           { "map": "de_anubis", "scoreA": 13, "scoreB": 8, "result": "win" },
-          { "map": "de_overpass", "scoreA": 12, "scoreB": 12, "result": "tie" },
-          { "map": "de_vertigo", "scoreA": 13, "scoreB": 6, "result": "win" }
+          { "map": "de_overpass", "scoreA": 12, "scoreB": 12, "result": "tie" }
         ],
-        "winRate": { "percent": 55, "played": 596, "won": 325, "lost": 251, "tied": 20 },
+        "winRate": { "percent": 55, "played": 597, "won": 325, "lost": 252, "tied": 20 },
         "combat": {
           "hsPercent": 45,
           "kills": 9793,
@@ -423,6 +431,7 @@
           ]
         },
         "recentMatches": [
+          { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
           { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" },
           { "map": "de_cache", "scoreA": 16, "scoreB": 12, "result": "win" },
           { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
@@ -431,10 +440,9 @@
           { "map": "de_ancient", "scoreA": 9, "scoreB": 13, "result": "loss" },
           { "map": "de_anubis", "scoreA": 13, "scoreB": 7, "result": "win" },
           { "map": "de_mirage", "scoreA": 11, "scoreB": 13, "result": "loss" },
-          { "map": "de_dust2", "scoreA": 13, "scoreB": 12, "result": "win" },
-          { "map": "de_inferno", "scoreA": 10, "scoreB": 13, "result": "loss" }
+          { "map": "de_dust2", "scoreA": 13, "scoreB": 12, "result": "win" }
         ],
-        "winRate": { "percent": 51, "played": 538, "won": 276, "lost": 246, "tied": 16 },
+        "winRate": { "percent": 51, "played": 539, "won": 277, "lost": 246, "tied": 16 },
         "combat": {
           "hsPercent": 47,
           "kills": 7944,
@@ -513,6 +521,7 @@
           ]
         },
         "recentMatches": [
+          { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
           { "map": "de_cache", "scoreA": 12, "scoreB": 16, "result": "loss" },
           { "map": "de_mirage", "scoreA": 13, "scoreB": 9, "result": "win" },
           { "map": "de_dust2", "scoreA": 10, "scoreB": 13, "result": "loss" },
@@ -523,7 +532,7 @@
           { "map": "de_nuke", "scoreA": 13, "scoreB": 10, "result": "win" },
           { "map": "de_dust2", "scoreA": 8, "scoreB": 13, "result": "loss" }
         ],
-        "winRate": { "percent": 47, "played": 435, "won": 205, "lost": 214, "tied": 16 },
+        "winRate": { "percent": 47, "played": 436, "won": 206, "lost": 214, "tied": 16 },
         "combat": {
           "hsPercent": 37,
           "kills": 7049,
@@ -869,6 +878,7 @@
         },
         "recentMatches": [
           { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" },
+          { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" },
           { "map": "de_cache", "scoreA": 16, "scoreB": 12, "result": "win" },
           { "map": "de_mirage", "scoreA": 13, "scoreB": 11, "result": "win" },
           { "map": "de_inferno", "scoreA": 13, "scoreB": 9, "result": "win" },
@@ -876,10 +886,9 @@
           { "map": "de_dust2", "scoreA": 10, "scoreB": 13, "result": "loss" },
           { "map": "de_mirage", "scoreA": 13, "scoreB": 8, "result": "win" },
           { "map": "de_ancient", "scoreA": 11, "scoreB": 13, "result": "loss" },
-          { "map": "de_nuke", "scoreA": 13, "scoreB": 12, "result": "win" },
-          { "map": "de_inferno", "scoreA": 9, "scoreB": 13, "result": "loss" }
+          { "map": "de_nuke", "scoreA": 13, "scoreB": 12, "result": "win" }
         ],
-        "winRate": { "percent": 52, "played": 625, "won": 326, "lost": 282, "tied": 17 },
+        "winRate": { "percent": 52, "played": 626, "won": 326, "lost": 283, "tied": 17 },
         "combat": {
           "hsPercent": 45,
           "kills": 10043,
@@ -1216,9 +1225,10 @@
         },
         "recentMatches": [
           { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
+          { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
           { "map": "de_cache", "scoreA": 12, "scoreB": 16, "result": "loss" }
         ],
-        "winRate": { "percent": 50, "played": 2, "won": 1, "lost": 1, "tied": 0 },
+        "winRate": { "percent": 67, "played": 3, "won": 2, "lost": 1, "tied": 0 },
         "combat": {
           "hsPercent": 42,
           "kills": 42,
@@ -1326,6 +1336,266 @@
             { "name": "Pistol", "value": 65, "bar": 100 }
           ]
         },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "BILZERA",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 2.12,
+        "hltvRating": 1.90,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" }
+        ],
+        "winRate": { "percent": 100, "played": 1, "won": 1, "lost": 0, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 36,
+          "deaths": 17,
+          "assists": 4,
+          "headshots": 0,
+          "adr": 116,
+          "damage": 3026,
+          "rounds": 26
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_ancient", "count": 1 } ],
+          "mostSuccess": [ { "name": "de_ancient", "winPercent": 100 } ]
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "EMBAIXADOR",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 1.06,
+        "hltvRating": 1.12,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" }
+        ],
+        "winRate": { "percent": 100, "played": 1, "won": 1, "lost": 0, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 19,
+          "deaths": 18,
+          "assists": 6,
+          "headshots": 0,
+          "adr": 87,
+          "damage": 2265,
+          "rounds": 26
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_ancient", "count": 1 } ],
+          "mostSuccess": [ { "name": "de_ancient", "winPercent": 100 } ]
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "RED SKINS",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 0.67,
+        "hltvRating": 0.81,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" }
+        ],
+        "winRate": { "percent": 0, "played": 1, "won": 0, "lost": 1, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 14,
+          "deaths": 21,
+          "assists": 6,
+          "headshots": 0,
+          "adr": 69,
+          "damage": 1789,
+          "rounds": 26
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_ancient", "count": 1 } ],
+          "mostSuccess": []
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "xand",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 0.43,
+        "hltvRating": 0.58,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" }
+        ],
+        "winRate": { "percent": 0, "played": 1, "won": 0, "lost": 1, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 9,
+          "deaths": 21,
+          "assists": 2,
+          "headshots": 0,
+          "adr": 42,
+          "damage": 1088,
+          "rounds": 26
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_ancient", "count": 1 } ],
+          "mostSuccess": []
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "Rick Freak",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 0.37,
+        "hltvRating": 0.49,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" }
+        ],
+        "winRate": { "percent": 0, "played": 1, "won": 0, "lost": 1, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 7,
+          "deaths": 19,
+          "assists": 5,
+          "headshots": 0,
+          "adr": 42,
+          "damage": 1103,
+          "rounds": 26
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_ancient", "count": 1 } ],
+          "mostSuccess": []
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
         "ranks": {
           "premier": [],
           "wingman": { "rankLabel": "", "wins": 0 },

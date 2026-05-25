@@ -1,6 +1,42 @@
 {
-  "updated": "2026-05-23",
+  "updated": "2026-05-25",
   "matches": [
+    {
+      "id": "ancient-20260525",
+      "date": "2026-05-25",
+      "time": "00:03:57",
+      "map": "Ancient",
+      "mapCode": "de_ancient",
+      "internal": false,
+      "teamA": {
+        "name": "Team 2",
+        "score": 16,
+        "scoreT": 7,
+        "scoreCT": 9,
+        "result": "win",
+        "players": [
+          { "nick": "BILZERA",    "playerId": "BILZERA",    "kills": 36, "deaths": 17, "assists": 4, "damage": 3026, "adr": 116, "adrDiff": 42,  "hltv": 1.90, "kast": 76, "openKills": 6, "tradeKills": 6 },
+          { "nick": "Ghost",      "playerId": "Ghost",      "kills": 25, "deaths": 16, "assists": 8, "damage": 3148, "adr": 121, "adrDiff": 43,  "hltv": 1.49, "kast": 76, "openKills": 3, "tradeKills": 1 },
+          { "nick": "EMBAIXADOR", "playerId": "EMBAIXADOR", "kills": 19, "deaths": 18, "assists": 6, "damage": 2265, "adr": 87,  "adrDiff": 7,   "hltv": 1.12, "kast": 73, "openKills": 2, "tradeKills": 2 },
+          { "nick": "furyziKNTC", "playerId": "furyziKNTC", "kills": 15, "deaths": 18, "assists": 8, "damage": 1925, "adr": 74,  "adrDiff": -2,  "hltv": 1.00, "kast": 76, "openKills": 2, "tradeKills": 5 },
+          { "nick": "TUT4fps",    "playerId": "TUT4fps",    "kills": 7,  "deaths": 19, "assists": 5, "damage": 769,  "adr": 30,  "adrDiff": -46, "hltv": 0.50, "kast": 61, "openKills": 1, "tradeKills": 2 }
+        ]
+      },
+      "teamB": {
+        "name": "Team 1",
+        "score": 10,
+        "scoreT": 6,
+        "scoreCT": 4,
+        "result": "loss",
+        "players": [
+          { "nick": "khastz95",   "playerId": "khastz95",   "kills": 31, "deaths": 22, "assists": 5, "damage": 3251, "adr": 125, "adrDiff": 33,  "hltv": 1.59, "kast": 73, "openKills": 4, "tradeKills": 6 },
+          { "nick": "Maverick™",  "playerId": "Maverick™",  "kills": 25, "deaths": 19, "assists": 6, "damage": 2663, "adr": 102, "adrDiff": 19,  "hltv": 1.38, "kast": 84, "openKills": 3, "tradeKills": 10 },
+          { "nick": "RED SKINS",  "playerId": "RED SKINS",  "kills": 14, "deaths": 21, "assists": 6, "damage": 1789, "adr": 69,  "adrDiff": -21, "hltv": 0.81, "kast": 65, "openKills": 2, "tradeKills": 1 },
+          { "nick": "xand",       "playerId": "xand",       "kills": 9,  "deaths": 21, "assists": 2, "damage": 1088, "adr": 42,  "adrDiff": -42, "hltv": 0.58, "kast": 57, "openKills": 3, "tradeKills": 1 },
+          { "nick": "Rick Freak", "playerId": "Rick Freak", "kills": 7,  "deaths": 19, "assists": 5, "damage": 1103, "adr": 42,  "adrDiff": -37, "hltv": 0.49, "kast": 53, "openKills": 0, "tradeKills": 0 }
+        ]
+      }
+    },
     {
       "id": "ancient-20260523",
       "date": "2026-05-23",

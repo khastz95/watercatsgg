@@ -139,38 +139,38 @@
   }
 
   /* ── renderiza card de partida ──────────────────────────── */
-  function resultLabel(match) {
-    if (match.internal) return { cls: "mix", text: "Mix" };
-    if (match.teamA.result === "win") return { cls: "win", text: "Vitória" };
-    return { cls: "loss", text: "Derrota" };
-  }
-
   function renderCard(match, idx) {
     const { teamA, teamB } = match;
-    const res = resultLabel(match);
 
-    const scoreA = teamA.result === "win" ? teamA.score : teamB.score;
-    const scoreB = teamA.result === "win" ? teamB.score : teamA.score;
-    const winTeam = teamA.result === "win" ? teamA.name : teamB.name;
-    const lossTeam = teamA.result === "win" ? teamB.name : teamA.name;
-    const teamsLabel = match.internal
-      ? `${esc(teamA.name)} vs ${esc(teamB.name)}`
-      : `${esc(winTeam)} <span style="color:var(--text-muted)">vs</span> ${esc(lossTeam)}`;
+    const resultText = (r) => (r === "win" ? "VITÓRIA" : "DERROTA");
 
     return `
       <article class="pm-card" data-match-idx="${idx}">
-        <div class="pm-card__header" role="button" tabindex="0" aria-expanded="false" aria-label="Ver detalhes de ${esc(match.map)} — ${fmtDate(match.date)}">
+        <div class="pm-card__header" role="button" tabindex="0" aria-expanded="false"
+             aria-label="Ver detalhes de ${esc(match.map)} — ${fmtDate(match.date)}">
+
           <span class="pm-card__map-badge">${esc(match.map)}</span>
-          <div class="pm-card__info">
-            <div class="pm-card__teams">${teamsLabel}</div>
-            <div class="pm-card__meta">${fmtDate(match.date)} · ${match.time}</div>
+
+          <div class="pm-card__match">
+            <div class="pm-card__team pm-card__team--a">
+              <span class="pm-card__team-name">${esc(teamA.name)}</span>
+              <span class="pm-card__result-badge pm-card__result-badge--${teamA.result}">${resultText(teamA.result)}</span>
+            </div>
+
+            <div class="pm-card__score">
+              <span class="pm-card__score-n pm-card__score-n--${teamA.result}">${teamA.score}</span>
+              <span class="pm-card__score-sep">:</span>
+              <span class="pm-card__score-n pm-card__score-n--${teamB.result}">${teamB.score}</span>
+            </div>
+
+            <div class="pm-card__team pm-card__team--b">
+              <span class="pm-card__result-badge pm-card__result-badge--${teamB.result}">${resultText(teamB.result)}</span>
+              <span class="pm-card__team-name">${esc(teamB.name)}</span>
+            </div>
           </div>
-          <div class="pm-card__score">
-            <span class="pm-card__score-a">${scoreA}</span>
-            <span class="pm-card__score-sep">:</span>
-            <span class="pm-card__score-b">${scoreB}</span>
-          </div>
-          <span class="pm-card__result-badge pm-card__result-badge--${res.cls}">${res.text}</span>
+
+          <div class="pm-card__meta">${fmtDate(match.date)}${match.time ? " · " + match.time : ""}</div>
+
           <svg class="pm-card__toggle-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <polyline points="5 8 10 13 15 8"/>
           </svg>

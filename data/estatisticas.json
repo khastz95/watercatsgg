@@ -1,14 +1,30 @@
 {
-  "updated": "2026-05-25",
+  "updated": "2026-06-04",
   "season": "Mix 2026",
   "summary": {
-    "matches": 3,
+    "matches": 5,
     "wins": 1,
-    "losses": 2,
-    "roundsPlayed": 80,
-    "avgRating": 1.10
+    "losses": 4,
+    "roundsPlayed": 123,
+    "avgRating": 1.05
   },
   "matches": [
+    {
+      "date": "2026-06-02",
+      "map": "Inferno",
+      "teamA": "EMPURRA MOLE",
+      "teamB": "SOCA FOFO",
+      "scoreA": 13,
+      "scoreB": 7
+    },
+    {
+      "date": "2026-06-02",
+      "map": "Mirage",
+      "teamA": "EMPURRA MOLE",
+      "teamB": "SOCA FOFO",
+      "scoreA": 16,
+      "scoreB": 7
+    },
     {
       "date": "2026-05-25",
       "map": "Ancient",
@@ -55,16 +71,16 @@
           ]
         },
         "recentMatches": [
+          { "map": "de_inferno", "scoreA": 7,  "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage",  "scoreA": 7,  "scoreB": 16, "result": "loss" },
           { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" },
           { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
-          { "map": "de_cache", "scoreA": 16, "scoreB": 12, "result": "win" },
-          { "map": "de_mirage", "scoreA": 13, "scoreB": 9, "result": "win" },
-          { "map": "de_dust2", "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_cache",   "scoreA": 16, "scoreB": 12, "result": "win" },
+          { "map": "de_mirage",  "scoreA": 13, "scoreB": 9,  "result": "win" },
+          { "map": "de_dust2",   "scoreA": 13, "scoreB": 11, "result": "win" },
           { "map": "de_inferno", "scoreA": 10, "scoreB": 13, "result": "loss" },
-          { "map": "de_ancient", "scoreA": 13, "scoreB": 7, "result": "win" },
-          { "map": "de_nuke", "scoreA": 11, "scoreB": 13, "result": "loss" },
-          { "map": "de_anubis", "scoreA": 13, "scoreB": 8, "result": "win" },
-          { "map": "de_overpass", "scoreA": 12, "scoreB": 12, "result": "tie" }
+          { "map": "de_ancient", "scoreA": 13, "scoreB": 7,  "result": "win" },
+          { "map": "de_nuke",    "scoreA": 11, "scoreB": 13, "result": "loss" }
         ],
         "winRate": { "percent": 55, "played": 597, "won": 325, "lost": 252, "tied": 20 },
         "combat": {
@@ -431,16 +447,16 @@
           ]
         },
         "recentMatches": [
+          { "map": "de_inferno", "scoreA": 7,  "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage",  "scoreA": 7,  "scoreB": 16, "result": "loss" },
           { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
           { "map": "de_ancient", "scoreA": 10, "scoreB": 16, "result": "loss" },
-          { "map": "de_cache", "scoreA": 16, "scoreB": 12, "result": "win" },
-          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
-          { "map": "de_dust2", "scoreA": 13, "scoreB": 8, "result": "win" },
-          { "map": "de_overpass", "scoreA": 13, "scoreB": 11, "result": "win" },
-          { "map": "de_ancient", "scoreA": 9, "scoreB": 13, "result": "loss" },
-          { "map": "de_anubis", "scoreA": 13, "scoreB": 7, "result": "win" },
-          { "map": "de_mirage", "scoreA": 11, "scoreB": 13, "result": "loss" },
-          { "map": "de_dust2", "scoreA": 13, "scoreB": 12, "result": "win" }
+          { "map": "de_cache",   "scoreA": 16, "scoreB": 12, "result": "win" },
+          { "map": "de_mirage",  "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2",   "scoreA": 13, "scoreB": 8,  "result": "win" },
+          { "map": "de_overpass","scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_ancient", "scoreA": 9,  "scoreB": 13, "result": "loss" },
+          { "map": "de_anubis",  "scoreA": 13, "scoreB": 7,  "result": "win" }
         ],
         "winRate": { "percent": 51, "played": 539, "won": 277, "lost": 246, "tied": 16 },
         "combat": {
@@ -967,16 +983,16 @@
           ]
         },
         "recentMatches": [
+          { "map": "de_inferno", "scoreA": 7,  "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage",  "scoreA": 7,  "scoreB": 16, "result": "loss" },
           { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
-          { "map": "de_cache", "scoreA": 12, "scoreB": 16, "result": "loss" },
-          { "map": "de_mirage", "scoreA": 13, "scoreB": 10, "result": "win" },
-          { "map": "de_dust2", "scoreA": 13, "scoreB": 9, "result": "win" },
-          { "map": "de_nuke", "scoreA": 13, "scoreB": 11, "result": "win" },
-          { "map": "de_anubis", "scoreA": 13, "scoreB": 8, "result": "win" },
-          { "map": "de_mirage", "scoreA": 8, "scoreB": 13, "result": "loss" },
-          { "map": "de_dust2", "scoreA": 11, "scoreB": 13, "result": "loss" },
-          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" },
-          { "map": "de_ancient", "scoreA": 13, "scoreB": 12, "result": "win" }
+          { "map": "de_cache",   "scoreA": 12, "scoreB": 16, "result": "loss" },
+          { "map": "de_mirage",  "scoreA": 13, "scoreB": 10, "result": "win" },
+          { "map": "de_dust2",   "scoreA": 13, "scoreB": 9,  "result": "win" },
+          { "map": "de_nuke",    "scoreA": 13, "scoreB": 11, "result": "win" },
+          { "map": "de_anubis",  "scoreA": 13, "scoreB": 8,  "result": "win" },
+          { "map": "de_mirage",  "scoreA": 8,  "scoreB": 13, "result": "loss" },
+          { "map": "de_dust2",   "scoreA": 11, "scoreB": 13, "result": "loss" }
         ],
         "winRate": { "percent": 50, "played": 791, "won": 396, "lost": 368, "tied": 27 },
         "combat": {
@@ -1224,11 +1240,13 @@
           ]
         },
         "recentMatches": [
+          { "map": "de_inferno", "scoreA": 7,  "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage",  "scoreA": 7,  "scoreB": 16, "result": "loss" },
           { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
           { "map": "de_ancient", "scoreA": 16, "scoreB": 10, "result": "win" },
-          { "map": "de_cache", "scoreA": 12, "scoreB": 16, "result": "loss" }
+          { "map": "de_cache",   "scoreA": 12, "scoreB": 16, "result": "loss" }
         ],
-        "winRate": { "percent": 67, "played": 3, "won": 2, "lost": 1, "tied": 0 },
+        "winRate": { "percent": 40, "played": 5, "won": 2, "lost": 3, "tied": 0 },
         "combat": {
           "hsPercent": 42,
           "kills": 42,
@@ -1489,6 +1507,324 @@
         },
         "maps": {
           "mostPlayed": [ { "name": "de_ancient", "count": 1 } ],
+          "mostSuccess": []
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "Mayk",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 1.62,
+        "hltvRating": 1.45,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_mirage",  "scoreA": 16, "scoreB": 7, "result": "win" }
+        ],
+        "winRate": { "percent": 100, "played": 2, "won": 2, "lost": 0, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 42,
+          "deaths": 26,
+          "assists": 6,
+          "headshots": 0,
+          "adr": 96,
+          "damage": 4134,
+          "rounds": 43
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ],
+          "mostSuccess": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ]
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "L SKINS",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 1.46,
+        "hltvRating": 1.45,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_mirage",  "scoreA": 16, "scoreB": 7, "result": "win" }
+        ],
+        "winRate": { "percent": 100, "played": 2, "won": 2, "lost": 0, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 41,
+          "deaths": 28,
+          "assists": 8,
+          "headshots": 0,
+          "adr": 91,
+          "damage": 3905,
+          "rounds": 43
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ],
+          "mostSuccess": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ]
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "-r1ch",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 2.08,
+        "hltvRating": 1.76,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_mirage",  "scoreA": 16, "scoreB": 7, "result": "win" }
+        ],
+        "winRate": { "percent": 100, "played": 2, "won": 2, "lost": 0, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 52,
+          "deaths": 25,
+          "assists": 7,
+          "headshots": 0,
+          "adr": 121,
+          "damage": 5218,
+          "rounds": 43
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ],
+          "mostSuccess": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ]
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "TazoSKINS",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Rifler",
+      "dashboard": {
+        "kd": 1.00,
+        "hltvRating": 0.96,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_mirage",  "scoreA": 16, "scoreB": 7, "result": "win" }
+        ],
+        "winRate": { "percent": 100, "played": 2, "won": 2, "lost": 0, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 27,
+          "deaths": 27,
+          "assists": 12,
+          "headshots": 0,
+          "adr": 65,
+          "damage": 2817,
+          "rounds": 43
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ],
+          "mostSuccess": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ]
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "rafa",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Support",
+      "dashboard": {
+        "kd": 0.44,
+        "hltvRating": 0.70,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_inferno", "scoreA": 13, "scoreB": 7, "result": "win" },
+          { "map": "de_mirage",  "scoreA": 16, "scoreB": 7, "result": "win" }
+        ],
+        "winRate": { "percent": 100, "played": 2, "won": 2, "lost": 0, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 15,
+          "deaths": 34,
+          "assists": 16,
+          "headshots": 0,
+          "adr": 58,
+          "damage": 2476,
+          "rounds": 43
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ],
+          "mostSuccess": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ]
+        },
+        "weapons": { "mostKills": [], "headshotRate": [] },
+        "ranks": {
+          "premier": [],
+          "wingman": { "rankLabel": "", "wins": 0 },
+          "competitive": []
+        }
+      },
+      "highlights": []
+    },
+    {
+      "nick": "☯一デJonhZ-",
+      "firstName": "",
+      "lastName": "",
+      "avatar": "",
+      "role": "Lurker",
+      "dashboard": {
+        "kd": 0.63,
+        "hltvRating": 0.74,
+        "clutch": {
+          "overall": 0,
+          "situations": [
+            { "id": "1v1", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v2", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v3", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v4", "success": 0, "wins": 0, "losses": 0 },
+            { "id": "1v5", "success": 0, "wins": 0, "losses": 0 }
+          ]
+        },
+        "recentMatches": [
+          { "map": "de_inferno", "scoreA": 7, "scoreB": 13, "result": "loss" },
+          { "map": "de_mirage",  "scoreA": 7, "scoreB": 16, "result": "loss" }
+        ],
+        "winRate": { "percent": 0, "played": 2, "won": 0, "lost": 2, "tied": 0 },
+        "combat": {
+          "hsPercent": 0,
+          "kills": 22,
+          "deaths": 35,
+          "assists": 9,
+          "headshots": 0,
+          "adr": 70,
+          "damage": 2992,
+          "rounds": 43
+        },
+        "entry": {
+          "perRound": 0,
+          "combined": { "success": 0, "attempts": 0 },
+          "t": { "success": 0, "attempts": 0 },
+          "ct": { "success": 0, "attempts": 0 }
+        },
+        "maps": {
+          "mostPlayed": [ { "name": "de_mirage", "count": 1 }, { "name": "de_inferno", "count": 1 } ],
           "mostSuccess": []
         },
         "weapons": { "mostKills": [], "headshotRate": [] },

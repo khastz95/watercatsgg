@@ -108,6 +108,78 @@
           { "nick": "Clovs",            "playerId": "Clovs",      "kills": 15, "deaths": 22, "assists": 7,  "damage": 1733, "adr": 62, "adrDiff": -20, "hltv": 0.85, "kast": 67, "openKills": 4, "tradeKills": 1 }
         ]
       }
+    },
+    {
+      "id": "mirage-20260602",
+      "date": "2026-06-02",
+      "time": "22:46:38",
+      "map": "Mirage",
+      "mapCode": "de_mirage",
+      "internal": false,
+      "teamA": {
+        "name": "EMPURRA MOLE",
+        "score": 16,
+        "scoreT": 9,
+        "scoreCT": 7,
+        "result": "win",
+        "players": [
+          { "nick": "Mayk",            "playerId": "Mayk",        "kills": 24, "deaths": 12, "assists": 3,  "damage": 2251, "adr": 98,  "adrDiff": 37,  "hltv": 1.50, "kast": 82, "openKills": 0, "tradeKills": 5 },
+          { "nick": "L SKINS",         "playerId": "L SKINS",     "kills": 24, "deaths": 16, "assists": 5,  "damage": 2138, "adr": 93,  "adrDiff": 16,  "hltv": 1.50, "kast": 78, "openKills": 5, "tradeKills": 4 },
+          { "nick": "-r1ch",           "playerId": "-r1ch",       "kills": 21, "deaths": 13, "assists": 5,  "damage": 2255, "adr": 98,  "adrDiff": 33,  "hltv": 1.42, "kast": 86, "openKills": 1, "tradeKills": 6 },
+          { "nick": "...Tazo...SKINS", "playerId": "TazoSKINS",   "kills": 18, "deaths": 12, "assists": 6,  "damage": 1993, "adr": 87,  "adrDiff": 25,  "hltv": 1.33, "kast": 86, "openKills": 1, "tradeKills": 4 },
+          { "nick": "rafa",            "playerId": "rafa",        "kills": 11, "deaths": 19, "assists": 12, "damage": 1687, "adr": 73,  "adrDiff": -15, "hltv": 0.86, "kast": 65, "openKills": 3, "tradeKills": 2 }
+        ]
+      },
+      "teamB": {
+        "name": "SOCA FOFO",
+        "score": 7,
+        "scoreT": 1,
+        "scoreCT": 6,
+        "result": "loss",
+        "players": [
+          { "nick": "furyziKNTC",      "playerId": "furyziKNTC",  "kills": 23, "deaths": 20, "assists": 1,  "damage": 2230, "adr": 97,  "adrDiff": 7,   "hltv": 1.18, "kast": 65, "openKills": 1, "tradeKills": 4 },
+          { "nick": "khastz95",        "playerId": "khastz95",    "kills": 14, "deaths": 22, "assists": 7,  "damage": 1679, "adr": 73,  "adrDiff": -23, "hltv": 0.93, "kast": 60, "openKills": 7, "tradeKills": 3 },
+          { "nick": "☯一デJonhZ-",    "playerId": "☯一デJonhZ-", "kills": 14, "deaths": 19, "assists": 6,  "damage": 1873, "adr": 81,  "adrDiff": -6,  "hltv": 0.88, "kast": 56, "openKills": 1, "tradeKills": 1 },
+          { "nick": "s4mz",            "playerId": "s4mz",        "kills": 10, "deaths": 20, "assists": 6,  "damage": 1413, "adr": 61,  "adrDiff": -27, "hltv": 0.73, "kast": 73, "openKills": 2, "tradeKills": 1 },
+          { "nick": "TUT4fps",         "playerId": "TUT4fps",     "kills": 11, "deaths": 19, "assists": 1,  "damage": 869,  "adr": 38,  "adrDiff": -54, "hltv": 0.56, "kast": 56, "openKills": 2, "tradeKills": 1 }
+        ]
+      }
+    },
+    {
+      "id": "inferno-20260602",
+      "date": "2026-06-02",
+      "time": "23:32:32",
+      "map": "Inferno",
+      "mapCode": "de_inferno",
+      "internal": false,
+      "teamA": {
+        "name": "EMPURRA MOLE",
+        "score": 13,
+        "scoreT": 8,
+        "scoreCT": 5,
+        "result": "win",
+        "players": [
+          { "nick": "-r1ch",           "playerId": "-r1ch",       "kills": 31, "deaths": 12, "assists": 2,  "damage": 2963, "adr": 148, "adrDiff": 78,  "hltv": 2.10, "kast": 89, "openKills": 2, "tradeKills": 5 },
+          { "nick": "L SKINS",         "playerId": "L SKINS",     "kills": 17, "deaths": 12, "assists": 3,  "damage": 1767, "adr": 88,  "adrDiff": 19,  "hltv": 1.40, "kast": 75, "openKills": 4, "tradeKills": 1 },
+          { "nick": "Mayk",            "playerId": "Mayk",        "kills": 18, "deaths": 14, "assists": 3,  "damage": 1883, "adr": 94,  "adrDiff": 13,  "hltv": 1.39, "kast": 85, "openKills": 4, "tradeKills": 4 },
+          { "nick": "...Tazo...SKINS", "playerId": "TazoSKINS",   "kills": 9,  "deaths": 15, "assists": 6,  "damage": 824,  "adr": 41,  "adrDiff": -46, "hltv": 0.59, "kast": 55, "openKills": 1, "tradeKills": 2 },
+          { "nick": "rafa",            "playerId": "rafa",        "kills": 4,  "deaths": 15, "assists": 4,  "damage": 789,  "adr": 39,  "adrDiff": -39, "hltv": 0.54, "kast": 69, "openKills": 1, "tradeKills": 0 }
+        ]
+      },
+      "teamB": {
+        "name": "SOCA FOFO",
+        "score": 7,
+        "scoreT": 7,
+        "scoreCT": 0,
+        "result": "loss",
+        "players": [
+          { "nick": "TUT4fps",         "playerId": "TUT4fps",     "kills": 21, "deaths": 13, "assists": 1,  "damage": 1936, "adr": 97,  "adrDiff": 23,  "hltv": 1.45, "kast": 64, "openKills": 3, "tradeKills": 3 },
+          { "nick": "khastz95",        "playerId": "khastz95",    "kills": 20, "deaths": 17, "assists": 3,  "damage": 2147, "adr": 107, "adrDiff": 20,  "hltv": 1.33, "kast": 85, "openKills": 2, "tradeKills": 4 },
+          { "nick": "furyziKNTC",      "playerId": "furyziKNTC",  "kills": 10, "deaths": 17, "assists": 6,  "damage": 1415, "adr": 71,  "adrDiff": -16, "hltv": 0.83, "kast": 60, "openKills": 3, "tradeKills": 3 },
+          { "nick": "s4mz",            "playerId": "s4mz",        "kills": 9,  "deaths": 16, "assists": 4,  "damage": 1130, "adr": 57,  "adrDiff": -25, "hltv": 0.68, "kast": 64, "openKills": 0, "tradeKills": 2 },
+          { "nick": "☯一デJonhZ-",    "playerId": "☯一デJonhZ-", "kills": 8,  "deaths": 16, "assists": 3,  "damage": 1119, "adr": 56,  "adrDiff": -27, "hltv": 0.61, "kast": 60, "openKills": 0, "tradeKills": 2 }
+        ]
+      }
     }
   ]
 }

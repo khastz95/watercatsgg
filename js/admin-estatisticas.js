@@ -94,9 +94,9 @@
     var btn = document.getElementById("btn-login");
     if (btn) { btn.disabled = true; btn.textContent = "Verificando…"; }
 
-    StatsData.loadConfig()
-      .then(function (cfg) {
-        if (enteredUser !== cfg.username || enteredPass !== cfg.password) {
+    StatsData.login(enteredUser, enteredPass)
+      .then(function (result) {
+        if (!result.ok) {
           showMsg("Usuário ou senha incorretos.", "error");
           if (btn) { btn.disabled = false; btn.textContent = "Entrar"; }
           return;
@@ -121,7 +121,7 @@
           });
       })
       .catch(function () {
-        showMsg("Não foi possível carregar as configurações de acesso.", "error");
+        showMsg("Não foi possível verificar o acesso.", "error");
         if (btn) { btn.disabled = false; btn.textContent = "Entrar"; }
       });
   }
@@ -559,9 +559,9 @@
   /* ── INIT ─────────────────────────────────────────────── */
   if (app.username && app.password) {
     showMsg("Carregando…", "info");
-    StatsData.loadConfig()
-      .then(function (cfg) {
-        if (app.username !== cfg.username || app.password !== cfg.password) {
+    StatsData.login(app.username, app.password)
+      .then(function (result) {
+        if (!result.ok) {
           StatsData.setStoredUsername("");
           StatsData.setStoredPassword("");
           renderLogin();

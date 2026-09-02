@@ -1,0 +1,40 @@
+/* Hub header + campeonato 1v1 na mesma página */
+body.page-1v1 {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding-top: var(--header-h, 72px);
+}
+
+body.page-1v1 .chrome {
+  top: var(--header-h, 72px);
+  z-index: 40;
+}
+
+body.page-1v1 .site-header {
+  z-index: 1000;
+}
+
+body.page-1v1 .chrome .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+body.page-1v1 .chrome .brand h1 {
+  font-family: Rajdhani, Sora, sans-serif;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+body.page-1v1 .site-header .brand {
+  gap: 0.75rem;
+}
+body.page-1v1 .site-header .brand h1 {
+  font-size: inherit;
+}
+body.page-1v1 .pic img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

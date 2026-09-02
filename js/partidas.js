@@ -272,7 +272,7 @@
 
     let data;
     try {
-      const res = await fetch("/data/partidas.json");
+      const res = await fetch("/api/partidas", { cache: "no-store" });
       if (!res.ok) throw new Error("fetch error");
       data = await res.json();
     } catch {

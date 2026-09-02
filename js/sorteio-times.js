@@ -629,8 +629,8 @@
     setFeedback("Carregando turma e levels…", "");
 
     Promise.all([
-      fetch("/data/jogadores.json", { cache: "no-store" }),
-      fetch("/data/estatisticas.json", { cache: "no-store" }),
+      fetch("/api/jogadores", { cache: "no-store" }),
+      fetch("/api/stats", { cache: "no-store" }),
     ])
       .then(function (responses) {
         if (!responses[0].ok) throw new Error("jogadores");

@@ -63,13 +63,16 @@
     return s.length > 0;
   });
   var path = seg.length ? seg[seg.length - 1] : "index.html";
-  if (!path || !/\.html?$/.test(path)) path = "index.html";
-  document.querySelectorAll(".site-nav a, .footer__links a[href$='.html'], .footer__navlist a[href$='.html']").forEach(function (a) {
+  var pathJoined = "/" + seg.join("/");
+  var on1v1 = pathJoined === "/1v1" || pathJoined.indexOf("/1v1/") === 0;
+  if (!path || (!/\.html?$/.test(path) && !on1v1)) path = "index.html";
+  document.querySelectorAll(".site-nav a, .footer__links a, .footer__navlist a").forEach(function (a) {
     var href = a.getAttribute("href") || "";
     var hrefFile = href.split("/").filter(function (s) {
       return s.length > 0;
     }).pop();
-    var isCurrent = hrefFile === path;
+    var is1v1Link = href === "/1v1" || href === "/1v1/" || href.indexOf("/1v1") === 0;
+    var isCurrent = on1v1 ? is1v1Link : hrefFile === path;
     a.classList.toggle("is-active", isCurrent);
     if (isCurrent) {
       a.setAttribute("aria-current", "page");

@@ -30,7 +30,9 @@
       '<article class="' +
       cardClass +
       '" role="listitem">' +
-      '<div class="roster-card__photo-wrap">' +
+      '<div class="roster-card__photo-wrap pic" style="--player-color:' +
+      escapeHtml(member.color || "#3ec7ff") +
+      '">' +
       '<img class="roster-card__photo" src="' +
       escapeHtml(src) +
       '" alt="Foto de ' +
@@ -92,7 +94,7 @@
   }
 
   function init() {
-    fetch("/data/jogadores.json", { cache: "no-store" })
+    fetch("/api/jogadores", { cache: "no-store" })
       .then(function (res) {
         if (!res.ok) throw new Error("fetch");
         return res.json();

@@ -129,9 +129,9 @@ body.hub-site .site-nav a {
 body.hub-site .site-nav a.is-active,
 body.hub-site .site-nav a[aria-current="page"] {
   color: #e8fcff;
-  background: rgba(0, 212, 255, 0.12);
-  border: 1px solid rgba(0, 212, 255, 0.28);
-  box-shadow: 0 0 24px rgba(0, 212, 255, 0.1);
+  background: rgba(62, 199, 255, 0.14);
+  border: 1px solid rgba(62, 199, 255, 0.32);
+  box-shadow: 0 0 24px rgba(62, 199, 255, 0.12);
   text-shadow: none;
 }
 

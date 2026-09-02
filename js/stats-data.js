@@ -5,7 +5,7 @@
   var STATIC_URL = "/data/estatisticas.json";
   var PARTIDAS_API_URL = "/api/partidas";
   var PARTIDAS_STATIC_URL = "/data/partidas.json";
-  var CONFIG_URL = "/data/admin-config.json";
+  var AUTH_URL = "/api/auth";
   var STORAGE_KEY = "ep_admin_password";
   var STORAGE_USER = "ep_admin_user";
 
@@ -70,11 +70,19 @@
   }
 
   function loadConfig() {
-    return fetch(CONFIG_URL, { cache: "no-store" })
-      .then(function (res) {
-        if (!res.ok) throw new Error("config_not_found");
-        return res.json();
+    return Promise.resolve({ username: "admin" });
+  }
+
+  function login(username, password) {
+    return fetch(AUTH_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: username, password: password }),
+    }).then(function (res) {
+      return res.json().then(function (body) {
+        return { ok: res.ok, status: res.status, body: body };
       });
+    });
   }
 
   function loadPartidas() {
@@ -127,6 +135,7 @@
     loadPartidas: loadPartidas,
     savePartidas: savePartidas,
     loadConfig: loadConfig,
+    login: login,
     getStoredPassword: getStoredPassword,
     setStoredPassword: setStoredPassword,
     getStoredUsername: getStoredUsername,

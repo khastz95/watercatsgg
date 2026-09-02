@@ -1,26 +1,27 @@
 ﻿/* Eternal Pratas — tema competitivo CS */
 :root {
-  --bg: #0f1117;
-  --bg-elevated: #141820;
-  --bg-card: #181c26;
-  --bg-card-hover: #1c2130;
-  --cyan: #00d4ff;
-  --cyan-dim: rgba(0, 212, 255, 0.12);
+  --bg: #071018;
+  --bg-elevated: #0c1624;
+  --bg-card: #122033;
+  --bg-card-hover: #163049;
+  --cyan: #3ec7ff;
+  --cyan-dim: rgba(62, 199, 255, 0.12);
+  --gold: #e8c56b;
   --purple: #7c5cff;
   --purple-deep: #2a1f5c;
-  --indigo: #5b6fd6;
-  --text: #eef1f7;
-  --text-muted: #9aa3b8;
-  --border: rgba(255, 255, 255, 0.09);
-  --border-accent: rgba(0, 212, 255, 0.2);
-  --gradient: linear-gradient(135deg, var(--cyan) 0%, var(--indigo) 55%, var(--purple) 100%);
-  --gradient-soft: linear-gradient(90deg, rgba(0, 229, 255, 0.12), rgba(92, 77, 255, 0.12));
-  --font-display: "Orbitron", system-ui, sans-serif;
-  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 22px;
-  --radius-xl: 28px;
+  --indigo: #3d6a96;
+  --text: #eef5ff;
+  --text-muted: #8aa0bf;
+  --border: rgba(80, 170, 255, 0.16);
+  --border-accent: rgba(62, 199, 255, 0.28);
+  --gradient: linear-gradient(135deg, var(--cyan) 0%, var(--indigo) 55%, var(--gold) 100%);
+  --gradient-soft: linear-gradient(90deg, rgba(62, 199, 255, 0.14), rgba(232, 197, 107, 0.1));
+  --font-display: "Rajdhani", system-ui, sans-serif;
+  --font-body: "Sora", system-ui, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-pill: 9999px;
   --radius-sharp: var(--radius-sm);
   --shadow-glow: 0 0 24px rgba(0, 229, 255, 0.25), 0 0 48px rgba(92, 77, 255, 0.12);
@@ -1960,10 +1961,12 @@ body.page-jogadores .players-page__lead code {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(0, 229, 255, 0.3);
-  background: linear-gradient(145deg, rgba(0, 229, 255, 0.08), rgba(45, 27, 105, 0.35));
-  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--player-color, var(--cyan)) 80%, #fff);
+  background: color-mix(in srgb, var(--player-color, var(--cyan)) 78%, #071018);
+  box-shadow:
+    0 0 0 2px var(--bg-card),
+    0 8px 18px rgba(0, 0, 0, 0.38);
 }
 
 .roster-card__dot {

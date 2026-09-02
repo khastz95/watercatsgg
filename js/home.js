@@ -159,8 +159,12 @@
           '<a class="home-player-card reveal" href="/jogadores.html" style="--home-delay:' +
           i * 0.06 +
           's">' +
-          '<span class="home-player-card__avatar" aria-hidden="true">' +
-          esc(initials(p.nick)) +
+          '<span class="home-player-card__avatar" aria-hidden="true" style="--accent:' +
+          esc(p.color || "#3ec7ff") +
+          '">' +
+          (p.avatar
+            ? '<img src="' + esc(p.avatar) + '" alt="">'
+            : esc(initials(p.nick))) +
           "</span>" +
           '<span class="home-player-card__body">' +
           "<strong>" +

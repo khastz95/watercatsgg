@@ -1,10 +1,10 @@
 /* Eternal Pratas — tema unificado (arena / sorteio em todo o hub) */
 
 body.hub-site {
-  --hub-a: #00d4ff;
-  --hub-b: #8b6cf8;
-  --hub-glow-a: rgba(0, 212, 255, 0.22);
-  --hub-glow-b: rgba(139, 108, 248, 0.18);
+  --hub-a: #3ec7ff;
+  --hub-b: #e8c56b;
+  --hub-glow-a: rgba(62, 199, 255, 0.22);
+  --hub-glow-b: rgba(232, 197, 107, 0.14);
   --hub-grid-size: 48px;
   --hub-grid-line-a: rgba(0, 212, 255, 0.05);
   --hub-grid-line-b: rgba(139, 108, 248, 0.038);

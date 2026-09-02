@@ -756,10 +756,13 @@
   if (btnAction) btnAction.addEventListener("click", onActionClick);
   if (btnReset) btnReset.addEventListener("click", resetCurrentMode);
 
-  fetch("/data/maps.json", { cache: "no-store" })
+  fetch("/api/mapas", { cache: "no-store" })
     .then(function (res) {
-      if (!res.ok) throw new Error("maps");
-      return res.json();
+      if (res.ok) return res.json();
+      return fetch("/data/maps.json", { cache: "no-store" }).then(function (res2) {
+        if (!res2.ok) throw new Error("maps");
+        return res2.json();
+      });
     })
     .then(function (data) {
       maps = (data && data.maps) || [];

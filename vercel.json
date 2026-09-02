@@ -1,8 +1,17 @@
 {
+  "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/1v1", "destination": "/1v1/index.html" }
+  ],
   "redirects": [
-    { "source": "/conexoes.html", "destination": "/sobre.html", "permanent": true },
-    { "source": "/faca-parte.html", "destination": "/sobre.html", "permanent": true },
-    { "source": "/estatisticas.html", "destination": "/jogadores.html", "permanent": true }
+    { "source": "/conexoes.html", "destination": "/sobre", "permanent": true },
+    { "source": "/conexoes", "destination": "/sobre", "permanent": true },
+    { "source": "/faca-parte.html", "destination": "/sobre", "permanent": true },
+    { "source": "/faca-parte", "destination": "/sobre", "permanent": true },
+    { "source": "/estatisticas.html", "destination": "/jogadores", "permanent": true },
+    { "source": "/estatisticas", "destination": "/jogadores", "permanent": true },
+    { "source": "/camp", "destination": "/1v1", "permanent": false },
+    { "source": "/camp.html", "destination": "/1v1", "permanent": false }
   ]
 }

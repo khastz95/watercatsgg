@@ -17,29 +17,36 @@
     return n.slice(0, 2).toUpperCase();
   }
 
-  function card(p) {
+  function pad(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
+  function card(p, i) {
     var color = p.color || "#3ec7ff";
     var name = p.name || p.id || "jogador";
     var photo = p.photo || "";
-    var pic =
-      '<span class="pic" style="--accent:' +
+
+    return (
+      '<article class="roster-card" style="--accent:' +
       esc(color) +
       '">' +
+      '<span class="roster-card__idx">' +
+      pad(i + 1) +
+      "</span>" +
+      '<div class="roster-card__photo">' +
       (photo
-        ? '<img src="' + esc(photo) + '" alt="' + esc(name) + '">'
+        ? '<img src="' + esc(photo) + '" alt="' + esc(name) + '" loading="lazy" onerror="this.remove()">'
         : "") +
       '<span class="ph">' +
       esc(initials(name)) +
-      "</span></span>";
-
-    return (
-      '<a class="team-card" href="/1v1" style="--accent:' +
-      esc(color) +
-      '">' +
-      pic +
+      "</span></div>" +
+      '<div class="roster-card__meta">' +
       "<h3>" +
       esc(name) +
-      "</h3></a>"
+      "</h3>" +
+      '<p class="roster-card__role">Player</p>' +
+      '<p class="roster-card__org">Eternal Pratas</p>' +
+      "</div></article>"
     );
   }
 
@@ -49,9 +56,12 @@
       return res.json();
     })
     .then(function (payload) {
-      var players = (payload && payload.data && payload.data.players) || [];
+      var data = (payload && payload.data) || {};
+      var players = data.players || [];
+      var countEl = document.getElementById("org-roster-count");
+      if (countEl) countEl.textContent = String(players.length);
       if (!players.length) {
-        root.innerHTML = '<p class="team-empty">Elenco ainda não cadastrado.</p>';
+        root.innerHTML = '<p class="team-empty">Elenco em atualização.</p>';
         return;
       }
       root.innerHTML = players.map(card).join("");

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071018" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Eternal Pratas — time closed de Counter-Strike 2. Elenco e campeonato 1v1." />
+    <meta name="description" content="Eternal Pratas — organização brasileira de Counter-Strike 2. Elenco, campeonato 1v1 e canais oficiais." />
     <title>Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,7 +20,7 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/">
-          <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="44" height="44" />
+          <img class="brand__logo" src="/assets/logo.png" alt="Eternal Pratas" width="44" height="44" />
           <span class="brand__text">
             <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
           </span>
@@ -33,31 +33,87 @@
             <li><a href="/" data-nav="home">Início</a></li>
             <li><a href="/jogadores" data-nav="elenco">Elenco</a></li>
             <li><a href="/1v1" data-nav="1v1">1v1</a></li>
-            <li><a href="/sobre" data-nav="sobre">Sobre</a></li>
+            <li><a href="/sobre" data-nav="sobre">Organização</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main class="container">
-      <section class="team-hero reveal">
-        <p class="team-hero__kicker">Counter-Strike 2 · Closed</p>
-        <h1>Eternal Pratas</h1>
-        <p>Time fechado. Aqui está o elenco e o campeonato 1v1 — sem fila, sem mix aberto.</p>
-        <div class="team-hero__actions">
-          <a class="btn btn--primary" href="/1v1">Campeonato 1v1</a>
-          <a class="btn btn--ghost" href="/jogadores">Ver elenco</a>
+      <section class="org-hero reveal">
+        <div>
+          <p class="org-hero__mark">Counter-Strike 2 · Brasil</p>
+          <h1>Eternal <span>Pratas</span></h1>
+          <p class="org-hero__lead">
+            Organização brasileira de CS2. O elenco veste a marca no campeonato 1v1 da casa — liga, tabela e playoffs.
+          </p>
+        </div>
+        <img class="org-hero__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="300" height="300" />
+      </section>
+
+      <div class="org-bar reveal">
+        <div>
+          <small>País</small>
+          <strong>
+            <svg class="org-flag" viewBox="0 0 18 12" aria-hidden="true">
+              <rect width="18" height="12" fill="#009b3a" />
+              <polygon points="9,1.2 16.4,6 9,10.8 1.6,6" fill="#fedf00" />
+              <circle cx="9" cy="6" r="2.15" fill="#002776" />
+            </svg>
+            Brasil
+          </strong>
+        </div>
+        <div>
+          <small>Jogo</small>
+          <strong>Counter-Strike 2</strong>
+        </div>
+        <div>
+          <small>Lineup</small>
+          <strong><span id="org-roster-count">5</span> jogadores</strong>
+        </div>
+        <div>
+          <small>Competição</small>
+          <strong>Campeonato 1v1</strong>
+        </div>
+      </div>
+
+      <section class="org-block">
+        <div class="org-block__head reveal">
+          <div>
+            <p class="section__label">Sobre o time</p>
+            <h2>A marca no peito</h2>
+          </div>
+        </div>
+        <div class="org-copy reveal">
+          <p>
+            A Eternal Pratas nasceu no Brasil com identidade própria: competitivo, direto e reconhecível. O time de Counter-Strike 2 é o centro da organização.
+          </p>
+          <p>
+            O elenco disputa o campeonato 1v1 da casa — o palco onde a org se mede, semana após semana, até os playoffs.
+          </p>
         </div>
       </section>
 
-      <section class="section section--tight">
-        <div class="section__head reveal">
+      <section class="org-block">
+        <div class="org-block__head reveal">
           <div>
-            <p class="section__label">Elenco</p>
-            <h2>Os cinco</h2>
+            <p class="section__label">Lineup</p>
+            <h2>Conheça o time</h2>
           </div>
+          <a class="btn btn--ghost" href="/jogadores">Ver elenco</a>
         </div>
-        <div id="team-roster" class="team-roster" aria-live="polite"></div>
+        <div id="team-roster" class="roster" aria-live="polite"></div>
+      </section>
+
+      <section class="org-block">
+        <div class="org-cta reveal">
+          <div>
+            <p class="section__label">Competição</p>
+            <h2>Campeonato 1v1</h2>
+            <p>Liga, tabela, chave e murais da temporada.</p>
+          </div>
+          <a class="btn btn--primary" href="/1v1">Acompanhar</a>
+        </div>
       </section>
     </main>
 

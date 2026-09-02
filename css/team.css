@@ -1,0 +1,157 @@
+.pic {
+  --accent: var(--cyan);
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--accent) 78%, #071018);
+  font-size: 36px;
+  box-shadow:
+    0 0 0 2px #0c1624,
+    0 0 0 3px color-mix(in srgb, var(--accent) 80%, #fff);
+}
+
+.pic img,
+.pic .ph {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.pic img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+}
+
+.pic .ph {
+  display: grid;
+  place-items: center;
+  font-family: Rajdhani, sans-serif;
+  font-size: 0.52em;
+  font-weight: 700;
+  color: #071018;
+  background: var(--accent);
+}
+
+.team-hero {
+  padding: 2.5rem 0 1.5rem;
+}
+
+.team-hero__kicker {
+  margin: 0 0 0.5rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.team-hero h1 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.team-hero p {
+  margin: 0;
+  max-width: 38rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.team-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.team-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.85rem;
+  margin: 1.5rem 0 0;
+}
+
+.team-card {
+  --accent: var(--cyan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.35rem 1rem 1.2rem;
+  background: #122033;
+  border: 1px solid rgba(80, 170, 255, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.team-card:hover {
+  border-color: var(--accent);
+  color: inherit;
+  text-shadow: none;
+}
+
+.team-card .pic {
+  width: 88px;
+  height: 88px;
+  font-size: 64px;
+}
+
+.team-card h3 {
+  margin: 0;
+  font-family: Rajdhani, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.team-empty {
+  margin: 1.5rem 0 0;
+  color: var(--text-muted);
+}
+
+.team-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.team-fact {
+  padding: 1rem 1.1rem;
+  background: #122033;
+  border: 1px solid rgba(80, 170, 255, 0.2);
+  border-radius: 8px;
+}
+
+.team-fact strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: Rajdhani, sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.team-fact span {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.page-about .team-copy {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+}
+
+.page-about .team-copy p {
+  margin: 0 0 1rem;
+}

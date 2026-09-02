@@ -11,6 +11,14 @@
     { "source": "/faca-parte", "destination": "/sobre", "permanent": true },
     { "source": "/estatisticas.html", "destination": "/jogadores", "permanent": true },
     { "source": "/estatisticas", "destination": "/jogadores", "permanent": true },
+    { "source": "/partidas.html", "destination": "/1v1", "permanent": true },
+    { "source": "/partidas", "destination": "/1v1", "permanent": true },
+    { "source": "/jogos.html", "destination": "/", "permanent": true },
+    { "source": "/jogos", "destination": "/", "permanent": true },
+    { "source": "/sorteio-times.html", "destination": "/", "permanent": true },
+    { "source": "/sorteio-times", "destination": "/", "permanent": true },
+    { "source": "/sorteio-mapas.html", "destination": "/", "permanent": true },
+    { "source": "/sorteio-mapas", "destination": "/", "permanent": true },
     { "source": "/camp", "destination": "/1v1", "permanent": false },
     { "source": "/camp.html", "destination": "/1v1", "permanent": false }
   ]

@@ -296,6 +296,7 @@ p {
   z-index: 1000;
   height: auto;
   width: 100%;
+  overflow: visible;
   background: rgba(7, 16, 24, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);

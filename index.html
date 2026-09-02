@@ -16,8 +16,8 @@
         } catch (e) {}
       })();
     </script>
-    <meta name="description" content="Eternal Pratas — organização brasileira de Counter-Strike 2. Elenco, jogos e a casa do time." />
-    <title>Eternal Pratas</title>
+    <meta name="description" content="Eternal Pratas — organização brasileira de Counter-Strike 2. Elenco, calendário competitivo e canais oficiais." />
+    <title>Eternal Pratas — Organização de CS2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
@@ -33,32 +33,56 @@
     <main class="container">
       <section class="ep-hero">
         <div>
-          <p class="ep-kicker">Counter-Strike 2 · Brasil</p>
+          <p class="ep-kicker">Organização de esports · Brasil</p>
           <h1>Eternal <span>Pratas</span></h1>
           <p class="ep-lead">
-            Time brasileiro de CS2. Cinco titulares, dois reservas e um coach.
+            Organização brasileira de Counter-Strike 2. Competimos com lineup permanente, calendário público e identidade própria.
           </p>
           <div class="ep-actions">
-            <a class="btn btn--primary" href="/elenco">Elenco</a>
-            <a class="btn btn--ghost" href="/jogos">Jogos</a>
+            <a class="btn btn--primary" href="/elenco">Ver elenco</a>
+            <a class="btn btn--ghost" href="/jogos">Calendário</a>
           </div>
         </div>
         <img class="ep-hero__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="220" height="220" />
       </section>
 
-      <div class="ep-meta">
-        <div><small>País</small><strong>Brasil</strong></div>
-        <div><small>Jogo</small><strong>CS2</strong></div>
-        <div><small>Lineup</small><strong>5 titulares</strong></div>
-        <div><small>Staff</small><strong>Coach + 2 reservas</strong></div>
-      </div>
+      <dl class="ep-meta">
+        <div>
+          <dt>País</dt>
+          <dd>Brasil</dd>
+        </div>
+        <div>
+          <dt>Modalidade</dt>
+          <dd>Counter-Strike 2</dd>
+        </div>
+        <div>
+          <dt>Lineup</dt>
+          <dd>5 titulares</dd>
+        </div>
+        <div>
+          <dt>Comissão</dt>
+          <dd>Coach e 2 reservas</dd>
+        </div>
+      </dl>
+
+      <section class="ep-intro">
+        <div>
+          <p class="section__label">Apresentação</p>
+          <h2>Uma org, um time, uma marca</h2>
+          <p>
+            A Eternal Pratas existe para sustentar um projeto competitivo reconhecível. O elenco é o centro da organização. Os jogos entram no calendário com formato, mapas e escalação. Discord e Steam são os canais oficiais com a comunidade.
+          </p>
+        </div>
+        <a class="btn btn--ghost" href="/sobre">A organização</a>
+      </section>
 
       <section class="ep-block">
         <div class="ep-block__head">
           <div>
-            <p class="section__label">Agenda</p>
-            <h2>Próximo jogo</h2>
+            <p class="section__label">Competição</p>
+            <h2>Próximo compromisso</h2>
           </div>
+          <a class="btn btn--ghost" href="/jogos">Agenda completa</a>
         </div>
         <div id="home-next"></div>
       </section>
@@ -66,10 +90,10 @@
       <section class="ep-block">
         <div class="ep-block__head">
           <div>
-            <p class="section__label">Lineup</p>
-            <h2>Titulares</h2>
+            <p class="section__label">Elenco</p>
+            <h2>Lineup titular</h2>
           </div>
-          <a class="btn btn--ghost" href="/elenco">Ver elenco</a>
+          <a class="btn btn--ghost" href="/elenco">Perfis</a>
         </div>
         <div id="home-starters" class="ep-grid-5"></div>
       </section>
@@ -77,7 +101,7 @@
       <section class="ep-block">
         <div class="ep-block__head">
           <div>
-            <p class="section__label">Staff</p>
+            <p class="section__label">Comissão técnica</p>
             <h2>Coach e reservas</h2>
           </div>
         </div>

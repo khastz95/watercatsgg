@@ -2,64 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#071018" />
-    <meta name="color-scheme" content="light dark" />
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("ep-theme");
-          if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          }
-          document.documentElement.setAttribute("data-theme", t);
-        } catch (e) {}
-      })();
-    </script>
-    <meta name="description" content="Elenco da Eternal Pratas — titulares, reservas e coach no CS2." />
+    <meta http-equiv="refresh" content="0; url=/elenco" />
+    <link rel="canonical" href="/elenco" />
     <title>Elenco | Eternal Pratas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/theme.css" />
-    <link rel="stylesheet" href="/css/hub-theme.css" />
-    <link rel="stylesheet" href="/css/hub-chrome.css" />
-    <link rel="stylesheet" href="/css/org.css" />
-    <link rel="icon" href="/assets/logo.png" type="image/png" />
+    <script>window.location.replace("/elenco");</script>
   </head>
-  <body class="hub-site page-elenco">
-    <header data-header></header>
-    <main class="container">
-      <section class="ep-hero ep-hero--plain reveal">
-        <div>
-          <p class="ep-kicker">CS2 · Lineup</p>
-          <h1>Elenco</h1>
-          <p class="ep-lead">Cinco titulares no server. Dois reservas e o coach completam a organização. Abra o perfil para stats, ranks e conexões.</p>
-        </div>
-      </section>
-      <section class="ep-block" style="padding-top:0">
-        <div class="ep-block__head">
-          <div>
-            <p class="section__label">Titulares</p>
-            <h2>O cinco</h2>
-          </div>
-        </div>
-        <div id="team-roster" class="ep-grid-5"></div>
-      </section>
-      <section class="ep-block">
-        <div class="ep-block__head">
-          <div>
-            <p class="section__label">Staff</p>
-            <h2>Coach e reservas</h2>
-          </div>
-        </div>
-        <div id="team-staff" class="ep-grid-3"></div>
-      </section>
-    </main>
-    <footer data-footer></footer>
-    <script src="/js/main.js" defer></script>
-    <script src="/js/org-ui.js" defer></script>
-    <script src="/js/elenco.js" defer></script>
+  <body>
+    <p><a href="/elenco">Ir para o elenco</a></p>
   </body>
 </html>

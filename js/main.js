@@ -57,7 +57,7 @@
       '<nav class="site-nav" id="main-nav" aria-label="Principal"><ul id="site-nav-list">' +
       '<li><a href="/" data-nav="home">Início</a></li>' +
       '<li><a href="/elenco" data-nav="elenco">Elenco</a></li>' +
-      '<li><a href="/jogos" data-nav="jogos">Jogos</a></li>' +
+      '<li><a href="/jogos" data-nav="jogos">Calendário</a></li>' +
       '<li><a href="/sobre" data-nav="sobre">Organização</a></li>' +
       '<li data-auth="login"><a href="/entrar" data-nav="entrar">Entrar</a></li>' +
       "</ul></nav>" +
@@ -78,19 +78,19 @@
       '<img src="/assets/logo.png" alt="Eternal Pratas" width="48" height="48" class="footer__logo" />' +
       '<span class="footer__brandtext"><span class="footer__brandname"><span class="footer__brand-light">ETERNAL</span> <span class="footer__brand-dark">PRATAS</span></span>' +
       '<span class="footer__brandsub">Counter-Strike 2</span></span></a>' +
-      '<p class="footer__desc">Organização brasileira de CS2. Elenco, jogos e a casa do time.</p>' +
+      '<p class="footer__desc">Organização brasileira de Counter-Strike 2. Lineup permanente, calendário público e canais oficiais.</p>' +
       '<div class="footer__social">' +
       '<a class="footer__social-link" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>' +
       '<a class="footer__social-link" href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Steam</a>' +
       "</div></div>" +
-      '<div class="footer__col"><h2 class="footer__col-title">Navegação</h2><ul class="footer__navlist">' +
-      '<li><a href="/">Início</a></li><li><a href="/elenco">Elenco</a></li>' +
-      '<li><a href="/jogos">Jogos</a></li><li><a href="/sobre">Organização</a></li>' +
+      '<div class="footer__col"><h2 class="footer__col-title">Organização</h2><ul class="footer__navlist">' +
+      '<li><a href="/">Início</a></li><li><a href="/sobre">A marca</a></li>' +
+      '<li><a href="/elenco">Elenco</a></li><li><a href="/jogos">Calendário</a></li>' +
       "</ul></div>" +
-      '<div class="footer__col"><h2 class="footer__col-title">Time</h2><ul class="footer__navlist">' +
-      '<li><a href="/elenco">Lineup</a></li><li><a href="/jogos">Agenda</a></li>' +
-      '<li><a href="/sobre">A marca</a></li></ul></div>' +
-      '<div class="footer__col"><h2 class="footer__col-title">Comunidade</h2><ul class="footer__navlist">' +
+      '<div class="footer__col"><h2 class="footer__col-title">Competição</h2><ul class="footer__navlist">' +
+      '<li><a href="/elenco">Lineup titular</a></li><li><a href="/jogos">Próximos jogos</a></li>' +
+      '<li><a href="/elenco">Comissão técnica</a></li></ul></div>' +
+      '<div class="footer__col"><h2 class="footer__col-title">Canais oficiais</h2><ul class="footer__navlist">' +
       '<li><a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord oficial</a></li>' +
       '<li><a href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Grupo Steam</a></li>' +
       '<li><a href="/entrar">Entrar</a></li></ul></div>' +

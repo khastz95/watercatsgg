@@ -26,7 +26,7 @@
       if (!box) return;
       if (!next) {
         box.innerHTML =
-          '<p class="ep-empty">Nenhum jogo agendado no momento. A agenda pública aparece aqui assim que o próximo confronto for marcado.</p>';
+          '<p class="ep-empty">Nenhum compromisso na agenda. O próximo confronto será publicado aqui.</p>';
         return;
       }
       var when = U.formatData(next.data, next.hora);
@@ -61,7 +61,7 @@
             .join("") +
           "</div>";
       }
-      html += '</div><a class="btn btn--ghost" href="/jogos">Ver agenda</a></div>';
+      html += '</div><a class="btn btn--ghost" href="/jogos">Ver calendário</a></div>';
       box.innerHTML = html;
     })
     .catch(function () {

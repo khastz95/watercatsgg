@@ -98,7 +98,7 @@
       var jogos = data.jogos || [];
       var map = byId(data.elenco);
       if (!jogos.length) {
-        root.innerHTML = '<p class="ep-empty">Nenhum jogo cadastrado ainda.</p>';
+        root.innerHTML = '<p class="ep-empty">O calendário ainda não possui partidas publicadas.</p>';
         return;
       }
 
@@ -131,7 +131,7 @@
           ">Resultados</button></div>";
         if (upcoming.length) {
           html +=
-            '<section class="ep-block" style="padding-top:0"><div class="ep-block__head"><div><p class="section__label">Agenda</p><h2>Próximos jogos</h2></div></div>';
+            '<section class="ep-block" style="padding-top:0"><div class="ep-block__head"><div><p class="section__label">Calendário</p><h2>Próximos compromissos</h2></div></div>';
           html += upcoming.map(function (j) {
             return card(j, map);
           }).join("");
@@ -146,7 +146,7 @@
           html += "</section>";
         }
         if (!upcoming.length && !done.length) {
-          html += '<p class="ep-empty">Nada nesta aba ainda.</p>';
+          html += '<p class="ep-empty">Nenhum compromisso nesta visualização.</p>';
         }
         root.innerHTML = html;
         root.querySelectorAll("[data-filter]").forEach(function (btn) {
@@ -161,6 +161,6 @@
       render();
     })
     .catch(function () {
-      root.innerHTML = '<p class="ep-empty">Não foi possível carregar os jogos.</p>';
+      root.innerHTML = '<p class="ep-empty">Não foi possível carregar o calendário.</p>';
     });
 })();

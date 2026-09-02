@@ -41,7 +41,7 @@
         return row.id === key || String(row.nick).toLowerCase() === String(key).toLowerCase();
       });
       if (!p) {
-        root.innerHTML = '<p class="ep-empty">Jogador não encontrado.</p>';
+        root.innerHTML = '<p class="ep-empty">Atleta não encontrado no elenco.</p>';
         return;
       }
       document.title = U.displayNick(p) + " | Eternal Pratas";
@@ -119,6 +119,6 @@
         "</div></div>";
     })
     .catch(function () {
-      root.innerHTML = '<p class="ep-empty">Não foi possível carregar o perfil.</p>';
+      root.innerHTML = '<p class="ep-empty">Não foi possível carregar o perfil do atleta.</p>';
     });
 })();

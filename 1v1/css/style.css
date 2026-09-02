@@ -1,15 +1,15 @@
 :root {
-  --bg: #071018;
-  --bg-2: #0c1624;
-  --card: #122033;
-  --line: rgba(80, 170, 255, 0.2);
-  --text: #eef5ff;
-  --mute: #8aa0bf;
-  --cyan: #3ec7ff;
-  --hook: #3d6a96;
-  --gold: #e8c56b;
+  --bg: #050508;
+  --bg-2: #0a0d14;
+  --card: #10151e;
+  --line: rgba(47, 134, 255, 0.22);
+  --text: #f3f6ff;
+  --mute: #8b9bb8;
+  --cyan: #2f86ff;
+  --hook: #1a4fd6;
+  --gold: #e11d2a;
   --shame: #ff6b7a;
-  --win: rgba(62, 199, 255, 0.14);
+  --win: rgba(47, 134, 255, 0.14);
   --r: 8px;
   --gutter: 40px;
   --page-w: 1240px;
@@ -29,7 +29,7 @@ html, body {
     radial-gradient(70% 50% at 50% -10%, rgba(62, 199, 255, 0.1), transparent 55%),
     var(--bg);
   color: var(--text);
-  font-family: Sora, system-ui, sans-serif;
+  font-family: "Exo 2", system-ui, sans-serif;
   color-scheme: dark;
 }
 
@@ -296,7 +296,7 @@ main {
 .liga-facts b {
   display: block;
   color: var(--cyan);
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 22px;
 }
 .liga-facts span { color: var(--mute); font-size: 12px; }
@@ -334,14 +334,14 @@ main {
   width: 100%;
   min-height: 36px;
   border-radius: var(--r);
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: var(--text);
 }
 .h2h button:hover { color: var(--cyan); }
 .h2h .done { color: var(--cyan); }
-.h2h .wait { color: var(--mute); font-size: 13px; font-weight: 600; font-family: Sora, sans-serif; }
+.h2h .wait { color: var(--mute); font-size: 13px; font-weight: 600; font-family: "Exo 2", sans-serif; }
 
 .round { margin-bottom: 22px; }
 .round-h {
@@ -505,7 +505,7 @@ main {
   border: 0;
   background: transparent;
   text-align: center;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: var(--text);
@@ -516,7 +516,7 @@ main {
   grid-column: 1 / -1;
   font-style: normal;
   text-align: center;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 13px;
   font-weight: 700;
   color: var(--mute);
@@ -532,13 +532,13 @@ main {
   width: 56px;
   height: 56px;
   text-align: center;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 32px;
   font-weight: 700;
 }
 .bout-score .times {
   color: var(--mute);
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 28px;
   font-weight: 700;
   line-height: 1;
@@ -580,7 +580,7 @@ main {
 .pic .ph {
   display: grid;
   place-items: center;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 0.52em;
   font-weight: 700;
   color: #071018;
@@ -603,7 +603,7 @@ main {
 .ph {
   display: grid;
   place-items: center;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #071018;
@@ -634,7 +634,7 @@ main {
   display: block;
   font-style: normal;
   color: var(--cyan);
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 18px;
   font-weight: 700;
 }
@@ -657,7 +657,7 @@ table.t th {
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.18);
 }
-table.t td.n { text-align: right; font-family: Rajdhani, sans-serif; font-size: 18px; font-weight: 700; }
+table.t td.n { text-align: right; font-family: "Russo One", sans-serif; font-size: 18px; font-weight: 700; }
 table.t tr + tr td { border-top: 1px solid var(--line); }
 .p1 { color: var(--gold); }
 .p5 { color: var(--shame); }
@@ -703,7 +703,7 @@ table.t tr + tr td { border-top: 1px solid var(--line); }
   height: 56px;
   font-style: normal;
   color: var(--cyan);
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-weight: 700;
   background: var(--bg-2);
 }
@@ -804,7 +804,7 @@ table.t tr + tr td { border-top: 1px solid var(--line); }
   height: 58px;
   font-style: normal;
   color: var(--cyan);
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-weight: 700;
   background: var(--bg-2);
 }
@@ -876,7 +876,7 @@ table.t tr + tr td { border-top: 1px solid var(--line); }
   border: 0;
   border-radius: 6px;
   text-align: center;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-weight: 700;
   background: var(--bg);
   font-size: 15px;
@@ -899,7 +899,7 @@ table.t tr + tr td { border-top: 1px solid var(--line); }
 }
 .score-legend b {
   display: block;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 28px;
   color: var(--cyan);
   line-height: 1;
@@ -1132,7 +1132,7 @@ body.draw-open { overflow: hidden; }
   font-weight: 700;
 }
 .draw-top h3 {
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 34px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1189,7 +1189,7 @@ body.draw-open { overflow: hidden; }
   background: rgba(62, 199, 255, 0.12);
   border: 1px solid rgba(62, 199, 255, 0.45);
   color: var(--cyan);
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1214,7 +1214,7 @@ body.draw-open { overflow: hidden; }
 .draw-clash { display: grid; gap: 12px; }
 .draw-round-label {
   text-align: center;
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 22px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1258,7 +1258,7 @@ body.draw-open { overflow: hidden; }
   animation: vsPop 0.5s 0.18s cubic-bezier(0.16, 1.4, 0.32, 1) both;
 }
 .fight-mid span {
-  font-family: Rajdhani, sans-serif;
+  font-family: "Russo One", sans-serif;
   font-size: 42px;
   font-weight: 700;
   color: var(--cyan);

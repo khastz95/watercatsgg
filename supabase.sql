@@ -1,4 +1,4 @@
--- Eternal Pratas — schema em português (mix + campeonato 1v1)
+-- WATERCATSGG — schema em português (mix + campeonato 1v1)
 -- Escrita só via service_role nas APIs. RLS ligado, sem políticas públicas.
 
 create or replace function public.parse_score(v jsonb)
@@ -185,7 +185,7 @@ alter table public.campeonato_semana_stats enable row level security;
 alter table public.campeonato_estado enable row level security;
 
 insert into public.campeonato (id, titulo, semana, rotulo_semana)
-values ('main', 'CAMPEONATO 1v1 — ETERNAL PRATAS (CLOSED)', 1, 'Semana 1')
+values ('main', 'CAMPEONATO 1v1 — WATERCATSGG', 1, 'Semana 1')
 on conflict (id) do nothing;
 
 insert into public.campeonato_estado (id, dados)
@@ -342,7 +342,7 @@ begin
   insert into public.campeonato (id, titulo, semana, rotulo_semana, atualizado_em)
   values (
     'main',
-    coalesce(payload->>'title', 'CAMPEONATO 1v1 — ETERNAL PRATAS (CLOSED)'),
+    coalesce(payload->>'title', 'CAMPEONATO 1v1 — WATERCATSGG'),
     coalesce(nullif(payload->>'week', '')::int, 1),
     coalesce(payload->>'weekLabel', 'Semana 1'),
     now()

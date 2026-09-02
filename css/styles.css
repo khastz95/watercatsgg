@@ -1,23 +1,23 @@
-﻿/* Eternal Pratas — tema competitivo CS */
+﻿/* WATERCATSGG — tema competitivo CS */
 :root {
-  --bg: #071018;
-  --bg-elevated: #0c1624;
-  --bg-card: #122033;
-  --bg-card-hover: #163049;
-  --cyan: #3ec7ff;
-  --cyan-dim: rgba(62, 199, 255, 0.12);
-  --gold: #e8c56b;
+  --bg: #050508;
+  --bg-elevated: #0a0d14;
+  --bg-card: #10151e;
+  --bg-card-hover: #152033;
+  --cyan: #2f86ff;
+  --cyan-dim: rgba(47, 134, 255, 0.16);
+  --gold: #e11d2a;
   --purple: #7c5cff;
   --purple-deep: #2a1f5c;
-  --indigo: #3d6a96;
-  --text: #eef5ff;
-  --text-muted: #8aa0bf;
-  --border: rgba(80, 170, 255, 0.16);
-  --border-accent: rgba(62, 199, 255, 0.28);
+  --indigo: #1a4fd6;
+  --text: #f3f6ff;
+  --text-muted: #8b9bb8;
+  --border: rgba(47, 134, 255, 0.16);
+  --border-accent: rgba(47, 134, 255, 0.28);
   --gradient: linear-gradient(135deg, var(--cyan) 0%, var(--indigo) 55%, var(--gold) 100%);
-  --gradient-soft: linear-gradient(90deg, rgba(62, 199, 255, 0.14), rgba(232, 197, 107, 0.1));
-  --font-display: "Rajdhani", system-ui, sans-serif;
-  --font-body: "Sora", system-ui, sans-serif;
+  --gradient-soft: linear-gradient(90deg, rgba(47, 134, 255, 0.14), rgba(225, 29, 42, 0.1));
+  --font-display: "Russo One", system-ui, sans-serif;
+  --font-body: "Exo 2", system-ui, sans-serif;
   --radius-sm: 8px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -1544,7 +1544,7 @@ a.map-pill.map-pill--strong {
   scroll-margin-top: 6.5rem;
 }
 
-/* Hub Eternal Pratas — mix, diversão 100% online */
+/* WATERCATSGG — chrome do site */
 body.hub-site .hero__subtitle {
   color: var(--cyan);
 }

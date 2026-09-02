@@ -80,7 +80,7 @@
       '">' +
       U.esc(statusLabel[j.status] || j.status.replace("_", " ")) +
       "</span></div>" +
-      '<div class="ep-match__vs">Eternal Pratas <span class="ep-vs">VS</span> ' +
+      '<div class="ep-match__vs">WATERCATS <span class="ep-vs">VS</span> ' +
       U.esc(j.adversario || "A definir") +
       (score ? " · " + U.esc(score) : "") +
       "</div>" +

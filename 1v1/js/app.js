@@ -1,9 +1,9 @@
-const STORAGE_KEY = "eternal-pratas-v3";
-const TITLE = "CAMPEONATO 1v1 — ETERNAL PRATAS (CLOSED)";
+const STORAGE_KEY = "watercatsgg-v1";
+const TITLE = "CAMPEONATO 1v1 — WATERCATSGG";
 
 function defaultPlayers() {
   return [
-    { id: "s4mlz", name: "s4mlz", color: "#3ec7ff", photo: "" },
+    { id: "s4mlz", name: "s4mlz", color: "#2f86ff", photo: "" },
     { id: "fury", name: "fury", color: "#4f7dff", photo: "" },
     { id: "bill", name: "bill", color: "#7b8cff", photo: "" },
     { id: "khastz", name: "khastz", color: "#2a6dff", photo: "" },
@@ -296,7 +296,7 @@ function initials(name) {
 }
 
 function pic(p, cls = "") {
-  const accent = esc(p.color || "#3ec7ff");
+  const accent = esc(p.color || "#2f86ff");
   const extra = cls ? ` ${cls}` : "";
   const kind = p.photo ? "has-photo" : "no-photo";
   const img = p.photo
@@ -818,7 +818,7 @@ function memePair(kind, fifth, vice, n) {
   }
   if (fifth >= 2) return ["CERTIFIED", "5º LUGAR"];
   if (fifth) return ["LIGA", "DISSE NÃO"];
-  if (vice >= 2) return ["ETERNAL", "VICE"];
+  if (vice >= 2) return ["WATER", "VICE"];
   if (vice) return ["TÃO PERTO", "TÃO L"];
   return ["AINDA", "LIMPO"];
 }
@@ -1402,7 +1402,7 @@ document.getElementById("btn-new-week").addEventListener("click", () => {
 document.getElementById("btn-export").addEventListener("click", () => {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([JSON.stringify(state, null, 2)], { type: "application/json" }));
-  a.download = "eternal-pratas.json";
+  a.download = "watercatsgg.json";
   a.click();
   URL.revokeObjectURL(a.href);
   flash("Backup baixado");

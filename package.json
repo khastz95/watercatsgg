@@ -1,11 +1,11 @@
 {
-  "name": "eternal-pratas",
+  "name": "watercatsgg",
   "private": true,
-  "description": "Site oficial da Eternal Pratas — organização brasileira de Counter-Strike 2.",
-  "homepage": "https://eternalpratasgg.vercel.app",
+  "description": "Site oficial da WATERCATSGG — organização brasileira de Counter-Strike 2.",
+  "homepage": "https://watercatsgg.vercel.app",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khastz95/eternalpratas.git"
+    "url": "git+https://github.com/khastz95/watercatsgg.git"
   },
   "license": "UNLICENSED",
   "type": "module",

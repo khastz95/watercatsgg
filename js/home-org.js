@@ -40,7 +40,7 @@
         U.esc(String(day)) +
         "</strong><small>" +
         U.esc(mon || when) +
-        '</small></div><div><div class="ep-match__vs">Eternal Pratas <span class="ep-vs">VS</span> ' +
+        '</small></div><div><div class="ep-match__vs">WATERCATS <span class="ep-vs">VS</span> ' +
         U.esc(next.adversario || "A definir") +
         "</div><p>" +
         U.esc([next.campeonato, next.formato, next.hora].filter(Boolean).join(" · ")) +

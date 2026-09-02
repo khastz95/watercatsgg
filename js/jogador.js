@@ -44,7 +44,7 @@
         root.innerHTML = '<p class="ep-empty">Atleta não encontrado no elenco.</p>';
         return;
       }
-      document.title = U.displayNick(p) + " | Eternal Pratas";
+      document.title = U.displayNick(p) + " | WATERCATSGG";
       var kd =
         p.kd != null
           ? U.fmt(p.kd, 2)
@@ -88,7 +88,7 @@
         "<div>" +
         '<p class="ep-kicker">' +
         U.esc(U.papelLabel(p.papel)) +
-        " · Eternal Pratas</p>" +
+        " · WATERCATSGG</p>" +
         "<h1>" +
         U.esc(U.displayNick(p)) +
         "</h1>" +

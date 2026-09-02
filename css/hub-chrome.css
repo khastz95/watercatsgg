@@ -64,7 +64,7 @@ body.hub-site .brand:hover {
 
 body.hub-site .brand__logo {
   width: auto;
-  height: 44px;
+  height: 52px;
   filter: none;
 }
 
@@ -75,9 +75,10 @@ body.hub-site .brand:hover .brand__logo {
 
 body.hub-site .brand__name {
   font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  font-style: italic;
 }
 
 body.hub-site .brand__name span:last-child {
@@ -391,7 +392,7 @@ body.hub-site .footer__social-link:hover {
 }
 
 body.hub-site .footer__brand-dark {
-  color: var(--text);
+  color: var(--cyan);
 }
 
 body.hub-site .footer__col-title {

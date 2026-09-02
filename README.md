@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/logo.png" alt="Eternal Pratas" width="180">
+  <img src="assets/logo.png" alt="WATERCATSGG" width="220">
 </p>
 
-<h1 align="center">Eternal Pratas</h1>
+<h1 align="center">WATERCATSGG</h1>
 
 <p align="center">
   <strong>Organização brasileira de Counter-Strike 2</strong><br>
@@ -10,28 +10,28 @@
 </p>
 
 <p align="center">
-  <a href="https://eternalpratasgg.vercel.app"><img src="https://img.shields.io/badge/site-eternalpratasgg.vercel.app-3ec7ff?style=flat-square" alt="Site"></a>
-  <a href="https://eternalpratasgg.vercel.app/elenco"><img src="https://img.shields.io/badge/elenco-público-122033?style=flat-square" alt="Elenco"></a>
-  <a href="https://eternalpratasgg.vercel.app/jogos"><img src="https://img.shields.io/badge/jogos-agenda-122033?style=flat-square" alt="Jogos"></a>
+  <a href="https://watercatsgg.vercel.app"><img src="https://img.shields.io/badge/site-watercatsgg.vercel.app-2f86ff?style=flat-square" alt="Site"></a>
+  <a href="https://watercatsgg.vercel.app/elenco"><img src="https://img.shields.io/badge/elenco-público-10151e?style=flat-square" alt="Elenco"></a>
+  <a href="https://watercatsgg.vercel.app/jogos"><img src="https://img.shields.io/badge/calendário-agenda-10151e?style=flat-square" alt="Calendário"></a>
 </p>
 
 <p align="center">
-  <a href="https://eternalpratasgg.vercel.app">Abrir o site</a>
+  <a href="https://watercatsgg.vercel.app">Abrir o site</a>
   ·
   <a href="https://discord.gg/et6N2Y3pJj">Discord</a>
   ·
-  <a href="https://steamcommunity.com/groups/eternalpratas">Steam</a>
+  <a href="https://steamcommunity.com/groups/watercatsgg">Steam</a>
 </p>
 
 ---
 
 ## O que é
 
-Site da **Eternal Pratas**: lineup de CS2, perfis dos jogadores, agenda de jogos e um campeonato 1v1 interno.
+Site da **WATERCATSGG**: lineup de CS2, perfis dos jogadores, calendário competitivo e um campeonato 1v1 interno.
 
 | Público | Interno |
 | --- | --- |
-| Início, elenco, perfis, jogos, organização | Login, painel do time, campeonato 1v1 |
+| Início, elenco, perfis, calendário, organização | Login, painel do time, campeonato 1v1 |
 
 O 1v1 **não aparece no menu público**. Só quem tem acesso entra.
 
@@ -48,7 +48,7 @@ O 1v1 **não aparece no menu público**. Só quem tem acesso entra.
 ├── index.html              Início
 ├── elenco.html             Lineup
 ├── jogador.html            Perfil (stats, ranks, conexões)
-├── jogos.html              Agenda e escalação
+├── jogos.html              Calendário e escalação
 ├── sobre.html              Organização
 ├── entrar.html             Login
 ├── admin.html              Painel (elenco, jogos, acessos)
@@ -103,4 +103,4 @@ Depois do login em `/entrar`, o admin abre `/admin` para:
 
 ## Licença
 
-O código deste repositório é da Eternal Pratas. Marca, logo e identidade visual não podem ser reutilizados sem autorização. Veja [LICENSE](LICENSE).
+O código deste repositório é da WATERCATSGG. Marca, logo e identidade visual não podem ser reutilizados sem autorização. Veja [LICENSE](LICENSE).

@@ -11,7 +11,7 @@
       localStorage.setItem("ep-theme", theme);
     } catch (e) {}
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "light" ? "#eef3f8" : "#071018");
+    if (meta) meta.setAttribute("content", theme === "light" ? "#eef2f8" : "#050508");
   }
 
   function bootTheme() {
@@ -49,8 +49,8 @@
     return (
       '<div class="container header-inner">' +
       '<a class="brand" href="/">' +
-      '<img class="brand__logo" src="/assets/logo.png" alt="Eternal Pratas" width="44" height="44" />' +
-      '<span class="brand__text"><span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span></span>' +
+      '<img class="brand__logo" src="/assets/logo.png" alt="WATERCATSGG" width="44" height="44" />' +
+      '<span class="brand__text"><span class="brand__name"><span>WATER</span><span>CATS</span></span></span>' +
       "</a>" +
       '<button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">' +
       "<span></span><span></span><span></span></button>" +
@@ -75,13 +75,13 @@
       '<div class="footer__main">' +
       '<div class="footer__col footer__col--brand">' +
       '<a href="/" class="footer__brandmark">' +
-      '<img src="/assets/logo.png" alt="Eternal Pratas" width="48" height="48" class="footer__logo" />' +
-      '<span class="footer__brandtext"><span class="footer__brandname"><span class="footer__brand-light">ETERNAL</span> <span class="footer__brand-dark">PRATAS</span></span>' +
-      '<span class="footer__brandsub">Counter-Strike 2</span></span></a>' +
+      '<img src="/assets/logo.png" alt="WATERCATSGG" width="48" height="48" class="footer__logo" />' +
+      '<span class="footer__brandtext"><span class="footer__brandname"><span class="footer__brand-light">WATER</span><span class="footer__brand-dark">CATS</span></span>' +
+      '<span class="footer__brandsub">WATERCATSGG · CS2</span></span></a>' +
       '<p class="footer__desc">Organização brasileira de Counter-Strike 2. Lineup permanente, calendário público e canais oficiais.</p>' +
       '<div class="footer__social">' +
       '<a class="footer__social-link" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>' +
-      '<a class="footer__social-link" href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Steam</a>' +
+      '<a class="footer__social-link" href="https://steamcommunity.com/groups/watercatsgg" target="_blank" rel="noopener noreferrer">Steam</a>' +
       "</div></div>" +
       '<div class="footer__col"><h2 class="footer__col-title">Organização</h2><ul class="footer__navlist">' +
       '<li><a href="/">Início</a></li><li><a href="/sobre">A marca</a></li>' +
@@ -92,13 +92,13 @@
       '<li><a href="/elenco">Comissão técnica</a></li></ul></div>' +
       '<div class="footer__col"><h2 class="footer__col-title">Canais oficiais</h2><ul class="footer__navlist">' +
       '<li><a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord oficial</a></li>' +
-      '<li><a href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Grupo Steam</a></li>' +
+      '<li><a href="https://steamcommunity.com/groups/watercatsgg" target="_blank" rel="noopener noreferrer">Grupo Steam</a></li>' +
       '<li><a href="/entrar">Entrar</a></li></ul></div>' +
       "</div>" +
       '<div class="footer__bar">' +
       '<p class="footer__copy">© ' +
       y +
-      " Eternal Pratas</p>" +
+      " WATERCATSGG</p>" +
       '<p class="footer__legal">Não afiliado à Valve Corporation. Counter-Strike é marca da Valve Corporation.</p>' +
       "</div></div>"
     );

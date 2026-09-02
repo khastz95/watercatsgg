@@ -1,4 +1,4 @@
--- Eternal Pratas — organização (elenco, jogos, acessos)
+-- WATERCATSGG — organização (elenco, jogos, acessos)
 -- 5 titulares + 2 reservas + 1 coach. Independente do campeonato 1v1.
 
 create table if not exists public.org_elenco (

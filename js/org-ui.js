@@ -43,7 +43,7 @@
   }
 
   function photoBlock(p, extraClass) {
-    var color = "#3ec7ff";
+    var color = "#2f86ff";
     var name = displayNick(p);
     return (
       '<div class="' +

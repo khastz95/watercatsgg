@@ -1,46 +1,46 @@
-/* Tokens, tema claro/escuro e layout */
+/* Tokens, tema claro/escuro e layout — WATERCATSGG */
 
 :root {
-  --font-display: "Rajdhani", system-ui, sans-serif;
-  --font-body: "Outfit", "Sora", system-ui, sans-serif;
-  --font-num: "Rajdhani", system-ui, sans-serif;
-  --bg: #071018;
-  --bg-elevated: #0c1624;
-  --bg-card: #122033;
-  --bg-card-hover: #163049;
-  --cyan: #3ec7ff;
-  --cyan-dim: rgba(62, 199, 255, 0.14);
-  --gold: #e8c56b;
-  --indigo: #3d6a96;
-  --text: #eef5ff;
-  --text-muted: #8aa0bf;
-  --on-accent: #071018;
-  --chrome-line: rgba(80, 170, 255, 0.2);
-  --card-line: rgba(80, 170, 255, 0.16);
-  --header-bg: rgba(7, 16, 24, 0.88);
+  --font-display: "Russo One", system-ui, sans-serif;
+  --font-body: "Exo 2", system-ui, sans-serif;
+  --font-num: "Exo 2", system-ui, sans-serif;
+  --bg: #050508;
+  --bg-elevated: #0a0d14;
+  --bg-card: #10151e;
+  --bg-card-hover: #152033;
+  --cyan: #2f86ff;
+  --cyan-dim: rgba(47, 134, 255, 0.16);
+  --gold: #e11d2a;
+  --indigo: #1a4fd6;
+  --text: #f3f6ff;
+  --text-muted: #8b9bb8;
+  --on-accent: #050508;
+  --chrome-line: rgba(47, 134, 255, 0.22);
+  --card-line: rgba(47, 134, 255, 0.16);
+  --header-bg: rgba(5, 5, 8, 0.9);
   --header-h: 72px;
   --layout-pad: 40px;
   --layout-max: 1240px;
-  --page-glow: rgba(62, 199, 255, 0.08);
+  --page-glow: rgba(47, 134, 255, 0.18);
   --shadow-card: none;
 }
 
 html[data-theme="light"] {
-  --bg: #f4f7fa;
+  --bg: #eef2f8;
   --bg-elevated: #ffffff;
   --bg-card: #ffffff;
-  --bg-card-hover: #f4f8fc;
-  --cyan: #0b87bf;
-  --cyan-dim: rgba(11, 135, 191, 0.12);
-  --gold: #b8891a;
-  --indigo: #245a86;
-  --text: #0c1824;
-  --text-muted: #4d6478;
+  --bg-card-hover: #f4f7fc;
+  --cyan: #1a5fd4;
+  --cyan-dim: rgba(26, 95, 212, 0.12);
+  --gold: #c4121c;
+  --indigo: #163fa8;
+  --text: #0a1018;
+  --text-muted: #4a5a72;
   --on-accent: #ffffff;
-  --chrome-line: rgba(12, 40, 64, 0.12);
-  --card-line: rgba(12, 40, 64, 0.1);
-  --header-bg: rgba(244, 247, 250, 0.92);
-  --page-glow: rgba(11, 135, 191, 0.08);
+  --chrome-line: rgba(16, 40, 80, 0.12);
+  --card-line: rgba(16, 40, 80, 0.1);
+  --header-bg: rgba(238, 242, 248, 0.92);
+  --page-glow: rgba(26, 95, 212, 0.1);
   color-scheme: light;
 }
 

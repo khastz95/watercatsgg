@@ -3,11 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/1v1", "destination": "/1v1/index.html" },
-    { "source": "/elenco", "destination": "/jogadores.html" },
-    { "source": "/elenco/:id", "destination": "/jogador.html" },
-    { "source": "/admin", "destination": "/admin.html" }
+    { "source": "/elenco/:id", "destination": "/jogador.html" }
   ],
   "redirects": [
+    { "source": "/jogadores.html", "destination": "/elenco", "permanent": false },
     { "source": "/jogadores", "destination": "/elenco", "permanent": false },
     { "source": "/conexoes.html", "destination": "/sobre", "permanent": true },
     { "source": "/conexoes", "destination": "/sobre", "permanent": true },

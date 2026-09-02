@@ -1,12 +1,12 @@
 /* Hub header + campeonato 1v1 na mesma página */
 body.page-1v1 {
   display: grid;
-  grid-template-rows: auto 1fr;
-  padding-top: var(--header-h, 72px);
+  grid-template-rows: auto auto 1fr;
+  padding-top: 0;
 }
 
 body.page-1v1 .chrome {
-  top: var(--header-h, 72px);
+  top: 0;
   z-index: 40;
 }
 
@@ -30,11 +30,17 @@ body.page-1v1 .chrome .brand h1 {
 body.page-1v1 .site-header .brand {
   gap: 0.75rem;
 }
+
 body.page-1v1 .site-header .brand h1 {
   font-size: inherit;
 }
+
 body.page-1v1 .pic img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+body.page-1v1 .discord-fab {
+  display: none;
 }

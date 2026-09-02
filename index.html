@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -62,35 +62,25 @@
       <section class="hero hero--rich container">
         <div class="hero__grid">
           <div>
-            <p class="hero__badge reveal" id="home-season-badge">Eternal Pratas</p>
-            <p class="hero__subtitle reveal">Counter-Strike 2 · Mix · PUG · Retake</p>
+            <p class="hero__subtitle reveal">Counter-Strike 2</p>
             <h1 class="hero__title reveal">
-              <span class="cyan">ETERNAL</span> <span class="purple">PRATAS</span>
+              <span class="cyan">Eternal</span> <span class="purple">Pratas</span>
             </h1>
             <p class="hero__lead reveal">
-              A turma que se junta na call, sorteia os times e joga sem pressão de liga. Papo leve, mapas variados e
-              aquele round que vira história no Discord.
+              Mix na call, campeonato 1v1 e sorteio de times — sem firula.
             </p>
-            <ul class="hero__highlights reveal">
-              <li>Mix 5x5 e filas improvisadas — horário combinado na call.</li>
-              <li>Perfis com stats, ranks e clipes dos jogadores no site.</li>
-              <li>100% online: entra no Discord e aparece na próxima.</li>
-            </ul>
             <div class="hero__actions reveal">
-              <a class="btn btn--primary" href="/jogadores.html">Ver jogadores</a>
-              <a class="btn btn--ghost" href="/jogos.html">Como é o mix</a>
-              <a class="btn btn--ghost" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer"
-                >Discord</a
-              >
+              <a class="btn btn--primary" href="/1v1/">Campeonato 1v1</a>
+              <a class="btn btn--ghost" href="/jogadores.html">Jogadores</a>
             </div>
           </div>
           <div class="hero__visual reveal">
             <img
               class="hero__logo"
               src="/assets/logo.png"
-              alt="Eternal Pratas — logo dragão infinito"
-              width="480"
-              height="480"
+              alt="Eternal Pratas"
+              width="240"
+              height="240"
               decoding="async"
             />
           </div>
@@ -106,55 +96,33 @@
         </div>
       </div>
 
-      <div class="container home-ticker-wrap">
-        <div class="home-ticker" id="home-ticker" aria-hidden="true"></div>
-      </div>
-
-      <div class="home-quicklinks reveal">
-        <div class="container">
-          <div class="hub-band">
-            <a class="map-pill map-pill--strong" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer"
-              >Discord</a
-            >
-            <a
-              class="map-pill"
-              href="https://steamcommunity.com/groups/eternalpratas"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Steam</a
-            >
-            <a class="map-pill" href="/sobre.html#participar">Participar</a>
-          </div>
-        </div>
-      </div>
-
       <section class="section section--home container">
         <div class="section__head reveal">
           <div>
-            <p class="section__label">Em 4 passos</p>
-            <h2>Como rola o mix</h2>
+            <p class="section__label">Mix</p>
+            <h2>Como rola</h2>
           </div>
         </div>
         <div class="home-steps">
-          <article class="home-step card card--glow reveal">
+          <article class="home-step card reveal">
             <span class="home-step__num">01</span>
-            <h3>Entra na call</h3>
-            <p>Discord aberto, nick na fila e papo até fechar a galera.</p>
+            <h3>Call</h3>
+            <p>Entra no Discord e espera fechar a sala.</p>
           </article>
-          <article class="home-step card card--glow reveal">
+          <article class="home-step card reveal">
             <span class="home-step__num">02</span>
-            <h3>Mapa e lado</h3>
-            <p>Veto rápido ou sorteio — Mirage, Dust, Inferno, o pool da turma.</p>
+            <h3>Mapa</h3>
+            <p>Veto ou sorteio no site.</p>
           </article>
-          <article class="home-step card card--glow reveal">
+          <article class="home-step card reveal">
             <span class="home-step__num">03</span>
-            <h3>Times na hora</h3>
-            <p>Sorteio de times no site (2+ jogadores) ou cap escolhendo até equilibrar.</p>
+            <h3>Times</h3>
+            <p>Sorteio equilibrado ou cap escolhe.</p>
           </article>
-          <article class="home-step card card--glow reveal">
+          <article class="home-step card reveal">
             <span class="home-step__num">04</span>
-            <h3>Round e resenha</h3>
-            <p>Servidor privado ou Faceit — rematch se a galera quiser mais uma.</p>
+            <h3>Jogo</h3>
+            <p>Servidor privado ou Faceit, e resenha.</p>
           </article>
         </div>
       </section>
@@ -162,91 +130,23 @@
       <section class="section section--home container">
         <div class="section__head reveal">
           <div>
-            <p class="section__label">Na call</p>
-            <h2>Clipes em destaque</h2>
-          </div>
-          <a class="btn btn--ghost" href="/jogadores.html">Todos os perfis</a>
-        </div>
-        <div id="home-clips" class="home-clips-grid"></div>
-      </section>
-
-      <section class="section section--home container">
-        <div class="section__head reveal">
-          <div>
-            <p class="section__label">Ao vivo no grupo</p>
-            <h2>Últimas partidas</h2>
-          </div>
-        </div>
-        <div id="home-activity" class="home-activity"></div>
-      </section>
-
-      <section class="section section--home container">
-        <div class="section__head reveal">
-          <div>
-            <p class="section__label">Quem joga</p>
-            <h2>Destaques da turma</h2>
+            <p class="section__label">Turma</p>
+            <h2>Destaques</h2>
           </div>
           <a class="btn btn--ghost" href="/jogadores.html">Ver todos</a>
         </div>
         <div id="home-spotlight" class="home-spotlight"></div>
       </section>
 
-      <section class="section container">
+      <section class="section section--home container">
         <div class="section__head reveal">
           <div>
-            <p class="section__label">Navegação</p>
-            <h2>O que você procura</h2>
+            <p class="section__label">Partidas</p>
+            <h2>Últimos jogos</h2>
           </div>
-          <div class="section__head-actions">
-            <a class="btn btn--ghost" href="/sorteio-times.html">Sortear times</a>
-            <a class="btn btn--ghost" href="/sorteio-mapas.html">Sortear mapas</a>
-          </div>
+          <a class="btn btn--ghost" href="/partidas.html">Ver partidas</a>
         </div>
-        <div class="grid-3">
-          <article class="card card--glow reveal">
-            <h3>Jogadores</h3>
-            <p>
-              Perfis da turma com desempenho em partidas, ranks, mapas favoritos e clipes em destaque.
-            </p>
-            <a href="/jogadores.html">Ver jogadores</a>
-          </article>
-          <article class="card card--glow reveal">
-            <h3>Mix</h3>
-            <p>Call, escolha de mapa, sorteio de time e servidor: o passo a passo está reunido na página do mix.</p>
-            <a href="/jogos.html">Ver página do mix</a>
-          </article>
-          <article class="card card--glow reveal">
-            <h3>Sobre</h3>
-            <p>Quem somos, links oficiais e o que combinamos com quem quer entrar na fila.</p>
-            <a href="/sobre.html">Ler sobre o grupo</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="home-cta container reveal">
-        <h2>Próximo mix na call</h2>
-        <p>
-          Sem agenda fixa aqui — servidor e horário saem no Discord. Entra, deixa o nick na fila e aparece no próximo
-          sorteio.
-        </p>
-        <div class="home-cta__actions">
-          <a
-            class="btn btn--primary"
-            href="https://discord.gg/et6N2Y3pJj"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Entrar no Discord</a
-          >
-          <a class="btn btn--ghost" href="/sorteio-times.html">Sortear times</a>
-          <a class="btn btn--ghost" href="/sorteio-mapas.html">Sortear mapas</a>
-          <a
-            class="btn btn--ghost"
-            href="https://steamcommunity.com/groups/eternalpratas"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Grupo Steam</a
-          >
-        </div>
+        <div id="home-activity" class="home-activity"></div>
       </section>
     </main>
     <footer class="site-footer">

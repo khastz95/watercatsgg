@@ -38,6 +38,17 @@
     return (p && (p.nick || p.nome)) || "A definir";
   }
 
+  function teamTag() {
+    return "WATERCATS";
+  }
+
+  function rosterHtml(list, emptyText) {
+    if (!list || !list.length) {
+      return '<p class="ep-empty">' + esc(emptyText || "Nenhum atleta publicado neste grupo.") + "</p>";
+    }
+    return list.map(playerCard).join("");
+  }
+
   function playerHref(p) {
     return "/jogador?id=" + encodeURIComponent(p.id);
   }
@@ -135,6 +146,8 @@
     playerHref: playerHref,
     photoBlock: photoBlock,
     playerCard: playerCard,
+    teamTag: teamTag,
+    rosterHtml: rosterHtml,
     wr: wr,
     fetchOrg: fetchOrg,
     nextJogo: nextJogo,

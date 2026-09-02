@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /entrar
+Disallow: /admin
+Disallow: /1v1
+Disallow: /api/
+
+Sitemap: https://watercatsgg.vercel.app/sitemap.xml

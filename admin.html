@@ -3,18 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050508" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
     <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("ep-theme");
-          if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          }
-          document.documentElement.setAttribute("data-theme", t);
-        } catch (e) {}
-      })();
+      document.documentElement.setAttribute("data-theme", "dark");
     </script>
     <meta name="robots" content="noindex, nofollow" />
     <title>Painel | WATERCATSGG</title>
@@ -26,11 +18,14 @@
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
     <link rel="stylesheet" href="/css/org.css" />
-    <link rel="icon" href="/assets/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body class="hub-site page-admin-org">
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <header data-header></header>
-    <main class="container">
+    <main id="conteudo" class="container">
       <section class="ep-hero ep-hero--plain">
         <div>
           <p class="ep-kicker">Painel</p>
@@ -38,7 +33,7 @@
           <p class="ep-lead">Gestão do elenco, estatísticas, calendário e acessos da organização.</p>
         </div>
       </section>
-      <div id="admin-root">Carregando…</div>
+      <div id="admin-root" aria-live="polite"><div class="ep-skel" style="min-height:10rem"></div></div>
     </main>
     <footer data-footer></footer>
     <script src="/js/main.js" defer></script>

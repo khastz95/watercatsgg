@@ -3,20 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050508" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
     <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("ep-theme");
-          if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          }
-          document.documentElement.setAttribute("data-theme", t);
-        } catch (e) {}
-      })();
+      document.documentElement.setAttribute("data-theme", "dark");
     </script>
     <meta name="robots" content="noindex" />
+    <meta name="description" content="Acesso à plataforma da WATERCATSGG." />
     <title>Entrar | WATERCATSGG</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,20 +19,23 @@
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
     <link rel="stylesheet" href="/css/org.css" />
-    <link rel="icon" href="/assets/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body class="hub-site page-entrar">
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <header data-header></header>
-    <main class="container">
+    <main id="conteudo" class="container">
       <form class="ep-login" id="login-form">
         <h1>Entrar</h1>
         <p>Acesso à plataforma da organização. Informe usuário e senha.</p>
         <label for="login-user">Usuário</label>
-        <input id="login-user" name="username" autocomplete="username" required />
+        <input id="login-user" name="username" autocomplete="username" required autofocus />
         <label for="login-pass">Senha</label>
         <input id="login-pass" name="password" type="password" autocomplete="current-password" required />
         <button class="btn btn--primary" type="submit">Entrar</button>
-        <p id="login-msg" class="ep-msg"></p>
+        <p id="login-msg" class="ep-msg" role="status"></p>
       </form>
     </main>
     <footer data-footer></footer>

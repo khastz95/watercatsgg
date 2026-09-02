@@ -18,6 +18,8 @@
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     msg.textContent = "";
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = true;
     var usuario = document.getElementById("login-user").value.trim();
     var senha = document.getElementById("login-pass").value;
     fetch("/api/sessao", {
@@ -32,6 +34,7 @@
         });
       })
       .then(function (out) {
+        if (btn) btn.disabled = false;
         if (!out.res.ok) {
           msg.className = "ep-msg ep-msg--err";
           msg.textContent = out.json.error || "Não foi possível entrar.";
@@ -40,6 +43,7 @@
         window.location.replace(next);
       })
       .catch(function () {
+        if (btn) btn.disabled = false;
         msg.className = "ep-msg ep-msg--err";
         msg.textContent = "Falha de conexão.";
       });

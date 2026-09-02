@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050508" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
     <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("ep-theme");
-          if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          }
-          document.documentElement.setAttribute("data-theme", t);
-        } catch (e) {}
-      })();
+      document.documentElement.setAttribute("data-theme", "dark");
     </script>
     <meta name="description" content="Elenco oficial da WATERCATSGG — lineup titular, reservas e comissão técnica no Counter-Strike 2." />
     <title>Elenco | WATERCATSGG</title>
+    <link rel="canonical" href="https://watercatsgg.vercel.app/elenco" />
+    <meta property="og:site_name" content="WATERCATSGG" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Elenco | WATERCATSGG" />
+    <meta property="og:description" content="Lineup titular, reservas e comissão técnica da WATERCATSGG no Counter-Strike 2." />
+    <meta property="og:url" content="https://watercatsgg.vercel.app/elenco" />
+    <meta property="og:image" content="https://watercatsgg.vercel.app/assets/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet" />
@@ -26,11 +27,14 @@
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
     <link rel="stylesheet" href="/css/org.css" />
-    <link rel="icon" href="/assets/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body class="hub-site page-elenco">
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <header data-header></header>
-    <main class="container">
+    <main id="conteudo" class="container">
       <section class="ep-hero ep-hero--plain">
         <div>
           <p class="ep-kicker">Time</p>
@@ -47,7 +51,13 @@
             <h2>Lineup titular</h2>
           </div>
         </div>
-        <div id="team-roster" class="ep-grid-5"></div>
+        <div id="team-roster" class="ep-grid-5" aria-live="polite">
+          <div class="ep-skel"></div>
+          <div class="ep-skel"></div>
+          <div class="ep-skel"></div>
+          <div class="ep-skel"></div>
+          <div class="ep-skel"></div>
+        </div>
       </section>
       <section class="ep-block">
         <div class="ep-block__head">
@@ -56,7 +66,11 @@
             <h2>Coach e reservas</h2>
           </div>
         </div>
-        <div id="team-staff" class="ep-grid-3"></div>
+        <div id="team-staff" class="ep-grid-3" aria-live="polite">
+          <div class="ep-skel"></div>
+          <div class="ep-skel"></div>
+          <div class="ep-skel"></div>
+        </div>
       </section>
     </main>
     <footer data-footer></footer>

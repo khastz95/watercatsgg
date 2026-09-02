@@ -1,9 +1,9 @@
 ﻿/* WATERCATSGG — tema competitivo CS */
 :root {
-  --bg: #050508;
-  --bg-elevated: #0a0d14;
-  --bg-card: #10151e;
-  --bg-card-hover: #152033;
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #0c0c0c;
+  --bg-card-hover: #111111;
   --cyan: #2f86ff;
   --cyan-dim: rgba(47, 134, 255, 0.16);
   --gold: #e11d2a;
@@ -195,9 +195,7 @@
 html,
 body {
   min-height: 100%;
-  background:
-    radial-gradient(70% 50% at 50% -10%, rgba(62, 199, 255, 0.1), transparent 55%),
-    var(--bg);
+  background: #000;
   color: var(--text);
   font-family: var(--font-body);
   color-scheme: dark;
@@ -357,11 +355,15 @@ p {
 }
 
 .brand__name span:first-child {
+  color: var(--text);
+}
+
+.brand__name span:nth-child(2) {
   color: var(--cyan);
 }
 
-.brand__name span:last-child {
-  color: var(--indigo);
+.brand__name span:nth-child(3) {
+  color: var(--text);
 }
 
 .brand__tag {

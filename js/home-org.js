@@ -14,8 +14,8 @@
       });
       var starters = document.getElementById("home-starters");
       var staff = document.getElementById("home-staff");
-      if (starters) starters.innerHTML = titulares.map(U.playerCard).join("");
-      if (staff) staff.innerHTML = resto.map(U.playerCard).join("");
+      if (starters) starters.innerHTML = U.rosterHtml(titulares, "Lineup titular ainda não publicada.");
+      if (staff) staff.innerHTML = U.rosterHtml(resto, "Comissão técnica ainda não publicada.");
       if (window.EP && window.EP.observeReveal) {
         window.EP.observeReveal(starters);
         window.EP.observeReveal(staff);
@@ -40,7 +40,9 @@
         U.esc(String(day)) +
         "</strong><small>" +
         U.esc(mon || when) +
-        '</small></div><div><div class="ep-match__vs">WATERCATS <span class="ep-vs">VS</span> ' +
+        '</small></div><div><div class="ep-match__vs">' +
+        U.esc(U.teamTag()) +
+        ' <span class="ep-vs">VS</span> ' +
         U.esc(next.adversario || "A definir") +
         "</div><p>" +
         U.esc([next.campeonato, next.formato, next.hora].filter(Boolean).join(" · ")) +
@@ -66,6 +68,10 @@
     })
     .catch(function () {
       var s = document.getElementById("home-starters");
+      var staff = document.getElementById("home-staff");
+      var next = document.getElementById("home-next");
       if (s) s.innerHTML = '<p class="ep-empty">Não foi possível carregar o elenco.</p>';
+      if (staff) staff.innerHTML = "";
+      if (next) next.innerHTML = '<p class="ep-empty">Não foi possível carregar o calendário.</p>';
     });
 })();

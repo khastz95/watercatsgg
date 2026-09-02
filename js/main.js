@@ -1,56 +1,16 @@
 (function () {
   "use strict";
 
-  function currentTheme() {
-    return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
-  }
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    try {
-      localStorage.setItem("ep-theme", theme);
-    } catch (e) {}
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "light" ? "#eef2f8" : "#050508");
-  }
-
-  function bootTheme() {
-    var t = document.documentElement.getAttribute("data-theme");
-    if (t !== "light" && t !== "dark") {
-      try {
-        t = localStorage.getItem("ep-theme");
-      } catch (e) {
-        t = "";
-      }
-      if (t !== "light" && t !== "dark") {
-        t =
-          window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
-            ? "light"
-            : "dark";
-      }
-    }
-    applyTheme(t);
-  }
-
-  bootTheme();
-
-  function themeButton() {
-    return (
-      '<button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">' +
-      '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">' +
-      '<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l1.4 1.4M16.6 16.6 18 18M18 6l-1.4 1.4M7.4 16.6 6 18"/></svg>' +
-      '<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">' +
-      '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 7 7 0 0 0 20 14.5z"/></svg>' +
-      "</button>"
-    );
-  }
+  document.documentElement.setAttribute("data-theme", "dark");
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeMeta) themeMeta.setAttribute("content", "#000000");
 
   function headerHtml() {
     return (
       '<div class="container header-inner">' +
       '<a class="brand" href="/">' +
       '<img class="brand__logo" src="/assets/logo.png" alt="WATERCATSGG" width="44" height="44" />' +
-      '<span class="brand__text"><span class="brand__name"><span>WATER</span><span>CATS</span></span></span>' +
+      '<span class="brand__text"><span class="brand__name"><span>WATER</span><span>CATS</span><span>GG</span></span></span>' +
       "</a>" +
       '<button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">' +
       "<span></span><span></span><span></span></button>" +
@@ -60,10 +20,7 @@
       '<li><a href="/jogos" data-nav="jogos">Calendário</a></li>' +
       '<li><a href="/sobre" data-nav="sobre">Organização</a></li>' +
       '<li data-auth="login"><a href="/entrar" data-nav="entrar">Entrar</a></li>' +
-      "</ul></nav>" +
-      '<div class="header-tools">' +
-      themeButton() +
-      "</div></div>"
+      "</ul></nav></div>"
     );
   }
 
@@ -76,7 +33,7 @@
       '<div class="footer__col footer__col--brand">' +
       '<a href="/" class="footer__brandmark">' +
       '<img src="/assets/logo.png" alt="WATERCATSGG" width="48" height="48" class="footer__logo" />' +
-      '<span class="footer__brandtext"><span class="footer__brandname"><span class="footer__brand-light">WATER</span><span class="footer__brand-dark">CATS</span></span>' +
+      '<span class="footer__brandtext"><span class="footer__brandname"><span class="footer__brand-light">WATER</span><span class="footer__brand-dark">CATS</span><span class="footer__brand-gg">GG</span></span>' +
       '<span class="footer__brandsub">WATERCATSGG · CS2</span></span></a>' +
       '<p class="footer__desc">Organização brasileira de Counter-Strike 2. Lineup permanente, calendário público e canais oficiais.</p>' +
       '<div class="footer__social">' +
@@ -117,11 +74,7 @@
   }
 
   var themeBtn = document.querySelector(".theme-toggle");
-  if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
-      applyTheme(currentTheme() === "light" ? "dark" : "light");
-    });
-  }
+  if (themeBtn) themeBtn.remove();
 
   var nav = document.querySelector(".site-nav");
   var toggle = document.querySelector(".nav-toggle");
@@ -149,6 +102,11 @@
         setNavOpen(false);
         toggle.focus();
       }
+    });
+    document.addEventListener("click", function (e) {
+      if (!nav.classList.contains("is-open")) return;
+      if (nav.contains(e.target) || toggle.contains(e.target)) return;
+      setNavOpen(false);
     });
   }
 
@@ -182,11 +140,44 @@
   window.EP.pageKey = pageKey;
 
   window.EP.observeReveal = function (root) {
-    (root || document).querySelectorAll(".reveal").forEach(function (el) {
-      el.classList.add("is-visible");
+    var nodes = (root || document).querySelectorAll(".reveal:not(.is-visible)");
+    if (!nodes.length) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      nodes.forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+    if (!("IntersectionObserver" in window)) {
+      nodes.forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    nodes.forEach(function (el, i) {
+      el.style.transitionDelay = Math.min(i * 70, 280) + "ms";
+      io.observe(el);
     });
   };
   window.EP.observeReveal(document);
+
+  if (headerEl) {
+    var onScroll = function () {
+      headerEl.classList.toggle("is-scrolled", window.scrollY > 10);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
 
   fetch("/api/sessao", { credentials: "include", cache: "no-store" })
     .then(function (res) {

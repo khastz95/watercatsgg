@@ -45,6 +45,13 @@
         return;
       }
       document.title = U.displayNick(p) + " | WATERCATSGG";
+      var desc = document.querySelector('meta[name="description"]');
+      if (desc) {
+        desc.setAttribute(
+          "content",
+          U.displayNick(p) + " — perfil na WATERCATSGG. " + (p.posicao || U.papelLabel(p.papel) || "Counter-Strike 2")
+        );
+      }
       var kd =
         p.kd != null
           ? U.fmt(p.kd, 2)
@@ -76,7 +83,39 @@
         .filter(Boolean)
         .join(" · ");
 
+      var hasStats =
+        p.rating != null ||
+        p.kd != null ||
+        p.kast != null ||
+        p.taxa_hs != null ||
+        p.adr != null ||
+        p.kpr != null ||
+        p.dpr != null ||
+        p.partidas ||
+        p.abates ||
+        p.mortes ||
+        p.assistencias ||
+        win != null;
+
+      var statsHtml = hasStats
+        ? '<div class="ep-stats">' +
+          stat("Rating", U.fmt(p.rating, 2)) +
+          stat("K/D", kd) +
+          stat("KAST", U.pct(p.kast)) +
+          stat("HS%", U.pct(p.taxa_hs)) +
+          stat("ADR", U.fmt(p.adr, 1)) +
+          stat("KPR", U.fmt(p.kpr, 2)) +
+          stat("DPR", U.fmt(p.dpr, 2)) +
+          stat("Win rate", win != null ? win + "%" : "—") +
+          stat("Partidas", p.partidas || "—") +
+          stat("Abates", p.abates || "—") +
+          stat("Mortes", p.mortes || "—") +
+          stat("Assistências", p.assistencias || "—") +
+          "</div>"
+        : "";
+
       root.innerHTML =
+        '<p class="ep-back"><a href="/elenco">← Elenco</a></p>' +
         '<div class="ep-profile">' +
         '<div class="ep-profile__photo">' +
         (p.foto_url
@@ -101,20 +140,7 @@
         rank("Premier", p.rating_premier != null ? p.rating_premier : "") +
         "</div>" +
         (links ? '<div class="ep-links">' + links + "</div>" : "") +
-        '<div class="ep-stats">' +
-        stat("Rating", U.fmt(p.rating, 2)) +
-        stat("K/D", kd) +
-        stat("KAST", U.pct(p.kast)) +
-        stat("HS%", U.pct(p.taxa_hs)) +
-        stat("ADR", U.fmt(p.adr, 1)) +
-        stat("KPR", U.fmt(p.kpr, 2)) +
-        stat("DPR", U.fmt(p.dpr, 2)) +
-        stat("Win rate", win != null ? win + "%" : "—") +
-        stat("Partidas", p.partidas || "—") +
-        stat("Abates", p.abates || "—") +
-        stat("Mortes", p.mortes || "—") +
-        stat("Assistências", p.assistencias || "—") +
-        "</div>" +
+        statsHtml +
         (p.bio ? '<p class="ep-bio">' + U.esc(p.bio) + "</p>" : "") +
         "</div></div>";
     })

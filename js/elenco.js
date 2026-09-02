@@ -9,19 +9,19 @@
   U.fetchOrg()
     .then(function (data) {
       var elenco = data.elenco || [];
-      root.innerHTML = elenco
-        .filter(function (p) {
+      root.innerHTML = U.rosterHtml(
+        elenco.filter(function (p) {
           return p.papel === "titular";
-        })
-        .map(U.playerCard)
-        .join("");
+        }),
+        "Lineup titular ainda não publicada."
+      );
       if (staff) {
-        staff.innerHTML = elenco
-          .filter(function (p) {
+        staff.innerHTML = U.rosterHtml(
+          elenco.filter(function (p) {
             return p.papel !== "titular";
-          })
-          .map(U.playerCard)
-          .join("");
+          }),
+          "Comissão técnica ainda não publicada."
+        );
       }
       if (window.EP && window.EP.observeReveal) {
         window.EP.observeReveal(root);
@@ -30,5 +30,6 @@
     })
     .catch(function () {
       root.innerHTML = '<p class="ep-empty">Não foi possível carregar o elenco.</p>';
+      if (staff) staff.innerHTML = "";
     });
 })();

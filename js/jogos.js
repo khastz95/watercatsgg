@@ -80,7 +80,9 @@
       '">' +
       U.esc(statusLabel[j.status] || j.status.replace("_", " ")) +
       "</span></div>" +
-      '<div class="ep-match__vs">WATERCATS <span class="ep-vs">VS</span> ' +
+      '<div class="ep-match__vs">' +
+      U.esc(U.teamTag()) +
+      ' <span class="ep-vs">VS</span> ' +
       U.esc(j.adversario || "A definir") +
       (score ? " · " + U.esc(score) : "") +
       "</div>" +
@@ -117,16 +119,22 @@
           return j.status === "encerrado";
         });
         var html =
-          '<div class="ep-tabs" role="tablist">' +
-          '<button type="button" data-filter="all"' +
+          '<div class="ep-tabs" role="tablist" aria-label="Filtro do calendário">' +
+          '<button type="button" role="tab" aria-selected="' +
+          (filter === "all" ? "true" : "false") +
+          '" data-filter="all"' +
           (filter === "all" ? ' class="is-on"' : "") +
           ">Todos (" +
           jogos.length +
           ")</button>" +
-          '<button type="button" data-filter="next"' +
+          '<button type="button" role="tab" aria-selected="' +
+          (filter === "next" ? "true" : "false") +
+          '" data-filter="next"' +
           (filter === "next" ? ' class="is-on"' : "") +
           ">Próximos</button>" +
-          '<button type="button" data-filter="done"' +
+          '<button type="button" role="tab" aria-selected="' +
+          (filter === "done" ? "true" : "false") +
+          '" data-filter="done"' +
           (filter === "done" ? ' class="is-on"' : "") +
           ">Resultados</button></div>";
         if (upcoming.length) {

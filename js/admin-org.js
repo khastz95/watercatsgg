@@ -150,6 +150,9 @@
       "<p class=\"section__label\">" +
       esc(U.papelLabel(p.papel)) +
       "</p>" +
+      (p.foto_url
+        ? '<img class="adm-photo" src="' + esc(p.foto_url) + '" alt="">'
+        : '<span class="adm-photo ph">' + esc(U.initials(U.displayNick(p))) + "</span>") +
       '<div class="adm-fields">' +
       field("f-nick", "Nick", p.nick) +
       field("f-nome", "Nome", p.nome) +
@@ -237,21 +240,25 @@
         field("j-formato", "Formato", j.formato) +
         field("j-mapas", "Mapas", j.mapas) +
         '<label>Status<select id="j-status">' +
-        ["agendado", "ao_vivo", "encerrado"]
-          .map(function (s) {
+        [
+          ["agendado", "Agendado"],
+          ["ao_vivo", "Ao vivo"],
+          ["encerrado", "Encerrado"]
+        ]
+          .map(function (row) {
             return (
               '<option value="' +
-              s +
+              row[0] +
               '"' +
-              (j.status === s ? " selected" : "") +
+              (j.status === row[0] ? " selected" : "") +
               ">" +
-              s +
+              row[1] +
               "</option>"
             );
           })
           .join("") +
         "</select></label>" +
-        field("j-pcasa", "Placar EP", j.placar_casa, "number") +
+        field("j-pcasa", "Placar WATERCATS", j.placar_casa, "number") +
         field("j-pfora", "Placar rival", j.placar_fora, "number") +
         field("j-stream", "Stream / URL", j.streaming_url) +
         '<label class="full">Notas<textarea id="j-notas">' +
@@ -284,7 +291,7 @@
       .join("");
     return (
       "<div>" +
-      "<ul>" +
+      "<ul class=\"adm-users\">" +
       (rows || "<li>Nenhum usuário extra ainda. O admin do ambiente entra com o usuário padrão.</li>") +
       "</ul>" +
       '<div class="adm-fields" style="margin-top:1rem;max-width:32rem">' +
@@ -399,6 +406,7 @@
       });
     }
     if (e.target.id === "btn-del-jogo") {
+      if (!window.confirm("Remover este jogo da agenda?")) return;
       state.jogos = state.jogos.filter(function (j) {
         return j.id !== state.jogoId;
       });
@@ -467,6 +475,8 @@
         .then(function (json) {
           var p = currentPlayer();
           if (p) p.foto_url = json.url;
+          msg("Foto enviada.", true);
+          render();
           msg("Foto enviada.", true);
         })
         .catch(function (err) {

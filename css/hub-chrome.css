@@ -24,10 +24,11 @@ body.hub-site .site-header {
   overflow: visible;
   border-radius: 0;
   background: var(--header-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
   border-bottom: 1px solid var(--chrome-line);
   box-shadow: none;
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur) var(--ease);
 }
 
 body.hub-site .site-header::after {
@@ -35,8 +36,8 @@ body.hub-site .site-header::after {
 }
 
 body.hub-site .site-header.is-scrolled {
-  background: var(--header-bg);
-  box-shadow: none;
+  background: rgba(0, 0, 0, 0.86);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
 body.hub-site {
@@ -56,21 +57,24 @@ body.hub-site .header-inner {
 body.hub-site .brand {
   gap: 12px;
   flex-shrink: 0;
+  transition: opacity var(--dur-fast) var(--ease);
 }
 
 body.hub-site .brand:hover {
   transform: none;
+  opacity: 0.86;
 }
 
 body.hub-site .brand__logo {
   width: auto;
   height: 52px;
-  filter: none;
+  filter: drop-shadow(0 0 12px rgba(47, 134, 255, 0.18));
+  transition: filter var(--dur) var(--ease);
 }
 
 body.hub-site .brand:hover .brand__logo {
   transform: none;
-  filter: none;
+  filter: drop-shadow(0 0 18px rgba(47, 134, 255, 0.36));
 }
 
 body.hub-site .brand__name {
@@ -79,10 +83,24 @@ body.hub-site .brand__name {
   font-weight: 400;
   letter-spacing: 0.04em;
   font-style: italic;
+  color: var(--text);
 }
 
-body.hub-site .brand__name span:last-child {
+body.hub-site .brand__name span:first-child {
+  color: var(--text);
+}
+
+body.hub-site .brand__name span:nth-child(2) {
   color: var(--cyan);
+}
+
+body.hub-site .brand__name span:nth-child(3) {
+  color: var(--text);
+  font-size: 0.72em;
+  letter-spacing: 0.06em;
+  margin-left: 0.12em;
+  opacity: 0.92;
+  vertical-align: 0.08em;
 }
 
 body.hub-site .brand__tag {
@@ -136,13 +154,14 @@ body.hub-site .site-nav a {
   border-radius: 999px;
   text-shadow: none;
   background: transparent;
+  transition: color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
 
 @media (hover: hover) {
   body.hub-site .site-nav a:hover {
     transform: none;
     color: var(--text);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.05);
     text-shadow: none;
   }
 }
@@ -182,7 +201,7 @@ body.hub-site .header-tools {
 @media (max-width: 900px) {
   body.hub-site .nav-toggle {
     display: flex;
-    margin-left: 8px;
+    margin-left: auto;
   }
 
   body.hub-site .header-tools {
@@ -244,6 +263,12 @@ body.hub-site .btn {
   min-height: 36px;
   border-radius: 8px;
   overflow: visible;
+  transition:
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease);
 }
 
 body.hub-site .btn--primary,
@@ -260,9 +285,9 @@ body.hub-site .btn--primary::before {
 }
 
 body.hub-site .btn--primary:hover {
-  transform: none;
+  transform: translateY(-1px);
   background: color-mix(in srgb, var(--cyan) 82%, #fff);
-  box-shadow: none;
+  box-shadow: 0 8px 24px rgba(47, 134, 255, 0.28);
   filter: none;
   color: var(--on-accent);
 }
@@ -275,10 +300,10 @@ body.hub-site .btn--ghost {
 }
 
 body.hub-site .btn--ghost:hover {
-  transform: none;
-  background: var(--bg-card);
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text);
-  border-color: var(--cyan);
+  border-color: rgba(47, 134, 255, 0.55);
   box-shadow: none;
 }
 
@@ -296,6 +321,7 @@ body.hub-site .card--glow {
   border-radius: 8px;
   box-shadow: none;
   transform: none;
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 
 body.hub-site .card::before,
@@ -306,16 +332,16 @@ body.hub-site .card--glow::before {
 
 body.hub-site .card:hover,
 body.hub-site .card--glow:hover {
-  transform: none;
+  transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--cyan) 45%, transparent);
-  box-shadow: none;
+  box-shadow: var(--shadow-card);
 }
 
 /* Footer completo da organização */
 body.hub-site .site-footer {
   margin-top: 4rem;
   padding: 0;
-  background: linear-gradient(180deg, transparent, var(--bg-elevated) 28%);
+  background: #000;
   border-top: 1px solid var(--chrome-line);
   border-radius: 0;
   box-shadow: none;
@@ -324,8 +350,12 @@ body.hub-site .site-footer {
 
 body.hub-site .footer__glow {
   display: block;
-  height: 2px;
-  opacity: 0.85;
+  height: 1px;
+  opacity: 1;
+  background: linear-gradient(90deg, transparent, var(--cyan) 28%, var(--gold) 50%, var(--cyan) 72%, transparent);
+  background-size: 200% 100%;
+  box-shadow: 0 0 12px rgba(47, 134, 255, 0.25);
+  animation: wc-line 12s linear infinite;
 }
 
 body.hub-site .footer__accent,
@@ -383,6 +413,7 @@ body.hub-site .footer__social-link {
   background: transparent;
   border: 1px solid var(--chrome-line);
   color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
 
 body.hub-site .footer__social-link:hover {
@@ -391,8 +422,22 @@ body.hub-site .footer__social-link:hover {
   border-color: var(--cyan);
 }
 
+body.hub-site .footer__brand-light {
+  color: var(--text);
+}
+
 body.hub-site .footer__brand-dark {
   color: var(--cyan);
+}
+
+body.hub-site .footer__brand-gg {
+  color: var(--text);
+  font-size: 0.72em;
+  letter-spacing: 0.06em;
+  margin-left: 0.12em;
+  font-style: italic;
+  opacity: 0.92;
+  vertical-align: 0.08em;
 }
 
 body.hub-site .footer__col-title {

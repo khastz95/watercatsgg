@@ -12,34 +12,40 @@ body.hub-site.page-admin-org main.container {
 
 .ep-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.7fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(180px, 0.55fr);
   align-items: center;
-  gap: 2.5rem 4rem;
-  padding: 4.25rem 0 2.75rem;
+  gap: 2rem 3rem;
+  padding: 2.75rem 0 2rem;
+}
+
+.ep-hero h1 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.ep-hero__logo {
+  width: min(220px, 28vw);
+  height: auto;
+  justify-self: end;
 }
 
 .ep-hero--plain {
   grid-template-columns: 1fr;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
 }
 
 .ep-kicker {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.7rem;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--cyan);
-}
-
-.ep-hero h1 {
-  margin: 0 0 0.9rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 7vw, 5.4rem);
-  font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
 }
 
 .ep-hero h1 span {
@@ -48,17 +54,10 @@ body.hub-site.page-admin-org main.container {
 
 .ep-lead {
   margin: 0;
-  max-width: 40rem;
-  font-size: 1.08rem;
-  line-height: 1.7;
+  max-width: 38rem;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--text-muted);
-}
-
-.ep-hero__logo {
-  width: min(320px, 36vw);
-  height: auto;
-  justify-self: end;
-  filter: drop-shadow(0 24px 50px color-mix(in srgb, var(--cyan) 22%, transparent));
 }
 
 .ep-actions {
@@ -116,9 +115,9 @@ body.hub-site.page-admin-org main.container {
 .ep-block__head h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3vw, 2.15rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
@@ -143,7 +142,7 @@ body.hub-site.page-admin-org main.container {
   overflow: hidden;
   background: var(--bg-elevated);
   border: 1px solid var(--card-line);
-  border-radius: 14px;
+  border-radius: 8px;
   color: inherit;
   text-decoration: none;
 }
@@ -259,10 +258,10 @@ a.ep-card:hover {
 .ep-match {
   display: grid;
   gap: 1rem;
-  padding: 1.35rem 1.45rem;
+  padding: 1.15rem 1.25rem;
   background: var(--bg-card);
   border: 1px solid var(--card-line);
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 .ep-next {
@@ -597,13 +596,12 @@ a.ep-card:hover {
 }
 
 .ep-login {
-  max-width: 440px;
-  margin: 4.5rem auto;
-  padding: 2rem 1.85rem 1.85rem;
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 1.75rem 1.6rem;
   background: var(--bg-card);
   border: 1px solid var(--card-line);
-  border-radius: 16px;
-  box-shadow: var(--shadow-card);
+  border-radius: 8px;
 }
 
 .ep-login h1 {
@@ -653,17 +651,6 @@ a.ep-card:hover {
 
 .ep-msg--err {
   color: #e25555;
-}
-
-body.page-1v1 .ep-ticker,
-body.page-1v1 .ep-gutter,
-body.page-admin-org .ep-gutter {
-  display: none !important;
-}
-
-body.page-1v1.hub-site,
-body.page-admin-org.hub-site {
-  --gutter: 0px;
 }
 
 .ep-gate {
@@ -743,27 +730,6 @@ html[data-theme="light"] .ep-card__meta {
   background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.94) 58%);
 }
 
-.ep-card__stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem 0.85rem;
-  margin-top: 0.55rem;
-  font-family: var(--font-num);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--cyan);
-}
-
-.ep-card__stats span small {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
 .ep-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -772,10 +738,10 @@ html[data-theme="light"] .ep-card__meta {
 }
 
 .ep-tabs button {
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
   border: 1px solid var(--chrome-line);
-  background: var(--bg-elevated);
+  background: transparent;
   color: var(--text-muted);
   font-family: var(--font-body);
   font-size: 12px;
@@ -783,150 +749,11 @@ html[data-theme="light"] .ep-card__meta {
   cursor: pointer;
 }
 
-.ep-tabs button.is-on,
-.ep-tabs button:hover {
+.ep-tabs button.is-on {
   color: var(--on-accent);
   background: var(--cyan);
   border-color: var(--cyan);
 }
-
-.ep-pool {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.6rem;
-}
-
-.ep-pool article {
-  display: grid;
-  place-items: center;
-  min-height: 72px;
-  padding: 0.7rem;
-  border-radius: 12px;
-  border: 1px solid var(--card-line);
-  background:
-    radial-gradient(80% 90% at 50% 120%, color-mix(in srgb, var(--cyan) 16%, transparent), transparent 70%),
-    var(--bg-card);
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.ep-community {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-}
-
-.ep-community a {
-  display: block;
-  padding: 1.25rem 1.3rem;
-  border-radius: 14px;
-  border: 1px solid var(--card-line);
-  background: var(--bg-card);
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.28s var(--ease-out-expo), border-color 0.2s;
-}
-
-.ep-community a:hover {
-  transform: translateY(-3px);
-  border-color: var(--cyan);
-  color: inherit;
-  text-shadow: none;
-}
-
-.ep-community h3 {
-  margin: 0 0 0.3rem;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  text-transform: uppercase;
-}
-
-.ep-community p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.92rem;
-}
-
-.ep-login-wrap {
-  display: grid;
-  grid-template-columns: 0.9fr 1fr;
-  gap: 0;
-  max-width: 860px;
-  margin: 3.5rem auto;
-  overflow: hidden;
-  border: 1px solid var(--card-line);
-  border-radius: 18px;
-  background: var(--bg-card);
-  box-shadow: var(--shadow-card);
-}
-
-.ep-login-aside {
-  padding: 2.4rem 2rem;
-  background:
-    radial-gradient(90% 70% at 20% 0%, color-mix(in srgb, var(--cyan) 22%, transparent), transparent 62%),
-    var(--bg-elevated);
-  border-right: 1px solid var(--card-line);
-}
-
-.ep-login-aside img {
-  width: 84px;
-  height: auto;
-  margin-bottom: 1.1rem;
-}
-
-.ep-login-aside h2 {
-  margin: 0 0 0.55rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-}
-
-.ep-login-aside p {
-  margin: 0;
-  color: var(--text-muted);
-  line-height: 1.65;
-}
-
-.ep-login-wrap .ep-login {
-  max-width: none;
-  margin: 0;
-  border: 0;
-  box-shadow: none;
-  border-radius: 0;
-  background: transparent;
-}
-
-.ep-profile__badge {
-  display: inline-flex;
-  margin-bottom: 0.75rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 5px;
-  background: var(--cyan);
-  color: var(--on-accent);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.ep-grid-5 > .reveal:nth-child(1),
-.ep-grid-5 > .reveal:nth-child(2),
-.ep-grid-5 > .reveal:nth-child(3),
-.ep-grid-5 > .reveal:nth-child(4),
-.ep-grid-5 > .reveal:nth-child(5) {
-  transition-delay: calc(var(--i, 0) * 70ms);
-}
-
-.ep-grid-5 > *:nth-child(1) { --i: 0; }
-.ep-grid-5 > *:nth-child(2) { --i: 1; }
-.ep-grid-5 > *:nth-child(3) { --i: 2; }
-.ep-grid-5 > *:nth-child(4) { --i: 3; }
-.ep-grid-5 > *:nth-child(5) { --i: 4; }
 
 @media (max-width: 1100px) {
   .ep-grid-5,
@@ -938,19 +765,6 @@ html[data-theme="light"] .ep-card__meta {
   .ep-about {
     grid-template-columns: 1fr 1fr;
   }
-
-  .ep-pool {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .ep-login-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .ep-login-aside {
-    border-right: 0;
-    border-bottom: 1px solid var(--card-line);
-  }
 }
 
 @media (max-width: 800px) {
@@ -958,14 +772,12 @@ html[data-theme="light"] .ep-card__meta {
   .ep-profile,
   .adm-org,
   .ep-next,
-  .ep-about,
-  .ep-login-wrap,
-  .ep-community {
+  .ep-about {
     grid-template-columns: 1fr;
   }
 
   .ep-hero__logo {
-    width: min(168px, 48vw);
+    width: min(140px, 42vw);
     justify-self: start;
     order: -1;
   }
@@ -974,10 +786,7 @@ html[data-theme="light"] .ep-card__meta {
   .ep-grid-3,
   .ep-meta,
   .ep-stats,
-  .adm-fields,
-  .ep-login-wrap,
-  .ep-pool,
-  .ep-community {
+  .adm-fields {
     grid-template-columns: 1fr 1fr;
   }
 }

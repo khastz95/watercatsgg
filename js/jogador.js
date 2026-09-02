@@ -89,9 +89,6 @@
         '<p class="ep-kicker">' +
         U.esc(U.papelLabel(p.papel)) +
         " · Eternal Pratas</p>" +
-        '<span class="ep-profile__badge">' +
-        U.esc(p.posicao || U.papelLabel(p.papel)) +
-        "</span>" +
         "<h1>" +
         U.esc(U.displayNick(p)) +
         "</h1>" +

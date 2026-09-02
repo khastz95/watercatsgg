@@ -50,7 +50,7 @@
       '<div class="container header-inner">' +
       '<a class="brand" href="/">' +
       '<img class="brand__logo" src="/assets/logo.png" alt="Eternal Pratas" width="44" height="44" />' +
-      '<span class="brand__text"><span class="brand__name"><span>ETERNAL</span> <span>PRATAS</span></span></span>' +
+      '<span class="brand__text"><span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span></span>' +
       "</a>" +
       '<button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">' +
       "<span></span><span></span><span></span></button>" +
@@ -116,40 +116,6 @@
     footerEl.innerHTML = footerHtml();
   }
 
-  if (!document.querySelector(".ep-grain")) {
-    var grain = document.createElement("div");
-    grain.className = "ep-grain";
-    grain.setAttribute("aria-hidden", "true");
-    document.body.appendChild(grain);
-  }
-
-  if (headerEl && !document.querySelector(".ep-ticker")) {
-    var ticker = document.createElement("div");
-    ticker.className = "ep-ticker";
-    ticker.setAttribute("aria-hidden", "true");
-    var unit = "Eternal Pratas  ·  Counter-Strike 2  ·  Brasil  ·  Elenco  ·  Jogos  ·  Organização  ·  ";
-    ticker.innerHTML = '<div class="ep-ticker__track"><span>' + unit + unit + "</span><span>" + unit + unit + "</span></div>";
-    headerEl.insertAdjacentElement("afterend", ticker);
-  }
-
-  if (!document.querySelector(".ep-gutter")) {
-    var left = document.createElement("aside");
-    left.className = "ep-gutter ep-gutter--left";
-    left.setAttribute("aria-label", "Atalhos");
-    left.innerHTML =
-      '<a href="/" data-nav="home">Início</a>' +
-      '<a href="/elenco" data-nav="elenco">Elenco</a>' +
-      '<a href="/jogos" data-nav="jogos">Jogos</a>' +
-      '<a href="/sobre" data-nav="sobre">Org</a>' +
-      '<a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>';
-    var right = document.createElement("aside");
-    right.className = "ep-gutter ep-gutter--right";
-    right.setAttribute("aria-hidden", "true");
-    right.innerHTML = "<span>CS2</span><span>Brasil</span><span>Eternal</span><span>Pratas</span>";
-    document.body.appendChild(left);
-    document.body.appendChild(right);
-  }
-
   var themeBtn = document.querySelector(".theme-toggle");
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
@@ -200,11 +166,11 @@
 
   function markActive() {
     var current = pageKey();
-    document.querySelectorAll(".site-nav a, .ep-gutter a").forEach(function (a) {
+    document.querySelectorAll(".site-nav a").forEach(function (a) {
       var key = a.getAttribute("data-nav") || "";
       var on = key && key === current;
       a.classList.toggle("is-active", on);
-      if (on && a.closest(".site-nav")) a.setAttribute("aria-current", "page");
+      if (on) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
   }
@@ -215,18 +181,9 @@
   window.EP.user = null;
   window.EP.pageKey = pageKey;
 
-  var revealObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
-      });
-    },
-    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
-  );
-
   window.EP.observeReveal = function (root) {
     (root || document).querySelectorAll(".reveal").forEach(function (el) {
-      revealObserver.observe(el);
+      el.classList.add("is-visible");
     });
   };
   window.EP.observeReveal(document);

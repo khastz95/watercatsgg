@@ -65,23 +65,15 @@
     if (p.nivel_gc != null && p.nivel_gc !== "") ranks.push("GC " + p.nivel_gc);
     if (p.nivel_faceit != null && p.nivel_faceit !== "") ranks.push("Faceit " + p.nivel_faceit);
     if (p.rating_premier != null && p.rating_premier !== "") ranks.push("Premier " + p.rating_premier);
-    var extra = "";
-    if (ranks.length) {
-      extra +=
-        '<div class="ep-card__ranks">' +
+    var extra = ranks.length
+      ? '<div class="ep-card__ranks">' +
         ranks
           .map(function (r) {
             return '<span class="ep-mini">' + esc(r) + "</span>";
           })
           .join("") +
-        "</div>";
-    }
-    var nums = [];
-    if (p.rating != null && p.rating !== "") nums.push("<span><small>Rating</small>" + esc(fmt(p.rating, 2)) + "</span>");
-    if (p.kd != null && p.kd !== "") nums.push("<span><small>K/D</small>" + esc(fmt(p.kd, 2)) + "</span>");
-    else if (p.mortes) nums.push("<span><small>K/D</small>" + esc(fmt((p.abates || 0) / p.mortes, 2)) + "</span>");
-    if (p.adr != null && p.adr !== "") nums.push("<span><small>ADR</small>" + esc(fmt(p.adr, 0)) + "</span>");
-    if (nums.length) extra += '<div class="ep-card__stats">' + nums.join("") + "</div>";
+        "</div>"
+      : "";
     var who = [p.posicao || "", p.idade ? p.idade + " anos" : "", p.pais || ""]
       .filter(Boolean)
       .join(" · ");

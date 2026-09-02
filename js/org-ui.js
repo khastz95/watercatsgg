@@ -39,7 +39,7 @@
   }
 
   function playerHref(p) {
-    return "/elenco/" + encodeURIComponent(p.id);
+    return "/jogador?id=" + encodeURIComponent(p.id);
   }
 
   function photoBlock(p, extraClass) {

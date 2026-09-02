@@ -102,7 +102,7 @@
     var p = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
     if (p === "/" || p === "/index" || p === "/index.html") return "home";
     if (p.indexOf("/1v1") === 0) return "1v1";
-    if (p.indexOf("/jogadores") === 0 || p.indexOf("/elenco") === 0) return "elenco";
+    if (p.indexOf("/jogadores") === 0 || p.indexOf("/elenco") === 0 || p.indexOf("/jogador") === 0) return "elenco";
     if (p.indexOf("/jogos") === 0) return "jogos";
     if (p.indexOf("/sobre") === 0) return "sobre";
     if (p.indexOf("/entrar") === 0) return "entrar";

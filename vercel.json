@@ -2,8 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/1v1", "destination": "/1v1/index.html" },
-    { "source": "/elenco/:id", "destination": "/jogador.html" }
+    { "source": "/1v1", "destination": "/1v1/index.html" }
   ],
   "redirects": [
     { "source": "/jogadores.html", "destination": "/elenco", "permanent": false },

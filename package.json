@@ -1,10 +1,17 @@
 {
   "name": "eternal-pratas",
   "private": true,
+  "description": "Site oficial da Eternal Pratas — organização brasileira de Counter-Strike 2.",
+  "homepage": "https://eternalpratasgg.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khastz95/eternalpratas.git"
+  },
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "migrar": "node scripts/migrar.js",
-    "org": "node scripts/aplicar-org.js"
+    "org": "node scripts/aplicar-org.js",
+    "migrar": "node scripts/migrar.js"
   },
   "devDependencies": {
     "postgres": "^3.4.7"

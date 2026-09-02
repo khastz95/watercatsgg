@@ -19,6 +19,8 @@
     { "source": "/sorteio-times", "destination": "/", "permanent": true },
     { "source": "/sorteio-mapas.html", "destination": "/", "permanent": true },
     { "source": "/sorteio-mapas", "destination": "/", "permanent": true },
+    { "source": "/admin-estatisticas.html", "destination": "/admin", "permanent": true },
+    { "source": "/admin-estatisticas", "destination": "/admin", "permanent": true },
     { "source": "/camp", "destination": "/1v1", "permanent": false },
     { "source": "/camp.html", "destination": "/1v1", "permanent": false }
   ]

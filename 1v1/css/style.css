@@ -1,16 +1,16 @@
 :root {
   --bg: #000000;
-  --bg-2: #0a0a0a;
-  --card: #0c0c0c;
-  --line: rgba(255, 255, 255, 0.08);
-  --text: #f4f4f4;
-  --mute: #8a8a8a;
+  --bg-2: #050505;
+  --card: #050505;
+  --line: rgba(255, 255, 255, 0.055);
+  --text: #ececec;
+  --mute: #6f6f6f;
   --cyan: #2f86ff;
   --hook: #1a4fd6;
   --gold: #e11d2a;
   --shame: #ff6b7a;
-  --win: rgba(47, 134, 255, 0.14);
-  --r: 8px;
+  --win: rgba(47, 134, 255, 0.1);
+  --r: 4px;
   --gutter: 40px;
   --page-w: 1240px;
 }
@@ -25,9 +25,7 @@
 
 html, body {
   min-height: 100%;
-  background:
-    radial-gradient(55% 32% at 50% -10%, rgba(47, 134, 255, 0.07), transparent 62%),
-    #000;
+  background: #000;
   color: var(--text);
   font-family: "Exo 2", system-ui, sans-serif;
   color-scheme: dark;

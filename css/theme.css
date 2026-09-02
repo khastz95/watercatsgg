@@ -5,24 +5,25 @@
   --font-body: "Exo 2", system-ui, sans-serif;
   --font-num: "Exo 2", system-ui, sans-serif;
   --bg: #000000;
-  --bg-elevated: #0a0a0a;
-  --bg-card: #0c0c0c;
-  --bg-card-hover: #111111;
+  --bg-elevated: #050505;
+  --bg-card: #050505;
+  --bg-card-hover: #0a0a0a;
   --cyan: #2f86ff;
-  --cyan-dim: rgba(47, 134, 255, 0.12);
+  --cyan-dim: rgba(47, 134, 255, 0.08);
   --gold: #e11d2a;
   --indigo: #1a4fd6;
-  --text: #f4f4f4;
-  --text-muted: #8a8a8a;
+  --text: #ececec;
+  --text-muted: #6f6f6f;
   --on-accent: #000000;
-  --chrome-line: rgba(255, 255, 255, 0.08);
-  --card-line: rgba(255, 255, 255, 0.07);
-  --header-bg: rgba(0, 0, 0, 0.72);
-  --header-h: 72px;
+  --chrome-line: rgba(255, 255, 255, 0.055);
+  --card-line: rgba(255, 255, 255, 0.05);
+  --header-bg: rgba(0, 0, 0, 0.82);
+  --header-h: 68px;
   --layout-pad: 40px;
   --layout-max: 1240px;
-  --page-glow: rgba(47, 134, 255, 0.07);
-  --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --page-glow: rgba(47, 134, 255, 0.028);
+  --shadow-card: none;
+  --radius: 4px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur: 0.45s;
@@ -32,20 +33,20 @@
 
 html[data-theme="light"] {
   --bg: #000000;
-  --bg-elevated: #0a0a0a;
-  --bg-card: #0c0c0c;
-  --bg-card-hover: #111111;
+  --bg-elevated: #050505;
+  --bg-card: #050505;
+  --bg-card-hover: #0a0a0a;
   --cyan: #2f86ff;
-  --cyan-dim: rgba(47, 134, 255, 0.12);
+  --cyan-dim: rgba(47, 134, 255, 0.08);
   --gold: #e11d2a;
   --indigo: #1a4fd6;
-  --text: #f4f4f4;
-  --text-muted: #8a8a8a;
+  --text: #ececec;
+  --text-muted: #6f6f6f;
   --on-accent: #000000;
-  --chrome-line: rgba(255, 255, 255, 0.08);
-  --card-line: rgba(255, 255, 255, 0.07);
-  --header-bg: rgba(0, 0, 0, 0.72);
-  --page-glow: rgba(47, 134, 255, 0.07);
+  --chrome-line: rgba(255, 255, 255, 0.055);
+  --card-line: rgba(255, 255, 255, 0.05);
+  --header-bg: rgba(0, 0, 0, 0.82);
+  --page-glow: rgba(47, 134, 255, 0.028);
   color-scheme: dark;
 }
 
@@ -129,11 +130,11 @@ body.hub-site .btn:focus-visible {
   0%,
   100% {
     transform: translateY(0);
-    filter: drop-shadow(0 0 18px rgba(47, 134, 255, 0.16));
+    filter: drop-shadow(0 0 10px rgba(47, 134, 255, 0.1));
   }
   50% {
-    transform: translateY(-7px);
-    filter: drop-shadow(0 0 36px rgba(47, 134, 255, 0.32));
+    transform: translateY(-4px);
+    filter: drop-shadow(0 0 20px rgba(47, 134, 255, 0.2));
   }
 }
 

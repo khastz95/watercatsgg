@@ -1,9 +1,9 @@
 ﻿/* WATERCATSGG — tema competitivo CS */
 :root {
   --bg: #000000;
-  --bg-elevated: #0a0a0a;
-  --bg-card: #0c0c0c;
-  --bg-card-hover: #111111;
+  --bg-elevated: #050505;
+  --bg-card: #050505;
+  --bg-card-hover: #0a0a0a;
   --cyan: #2f86ff;
   --cyan-dim: rgba(47, 134, 255, 0.16);
   --gold: #e11d2a;

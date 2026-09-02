@@ -146,7 +146,11 @@ function saveLocal() {
 }
 
 async function pullCloud() {
-  const r = await fetch("/api/campeonato");
+  const r = await fetch("/api/campeonato", { credentials: "include" });
+  if (r.status === 401) {
+    window.location.replace("/entrar?next=/1v1");
+    throw new Error("auth");
+  }
   if (!r.ok) throw new Error("api");
   const json = await r.json();
   cloud = true;
@@ -158,6 +162,7 @@ async function pushCloud() {
   if (!cloud || !canEdit || !editPin) return;
   const r = await fetch("/api/campeonato", {
     method: "PUT",
+    credentials: "include",
     headers: { "Content-Type": "application/json", "x-edit-pin": editPin },
     body: JSON.stringify({ data: state })
   });
@@ -184,6 +189,7 @@ function save() {
 async function checkPin(pin) {
   const r = await fetch("/api/auth", {
     method: "POST",
+    credentials: "include",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ pin })
   });
@@ -1343,6 +1349,7 @@ async function uploadPhoto(playerId, file) {
   try {
     const r = await fetch("/api/foto", {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json", "x-edit-pin": editPin },
       body: JSON.stringify({ playerId, mime: file.type, data, pin: editPin })
     });

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071018" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="A organização Eternal Pratas — CS2 no Brasil, elenco e campeonato 1v1." />
+    <meta name="description" content="A organização Eternal Pratas — CS2 no Brasil." />
     <title>Organização | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,92 +13,35 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
-    <link rel="stylesheet" href="/css/team.css" />
+    <link rel="stylesheet" href="/css/org.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
   <body class="hub-site page-about">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="/">
-          <img class="brand__logo" src="/assets/logo.png" alt="Eternal Pratas" width="44" height="44" />
-          <span class="brand__text">
-            <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
-          </span>
-        </a>
-        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-          <span></span><span></span><span></span>
-        </button>
-        <nav class="site-nav" id="main-nav" aria-label="Principal">
-          <ul>
-            <li><a href="/" data-nav="home">Início</a></li>
-            <li><a href="/jogadores" data-nav="elenco">Elenco</a></li>
-            <li><a href="/1v1" data-nav="1v1">1v1</a></li>
-            <li><a href="/sobre" data-nav="sobre">Organização</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
+    <header data-header></header>
     <main class="container">
-      <section class="org-hero org-hero--plain reveal">
+      <section class="ep-hero ep-hero--plain reveal">
         <div>
-          <p class="org-hero__mark">Organização</p>
+          <p class="ep-kicker">Organização</p>
           <h1>Eternal Pratas</h1>
+          <p class="ep-lead">
+            Organização brasileira de Counter-Strike 2. O time é o centro da marca: cinco titulares, dois reservas e um coach.
+          </p>
         </div>
       </section>
-
-      <div class="org-split">
-        <div class="org-copy reveal">
-          <p class="section__label">Sobre o time</p>
-          <p>
-            A Eternal Pratas nasceu no Brasil com um objetivo simples: ter um time de Counter-Strike 2 com identidade própria — competitivo, direto e reconhecível.
-          </p>
-          <p>
-            O elenco disputa o campeonato 1v1 da organização, no formato liga e playoffs. É o palco onde o time se mede, semana após semana.
-          </p>
-          <p>
-            Fora do servidor, a marca vive no Discord e no grupo da Steam: resultados, convocações e o dia a dia da org.
-          </p>
-        </div>
-        <aside class="org-channels reveal">
-          <a href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">
-            Discord
-            <small>Canal oficial</small>
-          </a>
-          <a href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">
-            Steam
-            <small>Grupo da org</small>
-          </a>
-          <a href="/1v1">
-            Campeonato 1v1
-            <small>Liga e playoffs</small>
-          </a>
-          <a href="/jogadores">
-            Elenco
-            <small>Lineup atual</small>
-          </a>
-        </aside>
+      <div class="org-copy reveal" style="max-width:44rem">
+        <p style="color:var(--text-muted);line-height:1.7;font-size:1.04rem">
+          A Eternal Pratas existe para vestir um time com identidade própria — competitivo, direto e reconhecível. Os jogos da org aparecem na agenda pública. O campeonato 1v1 é interno: só quem tem acesso ao time entra.
+        </p>
+        <p style="color:var(--text-muted);line-height:1.7;font-size:1.04rem">
+          Discord e Steam são os canais oficiais. Resultados, convocações e o dia a dia da organização passam por lá.
+        </p>
+        <p class="ep-actions">
+          <a class="btn btn--primary" href="/elenco">Elenco</a>
+          <a class="btn btn--ghost" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>
+        </p>
       </div>
     </main>
-
-    <footer class="site-footer">
-      <div class="container footer__shell">
-        <div class="footer__grid">
-          <a href="/" class="footer__brandmark">
-            <img src="/assets/logo.png" alt="" width="32" height="32" class="footer__logo" />
-            <span class="footer__brandname">ETERNAL PRATAS</span>
-          </a>
-          <div class="footer__social">
-            <a class="footer__social-link" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>
-            <a class="footer__social-link" href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Steam</a>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <p class="footer__copy">© <span id="year"></span> Eternal Pratas</p>
-        </div>
-      </div>
-    </footer>
-
+    <footer data-footer></footer>
     <script src="/js/main.js" defer></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 import { pinOk, configured, getState, putState } from "../lib/cloud.js";
 import { cors, readBody, pinFrom } from "../lib/http.js";
+import { requireSession } from "../lib/sessao.js";
 
 export default async function handler(req, res) {
   cors(res);
@@ -17,6 +18,7 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "GET") {
+      await requireSession(req);
       const row = await getState();
       res.status(200).json({ data: row?.data || null, updatedAt: row?.updated_at || null });
       return;

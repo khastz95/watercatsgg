@@ -2,19 +2,21 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/1v1", "destination": "/1v1/index.html" }
+    { "source": "/1v1", "destination": "/1v1/index.html" },
+    { "source": "/elenco", "destination": "/jogadores.html" },
+    { "source": "/elenco/:id", "destination": "/jogador.html" },
+    { "source": "/admin", "destination": "/admin.html" }
   ],
   "redirects": [
+    { "source": "/jogadores", "destination": "/elenco", "permanent": false },
     { "source": "/conexoes.html", "destination": "/sobre", "permanent": true },
     { "source": "/conexoes", "destination": "/sobre", "permanent": true },
     { "source": "/faca-parte.html", "destination": "/sobre", "permanent": true },
     { "source": "/faca-parte", "destination": "/sobre", "permanent": true },
-    { "source": "/estatisticas.html", "destination": "/jogadores", "permanent": true },
-    { "source": "/estatisticas", "destination": "/jogadores", "permanent": true },
-    { "source": "/partidas.html", "destination": "/1v1", "permanent": true },
-    { "source": "/partidas", "destination": "/1v1", "permanent": true },
-    { "source": "/jogos.html", "destination": "/", "permanent": true },
-    { "source": "/jogos", "destination": "/", "permanent": true },
+    { "source": "/estatisticas.html", "destination": "/elenco", "permanent": true },
+    { "source": "/estatisticas", "destination": "/elenco", "permanent": true },
+    { "source": "/partidas.html", "destination": "/jogos", "permanent": true },
+    { "source": "/partidas", "destination": "/jogos", "permanent": true },
     { "source": "/sorteio-times.html", "destination": "/", "permanent": true },
     { "source": "/sorteio-times", "destination": "/", "permanent": true },
     { "source": "/sorteio-mapas.html", "destination": "/", "permanent": true },

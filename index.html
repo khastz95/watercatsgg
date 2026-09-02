@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071018" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Eternal Pratas — organização brasileira de Counter-Strike 2. Elenco, campeonato 1v1 e canais oficiais." />
+    <meta name="description" content="Eternal Pratas — organização brasileira de Counter-Strike 2. Elenco, jogos e campeonato interno." />
     <title>Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,129 +13,68 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
-    <link rel="stylesheet" href="/css/team.css" />
+    <link rel="stylesheet" href="/css/org.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
   <body class="hub-site page-home">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="/">
-          <img class="brand__logo" src="/assets/logo.png" alt="Eternal Pratas" width="44" height="44" />
-          <span class="brand__text">
-            <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
-          </span>
-        </a>
-        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-          <span></span><span></span><span></span>
-        </button>
-        <nav class="site-nav" id="main-nav" aria-label="Principal">
-          <ul>
-            <li><a href="/" data-nav="home">Início</a></li>
-            <li><a href="/jogadores" data-nav="elenco">Elenco</a></li>
-            <li><a href="/1v1" data-nav="1v1">1v1</a></li>
-            <li><a href="/sobre" data-nav="sobre">Organização</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
+    <header data-header></header>
     <main class="container">
-      <section class="org-hero reveal">
+      <section class="ep-hero reveal">
         <div>
-          <p class="org-hero__mark">Counter-Strike 2 · Brasil</p>
+          <p class="ep-kicker">Organização · Counter-Strike 2 · Brasil</p>
           <h1>Eternal <span>Pratas</span></h1>
-          <p class="org-hero__lead">
-            Organização brasileira de CS2. O elenco veste a marca no campeonato 1v1 da casa — liga, tabela e playoffs.
+          <p class="ep-lead">
+            Time brasileiro de CS2. Cinco titulares, dois reservas e um coach — identidade própria no servidor e fora dele.
           </p>
-        </div>
-        <img class="org-hero__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="300" height="300" />
-      </section>
-
-      <div class="org-bar reveal">
-        <div>
-          <small>País</small>
-          <strong>
-            <svg class="org-flag" viewBox="0 0 18 12" aria-hidden="true">
-              <rect width="18" height="12" fill="#009b3a" />
-              <polygon points="9,1.2 16.4,6 9,10.8 1.6,6" fill="#fedf00" />
-              <circle cx="9" cy="6" r="2.15" fill="#002776" />
-            </svg>
-            Brasil
-          </strong>
-        </div>
-        <div>
-          <small>Jogo</small>
-          <strong>Counter-Strike 2</strong>
-        </div>
-        <div>
-          <small>Lineup</small>
-          <strong><span id="org-roster-count">5</span> jogadores</strong>
-        </div>
-        <div>
-          <small>Competição</small>
-          <strong>Campeonato 1v1</strong>
-        </div>
-      </div>
-
-      <section class="org-block">
-        <div class="org-block__head reveal">
-          <div>
-            <p class="section__label">Sobre o time</p>
-            <h2>A marca no peito</h2>
+          <div class="ep-actions">
+            <a class="btn btn--primary" href="/elenco">Ver elenco</a>
+            <a class="btn btn--ghost" href="/jogos">Próximos jogos</a>
           </div>
         </div>
-        <div class="org-copy reveal">
-          <p>
-            A Eternal Pratas nasceu no Brasil com identidade própria: competitivo, direto e reconhecível. O time de Counter-Strike 2 é o centro da organização.
-          </p>
-          <p>
-            O elenco disputa o campeonato 1v1 da casa — o palco onde a org se mede, semana após semana, até os playoffs.
-          </p>
-        </div>
+        <img class="ep-hero__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="280" height="280" />
       </section>
 
-      <section class="org-block">
-        <div class="org-block__head reveal">
+      <div class="ep-meta reveal">
+        <div><small>País</small><strong>Brasil</strong></div>
+        <div><small>Jogo</small><strong>Counter-Strike 2</strong></div>
+        <div><small>Lineup</small><strong>5 titulares</strong></div>
+        <div><small>Staff</small><strong>Coach + 2 reservas</strong></div>
+      </div>
+
+      <section class="ep-block">
+        <div class="ep-block__head reveal">
+          <div>
+            <p class="section__label">Agenda</p>
+            <h2>Próximo jogo</h2>
+          </div>
+        </div>
+        <div id="home-next"></div>
+      </section>
+
+      <section class="ep-block">
+        <div class="ep-block__head reveal">
           <div>
             <p class="section__label">Lineup</p>
-            <h2>Conheça o time</h2>
+            <h2>Titulares</h2>
           </div>
-          <a class="btn btn--ghost" href="/jogadores">Ver elenco</a>
+          <a class="btn btn--ghost" href="/elenco">Perfis completos</a>
         </div>
-        <div id="team-roster" class="roster" aria-live="polite"></div>
+        <div id="home-starters" class="ep-grid-5"></div>
       </section>
 
-      <section class="org-block">
-        <div class="org-cta reveal">
+      <section class="ep-block">
+        <div class="ep-block__head reveal">
           <div>
-            <p class="section__label">Competição</p>
-            <h2>Campeonato 1v1</h2>
-            <p>Liga, tabela, chave e murais da temporada.</p>
+            <p class="section__label">Staff</p>
+            <h2>Coach e reservas</h2>
           </div>
-          <a class="btn btn--primary" href="/1v1">Acompanhar</a>
         </div>
+        <div id="home-staff" class="ep-grid-3"></div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <div class="container footer__shell">
-        <div class="footer__grid">
-          <a href="/" class="footer__brandmark">
-            <img src="/assets/logo.png" alt="" width="32" height="32" class="footer__logo" />
-            <span class="footer__brandname">ETERNAL PRATAS</span>
-          </a>
-          <div class="footer__social">
-            <a class="footer__social-link" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>
-            <a class="footer__social-link" href="https://steamcommunity.com/groups/eternalpratas" target="_blank" rel="noopener noreferrer">Steam</a>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <p class="footer__copy">© <span id="year"></span> Eternal Pratas</p>
-        </div>
-      </div>
-    </footer>
-
+    <footer data-footer></footer>
     <script src="/js/main.js" defer></script>
-    <script src="/js/elenco.js" defer></script>
+    <script src="/js/org-ui.js" defer></script>
+    <script src="/js/home-org.js" defer></script>
   </body>
 </html>

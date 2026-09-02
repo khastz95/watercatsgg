@@ -15,30 +15,12 @@
   <link rel="stylesheet" href="/css/hub-chrome.css" />
   <link rel="stylesheet" href="/1v1/css/style.css" />
   <link rel="stylesheet" href="/1v1/css/embed.css" />
+  <link rel="stylesheet" href="/css/org.css" />
   <link rel="icon" href="/assets/logo.png" type="image/png" />
 </head>
 <body class="hub-site page-1v1">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <img class="brand__logo" src="/assets/logo.png" alt="Logo Eternal Pratas" width="44" height="44" />
-        <span class="brand__text">
-          <span class="brand__name"><span>ETERNAL</span><span>PRATAS</span></span>
-        </span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="main-nav" aria-label="Principal">
-        <ul>
-          <li><a href="/" data-nav="home">Início</a></li>
-          <li><a href="/jogadores" data-nav="elenco">Elenco</a></li>
-          <li><a href="/1v1" data-nav="1v1">1v1</a></li>
-          <li><a href="/sobre" data-nav="sobre">Organização</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <header data-header></header>
+  <div id="ep-gate" class="ep-gate">Verificando acesso…</div>
 
   <div class="chrome">
     <div class="wrap chrome-inner">
@@ -121,7 +103,8 @@
       </div>
     </div>
   </div>
+  <footer data-footer></footer>
   <script src="/js/main.js"></script>
-  <script src="/1v1/js/app.js"></script>
+  <script src="/js/gate-1v1.js"></script>
 </body>
 </html>

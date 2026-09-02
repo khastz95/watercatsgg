@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071018" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Elenco da Eternal Pratas — titulares, reservas e coach no CS2." />
-    <title>Elenco | Eternal Pratas</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Painel | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,38 +16,21 @@
     <link rel="stylesheet" href="/css/org.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
-  <body class="hub-site page-elenco">
+  <body class="hub-site page-admin-org">
     <header data-header></header>
     <main class="container">
-      <section class="ep-hero ep-hero--plain reveal">
+      <section class="ep-hero ep-hero--plain">
         <div>
-          <p class="ep-kicker">CS2 · Lineup</p>
-          <h1>Elenco</h1>
-          <p class="ep-lead">Cinco titulares no server. Dois reservas e o coach completam a organização. Abra o perfil para stats, ranks e conexões.</p>
+          <p class="ep-kicker">Painel</p>
+          <h1>Organização</h1>
+          <p class="ep-lead">Elenco, fotos, stats, jogos e acessos ao 1v1.</p>
         </div>
       </section>
-      <section class="ep-block" style="padding-top:0">
-        <div class="ep-block__head">
-          <div>
-            <p class="section__label">Titulares</p>
-            <h2>O cinco</h2>
-          </div>
-        </div>
-        <div id="team-roster" class="ep-grid-5"></div>
-      </section>
-      <section class="ep-block">
-        <div class="ep-block__head">
-          <div>
-            <p class="section__label">Staff</p>
-            <h2>Coach e reservas</h2>
-          </div>
-        </div>
-        <div id="team-staff" class="ep-grid-3"></div>
-      </section>
+      <div id="admin-root">Carregando…</div>
     </main>
     <footer data-footer></footer>
     <script src="/js/main.js" defer></script>
     <script src="/js/org-ui.js" defer></script>
-    <script src="/js/elenco.js" defer></script>
+    <script src="/js/admin-org.js" defer></script>
   </body>
 </html>

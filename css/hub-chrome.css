@@ -296,57 +296,64 @@ body.hub-site .card--glow:hover {
   box-shadow: none;
 }
 
-/* Footer — uma linha */
+/* Footer completo da organização */
 body.hub-site .site-footer {
-  margin-top: 3.5rem;
+  margin-top: 4rem;
   padding: 0;
-  background: transparent;
+  background: linear-gradient(180deg, transparent, #0a1520 28%);
   border-top: 1px solid var(--chrome-line);
   border-radius: 0;
   box-shadow: none;
+  overflow: hidden;
+}
+
+body.hub-site .footer__glow {
+  display: block;
+  height: 2px;
+  opacity: 0.85;
 }
 
 body.hub-site .footer__accent,
-body.hub-site .footer__glow,
-body.hub-site .footer__nav-block,
-body.hub-site .footer__aside,
-body.hub-site .footer__tagline,
-body.hub-site .footer__brandsub,
-body.hub-site .footer__legal {
+body.hub-site .discord-fab {
   display: none;
 }
 
-body.hub-site .footer__shell {
-  padding: 1.25rem 0 1.5rem;
+body.hub-site .site-footer > .container {
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
 }
 
-body.hub-site .footer__grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0;
-  border: 0;
+body.hub-site .footer__main {
+  display: grid;
+  gap: 2rem 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--chrome-line);
+}
+
+@media (min-width: 900px) {
+  body.hub-site .footer__main {
+    grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  }
 }
 
 body.hub-site .footer__brandmark {
-  margin: 0;
-  gap: 0.65rem;
+  margin: 0 0 0.85rem;
 }
 
 body.hub-site .footer__logo {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   filter: none;
 }
 
-body.hub-site .footer__brandname {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+body.hub-site .footer__desc {
+  margin: 0 0 1rem;
+  max-width: 22rem;
 }
 
 body.hub-site .footer__social {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.4rem;
 }
 
@@ -363,21 +370,32 @@ body.hub-site .footer__social-link {
   color: var(--text-muted);
 }
 
-body.hub-site .footer__social-link:hover,
-body.hub-site .footer__social-link--discord:hover {
+body.hub-site .footer__social-link:hover {
   color: var(--text);
   background: #122033;
   border-color: var(--cyan);
 }
 
-body.hub-site .footer__bottom {
-  padding-top: 0.85rem;
-  border-top: 0;
+body.hub-site .footer__col-title {
+  color: var(--cyan);
+}
+
+body.hub-site .footer__navlist a:hover {
+  text-shadow: none;
+}
+
+body.hub-site .footer__bar {
+  padding-top: 1.15rem;
 }
 
 body.hub-site .footer__copy {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+body.hub-site .footer__legal {
+  display: block;
+  font-size: 0.72rem;
 }
 
 body.hub-site .discord-fab {

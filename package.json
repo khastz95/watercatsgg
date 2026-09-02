@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "migrar": "node scripts/migrar.js"
+    "migrar": "node scripts/migrar.js",
+    "org": "node scripts/aplicar-org.js"
   },
   "devDependencies": {
     "postgres": "^3.4.7"

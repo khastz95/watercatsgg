@@ -1,5 +1,7 @@
 import { pinOk, configured, uploadPlayerPhoto } from "../lib/cloud.js";
 import { cors, readBody, pinFrom } from "../lib/http.js";
+import { setOrgPhoto } from "../lib/org.js";
+import { getSession, requireAdmin } from "../lib/sessao.js";
 
 const MAX_BYTES = 1.5 * 1024 * 1024;
 const TYPES = {
@@ -27,9 +29,17 @@ export default async function handler(req, res) {
     }
 
     const body = readBody(req);
-    if (!pinOk(pinFrom(req, body))) {
-      res.status(401).json({ error: "PIN inválido" });
-      return;
+    const alvo = String(body.alvo || body.scope || "").toLowerCase();
+    const orgPhoto = alvo === "org" || alvo === "elenco";
+
+    if (orgPhoto) {
+      await requireAdmin(req);
+    } else if (!pinOk(pinFrom(req, body))) {
+      const session = await getSession(req);
+      if (!session || session.user.papel !== "admin") {
+        res.status(401).json({ error: "PIN inválido" });
+        return;
+      }
     }
 
     const playerId = String(body.playerId || "").trim();
@@ -57,7 +67,9 @@ export default async function handler(req, res) {
       return;
     }
 
-    const photoUrl = await uploadPlayerPhoto(playerId, buffer, mime);
+    const photoUrl = orgPhoto
+      ? await setOrgPhoto(playerId, buffer, mime)
+      : await uploadPlayerPhoto(playerId, buffer, mime);
     res.status(200).json({ ok: true, url: photoUrl });
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message || "Erro interno" });

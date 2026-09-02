@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071018" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Jogos da Eternal Pratas — agenda, resultados e escalação." />
-    <title>Jogos | Eternal Pratas</title>
+    <meta name="robots" content="noindex" />
+    <title>Entrar | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,21 +16,23 @@
     <link rel="stylesheet" href="/css/org.css" />
     <link rel="icon" href="/assets/logo.png" type="image/png" />
   </head>
-  <body class="hub-site page-jogos">
+  <body class="hub-site page-entrar">
     <header data-header></header>
     <main class="container">
-      <section class="ep-hero ep-hero--plain reveal">
-        <div>
-          <p class="ep-kicker">Agenda</p>
-          <h1>Jogos</h1>
-          <p class="ep-lead">Próximos confrontos, resultados e a escalação de cada partida.</p>
-        </div>
-      </section>
-      <div id="jogos-root"></div>
+      <form class="ep-login" id="login-form">
+        <p class="ep-kicker">Área do time</p>
+        <h1>Entrar</h1>
+        <p>O campeonato 1v1 e o painel são só para quem tem acesso.</p>
+        <label for="login-user">Usuário</label>
+        <input id="login-user" name="username" autocomplete="username" required />
+        <label for="login-pass">Senha</label>
+        <input id="login-pass" name="password" type="password" autocomplete="current-password" required />
+        <button class="btn btn--primary" type="submit">Entrar</button>
+        <p id="login-msg" class="ep-msg"></p>
+      </form>
     </main>
     <footer data-footer></footer>
     <script src="/js/main.js" defer></script>
-    <script src="/js/org-ui.js" defer></script>
-    <script src="/js/jogos.js" defer></script>
+    <script src="/js/entrar.js" defer></script>
   </body>
 </html>

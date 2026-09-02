@@ -41,6 +41,58 @@
     );
   }
 
+  function card(j, map) {
+    var score =
+      j.status === "encerrado" && (j.placar_casa != null || j.placar_fora != null)
+        ? (j.placar_casa != null ? j.placar_casa : "–") + " × " + (j.placar_fora != null ? j.placar_fora : "–")
+        : "";
+    var day = j.data ? new Date(j.data + "T12:00:00").getDate() : "—";
+    var mon = j.data
+      ? new Date(j.data + "T12:00:00").toLocaleDateString("pt-BR", { month: "short" })
+      : U.formatData(j.data, j.hora);
+    var maps = String(j.mapas || "")
+      .split(/[,/|]+/)
+      .map(function (m) {
+        return m.trim();
+      })
+      .filter(Boolean);
+    var mapHtml = maps.length
+      ? '<div class="ep-maps">' +
+        maps
+          .map(function (m) {
+            return '<span class="ep-mini">' + U.esc(m) + "</span>";
+          })
+          .join("") +
+        "</div>"
+      : "";
+    var statusLabel = { agendado: "Agendado", ao_vivo: "Ao vivo", encerrado: "Encerrado" };
+    return (
+      '<article class="ep-match reveal">' +
+      '<div class="ep-match__top">' +
+      '<div class="ep-date"><strong>' +
+      U.esc(String(day)) +
+      "</strong><small>" +
+      U.esc(mon) +
+      (j.hora ? " · " + U.esc(j.hora) : "") +
+      "</small></div>" +
+      '<span class="ep-status ep-status--' +
+      U.esc(j.status) +
+      '">' +
+      U.esc(statusLabel[j.status] || j.status.replace("_", " ")) +
+      "</span></div>" +
+      '<div class="ep-match__vs">Eternal Pratas <span class="ep-vs">VS</span> ' +
+      U.esc(j.adversario || "A definir") +
+      (score ? " · " + U.esc(score) : "") +
+      "</div>" +
+      "<p>" +
+      U.esc([j.campeonato, j.formato].filter(Boolean).join(" · ")) +
+      "</p>" +
+      mapHtml +
+      lineupHtml(j, map) +
+      "</article>"
+    );
+  }
+
   U.fetchOrg()
     .then(function (data) {
       var jogos = data.jogos || [];
@@ -49,54 +101,64 @@
         root.innerHTML = '<p class="ep-empty">Nenhum jogo cadastrado ainda.</p>';
         return;
       }
-      var upcoming = jogos.filter(function (j) {
-        return j.status !== "encerrado";
-      });
-      var done = jogos.filter(function (j) {
-        return j.status === "encerrado";
-      });
 
-      function card(j) {
-        var score =
-          j.status === "encerrado" && (j.placar_casa != null || j.placar_fora != null)
-            ? " · " + (j.placar_casa != null ? j.placar_casa : "–") + " × " + (j.placar_fora != null ? j.placar_fora : "–")
-            : "";
-        return (
-          '<article class="ep-match">' +
-          '<div class="ep-match__top">' +
-          "<div>" +
-          U.esc(U.formatData(j.data, j.hora)) +
-          (j.campeonato ? " · " + U.esc(j.campeonato) : "") +
-          "</div>" +
-          '<span class="ep-status ep-status--' +
-          U.esc(j.status) +
-          '">' +
-          U.esc(j.status.replace("_", " ")) +
-          "</span></div>" +
-          '<div class="ep-match__vs">Eternal Pratas <span>vs</span> ' +
-          U.esc(j.adversario || "A definir") +
-          score +
-          "</div>" +
-          "<p>" +
-          U.esc([j.formato, j.mapas].filter(Boolean).join(" · ")) +
-          "</p>" +
-          lineupHtml(j, map) +
-          "</article>"
-        );
+      var filter = "all";
+
+      function render() {
+        var list = jogos.filter(function (j) {
+          if (filter === "next") return j.status !== "encerrado";
+          if (filter === "done") return j.status === "encerrado";
+          return true;
+        });
+        var upcoming = list.filter(function (j) {
+          return j.status !== "encerrado";
+        });
+        var done = list.filter(function (j) {
+          return j.status === "encerrado";
+        });
+        var html =
+          '<div class="ep-tabs" role="tablist">' +
+          '<button type="button" data-filter="all"' +
+          (filter === "all" ? ' class="is-on"' : "") +
+          ">Todos (" +
+          jogos.length +
+          ")</button>" +
+          '<button type="button" data-filter="next"' +
+          (filter === "next" ? ' class="is-on"' : "") +
+          ">Próximos</button>" +
+          '<button type="button" data-filter="done"' +
+          (filter === "done" ? ' class="is-on"' : "") +
+          ">Resultados</button></div>";
+        if (upcoming.length) {
+          html +=
+            '<section class="ep-block" style="padding-top:0"><div class="ep-block__head"><div><p class="section__label">Agenda</p><h2>Próximos jogos</h2></div></div>';
+          html += upcoming.map(function (j) {
+            return card(j, map);
+          }).join("");
+          html += "</section>";
+        }
+        if (done.length) {
+          html +=
+            '<section class="ep-block"><div class="ep-block__head"><div><p class="section__label">Arquivo</p><h2>Resultados</h2></div></div>';
+          html += done.map(function (j) {
+            return card(j, map);
+          }).join("");
+          html += "</section>";
+        }
+        if (!upcoming.length && !done.length) {
+          html += '<p class="ep-empty">Nada nesta aba ainda.</p>';
+        }
+        root.innerHTML = html;
+        root.querySelectorAll("[data-filter]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            filter = btn.getAttribute("data-filter") || "all";
+            render();
+          });
+        });
+        if (window.EP && window.EP.observeReveal) window.EP.observeReveal(root);
       }
 
-      var html = "";
-      if (upcoming.length) {
-        html += '<section class="ep-block"><div class="ep-block__head"><div><p class="section__label">Agenda</p><h2>Próximos jogos</h2></div></div>';
-        html += upcoming.map(card).join("");
-        html += "</section>";
-      }
-      if (done.length) {
-        html += '<section class="ep-block"><div class="ep-block__head"><div><p class="section__label">Arquivo</p><h2>Resultados</h2></div></div>';
-        html += done.map(card).join("");
-        html += "</section>";
-      }
-      root.innerHTML = html || '<p class="ep-empty">Nenhum jogo cadastrado ainda.</p>';
+      render();
     })
     .catch(function () {
       root.innerHTML = '<p class="ep-empty">Não foi possível carregar os jogos.</p>';

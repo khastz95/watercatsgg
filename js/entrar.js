@@ -4,7 +4,7 @@
   var msg = document.getElementById("login-msg");
   if (!form) return;
 
-  var next = new URLSearchParams(window.location.search).get("next") || "/1v1";
+  var next = new URLSearchParams(window.location.search).get("next") || "/";
 
   fetch("/api/sessao", { credentials: "include" })
     .then(function (r) {

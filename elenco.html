@@ -4,13 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071018" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ep-theme");
+          if (t !== "light" && t !== "dark") {
+            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
     <meta name="description" content="Elenco da Eternal Pratas — titulares, reservas e coach no CS2." />
     <title>Elenco | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Rajdhani:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/theme.css" />
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
     <link rel="stylesheet" href="/css/org.css" />
@@ -23,7 +35,11 @@
         <div>
           <p class="ep-kicker">CS2 · Lineup</p>
           <h1>Elenco</h1>
-          <p class="ep-lead">Cinco titulares no server. Dois reservas e o coach completam a organização. Abra o perfil para stats, ranks e conexões.</p>
+          <p class="ep-lead">Cinco titulares no server. Dois reservas e o coach completam a organização. Cada perfil traz foto, posição, ranks (GC, Faceit, Premier), rating, K/D, KAST, HS% e conexões.</p>
+          <div class="ep-actions">
+            <a class="btn btn--ghost" href="/jogos">Ver jogos</a>
+            <a class="btn btn--ghost" href="/sobre">A organização</a>
+          </div>
         </div>
       </section>
       <section class="ep-block" style="padding-top:0">

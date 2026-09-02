@@ -23,6 +23,10 @@
           .map(U.playerCard)
           .join("");
       }
+      if (window.EP && window.EP.observeReveal) {
+        window.EP.observeReveal(root);
+        if (staff) window.EP.observeReveal(staff);
+      }
     })
     .catch(function () {
       root.innerHTML = '<p class="ep-empty">Não foi possível carregar o elenco.</p>';

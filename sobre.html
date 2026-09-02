@@ -4,13 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071018" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ep-theme");
+          if (t !== "light" && t !== "dark") {
+            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
     <meta name="description" content="A organização Eternal Pratas — CS2 no Brasil." />
     <title>Organização | Eternal Pratas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Rajdhani:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/theme.css" />
     <link rel="stylesheet" href="/css/hub-theme.css" />
     <link rel="stylesheet" href="/css/hub-chrome.css" />
     <link rel="stylesheet" href="/css/org.css" />
@@ -26,19 +38,45 @@
           <p class="ep-lead">
             Organização brasileira de Counter-Strike 2. O time é o centro da marca: cinco titulares, dois reservas e um coach.
           </p>
+          <div class="ep-actions">
+            <a class="btn btn--primary" href="/elenco">Elenco</a>
+            <a class="btn btn--ghost" href="/jogos">Jogos</a>
+            <a class="btn btn--ghost" href="/entrar">Entrar</a>
+          </div>
         </div>
       </section>
-      <div class="org-copy reveal" style="max-width:44rem">
-        <p style="color:var(--text-muted);line-height:1.7;font-size:1.04rem">
-          A Eternal Pratas existe para vestir um time com identidade própria — competitivo, direto e reconhecível. Os jogos da org aparecem na agenda pública. O campeonato 1v1 é interno: só quem tem acesso ao time entra.
-        </p>
-        <p style="color:var(--text-muted);line-height:1.7;font-size:1.04rem">
-          Discord e Steam são os canais oficiais. Resultados, convocações e o dia a dia da organização passam por lá.
-        </p>
-        <p class="ep-actions">
-          <a class="btn btn--primary" href="/elenco">Elenco</a>
-          <a class="btn btn--ghost" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>
-        </p>
+      <div class="ep-about reveal">
+        <div>
+          <p>
+            A Eternal Pratas existe para vestir um time com identidade própria — competitivo, direto e reconhecível. O elenco é o centro da marca. Os jogos da org aparecem na agenda, com escalação à vista.
+          </p>
+          <p>
+            Discord e Steam são os canais oficiais. Resultados, convocações e o dia a dia da organização passam por lá.
+          </p>
+          <p class="ep-actions">
+            <a class="btn btn--primary" href="/elenco">Elenco</a>
+            <a class="btn btn--ghost" href="/jogos">Jogos</a>
+            <a class="btn btn--ghost" href="https://discord.gg/et6N2Y3pJj" target="_blank" rel="noopener noreferrer">Discord</a>
+          </p>
+        </div>
+        <div class="ep-facts">
+          <article>
+            <h3>Brasil</h3>
+            <p>Organização de Counter-Strike 2, com casa e identidade próprias.</p>
+          </article>
+          <article>
+            <h3>Sete no elenco</h3>
+            <p>Cinco titulares e dois reservas, mais o coach no staff.</p>
+          </article>
+          <article>
+            <h3>Cores da marca</h3>
+            <p>Fundo profundo, prata e ciano — o mesmo tom do logo, no site e no peito.</p>
+          </article>
+          <article>
+            <h3>Comunidade</h3>
+            <p>Discord e Steam. É por lá que o time se encontra fora do server.</p>
+          </article>
+        </div>
       </div>
     </main>
     <footer data-footer></footer>
